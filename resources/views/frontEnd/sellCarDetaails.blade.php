@@ -312,7 +312,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="row">
                             <div class="form-group">
                                 <label>{{ __('frontend.SELLER_NOTE') }}</label>
-                                <textarea class="form-control" name="sellers_note" id="sellers_note">
+                                <textarea class="form-control" name="sellers_note" id="sellers_note"></textarea>
                             </div>
                         </div>
 
