@@ -9,6 +9,7 @@ use App\Models\WebmasterSetting;
 use App\Models\Topic;
 use App\Models\Setting;
 use Helper;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 
@@ -33,7 +34,7 @@ class carSellController extends Controller
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        $CarConditions =
+        $CarConditions = DB::select("SELECT * FROM smartend_car_condition");
 
         $validator = Validator::make($request->all(), [
                     'name' => 'required',

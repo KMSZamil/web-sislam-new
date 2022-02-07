@@ -50,7 +50,12 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     </div>
                         <div class="form-group">
                             <label>{{ __('frontend.CAR_CONDITION') }} *</label>
-                            <input type="text" class="form-control" name="car_condition" id="car_condition required">
+                            <select class="form-control" name="car_condition" id="car_condition required">
+                                @foreach($CarConditions as $row)
+                                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                @endforeach
+
+                            </select>
                         </div>
                     <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
 
