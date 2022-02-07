@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CarCondition extends Model
 {
     use HasFactory;
+
+    protected $table = 'car_condition';
+    public $timestamps = false;
 }

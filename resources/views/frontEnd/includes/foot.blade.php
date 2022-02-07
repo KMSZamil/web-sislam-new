@@ -16,6 +16,10 @@
 <script src="{{ URL::asset('assets/frontend/js/custom.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/owl-carousel/owl.carousel.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/Chart.min.js') }}"></script>
+<script src="{{ URL::asset('assets/frontend/js/select2/select2.min.js') }}"></script>
+<script src="{{ URL::asset('assets/frontend/js/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ URL::asset('assets/frontend/js/my_custom.js') }}"></script>
+
 
 {{--ajax subscribe to news letter--}}
 @if(Helper::GeneralSiteSettings("style_subscribe"))

@@ -1,7 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\BodyType;
+use App\Models\CarBrand;
+use App\Models\CarCondition;
+use App\Models\CarModel;
+use App\Models\Comfort;
+use App\Models\District;
+use App\Models\Drive;
+use App\Models\ExteriorColor;
+use App\Models\FuelType;
+use App\Models\InteriorColor;
 use App\Models\Language;
+use App\Models\OtherFeature;
+use App\Models\Seat;
+use App\Models\SmartendCarCondition;
+use App\Models\Transmission;
+use App\Models\Window;
 use Illuminate\Http\Request;
 use App\Models\SmartendSeller;
 use App\Models\WebmasterSection;
@@ -28,13 +43,29 @@ class carSellController extends Controller
         $WebsiteSettings = Setting::find(1);
         
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        //dd($site_desc_var);
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
 
         $PageTitle = ""; // will show default site Title
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        $CarConditions = DB::select("SELECT * FROM smartend_car_condition");
+        $CarConditions = CarCondition::where('status',1)->get();
+        $CarBrands = CarBrand::where('status',1)->get();
+        $CarModels = CarModel::where('status',1)->get();
+        $BodyTypes = BodyType::where('status',1)->get();
+        $FuelTypes = FuelType::where('status',1)->get();
+        $Transmissions = Transmission::where('status',1)->get();
+        $Drives = Drive::where('status',1)->get();
+        $ExteriorColors = ExteriorColor::where('status',1)->get();
+        $InteriorColors = InteriorColor::where('status',1)->get();
+        $Districts = District::where('status',1)->get();
+        $Comforts = Comfort::where('status',1)->get();
+        $Entertainments = Comfort::where('status',1)->get();
+        $Safeties = Comfort::where('status',1)->get();
+        $Seats = Seat::where('status',1)->get();
+        $Windows = Window::where('status',1)->get();
+        $OtherFeatures = OtherFeature::where('status',1)->get();
 
         $validator = Validator::make($request->all(), [
                     'name' => 'required',
@@ -61,6 +92,21 @@ class carSellController extends Controller
                 "PageKeywords",
                 "PageTitle",
                 "CarConditions",
+                "CarBrands",
+                "CarModels",
+                "BodyTypes",
+                "FuelTypes",
+                "Transmissions",
+                "Drives",
+                "ExteriorColors",
+                "InteriorColors",
+                "Districts",
+                "Comforts",
+                "Entertainments",
+                "Safeties",
+                "Seats",
+                "Windows",
+                "OtherFeatures",
                 "PageDescription",
                 "LatestNews",
                 "PageKeywords"));
