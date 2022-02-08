@@ -85,6 +85,7 @@ return [
     'YEAR' => 'বছর',
     'CAR_BODY' => 'গাড়ী শরীর',
     'MILEAGE' => 'মাইলেজ (কিমি)',
+    'FUEL_TYPE' => 'জ্বালানীর ধরণ',
     'ENGINE_CAPACITY' => 'ইঞ্জিন ক্ষমতা',
     'TRANSMISSION' => 'ট্রান্সমিশন',
     'DRIVE' => 'ড্রাইভ',

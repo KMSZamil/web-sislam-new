@@ -14,6 +14,7 @@ use App\Models\InteriorColor;
 use App\Models\Language;
 use App\Models\OtherFeature;
 use App\Models\Seat;
+use App\Models\Seller;
 use App\Models\SmartendCarCondition;
 use App\Models\Thana;
 use App\Models\Transmission;
@@ -26,12 +27,14 @@ use App\Models\Topic;
 use App\Models\Setting;
 use Helper;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Validator;
 
 
 class carSellController extends Controller
 {
     public function index(Request $request){
+        //dd($request->all());
 //        if ($lang != "") {
 //            // Set Language
 //            App::setLocale($lang);
@@ -85,7 +88,8 @@ class carSellController extends Controller
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         );
-        SmartendSeller::create($save_data);
+        $data = SmartendSeller::create($save_data);
+        $GetID = $data->id;
         return view('frontEnd.sellCarDetaails', compact(
                 "save_data", 
                 "WebsiteSettings",
@@ -114,7 +118,49 @@ class carSellController extends Controller
                 "OtherFeatures",
                 "PageDescription",
                 "LatestNews",
-                "PageKeywords"));
+                "GetID",
+                "PageKeywords",));
+    }
+
+    public function seller_basic_data_save(Request $request){
+        //dd($request->GetID);
+        $seller_data = Seller::where('id',$request->GetID)->first();
+        $seller_data->name = $request->name;
+        $seller_data->email = $request->email;
+        $seller_data->mobile = $request->mobile;
+        $seller_data->car_condition = $request->car_condition;
+        $seller_data->brand = $request->car_brand;
+        $seller_data->car_model = $request->car_model;
+        $seller_data->menufacturing_year = $request->car_year;
+        $seller_data->engine_capacity = $request->engine_capacity;
+        $seller_data->body_type = $request->car_body;
+        $seller_data->fuel_type = $request->fuel_type;
+        $seller_data->transmission = $request->transmission;
+        $seller_data->registration_year = $request->registration_year;
+        $seller_data->registration_serial = $request->registration_serial;
+        $seller_data->registration_city = $request->registration_city;
+        $seller_data->drive_type = $request->drive;
+        $seller_data->exterior_color = $request->exterior_color;
+        $seller_data->interior_color = $request->interior_color;
+        $seller_data->comfort = isset($request->comfort) ? implode(',', $request->comfort) : '';
+        $seller_data->enterteinment = isset($request->entertainment) ? implode(',', $request->entertainment) : '';
+        $seller_data->safty = isset($request->safety) ? implode(',', $request->safety) : '';
+        $seller_data->seats = isset($request->seat) ? implode(',', $request->seat) : '';
+        $seller_data->wwindow = isset($request->window) ? implode(',', $request->window) : '';
+        $seller_data->others = isset($request->other_feature) ? implode(',', $request->other_feature) : '';
+        $seller_data->tax_token_expaire = isset($request->tax_token_exp_date) ? date('Y-m-d', strtotime($request->tax_token_exp_date)) : null;
+        $seller_data->fitnes_exspaire = isset($request->fitness_exp_date) ? date('Y-m-d', strtotime($request->fitness_exp_date)) : null;
+        $seller_data->bank_loan = $request->bank_loan;
+        $seller_data->name_transfer = $request->name_transfer;
+        $seller_data->thana = $request->thana;
+        $seller_data->district = $request->district;
+        $seller_data->address_line1 = $request->address1;
+        $seller_data->address_line2 = $request->address2;
+        $seller_data->message = $request->sellers_note;
+        $seller_data->price = $request->asking_price;
+        $seller_data->created_by = $request->GetID;
+        $seller_data->save();
+        return Redirect::to('/');
     }
     
     public function latest_topics($section_id, $limit = 3)

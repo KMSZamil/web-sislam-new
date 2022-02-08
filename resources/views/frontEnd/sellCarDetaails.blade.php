@@ -33,10 +33,11 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 </div>
                 @endif
                 <div class="form-group">
-                    {!! Form::open(array('url' => '/seller-basic', 'method' => 'post' )) !!}
+                    {!! Form::open(array('route' => 'seller_basic_data_save',$GetID, 'method' => 'post', 'files' => true )) !!}
                     <!-- CROSS Site Request Forgery Protection -->
+{{--                <form action="{{ route('seller-basic-data-save') }}" method="post">--}}
                     @csrf
-
+                    <input type="hidden" name="GetID" value="{{ $GetID }}"/>
                     <h3>Car Details</h3>
                     <div class="row">
                         <div class="col-sm-3">
@@ -72,7 +73,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>{{ __('frontend.YEAR') }} *</label>
-                                <select class="form-control" name="car_year" id="car_year required">
+                                <select class="form-control" name="car_year" id="car_year" required>
                                     @php
                                         $firstYear = (int)date('Y') - 32;
                                         $lastYear = (int)date('Y');
@@ -91,6 +92,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.CAR_BODY') }}</label>
                                 <select class="form-control" name="car_body" id="car_body">
+                                    <option value="">Select</option>
                                     @foreach($BodyTypes as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -107,6 +109,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.FUEL_TYPE') }}</label>
                                 <select class="form-control" name="fuel_type" id="fuel_type">
+                                    <option value="">Select</option>
                                     @foreach($FuelTypes as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -118,13 +121,14 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>{{ __('frontend.ENGINE_CAPACITY') }}</label>
-                                <input type="text" class="form-control numeric" name="mileage" id="mileage">
+                                <input type="text" class="form-control numeric" name="engine_capacity" id="engine_capacity">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>{{ __('frontend.TRANSMISSION') }}</label>
                                 <select class="form-control" name="transmission" id="transmission">
+                                    <option value="">Select</option>
                                     @foreach($Transmissions as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -135,6 +139,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.DRIVE') }}</label>
                                 <select class="form-control" name="drive" id="drive">
+                                    <option value="">Select</option>
                                     @foreach($Drives as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -147,6 +152,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.EXTERIOR_COLOR') }}</label>
                                 <select class="form-control" name="exterior_color" id="exterior_color">
+                                    <option value="">Select</option>
                                     @foreach($ExteriorColors as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -157,6 +163,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.INTERIOR_COLOR') }}</label>
                                 <select class="form-control" name="interior_color" id="interior_color">
+                                    <option value="">Select</option>
                                     @foreach($InteriorColors as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -167,6 +174,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.REGISTRATION_YEAR') }}</label>
                                 <select class="form-control" name="registration_year" id="registration_year">
+                                    <option value="">Select</option>
                                     @php
                                         $firstYear = (int)date('Y') - 32;
                                         $lastYear = (int)date('Y');
@@ -184,6 +192,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.REGISTRATION_SERIAL') }}</label>
                                 <select class="form-control" name="registration_serial" id="registration_serial">
+                                    <option value="">Select</option>
                                     @php
                                         $first = 0;
                                         $last = 99;
@@ -199,6 +208,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.REGISTRATION_CITY') }}</label>
                                 <select class="form-control" name="registration_city" id="registration_city">
+                                    <option value="">Select</option>
                                     @foreach($InteriorColors as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -211,6 +221,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                             <div class="form-group">
                                 <label>{{ __('frontend.SEAT_CAPACITY') }}</label>
                                 <select class="form-control" name="seat_capacity" id="seat_capacity">
+                                    <option value="">Select</option>
                                     @php
                                         $first = 0;
                                         $last = 30;
@@ -311,8 +322,9 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label>{{ __('frontend.NAME_TRANSFER') }} *</label>
+                                <label>{{ __('frontend.NAME_TRANSFER') }}</label>
                                 <select class="form-control" name="name_transfer" id="name_transfer">
+                                    <option value="">Select</option>
                                     <option value="Instant">Instant</option>
                                     <option value="Later">Later</option>
                                 </select>
@@ -360,32 +372,10 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         </div>
                     </div>
 
-                    <h3>Paper Details</h3>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>{{ __('frontend.TAX_TOKEN_EXP_DATE') }}</label>
-                                <input type="date" class="form-control" name="tax_token_exp_date" id="tax_token_exp_date">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>{{ __('frontend.FITNESS_EXP_DATE') }}</label>
-                                <input type="date" class="form-control" name="fitness_exp_date" id="fitness_exp_date">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>{{ __('frontend.BANK_LOAN') }}</label>
-                                <input type="text" class="form-control" name="bank_loan" id="bank_loan">
-                            </div>
-                        </div>
-                    </div>
-
                     <h3>Contact Details</h3>
                     <div class="form-group">
-                        <label>{{ __('frontend.NAME') }} *</label>
-                        <input type="text" class="form-control" name="name" id="name" required>
+                        <label>{{ __('frontend.NAME') }}</label>
+                        <input type="text" class="form-control" name="name" id="name">
                     </div>
                     <div class="form-group">
                         <label>{{ __('frontend.EMAIL') }}</label>
@@ -413,6 +403,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-sm-6">
                             <label>{{ __('frontend.DISTRICT') }}</label>
                             <select class="form-control js-example-basic-single" name="district" id="district">
+                                <option value="">Select</option>
                                 @foreach($District as $row)
                                     <option value="{{ $row->id }}">{{ $row->name }}</option>
                                 @endforeach
@@ -421,6 +412,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-sm-6">
                             <label>{{ __('frontend.THANA') }}</label>
                             <select class="form-control js-example-basic-single" name="thana" id="thana">
+                                <option value="">Select</option>
                                 @foreach($Thana as $row)
                                     <option value="{{ $row->id }}">{{ $row->name }}</option>
                                 @endforeach
@@ -464,7 +456,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
 {{--                    </div>--}}
 
                     <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
-
+{{--                </form>--}}
                     {{Form::close()}}
                 </div>
             </div>
