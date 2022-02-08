@@ -5,6 +5,7 @@
 <meta name="author" content="{{ URL::to('') }}"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="{{ URL::asset('assets/frontend/css/bootstrap.min.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/frontend/css/fancybox/jquery.fancybox.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('assets/frontend/css/jcarousel.css') }}" rel="stylesheet"/>

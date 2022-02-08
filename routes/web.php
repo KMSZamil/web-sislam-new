@@ -46,6 +46,7 @@ Route::get('/logout', function () {
 })->name('logout');
 
 Route::post('/seller-basic', 'carSellController@index');
+Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
 
 // Start of Frontend Routes
 // ../site map

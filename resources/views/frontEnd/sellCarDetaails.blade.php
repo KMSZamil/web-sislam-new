@@ -36,23 +36,13 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     {!! Form::open(array('url' => '/seller-basic', 'method' => 'post' )) !!}
                     <!-- CROSS Site Request Forgery Protection -->
                     @csrf
-                    <div class="form-group">
-                        <label>{{ __('frontend.NAME') }} *</label>
-                        <input type="text" class="form-control" name="name" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('frontend.EMAIL') }}</label>
-                        <input type="email" class="form-control" name="email" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('frontend.MOBILE') }} *</label>
-                        <input type="text" class="form-control" name="mobile" id="mobile required">
-                    </div>
+
+                    <h3>Car Details</h3>
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>{{ __('frontend.CAR_CONDITION') }} *</label>
-                                <select class="form-control" name="car_condition" id="car_condition required">
+                                <select class="form-control" name="car_condition" id="car_condition" required>
                                     @foreach($CarConditions as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -62,7 +52,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>{{ __('frontend.CAR_BRAND') }} *</label>
-                                <select class="form-control" name="car_brand" id="car_brand required">
+                                <select class="form-control" name="car_brand" id="car_brand" required>
                                     @foreach($CarBrands as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -72,8 +62,8 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>{{ __('frontend.CAR_MODEL') }} *</label>
-                                <select class="form-control" name="car_model" id="car_model required">
-                                    @foreach($CarConditions as $row)
+                                <select class="form-control" name="car_model" id="car_model" required>
+                                    @foreach($CarModels as $row)
                                         <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
@@ -215,6 +205,8 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 </select>
                             </div>
                         </div>
+
+
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>{{ __('frontend.SEAT_CAPACITY') }}</label>
@@ -232,89 +224,244 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         </div>
                     </div>
 
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>{{ __('frontend.COMFORT') }}</label>
-                                    <select class="form-control js-example-basic-single" name="comfort[]" id="comfort" multiple="multiple">
-                                        @foreach($Comforts as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>{{ __('frontend.ENTERTAINMENT') }}</label>
-                                    <select class="form-control js-example-basic-single" name="entertainment[]" id="entertainment" multiple="multiple">
-                                        @foreach($Entertainments as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>{{ __('frontend.SAFETY') }}</label>
-                                    <select class="form-control js-example-basic-single" name="safety[]" id="safety" multiple="multiple">
-                                        @foreach($Safeties as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>{{ __('frontend.SEAT') }}</label>
-                                    <select class="form-control js-example-basic-single" name="seat[]" id="seat" multiple="multiple">
-                                        @foreach($Seats as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>{{ __('frontend.WINDOW') }}</label>
-                                    <select class="form-control js-example-basic-single" name="window[]" id="window" multiple="multiple">
-                                        @foreach($Windows as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>{{ __('frontend.OTHER_FEATURE') }}</label>
-                                    <select class="form-control js-example-basic-single" name="other_feature[]" id="other_feature" multiple="multiple">
-                                        @foreach($OtherFeatures as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>Car Features</h3>
 
-                        <div class="row">
+                    <div class="row">
+                        <div class="col-sm-2">
                             <div class="form-group">
-                                <label>{{ __('frontend.UPLOAD_PHOTO') }}</label>
-                                <input type="file" class="form-control" name="file" id="file">
+                                <label>{{ __('frontend.COMFORT') }}</label>
+                                <select class="form-control js-example-basic-single" name="comfort[]" id="comfort" multiple="multiple">
+                                    @foreach($Comforts as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>{{ __('frontend.ENTERTAINMENT') }}</label>
+                                <select class="form-control js-example-basic-single" name="entertainment[]" id="entertainment" multiple="multiple">
+                                    @foreach($Entertainments as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>{{ __('frontend.SAFETY') }}</label>
+                                <select class="form-control js-example-basic-single" name="safety[]" id="safety" multiple="multiple">
+                                    @foreach($Safeties as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>{{ __('frontend.SEAT') }}</label>
+                                <select class="form-control js-example-basic-single" name="seat[]" id="seat" multiple="multiple">
+                                    @foreach($Seats as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>{{ __('frontend.WINDOW') }}</label>
+                                <select class="form-control js-example-basic-single" name="window[]" id="window" multiple="multiple">
+                                    @foreach($Windows as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>{{ __('frontend.OTHER_FEATURE') }}</label>
+                                <select class="form-control js-example-basic-single" name="other_feature[]" id="other_feature" multiple="multiple">
+                                    @foreach($OtherFeatures as $row)
+                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-                        <div class="row">
+                    <h3>Paper Details</h3>
+                    <div class="row">
+                        <div class="col-sm-3">
                             <div class="form-group">
-                                <label>{{ __('frontend.ADD_VIDEO') }}</label>
-                                <input type="text" class="form-control" name="video" id="video">
+                                <label>{{ __('frontend.TAX_TOKEN_EXP_DATE') }}</label>
+                                <input type="date" class="form-control" name="tax_token_exp_date" id="tax_token_exp_date">
                             </div>
                         </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>{{ __('frontend.FITNESS_EXP_DATE') }}</label>
+                                <input type="date" class="form-control" name="fitness_exp_date" id="fitness_exp_date">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>{{ __('frontend.BANK_LOAN') }}</label>
+                                <input type="text" class="form-control" name="bank_loan" id="bank_loan">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>{{ __('frontend.NAME_TRANSFER') }} *</label>
+                                <select class="form-control" name="name_transfer" id="name_transfer">
+                                    <option value="Instant">Instant</option>
+                                    <option value="Later">Later</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-                        <div class="row">
+                    <h3>Photo Upload</h3>
+                    <div class="row">
+                        <div class="col-sm-6">
                             <div class="form-group">
-                                <label>{{ __('frontend.SELLER_NOTE') }}</label>
-                                <textarea class="form-control" name="sellers_note" id="sellers_note"></textarea>
+                                <label>{{ __('frontend.CAR_PHOTO') }}</label>
+                                <input type="file" class="form-control" name="car_photo" id="car_photo">
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.SMART_CARD') }}</label>
+                                <input type="file" class="form-control" name="smart_card" id="smart_card">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.TAX_TOKEN') }}</label>
+                                <input type="file" class="form-control" name="tax_token" id="tax_token">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.FITNESS') }}</label>
+                                <input type="file" class="form-control" name="fitness" id="fitness">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.BANK_CLEARANCE') }}</label>
+                                <input type="file" class="form-control" name="bank_clearance" id="bank_clearance">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Paper Details</h3>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>{{ __('frontend.TAX_TOKEN_EXP_DATE') }}</label>
+                                <input type="date" class="form-control" name="tax_token_exp_date" id="tax_token_exp_date">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>{{ __('frontend.FITNESS_EXP_DATE') }}</label>
+                                <input type="date" class="form-control" name="fitness_exp_date" id="fitness_exp_date">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>{{ __('frontend.BANK_LOAN') }}</label>
+                                <input type="text" class="form-control" name="bank_loan" id="bank_loan">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Contact Details</h3>
+                    <div class="form-group">
+                        <label>{{ __('frontend.NAME') }} *</label>
+                        <input type="text" class="form-control" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ __('frontend.EMAIL') }}</label>
+                        <input type="email" class="form-control" name="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ __('frontend.MOBILE') }} *</label>
+                        <input type="text" class="form-control" name="mobile" id="mobile required">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.ADDRESS1') }}</label>
+                                <input type="text" class="form-control" name="address1" id="address1">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.ADDRESS2') }}</label>
+                                <input type="text" class="form-control" name="address2" id="address2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>{{ __('frontend.DISTRICT') }}</label>
+                            <select class="form-control js-example-basic-single" name="district" id="district">
+                                @foreach($District as $row)
+                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>{{ __('frontend.THANA') }}</label>
+                            <select class="form-control js-example-basic-single" name="thana" id="thana">
+                                @foreach($Thana as $row)
+                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>{{ __('frontend.ASKING_PRICE') }}</label>
+                            <input type="text" class="form-control" name="asking_price" id="asking_price">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>{{ __('frontend.SELLER_NOTE') }}</label>
+                            <textarea class="form-control" name="sellers_note" id=""></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="checkbox" class="form-check-input" name="terms_and_condition" value="1" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">{{ __('frontend.TERMS_AND_CONDITION') }}</label>
+                        </div>
+                    </div>
+
+{{--                    <div class="row">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label>{{ __('frontend.ADD_VIDEO') }}</label>--}}
+{{--                            <input type="text" class="form-control" name="video" id="video">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+{{--                    <div class="row">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label>{{ __('frontend.SELLER_NOTE') }}</label>--}}
+{{--                            <textarea class="form-control" name="sellers_note" id="sellers_note"></textarea>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
 
@@ -325,4 +472,25 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
     </div>
 </div>
 
+<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $('#car_brand').change(function () {
+            var car_brand_id = $(this).val();
+
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            // console.log({DistributorCode});
+            $.ajax
+            ({
+                type: 'POST',
+                url: "{{ route('get_car_models') }}",
+                data: { car_brand_id: car_brand_id, _token: CSRF_TOKEN },
+                success: function (response) {
+                    $('#car_model').html(response);
+
+                },
+            });
+        });
+    });
+</script>
 @endsection

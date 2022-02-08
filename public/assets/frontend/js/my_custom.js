@@ -23,5 +23,9 @@ jQuery(document).ready(function($) {
         placeholder: 'Select an option'
     });
 
+    tinymce.init({
+        selector: '#sellers_note'
+    });
+
 });
 

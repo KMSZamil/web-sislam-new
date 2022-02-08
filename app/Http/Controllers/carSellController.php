@@ -15,6 +15,7 @@ use App\Models\Language;
 use App\Models\OtherFeature;
 use App\Models\Seat;
 use App\Models\SmartendCarCondition;
+use App\Models\Thana;
 use App\Models\Transmission;
 use App\Models\Window;
 use Illuminate\Http\Request;
@@ -66,6 +67,8 @@ class carSellController extends Controller
         $Seats = Seat::where('status',1)->get();
         $Windows = Window::where('status',1)->get();
         $OtherFeatures = OtherFeature::where('status',1)->get();
+        $District = District::where('status',1)->get();
+        $Thana = Thana::where('status',1)->get();
 
         $validator = Validator::make($request->all(), [
                     'name' => 'required',
@@ -106,6 +109,8 @@ class carSellController extends Controller
                 "Safeties",
                 "Seats",
                 "Windows",
+                "District",
+                "Thana",
                 "OtherFeatures",
                 "PageDescription",
                 "LatestNews",
@@ -115,6 +120,14 @@ class carSellController extends Controller
     public function latest_topics($section_id, $limit = 3)
     {
         return Topic::where([['status', 1], ['webmaster_id', $section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $section_id], ['expire_date', null]])->orderby('row_no', 'desc')->limit($limit)->get();
+    }
+
+
+    public function get_car_models(Request $request)
+    {
+        $models = CarModel::where('car_brand',$request->car_brand_id)->get();
+        //dd($models);
+        return view('frontEnd.get_car_models', compact('models'));
     }
 
     /**
