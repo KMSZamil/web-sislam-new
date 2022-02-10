@@ -165,31 +165,31 @@ class carSellController extends Controller
         if ($request->file('car_photo')) {
             $md5Name = md5_file($request->file('car_photo')->getRealPath()).time();
             $mimeType = $request->file('car_photo')->guessExtension();
-            $path = $request->file('car_photo')->storeAs('uploads/',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('car_photo')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
             $seller_image->car_photo = $path;
         }
         if ($request->file('smart_card')) {
             $md5Name = md5_file($request->file('smart_card')->getRealPath()).time();
             $mimeType = $request->file('smart_card')->guessExtension();
-            $path = $request->file('smart_card')->storeAs('uploads/',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('smart_card')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
             $seller_image->smart_card_photo = $path;
         }
         if ($request->file('tax_token')) {
             $md5Name = md5_file($request->file('tax_token')->getRealPath()).time();
             $mimeType = $request->file('tax_token')->guessExtension();
-            $path = $request->file('tax_token')->storeAs('uploads/',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('tax_token')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
             $seller_image->tax_token_photo = $path;
         }
         if ($request->file('fitness')) {
             $md5Name = md5_file($request->file('fitness')->getRealPath()).time();
             $mimeType = $request->file('fitness')->guessExtension();
-            $path = $request->file('fitness')->storeAs('uploads/',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('fitness')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
             $seller_image->fitness_photo = $path;
         }
         if ($request->file('bank_clearance')) {
             $md5Name = md5_file($request->file('bank_clearance')->getRealPath()).time();
             $mimeType = $request->file('bank_clearance')->guessExtension();
-            $path = $request->file('bank_clearance')->storeAs('uploads/',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('bank_clearance')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
             $seller_image->bank_clearance_photo = $path;
         }
         $seller_image->seller_id = $seller_data->id;
