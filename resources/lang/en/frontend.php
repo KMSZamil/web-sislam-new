@@ -101,7 +101,7 @@ return [
     'SEAT' => 'Seat',
     'WINDOW' => 'Window',
     'OTHER_FEATURE' => 'Other Feature',
-    'CAR_PHOTO' => 'Car Photo',
+    'CAR_PHOTO' => 'Car Photo (max 5)',
     'ADD_VIDEO' => 'Add Video Link',
     'SELLER_NOTE' => "Add Seller's Note",
     'TAX_TOKEN_EXP_DATE' => "Tax Token Expire Date",

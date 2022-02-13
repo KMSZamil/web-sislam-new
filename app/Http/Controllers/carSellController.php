@@ -92,7 +92,7 @@ class carSellController extends Controller
         $data = SmartendSeller::create($save_data);
         $GetID = $data->id;
         return view('frontEnd.sellCarDetaails', compact(
-                "save_data", 
+                "data", 
                 "WebsiteSettings",
                 "WebmasterSettings",
                 "PageTitle",
@@ -124,7 +124,6 @@ class carSellController extends Controller
     }
 
     public function seller_basic_data_save(Request $request){
-        //dd($request->all());
         $seller_data = Seller::where('id',$request->GetID)->first();
         $seller_data->name = $request->name;
         $seller_data->email = $request->email;
@@ -135,7 +134,7 @@ class carSellController extends Controller
         $seller_data->menufacturing_year = $request->car_year;
         $seller_data->engine_capacity = $request->engine_capacity;
         $seller_data->body_type = $request->car_body;
-        $seller_data->fuel_type = $request->fuel_type;
+        $seller_data->fuel_type = isset($request->fuel_type) ? implode(',', $request->fuel_type) : '';
         $seller_data->transmission = $request->transmission;
         $seller_data->registration_year = $request->registration_year;
         $seller_data->registration_serial = $request->registration_serial;
@@ -162,11 +161,35 @@ class carSellController extends Controller
         $seller_data->created_by = $request->GetID;
         $seller_data->save();
         $seller_image = new SellerImage();
-        if ($request->file('car_photo')) {
-            $md5Name = md5_file($request->file('car_photo')->getRealPath()).time();
-            $mimeType = $request->file('car_photo')->guessExtension();
-            $path = $request->file('car_photo')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_image->car_photo = $path;
+        if ($request->file('car_photo_1')) {
+            $md5Name = md5_file($request->file('car_photo_1')->getRealPath()).time();
+            $mimeType = $request->file('car_photo_1')->guessExtension();
+            $path = $request->file('car_photo_1')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $seller_image->car_photo_1 = $path;
+        }
+        if ($request->file('car_photo_2')) {
+            $md5Name = md5_file($request->file('car_photo_2')->getRealPath()).time();
+            $mimeType = $request->file('car_photo_2')->guessExtension();
+            $path = $request->file('car_photo_2')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $seller_image->car_photo_2 = $path;
+        }
+        if ($request->file('car_photo_3')) {
+            $md5Name = md5_file($request->file('car_photo_3')->getRealPath()).time();
+            $mimeType = $request->file('car_photo_3')->guessExtension();
+            $path = $request->file('car_photo_3')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $seller_image->car_photo_3 = $path;
+        }
+        if ($request->file('car_photo_4')) {
+            $md5Name = md5_file($request->file('car_photo_4')->getRealPath()).time();
+            $mimeType = $request->file('car_photo_4')->guessExtension();
+            $path = $request->file('car_photo_4')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $seller_image->car_photo_4 = $path;
+        }
+        if ($request->file('car_photo_5')) {
+            $md5Name = md5_file($request->file('car_photo_5')->getRealPath()).time();
+            $mimeType = $request->file('car_photo_5')->guessExtension();
+            $path = $request->file('car_photo_5')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $seller_image->car_photo_5 = $path;
         }
         if ($request->file('smart_card')) {
             $md5Name = md5_file($request->file('smart_card')->getRealPath()).time();

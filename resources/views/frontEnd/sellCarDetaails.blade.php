@@ -108,10 +108,10 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>{{ __('frontend.FUEL_TYPE') }}</label>
-                                <select class="form-control" name="fuel_type" id="fuel_type">
+                                <select class="form-control js-example-basic-single" name="fuel_type[]" id="fuel_type" multiple="multiple">
                                     <option value="">Select</option>
                                     @foreach($FuelTypes as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->name }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -243,7 +243,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 <label>{{ __('frontend.COMFORT') }}</label>
                                 <select class="form-control js-example-basic-single" name="comfort[]" id="comfort" multiple="multiple">
                                     @foreach($Comforts as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->name }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -253,7 +253,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 <label>{{ __('frontend.ENTERTAINMENT') }}</label>
                                 <select class="form-control js-example-basic-single" name="entertainment[]" id="entertainment" multiple="multiple">
                                     @foreach($Entertainments as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->name }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -263,7 +263,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 <label>{{ __('frontend.SAFETY') }}</label>
                                 <select class="form-control js-example-basic-single" name="safety[]" id="safety" multiple="multiple">
                                     @foreach($Safeties as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->name }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -273,7 +273,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 <label>{{ __('frontend.SEAT') }}</label>
                                 <select class="form-control js-example-basic-single" name="seat[]" id="seat" multiple="multiple">
                                     @foreach($Seats as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->name }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -283,7 +283,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 <label>{{ __('frontend.WINDOW') }}</label>
                                 <select class="form-control js-example-basic-single" name="window[]" id="window" multiple="multiple">
                                     @foreach($Windows as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->name }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -293,7 +293,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 <label>{{ __('frontend.OTHER_FEATURE') }}</label>
                                 <select class="form-control js-example-basic-single" name="other_feature[]" id="other_feature" multiple="multiple">
                                     @foreach($OtherFeatures as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->name }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -334,36 +334,45 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
 
                     <h3>Photo Upload</h3>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-8">
                             <div class="form-group">
                                 <label>{{ __('frontend.CAR_PHOTO') }}</label>
-                                <input type="file" class="form-control" name="car_photo" id="car_photo">
+                                <input type="file" class="form-control" name="car_photo_1" id="car_photo">
                             </div>
                         </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" style="padding-top: 31px;">
+                                <button type="button" class="btn btn-success btn-icon add-more">
+                                    <i data-feather="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="after-add-more"></div>
+
+                    <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('frontend.SMART_CARD') }}</label>
                                 <input type="file" class="form-control" name="smart_card" id="smart_card">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('frontend.TAX_TOKEN') }}</label>
                                 <input type="file" class="form-control" name="tax_token" id="tax_token">
                             </div>
                         </div>
+                    </div>
+
+                    <div class="row">                        
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('frontend.FITNESS') }}</label>
                                 <input type="file" class="form-control" name="fitness" id="fitness">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('frontend.BANK_CLEARANCE') }}</label>
@@ -375,15 +384,15 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     <h3>Contact Details</h3>
                     <div class="form-group">
                         <label>{{ __('frontend.NAME') }}</label>
-                        <input type="text" class="form-control" name="name" id="name">
+                        <input type="text" class="form-control" name="name" id="name" value="{{ $data->name }}">
                     </div>
                     <div class="form-group">
                         <label>{{ __('frontend.EMAIL') }}</label>
-                        <input type="email" class="form-control" name="email" id="email">
+                        <input type="email" class="form-control" name="email" id="email" value="{{ $data->email }}">
                     </div>
                     <div class="form-group">
                         <label>{{ __('frontend.MOBILE') }} *</label>
-                        <input type="text" class="form-control" name="mobile" id="mobile required">
+                        <input type="text" class="form-control" name="mobile" id="mobile required" value="{{ $data->mobile }}">
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -465,6 +474,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
 </div>
 
 <script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>
+<script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         $('#car_brand').change(function () {
@@ -485,4 +495,44 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
         });
     });
 </script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            feather.replace();
+            var i = 1;
+            $(".add-more").click(function () {
+                i++;
+                //alert("alert");
+                //var html = $(".copy").html();
+                $sections = $("<div class='row cc'>\
+                                    <div class='col-sm-8'>\
+                                        <div class='form-group'>\
+                                            <input type='file' class='form-control' name='car_photo_"+ i +"' id='car_photo'>\
+                                        </div>\
+                                    </div>\
+                                    <div class='col-sm-4'>\
+                                        <div class='form-group'>\
+                                            <button type='button' class='btn btn-danger btn-icon remove'>\
+                                                <i data-feather='x-circle'></i>\
+                                            </button>\
+                                        </div>\
+                                    </div>\
+                                </div>");
+
+               
+                if(i>=6){
+                    alert('Upto 5 image added');
+                }else{
+                    $('.after-add-more').append($sections);
+                    feather.replace();
+                }
+            });
+            $("body").on("click", ".remove", function () {
+                $(this).parents(".cc").remove();
+            });
+        });
+    </script>
+
+
+
 @endsection
