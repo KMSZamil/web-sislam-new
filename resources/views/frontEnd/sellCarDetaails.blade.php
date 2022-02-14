@@ -502,6 +502,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
             var i = 1;
             $(".add-more").click(function () {
                 i++;
+                console.log(i);
                 //alert("alert");
                 //var html = $(".copy").html();
                 $sections = $("<div class='row cc'>\
@@ -522,13 +523,16 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                
                 if(i>=6){
                     alert('Upto 5 image added');
+                    i--;
                 }else{
                     $('.after-add-more').append($sections);
                     feather.replace();
                 }
             });
             $("body").on("click", ".remove", function () {
+                i--;
                 $(this).parents(".cc").remove();
+                console.log(i);
             });
         });
     </script>
