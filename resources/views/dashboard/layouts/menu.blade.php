@@ -5,8 +5,8 @@ $fullPagePath = Request::url();
 $envAdminCharCount = strlen(env('BACKEND_PATH')) + 1;
 // URL after Root Path EX: admin/home
 $urlAfterRoot = substr($fullPagePath, strpos($fullPagePath, env('BACKEND_PATH')) + $envAdminCharCount);
-$mnu_title_var = "title_" . @Helper::currentLanguage()->code;
-$mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
+$mnu_title_var = 'title_' . @Helper::currentLanguage()->code;
+$mnu_title_var2 = 'title_' . env('DEFAULT_LANGUAGE');
 ?>
 
 <div id="aside" class="app-aside modal fade folded md nav-expand">
@@ -29,34 +29,35 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
 
                     <li>
                         <a href="{{ route('adminHome') }}" onclick="location.href='{{ route('adminHome') }}'">
-                  <span class="nav-icon">
-                    <i class="material-icons">&#xe3fc;</i>
-                  </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe3fc;</i>
+                            </span>
                             <span class="nav-text">{{ __('backend.dashboard') }}</span>
                         </a>
                     </li>
 
 
-                    @if(Helper::GeneralWebmasterSettings("analytics_status"))
-                        @if(@Auth::user()->permissionsGroup->analytics_status)
+                    @if (Helper::GeneralWebmasterSettings('analytics_status'))
+                        @if (@Auth::user()->permissionsGroup->analytics_status)
                             <?php
-                            $currentFolder = "analytics"; // Put folder name here
+                            $currentFolder = 'analytics'; // Put folder name here
                             $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
-
-                            $currentFolder2 = "ip"; // Put folder name here
+                            
+                            $currentFolder2 = 'ip'; // Put folder name here
                             $PathCurrentFolder2 = substr($urlAfterRoot, 0, strlen($currentFolder2));
-
-                            $currentFolder3 = "visitors"; // Put folder name here
+                            
+                            $currentFolder3 = 'visitors'; // Put folder name here
                             $PathCurrentFolder3 = substr($urlAfterRoot, 0, strlen($currentFolder3));
                             ?>
-                            <li {{ ($PathCurrentFolder==$currentFolder || $PathCurrentFolder2==$currentFolder2  || $PathCurrentFolder3==$currentFolder3) ? 'class=active' : '' }}>
+                            <li
+                                {{ $PathCurrentFolder == $currentFolder ||$PathCurrentFolder2 == $currentFolder2 ||$PathCurrentFolder3 == $currentFolder3? 'class=active': '' }}>
                                 <a>
-                  <span class="nav-caret">
-                    <i class="fa fa-caret-down"></i>
-                  </span>
+                                    <span class="nav-caret">
+                                        <i class="fa fa-caret-down"></i>
+                                    </span>
                                     <span class="nav-icon">
-                    <i class="material-icons">&#xe1b8;</i>
-                  </span>
+                                        <i class="material-icons">&#xe1b8;</i>
+                                    </span>
                                     <span class="nav-text">{{ __('backend.visitorsAnalytics') }}</span>
                                 </a>
                                 <ul class="nav-sub">
@@ -68,10 +69,10 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                     </li>
 
                                     <?php
-                                    $currentFolder = "analytics/country"; // Put folder name here
+                                    $currentFolder = 'analytics/country'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('analytics', 'country') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByCountry') }}</span>
@@ -79,10 +80,10 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                     </li>
 
                                     <?php
-                                    $currentFolder = "analytics/city"; // Put folder name here
+                                    $currentFolder = 'analytics/city'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('analytics', 'city') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByCity') }}</span>
@@ -90,10 +91,10 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                     </li>
 
                                     <?php
-                                    $currentFolder = "analytics/os"; // Put folder name here
+                                    $currentFolder = 'analytics/os'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('analytics', 'os') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByOperatingSystem') }}</span>
@@ -101,10 +102,10 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                     </li>
 
                                     <?php
-                                    $currentFolder = "analytics/browser"; // Put folder name here
+                                    $currentFolder = 'analytics/browser'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('analytics', 'browser') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByBrowser') }}</span>
@@ -112,50 +113,50 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                     </li>
 
                                     <?php
-                                    $currentFolder = "analytics/referrer"; // Put folder name here
+                                    $currentFolder = 'analytics/referrer'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('analytics', 'referrer') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByReachWay') }}</span>
                                         </a>
                                     </li>
                                     <?php
-                                    $currentFolder = "analytics/hostname"; // Put folder name here
+                                    $currentFolder = 'analytics/hostname'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('analytics', 'hostname') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByHostName') }}</span>
                                         </a>
                                     </li>
                                     <?php
-                                    $currentFolder = "analytics/org"; // Put folder name here
+                                    $currentFolder = 'analytics/org'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('analytics', 'org') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByOrganization') }}</span>
                                         </a>
                                     </li>
                                     <?php
-                                    $currentFolder = "visitors"; // Put folder name here
+                                    $currentFolder = 'visitors'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a onclick="location.href='{{ route('visitors') }}'">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsVisitorsHistory') }}</span>
                                         </a>
                                     </li>
                                     <?php
-                                    $currentFolder = "ip"; // Put folder name here
+                                    $currentFolder = 'ip'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a href="{{ route('visitorsIP') }}">
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsIPInquiry') }}</span>
@@ -167,36 +168,55 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                             </li>
                         @endif
                     @endif
-                    @if(Helper::GeneralWebmasterSettings("newsletter_status"))
-                        @if(@Auth::user()->permissionsGroup->newsletter_status)
+
+
+                    @if (Helper::GeneralWebmasterSettings('newsletter_status'))
+                        @if (@Auth::user()->permissionsGroup->newsletter_status)
                             <?php
-                            $currentFolder = "contacts"; // Put folder name here
+                            $currentFolder = 'contacts'; // Put folder name here
                             $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                             ?>
-                            <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                            <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                 <a href="{{ route('contacts') }}">
-<span class="nav-icon">
-<i class="material-icons">&#xe7ef;</i>
-</span>
+                                    <span class="nav-icon">
+                                        <i class="material-icons">&#xe7ef;</i>
+                                    </span>
                                     <span class="nav-text">{{ __('backend.newsletter') }}</span>
                                 </a>
                             </li>
                         @endif
                     @endif
 
-                    @if(Helper::GeneralWebmasterSettings("inbox_status"))
-                        @if(@Auth::user()->permissionsGroup->inbox_status)
+                    @if (Helper::GeneralWebmasterSettings('newsletter_status'))
+                        @if (@Auth::user()->permissionsGroup->newsletter_status)
                             <?php
-                            $currentFolder = "webmails"; // Put folder name here
+                            $currentFolder = 'cars'; // Put folder name here
                             $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                             ?>
-                            <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                            <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                <a href="{{ route('cars') }}">
+                                    <span class="nav-icon">
+                                        <i class="material-icons">&#xe84f;</i>
+                                    </span>
+                                    <span class="nav-text">{{ __('backend.car') }}</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endif
+
+                    @if (Helper::GeneralWebmasterSettings('inbox_status'))
+                        @if (@Auth::user()->permissionsGroup->inbox_status)
+                            <?php
+                            $currentFolder = 'webmails'; // Put folder name here
+                            $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+                            ?>
+                            <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                 <a href="{{ route('webmails') }}">
-                  <span class="nav-icon">
-                    <i class="material-icons">&#xe156;</i>
-                  </span>
+                                    <span class="nav-icon">
+                                        <i class="material-icons">&#xe156;</i>
+                                    </span>
                                     <span class="nav-text">{{ __('backend.siteInbox') }}
-                                        @if( Helper::webmailsNewCount() >0)
+                                        @if (Helper::webmailsNewCount() > 0)
                                             <badge class="label warn m-l-xs">{{ Helper::webmailsNewCount() }}</badge>
                                         @endif
                                     </span>
@@ -206,17 +226,18 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                         @endif
                     @endif
 
-                    @if(Helper::GeneralWebmasterSettings("calendar_status"))
-                        @if(@Auth::user()->permissionsGroup->calendar_status)
+                    @if (Helper::GeneralWebmasterSettings('calendar_status'))
+                        @if (@Auth::user()->permissionsGroup->calendar_status)
                             <?php
-                            $currentFolder = "calendar"; // Put folder name here
+                            $currentFolder = 'calendar'; // Put folder name here
                             $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                             ?>
-                            <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
-                                <a href="{{ route('calendar') }}" onclick="location.href='{{ route('calendar') }}'">
-                  <span class="nav-icon">
-                    <i class="material-icons">&#xe5c3;</i>
-                  </span>
+                            <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                <a href="{{ route('calendar') }}"
+                                    onclick="location.href='{{ route('calendar') }}'">
+                                    <span class="nav-icon">
+                                        <i class="material-icons">&#xe5c3;</i>
+                                    </span>
                                     <span class="nav-text">{{ __('backend.calendar') }}</span>
                                 </a>
                             </li>
@@ -227,86 +248,82 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                     </li>
 
                     <?php
-                    $data_sections_arr = explode(",", Auth::user()->permissionsGroup->data_sections);
+                    $data_sections_arr = explode(',', Auth::user()->permissionsGroup->data_sections);
                     ?>
-                    @foreach($GeneralWebmasterSections as $GeneralWebmasterSection)
-                        @if(in_array($GeneralWebmasterSection->id,$data_sections_arr))
+                    @foreach ($GeneralWebmasterSections as $GeneralWebmasterSection)
+                        @if (in_array($GeneralWebmasterSection->id, $data_sections_arr))
                             <?php
-                            if ($GeneralWebmasterSection->$mnu_title_var != "") {
+                            if ($GeneralWebmasterSection->$mnu_title_var != '') {
                                 $GeneralWebmasterSectionTitle = $GeneralWebmasterSection->$mnu_title_var;
                             } else {
                                 $GeneralWebmasterSectionTitle = $GeneralWebmasterSection->$mnu_title_var2;
                             }
-
-                            $LiIcon = "&#xe2c8;";
+                            
+                            $LiIcon = '&#xe2c8;';
                             if ($GeneralWebmasterSection->type == 3) {
-                                $LiIcon = "&#xe050;";
+                                $LiIcon = '&#xe050;';
                             }
                             if ($GeneralWebmasterSection->type == 2) {
-                                $LiIcon = "&#xe63a;";
+                                $LiIcon = '&#xe63a;';
                             }
                             if ($GeneralWebmasterSection->type == 1) {
-                                $LiIcon = "&#xe251;";
+                                $LiIcon = '&#xe251;';
                             }
                             if ($GeneralWebmasterSection->type == 0) {
-                                $LiIcon = "&#xe2c8;";
+                                $LiIcon = '&#xe2c8;';
                             }
                             if ($GeneralWebmasterSection->id == 1) {
-                                $LiIcon = "&#xe3e8;";
+                                $LiIcon = '&#xe3e8;';
                             }
                             if ($GeneralWebmasterSection->id == 7) {
-                                $LiIcon = "&#xe02f;";
+                                $LiIcon = '&#xe02f;';
                             }
                             if ($GeneralWebmasterSection->id == 2) {
-                                $LiIcon = "&#xe540;";
+                                $LiIcon = '&#xe540;';
                             }
                             if ($GeneralWebmasterSection->id == 3) {
-                                $LiIcon = "&#xe307;";
+                                $LiIcon = '&#xe307;';
                             }
                             if ($GeneralWebmasterSection->id == 8) {
-                                $LiIcon = "&#xe8f6;";
+                                $LiIcon = '&#xe8f6;';
                             }
-
+                            
                             // get 9 char after root url to check if is "webmaster"
                             $is_webmaster = substr($urlAfterRoot, 0, 9);
                             ?>
-                            @if($GeneralWebmasterSection->sections_status > 0 && @Auth::user()->permissionsGroup->view_status == 0)
-                                <li {{ ($GeneralWebmasterSection->id == @$WebmasterSection->id && $is_webmaster != "webmaster") ? 'class=active' : '' }}>
+                            @if ($GeneralWebmasterSection->sections_status > 0 && @Auth::user()->permissionsGroup->view_status == 0)
+                                <li
+                                    {{ $GeneralWebmasterSection->id == @$WebmasterSection->id && $is_webmaster != 'webmaster' ? 'class=active' : '' }}>
                                     <a>
-                  <span class="nav-caret">
-                    <i class="fa fa-caret-down"></i>
-                  </span>
+                                        <span class="nav-caret">
+                                            <i class="fa fa-caret-down"></i>
+                                        </span>
                                         <span class="nav-icon">
-                    <i class="material-icons">{!! $LiIcon !!}</i>
-                  </span>
-                                        <span
-                                            class="nav-text">{!! $GeneralWebmasterSectionTitle !!}</span>
+                                            <i class="material-icons">{!! $LiIcon !!}</i>
+                                        </span>
+                                        <span class="nav-text">{!! $GeneralWebmasterSectionTitle !!}</span>
                                     </a>
                                     <ul class="nav-sub">
-                                        @if($GeneralWebmasterSection->sections_status > 0)
-
+                                        @if ($GeneralWebmasterSection->sections_status > 0)
                                             <?php
-                                            $currentFolder = "categories"; // Put folder name here
-                                            $PathCurrentFolder = substr($urlAfterRoot,
-                                                (strlen($GeneralWebmasterSection->id) + 1), strlen($currentFolder));
+                                            $currentFolder = 'categories'; // Put folder name here
+                                            $PathCurrentFolder = substr($urlAfterRoot, strlen($GeneralWebmasterSection->id) + 1, strlen($currentFolder));
                                             ?>
-                                            <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
-                                                <a href="{{ route('categories',$GeneralWebmasterSection->id) }}">
-                                                    <span
-                                                        class="nav-text">{{ __('backend.sectionsOf') }} {{ $GeneralWebmasterSectionTitle }}</span>
+                                            <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                                <a href="{{ route('categories', $GeneralWebmasterSection->id) }}">
+                                                    <span class="nav-text">{{ __('backend.sectionsOf') }}
+                                                        {{ $GeneralWebmasterSectionTitle }}</span>
                                                 </a>
                                             </li>
                                         @endif
 
                                         <?php
-                                        $currentFolder = "topics"; // Put folder name here
-                                        $PathCurrentFolder = substr($urlAfterRoot,
-                                            (strlen($GeneralWebmasterSection->id) + 1), strlen($currentFolder));
+                                        $currentFolder = 'topics'; // Put folder name here
+                                        $PathCurrentFolder = substr($urlAfterRoot, strlen($GeneralWebmasterSection->id) + 1, strlen($currentFolder));
                                         ?>
-                                        <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
-                                            <a href="{{ route('topics',$GeneralWebmasterSection->id) }}">
-                                                <span
-                                                    class="nav-text">{!! $GeneralWebmasterSectionTitle !!}</span>
+                                        <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                            <a href="{{ route('topics', $GeneralWebmasterSection->id) }}">
+                                                <span class="nav-text">{!! $GeneralWebmasterSectionTitle !!}</span>
                                             </a>
                                         </li>
 
@@ -314,13 +331,13 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                 </li>
 
                             @else
-                                <li {{ ($GeneralWebmasterSection->id== @$WebmasterSection->id) ? 'class=active' : '' }}>
-                                    <a href="{{ route('topics',$GeneralWebmasterSection->id) }}">
-                  <span class="nav-icon">
-                    <i class="material-icons">{!! $LiIcon !!}</i>
-                  </span>
-                                        <span
-                                            class="nav-text">{!! $GeneralWebmasterSectionTitle !!}</span>
+                                <li
+                                    {{ $GeneralWebmasterSection->id == @$WebmasterSection->id ? 'class=active' : '' }}>
+                                    <a href="{{ route('topics', $GeneralWebmasterSection->id) }}">
+                                        <span class="nav-icon">
+                                            <i class="material-icons">{!! $LiIcon !!}</i>
+                                        </span>
+                                        <span class="nav-text">{!! $GeneralWebmasterSectionTitle !!}</span>
                                     </a>
                                 </li>
                             @endif
@@ -329,74 +346,75 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
 
 
 
-                    @if(Helper::GeneralWebmasterSettings("banners_status"))
-                        @if(@Auth::user()->permissionsGroup->banners_status)
+                    @if (Helper::GeneralWebmasterSettings('banners_status'))
+                        @if (@Auth::user()->permissionsGroup->banners_status)
                             <?php
-                            $currentFolder = "banners"; // Put folder name here
+                            $currentFolder = 'banners'; // Put folder name here
                             $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                             ?>
-                            <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
+                            <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                 <a href="{{ route('Banners') }}">
-<span class="nav-icon">
-<i class="material-icons">&#xe433;</i>
-</span>
+                                    <span class="nav-icon">
+                                        <i class="material-icons">&#xe433;</i>
+                                    </span>
                                     <span class="nav-text">{{ __('backend.adsBanners') }}</span>
                                 </a>
                             </li>
                         @endif
                     @endif
 
-                    @if(Helper::GeneralWebmasterSettings("settings_status"))
-                        @if(@Auth::user()->permissionsGroup->settings_status)
+                    @if (Helper::GeneralWebmasterSettings('settings_status'))
+                        @if (@Auth::user()->permissionsGroup->settings_status)
                             <li class="nav-header hidden-folded">
                                 <small class="text-muted">{{ __('backend.settings') }}</small>
                             </li>
 
                             <?php
-                            $currentFolder = "settings"; // Put folder name here
+                            $currentFolder = 'settings'; // Put folder name here
                             $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
-
-                            $currentFolder2 = "menus"; // Put folder name here
+                            
+                            $currentFolder2 = 'menus'; // Put folder name here
                             $PathCurrentFolder2 = substr($urlAfterRoot, 0, strlen($currentFolder2));
-
-                            $currentFolder3 = "users"; // Put folder name here
+                            
+                            $currentFolder3 = 'users'; // Put folder name here
                             $PathCurrentFolder3 = substr($urlAfterRoot, 0, strlen($currentFolder2));
                             ?>
-                            <li {{ ($PathCurrentFolder==$currentFolder || $PathCurrentFolder2==$currentFolder2 || $PathCurrentFolder3==$currentFolder3 ) ? 'class=active' : '' }}>
+                            <li
+                                {{ $PathCurrentFolder == $currentFolder ||$PathCurrentFolder2 == $currentFolder2 ||$PathCurrentFolder3 == $currentFolder3? 'class=active': '' }}>
                                 <a>
-<span class="nav-caret">
-<i class="fa fa-caret-down"></i>
-</span>
+                                    <span class="nav-caret">
+                                        <i class="fa fa-caret-down"></i>
+                                    </span>
                                     <span class="nav-icon">
-<i class="material-icons">&#xe8b8;</i>
-</span>
+                                        <i class="material-icons">&#xe8b8;</i>
+                                    </span>
                                     <span class="nav-text">{{ __('backend.generalSiteSettings') }}</span>
                                 </a>
                                 <ul class="nav-sub">
                                     <?php
-                                    $currentFolder = "settings"; // Put folder name here
+                                    $currentFolder = 'settings'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a href="{{ route('settings') }}"
-                                           onclick="location.href='{{ route('settings') }}'">
+                                            onclick="location.href='{{ route('settings') }}'">
                                             <span class="nav-text">{{ __('backend.generalSettings') }}</span>
                                         </a>
                                     </li>
                                     <?php
-                                    $currentFolder = "menus"; // Put folder name here
+                                    $currentFolder = 'menus'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a href="{{ route('menus') }}">
                                             <span class="nav-text">{{ __('backend.siteMenus') }}</span>
                                         </a>
                                     </li>
                                     <?php
-                                    $currentFolder = "users"; // Put folder name here
+                                    $currentFolder = 'users'; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
-                                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                                         <a href="{{ route('users') }}">
                                             <span class="nav-text">{{ __('backend.usersPermissions') }}</span>
                                         </a>
@@ -407,47 +425,45 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                     @endif
 
 
-                    @if(@Auth::user()->permissionsGroup->webmaster_status)
+                    @if (@Auth::user()->permissionsGroup->webmaster_status)
                         <?php
-                        $currentFolder = "webmaster"; // Put folder name here
+                        $currentFolder = 'webmaster'; // Put folder name here
                         $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                         ?>
-                        <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }}>
+                        <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
                             <a>
-<span class="nav-caret">
-<i class="fa fa-caret-down"></i>
-</span>
+                                <span class="nav-caret">
+                                    <i class="fa fa-caret-down"></i>
+                                </span>
                                 <span class="nav-icon">
-<i class="material-icons">&#xe8be;</i>
-</span>
+                                    <i class="material-icons">&#xe8be;</i>
+                                </span>
                                 <span class="nav-text">{{ __('backend.webmasterTools') }}</span>
                             </a>
                             <ul class="nav-sub">
                                 <?php
-                                $PathCurrentSubFolder = substr($urlAfterRoot, 0, (strlen($currentFolder) + 1));
+                                $PathCurrentSubFolder = substr($urlAfterRoot, 0, strlen($currentFolder) + 1);
                                 ?>
-                                <li {{ ($PathCurrentFolder==$PathCurrentSubFolder) ? 'class=active' : '' }}>
+                                <li {{ $PathCurrentFolder == $PathCurrentSubFolder ? 'class=active' : '' }}>
                                     <a href="{{ route('webmasterSettings') }}"
-                                       onclick="location.href='{{ route('webmasterSettings') }}'">
+                                        onclick="location.href='{{ route('webmasterSettings') }}'">
                                         <span class="nav-text">{{ __('backend.generalSettings') }}</span>
                                     </a>
                                 </li>
                                 <?php
-                                $currentSubFolder = "sections"; // Put folder name here
-                                $PathCurrentSubFolder = substr($urlAfterRoot, (strlen($currentFolder) + 1),
-                                    strlen($currentSubFolder));
+                                $currentSubFolder = 'sections'; // Put folder name here
+                                $PathCurrentSubFolder = substr($urlAfterRoot, strlen($currentFolder) + 1, strlen($currentSubFolder));
                                 ?>
-                                <li {{ ($PathCurrentSubFolder==$currentSubFolder) ? 'class=active' : '' }}>
+                                <li {{ $PathCurrentSubFolder == $currentSubFolder ? 'class=active' : '' }}>
                                     <a href="{{ route('WebmasterSections') }}">
                                         <span class="nav-text">{{ __('backend.siteSectionsSettings') }}</span>
                                     </a>
                                 </li>
                                 <?php
-                                $currentSubFolder = "banners"; // Put folder name here
-                                $PathCurrentSubFolder = substr($urlAfterRoot, (strlen($currentFolder) + 1),
-                                    strlen($currentSubFolder));
+                                $currentSubFolder = 'banners'; // Put folder name here
+                                $PathCurrentSubFolder = substr($urlAfterRoot, strlen($currentFolder) + 1, strlen($currentSubFolder));
                                 ?>
-                                <li {{ ($PathCurrentSubFolder==$currentSubFolder) ? 'class=active' : '' }}>
+                                <li {{ $PathCurrentSubFolder == $currentSubFolder ? 'class=active' : '' }}>
                                     <a href="{{ route('WebmasterBanners') }}">
                                         <span class="nav-text">{{ __('backend.adsBannersSettings') }}</span>
                                     </a>
@@ -455,7 +471,6 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
 
                             </ul>
                         </li>
-
                     @endif
                 </ul>
             </nav>

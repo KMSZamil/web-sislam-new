@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\BannersController;
 use App\Http\Controllers\Dashboard\CategoriesController;
 use App\Http\Controllers\Dashboard\TopicsController;
 use App\Http\Controllers\Dashboard\ContactsController;
+use App\Http\Controllers\Dashboard\CarsController;
 use App\Http\Controllers\Dashboard\WebmailsController;
 use App\Http\Controllers\Dashboard\EventsController;
 use App\Http\Controllers\Dashboard\AnalyticsController;
@@ -176,11 +177,16 @@ Route::get('/{webmasterId}/topics/{id}/maps/destroy/{map_id}',
 Route::post('/{webmasterId}/topics/{id}/maps/updateAll',
     [TopicsController::class, 'mapsUpdateAll'])->name('topicsMapsUpdateAll');
 
+
+
 // Contacts Groups
 Route::post('/contacts/storeGroup', [ContactsController::class, 'storeGroup'])->name('contactsStoreGroup');
 Route::get('/contacts/{id}/editGroup', [ContactsController::class, 'editGroup'])->name('contactsEditGroup');
 Route::post('/contacts/{id}/updateGroup', [ContactsController::class, 'updateGroup'])->name('contactsUpdateGroup');
 Route::get('/contacts/destroyGroup/{id}', [ContactsController::class, 'destroyGroup'])->name('contactsDestroyGroup');
+
+
+
 // Contacts
 Route::get('/contacts/{group_id?}', [ContactsController::class, 'index'])->name('contacts');
 Route::post('/contacts/store', [ContactsController::class, 'store'])->name('contactsStore');
@@ -189,6 +195,15 @@ Route::get('/contacts/{id}/edit', [ContactsController::class, 'edit'])->name('co
 Route::post('/contacts/{id}/update', [ContactsController::class, 'update'])->name('contactsUpdate');
 Route::get('/contacts/destroy/{id}', [ContactsController::class, 'destroy'])->name('contactsDestroy');
 Route::post('/contacts/updateAll', [ContactsController::class, 'updateAll'])->name('contactsUpdateAll');
+
+//Cars
+Route::get('/cars/{group_id?}', [CarsController::class, 'index'])->name('cars');
+Route::post('/cars/store', [CarsController::class, 'store'])->name('carsStore');
+Route::post('/cars/search', [CarsController::class, 'search'])->name('carsSearch');
+Route::get('/cars/{id}/edit', [CarsController::class, 'edit'])->name('carsEdit');
+Route::post('/cars/{id}/update', [CarsController::class, 'update'])->name('carsUpdate');
+Route::get('/cars/destroy/{id}', [CarsController::class, 'destroy'])->name('carsDestroy');
+Route::post('/cars/updateAll', [CarsController::class, 'updateAll'])->name('carsUpdateAll');
 
 // WebMails Groups
 Route::post('/webmails/storeGroup', [WebmailsController::class, 'storeGroup'])->name('webmailsStoreGroup');

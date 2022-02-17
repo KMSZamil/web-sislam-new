@@ -33,5 +33,12 @@
 
 <script src="{{ asset('assets/dashboard/js/scripts/app.js') }}" defer></script>
 
+
+
+<script src="{{ URL::asset('assets/frontend/js/select2/select2.min.js') }}"></script>
+<script src="{{ URL::asset('assets/frontend/js/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
+<script src="{{ URL::asset('assets/frontend/js/my_custom.js') }}"></script>
+
 {!! Helper::SaveVisitorInfo("Dashboard &raquo; ".trim($__env->yieldContent('title'))) !!}
 @stack('after-scripts')

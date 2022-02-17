@@ -28,6 +28,9 @@
 <link rel="stylesheet" href="{{ asset('assets/dashboard/css/font.css') }}" type="text/css"/>
 <link rel="stylesheet" href="{{ asset('assets/dashboard/css/topic.css') }}" type="text/css"/>
 
+
+<link rel="stylesheet" href="{{ URL::asset('assets/frontend/css/select2/select2.min.css') }}">
+
 @if( @Helper::currentLanguage()->direction=="rtl")
     <link rel="stylesheet" href="{{ asset('assets/dashboard/css/bootstrap-rtl/dist/bootstrap-rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dashboard/css/app.rtl.css') }}">

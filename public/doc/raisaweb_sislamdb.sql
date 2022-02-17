@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 07, 2022 at 12:15 PM
--- Server version: 10.3.32-MariaDB-cll-lve
--- PHP Version: 7.3.33
+-- Host: 127.0.0.1:3306
+-- Generation Time: Feb 17, 2022 at 12:41 PM
+-- Server version: 5.7.28
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,8 +28,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `smartend_analytics_pages`
 --
 
-CREATE TABLE `smartend_analytics_pages` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_analytics_pages`;
+CREATE TABLE IF NOT EXISTS `smartend_analytics_pages` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `visitor_id` int(11) NOT NULL,
   `ip` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -39,8 +40,9 @@ CREATE TABLE `smartend_analytics_pages` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_analytics_pages`
@@ -137,7 +139,57 @@ INSERT INTO `smartend_analytics_pages` (`id`, `visitor_id`, `ip`, `title`, `name
 (88, 3, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/seller-basic', '0.66245484', '2022-02-06', '02:23:19', '2022-02-05 20:23:19', '2022-02-05 20:23:19'),
 (89, 3, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/', '0.34572506', '2022-02-06', '11:46:32', '2022-02-06 05:46:32', '2022-02-06 05:46:32'),
 (90, 4, '88.198.58.29', 'Site Title', 'unknown', 'http://sislam.raisawebcloud.com/', '0.38149905', '2022-02-06', '23:37:49', '2022-02-06 17:37:49', '2022-02-06 17:37:49'),
-(91, 5, '88.198.58.29', 'Site Title', 'unknown', 'http://sislam.raisawebcloud.com/', '0.17741299', '2022-02-07', '00:03:50', '2022-02-06 18:03:50', '2022-02-06 18:03:50');
+(91, 5, '88.198.58.29', 'Site Title', 'unknown', 'http://sislam.raisawebcloud.com/', '0.17741299', '2022-02-07', '00:03:50', '2022-02-06 18:03:50', '2022-02-06 18:03:50'),
+(92, 6, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/', '0.56679082', '2022-02-07', '13:34:45', '2022-02-07 07:34:45', '2022-02-07 07:34:45'),
+(93, 6, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/seller-basic', '0.32774615', '2022-02-07', '13:37:28', '2022-02-07 07:37:28', '2022-02-07 07:37:28'),
+(94, 7, '127.0.0.1', 'Dashboard &raquo; 404', 'unknown', 'http://127.0.0.1:8000/install', '0.2704761', '2022-02-08', '09:27:21', '2022-02-08 03:27:21', '2022-02-08 03:27:21'),
+(95, 7, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/home', '0.29722118', '2022-02-08', '09:27:24', '2022-02-08 03:27:24', '2022-02-08 03:27:24'),
+(96, 7, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/seller-basic', '1.08754897', '2022-02-08', '09:27:35', '2022-02-08 03:27:35', '2022-02-08 03:27:35'),
+(97, 7, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/', '0.2718668', '2022-02-08', '17:38:33', '2022-02-08 11:38:33', '2022-02-08 11:38:33'),
+(98, 8, '127.0.0.1', 'Dashboard &raquo; 404', 'unknown', 'http://127.0.0.1:8000/install', '0.27484202', '2022-02-14', '10:55:07', '2022-02-14 04:55:07', '2022-02-14 04:55:07'),
+(99, 8, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/', '0.31452203', '2022-02-14', '10:55:11', '2022-02-14 04:55:11', '2022-02-14 04:55:11'),
+(100, 8, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/seller-basic', '0.3110621', '2022-02-14', '10:55:43', '2022-02-14 04:55:43', '2022-02-14 04:55:43'),
+(101, 9, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/', '0.47810197', '2022-02-16', '10:56:48', '2022-02-16 04:56:48', '2022-02-16 04:56:48'),
+(102, 9, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/seller-basic', '0.36722589', '2022-02-16', '10:56:56', '2022-02-16 04:56:56', '2022-02-16 04:56:56'),
+(103, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/', '0.49909186', '2022-02-17', '17:03:54', '2022-02-17 11:03:54', '2022-02-17 11:03:54'),
+(104, 10, '127.0.0.1', 'Dashboard &raquo; Sign in to CONTROL', 'unknown', 'http://127.0.0.1:8000/admin/login', '0.17136407', '2022-02-17', '17:04:15', '2022-02-17 11:04:15', '2022-02-17 11:04:15'),
+(105, 10, '127.0.0.1', 'Dashboard &raquo; Site Title', 'unknown', 'http://127.0.0.1:8000/admin', '0.2524569', '2022-02-17', '17:04:58', '2022-02-17 11:04:58', '2022-02-17 11:04:58'),
+(106, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/flot/jquery.flot.js', '0.312222', '2022-02-17', '17:04:58', '2022-02-17 11:04:58', '2022-02-17 11:04:58'),
+(107, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/flot/jquery.flot.resize.js', '0.28519082', '2022-02-17', '17:04:58', '2022-02-17 11:04:58', '2022-02-17 11:04:58'),
+(108, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/flot/jquery.flot.pie.js', '0.27451515', '2022-02-17', '17:04:59', '2022-02-17 11:04:59', '2022-02-17 11:04:59'),
+(109, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/flot.tooltip/js/jquery.flot.tooltip.min.js', '0.28726602', '2022-02-17', '17:04:59', '2022-02-17 11:04:59', '2022-02-17 11:04:59'),
+(110, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/flot-spline/js/jquery.flot.spline.min.js', '0.27959108', '2022-02-17', '17:04:59', '2022-02-17 11:04:59', '2022-02-17 11:04:59'),
+(111, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/flot.orderbars/js/jquery.flot.orderBars.js', '0.2740531', '2022-02-17', '17:05:00', '2022-02-17 11:05:00', '2022-02-17 11:05:00'),
+(112, 10, '127.0.0.1', 'Dashboard &raquo; Categories of  Products', 'unknown', 'http://127.0.0.1:8000/admin/8/categories', '0.192518', '2022-02-17', '17:05:06', '2022-02-17 11:05:06', '2022-02-17 11:05:06'),
+(113, 10, '127.0.0.1', 'Dashboard &raquo; Categories of  Products', 'unknown', 'http://127.0.0.1:8000/admin/8/categories/create', '0.20150805', '2022-02-17', '17:05:08', '2022-02-17 11:05:08', '2022-02-17 11:05:08'),
+(114, 10, '127.0.0.1', 'Dashboard &raquo; Products', 'unknown', 'http://127.0.0.1:8000/admin/8/topics', '0.209409', '2022-02-17', '17:05:15', '2022-02-17 11:05:15', '2022-02-17 11:05:15'),
+(115, 10, '127.0.0.1', 'Dashboard &raquo; Products', 'unknown', 'http://127.0.0.1:8000/admin/8/topics/create', '0.21854711', '2022-02-17', '17:05:18', '2022-02-17 11:05:18', '2022-02-17 11:05:18'),
+(116, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/select2/dist/css/select2.min.css', '0.30742908', '2022-02-17', '17:05:18', '2022-02-17 11:05:18', '2022-02-17 11:05:18'),
+(117, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/select2-bootstrap-theme/dist/select2-bootstrap.min.css', '0.27533197', '2022-02-17', '17:05:18', '2022-02-17 11:05:18', '2022-02-17 11:05:18'),
+(118, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/select2-bootstrap-theme/dist/select2-bootstrap.4.css', '0.28277588', '2022-02-17', '17:05:19', '2022-02-17 11:05:19', '2022-02-17 11:05:19'),
+(119, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/select2/dist/js/select2.min.js', '0.30315399', '2022-02-17', '17:05:19', '2022-02-17 11:05:19', '2022-02-17 11:05:19'),
+(120, 10, '127.0.0.1', 'Dashboard &raquo; Categories of  Blog', 'unknown', 'http://127.0.0.1:8000/admin/7/categories', '0.18565202', '2022-02-17', '17:06:46', '2022-02-17 11:06:46', '2022-02-17 11:06:46'),
+(121, 10, '127.0.0.1', 'Dashboard &raquo; Blog', 'unknown', 'http://127.0.0.1:8000/admin/7/topics', '0.19832492', '2022-02-17', '17:06:48', '2022-02-17 11:06:48', '2022-02-17 11:06:48'),
+(122, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css', '0.2977531', '2022-02-17', '17:06:48', '2022-02-17 11:06:48', '2022-02-17 11:06:48'),
+(123, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.dark.css', '0.28629899', '2022-02-17', '17:06:49', '2022-02-17 11:06:49', '2022-02-17 11:06:49'),
+(124, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000//assets/dashboard/js/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', '0.28469992', '2022-02-17', '17:06:49', '2022-02-17 11:06:49', '2022-02-17 11:06:49'),
+(125, 10, '127.0.0.1', 'Dashboard &raquo; Blog', 'unknown', 'http://127.0.0.1:8000/admin/7/topics/create', '0.19155788', '2022-02-17', '17:06:52', '2022-02-17 11:06:52', '2022-02-17 11:06:52'),
+(126, 10, '127.0.0.1', 'Dashboard &raquo; General Settings', 'unknown', 'http://127.0.0.1:8000/admin/settings', '0.22638512', '2022-02-17', '17:22:24', '2022-02-17 11:22:24', '2022-02-17 11:22:24'),
+(127, 10, '127.0.0.1', 'Dashboard &raquo; Categories of  Audio', 'unknown', 'http://127.0.0.1:8000/admin/6/categories', '0.21276522', '2022-02-17', '17:24:15', '2022-02-17 11:24:15', '2022-02-17 11:24:15'),
+(128, 10, '127.0.0.1', 'Dashboard &raquo; Contacts', 'unknown', 'http://127.0.0.1:8000/admin/contacts', '0.22656393', '2022-02-17', '17:24:26', '2022-02-17 11:24:26', '2022-02-17 11:24:26'),
+(129, 10, '127.0.0.1', 'Dashboard &raquo; Site pages', 'unknown', 'http://127.0.0.1:8000/admin/1/topics', '0.21232605', '2022-02-17', '17:25:33', '2022-02-17 11:25:33', '2022-02-17 11:25:33'),
+(130, 10, '127.0.0.1', 'Dashboard &raquo; Services', 'unknown', 'http://127.0.0.1:8000/admin/2/topics', '0.2045629', '2022-02-17', '17:25:36', '2022-02-17 11:25:36', '2022-02-17 11:25:36'),
+(131, 10, '127.0.0.1', 'Dashboard &raquo; News', 'unknown', 'http://127.0.0.1:8000/admin/3/topics', '0.21461701', '2022-02-17', '17:25:38', '2022-02-17 11:25:38', '2022-02-17 11:25:38'),
+(132, 10, '127.0.0.1', 'Dashboard &raquo; Photos', 'unknown', 'http://127.0.0.1:8000/admin/4/topics', '0.21189499', '2022-02-17', '17:25:40', '2022-02-17 11:25:40', '2022-02-17 11:25:40'),
+(133, 10, '127.0.0.1', 'Dashboard &raquo; Categories of  Videos', 'unknown', 'http://127.0.0.1:8000/admin/5/categories', '0.21349907', '2022-02-17', '17:25:43', '2022-02-17 11:25:43', '2022-02-17 11:25:43'),
+(134, 10, '127.0.0.1', 'Dashboard &raquo; Inbox', 'unknown', 'http://127.0.0.1:8000/admin/webmails', '0.193501', '2022-02-17', '17:29:17', '2022-02-17 11:29:17', '2022-02-17 11:29:17'),
+(135, 10, '127.0.0.1', 'Dashboard &raquo; Calendar', 'unknown', 'http://127.0.0.1:8000/admin/calendar', '0.197335', '2022-02-17', '17:29:19', '2022-02-17 11:29:19', '2022-02-17 11:29:19'),
+(136, 10, '127.0.0.1', 'Dashboard &raquo; Analytics', 'unknown', 'http://127.0.0.1:8000/admin/analytics/date', '0.215446', '2022-02-17', '17:29:43', '2022-02-17 11:29:43', '2022-02-17 11:29:43'),
+(137, 10, '127.0.0.1', 'Dashboard &raquo; Contacts', 'unknown', 'http://127.0.0.1:8000/admin/cars', '0.21079421', '2022-02-17', '18:07:48', '2022-02-17 12:07:48', '2022-02-17 12:07:48'),
+(138, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/home', '0.28748488', '2022-02-17', '18:07:49', '2022-02-17 12:07:49', '2022-02-17 12:07:49'),
+(139, 10, '127.0.0.1', 'Dashboard &raquo; Contacts', 'unknown', 'http://127.0.0.1:8000/admin/cars?page=2', '0.19704103', '2022-02-17', '18:07:53', '2022-02-17 12:07:53', '2022-02-17 12:07:53'),
+(140, 10, '127.0.0.1', 'Dashboard &raquo; Contacts', 'unknown', 'http://127.0.0.1:8000/admin/cars?page=1', '0.19914699', '2022-02-17', '18:07:55', '2022-02-17 12:07:55', '2022-02-17 12:07:55'),
+(141, 10, '127.0.0.1', 'Site Title', 'unknown', 'http://127.0.0.1:8000/seller-basic', '0.31783795', '2022-02-17', '18:25:30', '2022-02-17 12:25:30', '2022-02-17 12:25:30');
 
 -- --------------------------------------------------------
 
@@ -145,8 +197,9 @@ INSERT INTO `smartend_analytics_pages` (`id`, `visitor_id`, `ip`, `title`, `name
 -- Table structure for table `smartend_analytics_visitors`
 --
 
-CREATE TABLE `smartend_analytics_visitors` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_analytics_visitors`;
+CREATE TABLE IF NOT EXISTS `smartend_analytics_visitors` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `ip` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -164,8 +217,9 @@ CREATE TABLE `smartend_analytics_visitors` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_analytics_visitors`
@@ -176,7 +230,12 @@ INSERT INTO `smartend_analytics_visitors` (`id`, `ip`, `city`, `country_code`, `
 (2, '127.0.0.1', 'unknown', 'unknown', 'unknown', 'Connecticut', NULL, '41.31', '-72.92', 'Mac OS X', 'Chrome', 'unknown', 'http://127.0.0.1:8000/admin/menus/19/edit/1', 'NA', 'America/New_York', '2022-02-05', '01:32:38', '2022-02-04 19:32:38', '2022-02-04 19:32:38'),
 (3, '127.0.0.1', 'unknown', 'unknown', 'unknown', 'Connecticut', NULL, '41.31', '-72.92', 'Mac OS X', 'Chrome', 'unknown', 'http://127.0.0.1:8000/admin/banners/1/edit', 'NA', 'America/New_York', '2022-02-06', '00:00:46', '2022-02-05 18:00:46', '2022-02-05 18:00:46'),
 (4, '88.198.58.29', 'Munich', 'DE', 'Germany', 'Bavaria', NULL, '48.1336', '11.5658', 'Mac OS X', 'Chrome', 'unknown', 'unknown', 'Unknown', 'Europe/Berlin', '2022-02-06', '23:37:49', '2022-02-06 17:37:49', '2022-02-06 17:37:49'),
-(5, '88.198.58.29', 'Munich', 'Germany', 'unknown', 'Bavaria', NULL, '48.1336', '11.5658', 'Windows 7', NULL, 'unknown', 'unknown', 'Unknown', 'Europe/Berlin', '2022-02-07', '00:03:50', '2022-02-06 18:03:50', '2022-02-06 18:03:50');
+(5, '88.198.58.29', 'Munich', 'Germany', 'unknown', 'Bavaria', NULL, '48.1336', '11.5658', 'Windows 7', NULL, 'unknown', 'unknown', 'Unknown', 'Europe/Berlin', '2022-02-07', '00:03:50', '2022-02-06 18:03:50', '2022-02-06 18:03:50'),
+(6, '127.0.0.1', 'unknown', 'unknown', 'unknown', 'Connecticut', NULL, '41.31', '-72.92', 'Windows 10', 'Chrome', 'unknown', 'unknown', 'NA', 'America/New_York', '2022-02-07', '13:34:45', '2022-02-07 07:34:45', '2022-02-07 07:34:45'),
+(7, '127.0.0.1', 'unknown', 'unknown', 'unknown', 'Connecticut', NULL, '41.31', '-72.92', 'Windows 10', 'Chrome', 'unknown', 'unknown', 'NA', 'America/New_York', '2022-02-08', '09:27:21', '2022-02-08 03:27:21', '2022-02-08 03:27:21'),
+(8, '127.0.0.1', 'unknown', 'unknown', 'unknown', 'Connecticut', NULL, '41.31', '-72.92', 'Windows 10', 'Chrome', 'unknown', 'unknown', 'NA', 'America/New_York', '2022-02-14', '10:55:07', '2022-02-14 04:55:07', '2022-02-14 04:55:07'),
+(9, '127.0.0.1', 'unknown', 'unknown', 'unknown', 'Connecticut', NULL, '41.31', '-72.92', 'Windows 10', 'Chrome', 'unknown', 'unknown', 'NA', 'America/New_York', '2022-02-16', '10:56:48', '2022-02-16 04:56:48', '2022-02-16 04:56:48'),
+(10, '127.0.0.1', 'unknown', 'unknown', 'unknown', 'Connecticut', NULL, '41.31', '-72.92', 'Windows 10', 'Chrome', 'unknown', 'unknown', 'NA', 'America/New_York', '2022-02-17', '17:03:54', '2022-02-17 11:03:54', '2022-02-17 11:03:54');
 
 -- --------------------------------------------------------
 
@@ -184,8 +243,9 @@ INSERT INTO `smartend_analytics_visitors` (`id`, `ip`, `city`, `country_code`, `
 -- Table structure for table `smartend_attach_files`
 --
 
-CREATE TABLE `smartend_attach_files` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_attach_files`;
+CREATE TABLE IF NOT EXISTS `smartend_attach_files` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -194,7 +254,8 @@ CREATE TABLE `smartend_attach_files` (
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -203,12 +264,13 @@ CREATE TABLE `smartend_attach_files` (
 -- Table structure for table `smartend_banners`
 --
 
-CREATE TABLE `smartend_banners` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_banners`;
+CREATE TABLE IF NOT EXISTS `smartend_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `section_id` int(11) NOT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_en` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details_en` text COLLATE utf8mb4_unicode_ci,
+  `code` text COLLATE utf8mb4_unicode_ci,
   `file_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `video_type` tinyint(4) DEFAULT NULL,
   `youtube_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -222,9 +284,10 @@ CREATE TABLE `smartend_banners` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_bn` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `details_bn` text COLLATE utf8mb4_unicode_ci,
+  `file_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_banners`
@@ -246,11 +309,13 @@ INSERT INTO `smartend_banners` (`id`, `section_id`, `title_en`, `details_en`, `c
 -- Table structure for table `smartend_body_type`
 --
 
-CREATE TABLE `smartend_body_type` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_body_type`;
+CREATE TABLE IF NOT EXISTS `smartend_body_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_body_type`
@@ -285,11 +350,13 @@ INSERT INTO `smartend_body_type` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_car_brand`
 --
 
-CREATE TABLE `smartend_car_brand` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_car_brand`;
+CREATE TABLE IF NOT EXISTS `smartend_car_brand` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `smartend_car_brand`
@@ -392,11 +459,13 @@ INSERT INTO `smartend_car_brand` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_car_condition`
 --
 
-CREATE TABLE `smartend_car_condition` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_car_condition`;
+CREATE TABLE IF NOT EXISTS `smartend_car_condition` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_car_condition`
@@ -413,12 +482,14 @@ INSERT INTO `smartend_car_condition` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_car_model`
 --
 
-CREATE TABLE `smartend_car_model` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_car_model`;
+CREATE TABLE IF NOT EXISTS `smartend_car_model` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `car_brand` int(11) NOT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `smartend_car_model`
@@ -895,11 +966,13 @@ INSERT INTO `smartend_car_model` (`id`, `name`, `car_brand`, `status`) VALUES
 -- Table structure for table `smartend_comfort`
 --
 
-CREATE TABLE `smartend_comfort` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_comfort`;
+CREATE TABLE IF NOT EXISTS `smartend_comfort` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_comfort`
@@ -920,19 +993,21 @@ INSERT INTO `smartend_comfort` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_comments`
 --
 
-CREATE TABLE `smartend_comments` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_comments`;
+CREATE TABLE IF NOT EXISTS `smartend_comments` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` datetime DEFAULT NULL,
-  `comment` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci,
   `status` tinyint(4) NOT NULL,
   `row_no` int(11) NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -941,8 +1016,9 @@ CREATE TABLE `smartend_comments` (
 -- Table structure for table `smartend_contacts`
 --
 
-CREATE TABLE `smartend_contacts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_contacts`;
+CREATE TABLE IF NOT EXISTS `smartend_contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `group_id` int(11) DEFAULT NULL,
   `first_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -954,7 +1030,7 @@ CREATE TABLE `smartend_contacts` (
   `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci,
   `last_login` datetime DEFAULT NULL,
   `last_login_ip` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -964,8 +1040,9 @@ CREATE TABLE `smartend_contacts` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -973,14 +1050,16 @@ CREATE TABLE `smartend_contacts` (
 -- Table structure for table `smartend_contacts_groups`
 --
 
-CREATE TABLE `smartend_contacts_groups` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_contacts_groups`;
+CREATE TABLE IF NOT EXISTS `smartend_contacts_groups` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_contacts_groups`
@@ -995,15 +1074,17 @@ INSERT INTO `smartend_contacts_groups` (`id`, `name`, `created_by`, `updated_by`
 -- Table structure for table `smartend_countries`
 --
 
-CREATE TABLE `smartend_countries` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_countries`;
+CREATE TABLE IF NOT EXISTS `smartend_countries` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tel` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_countries`
@@ -1233,16 +1314,18 @@ INSERT INTO `smartend_countries` (`id`, `code`, `title_en`, `tel`, `created_at`,
 -- Table structure for table `smartend_district`
 --
 
-CREATE TABLE `smartend_district` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_district`;
+CREATE TABLE IF NOT EXISTS `smartend_district` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `division_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `smartend_district`
@@ -1328,11 +1411,13 @@ INSERT INTO `smartend_district` (`id`, `name`, `division_id`, `status`, `created
 -- Table structure for table `smartend_drive`
 --
 
-CREATE TABLE `smartend_drive` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_drive`;
+CREATE TABLE IF NOT EXISTS `smartend_drive` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_drive`
@@ -1351,11 +1436,13 @@ INSERT INTO `smartend_drive` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_entertainment`
 --
 
-CREATE TABLE `smartend_entertainment` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_entertainment`;
+CREATE TABLE IF NOT EXISTS `smartend_entertainment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_entertainment`
@@ -1376,19 +1463,21 @@ INSERT INTO `smartend_entertainment` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_events`
 --
 
-CREATE TABLE `smartend_events` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_events`;
+CREATE TABLE IF NOT EXISTS `smartend_events` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `type` tinyint(4) NOT NULL DEFAULT 0,
+  `type` tinyint(4) NOT NULL DEFAULT '0',
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details` text COLLATE utf8mb4_unicode_ci,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
   `color` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1397,11 +1486,13 @@ CREATE TABLE `smartend_events` (
 -- Table structure for table `smartend_exterior_color`
 --
 
-CREATE TABLE `smartend_exterior_color` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_exterior_color`;
+CREATE TABLE IF NOT EXISTS `smartend_exterior_color` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_exterior_color`
@@ -1474,14 +1565,17 @@ INSERT INTO `smartend_exterior_color` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_failed_jobs`
 --
 
-CREATE TABLE `smartend_failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_failed_jobs`;
+CREATE TABLE IF NOT EXISTS `smartend_failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `smartend_failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1490,11 +1584,13 @@ CREATE TABLE `smartend_failed_jobs` (
 -- Table structure for table `smartend_fuel_type`
 --
 
-CREATE TABLE `smartend_fuel_type` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_fuel_type`;
+CREATE TABLE IF NOT EXISTS `smartend_fuel_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_fuel_type`
@@ -1516,11 +1612,13 @@ INSERT INTO `smartend_fuel_type` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_interior_color`
 --
 
-CREATE TABLE `smartend_interior_color` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_interior_color`;
+CREATE TABLE IF NOT EXISTS `smartend_interior_color` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_interior_color`
@@ -1543,21 +1641,23 @@ INSERT INTO `smartend_interior_color` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_languages`
 --
 
-CREATE TABLE `smartend_languages` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_languages`;
+CREATE TABLE IF NOT EXISTS `smartend_languages` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `direction` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `left` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `right` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `box_status` tinyint(4) DEFAULT 1,
-  `status` tinyint(4) DEFAULT 1,
+  `box_status` tinyint(4) DEFAULT '1',
+  `status` tinyint(4) DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_languages`
@@ -1573,15 +1673,17 @@ INSERT INTO `smartend_languages` (`id`, `title`, `code`, `direction`, `left`, `r
 -- Table structure for table `smartend_ltm_translations`
 --
 
-CREATE TABLE `smartend_ltm_translations` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
+DROP TABLE IF EXISTS `smartend_ltm_translations`;
+CREATE TABLE IF NOT EXISTS `smartend_ltm_translations` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `status` int(11) NOT NULL DEFAULT '0',
   `locale` varchar(191) COLLATE utf8mb4_bin NOT NULL,
   `group` varchar(191) COLLATE utf8mb4_bin NOT NULL,
   `key` text COLLATE utf8mb4_bin NOT NULL,
-  `value` text COLLATE utf8mb4_bin DEFAULT NULL,
+  `value` text COLLATE utf8mb4_bin,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
@@ -1590,13 +1692,14 @@ CREATE TABLE `smartend_ltm_translations` (
 -- Table structure for table `smartend_maps`
 --
 
-CREATE TABLE `smartend_maps` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_maps`;
+CREATE TABLE IF NOT EXISTS `smartend_maps` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `longitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_en` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details_en` text COLLATE utf8mb4_unicode_ci,
   `icon` tinyint(4) NOT NULL,
   `status` tinyint(4) NOT NULL,
   `row_no` int(11) NOT NULL,
@@ -1605,7 +1708,8 @@ CREATE TABLE `smartend_maps` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_bn` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `details_bn` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1614,8 +1718,9 @@ CREATE TABLE `smartend_maps` (
 -- Table structure for table `smartend_menus`
 --
 
-CREATE TABLE `smartend_menus` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_menus`;
+CREATE TABLE IF NOT EXISTS `smartend_menus` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `row_no` int(11) NOT NULL,
   `father_id` int(11) NOT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1627,8 +1732,9 @@ CREATE TABLE `smartend_menus` (
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_menus`
@@ -1656,11 +1762,13 @@ INSERT INTO `smartend_menus` (`id`, `row_no`, `father_id`, `title_en`, `status`,
 -- Table structure for table `smartend_migrations`
 --
 
-CREATE TABLE `smartend_migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_migrations`;
+CREATE TABLE IF NOT EXISTS `smartend_migrations` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_migrations`
@@ -1707,11 +1815,13 @@ INSERT INTO `smartend_migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `smartend_other_feature`
 --
 
-CREATE TABLE `smartend_other_feature` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_other_feature`;
+CREATE TABLE IF NOT EXISTS `smartend_other_feature` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_other_feature`
@@ -1732,10 +1842,12 @@ INSERT INTO `smartend_other_feature` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_password_resets`
 --
 
-CREATE TABLE `smartend_password_resets` (
+DROP TABLE IF EXISTS `smartend_password_resets`;
+CREATE TABLE IF NOT EXISTS `smartend_password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `smartend_password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1744,33 +1856,35 @@ CREATE TABLE `smartend_password_resets` (
 -- Table structure for table `smartend_permissions`
 --
 
-CREATE TABLE `smartend_permissions` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_permissions`;
+CREATE TABLE IF NOT EXISTS `smartend_permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `view_status` tinyint(4) NOT NULL DEFAULT 0,
-  `add_status` tinyint(4) NOT NULL DEFAULT 0,
-  `edit_status` tinyint(4) NOT NULL DEFAULT 0,
-  `delete_status` tinyint(4) NOT NULL DEFAULT 0,
-  `active_status` tinyint(4) NOT NULL DEFAULT 0,
-  `analytics_status` tinyint(4) NOT NULL DEFAULT 0,
-  `inbox_status` tinyint(4) NOT NULL DEFAULT 0,
-  `newsletter_status` tinyint(4) NOT NULL DEFAULT 0,
-  `calendar_status` tinyint(4) NOT NULL DEFAULT 0,
-  `banners_status` tinyint(4) NOT NULL DEFAULT 0,
-  `settings_status` tinyint(4) NOT NULL DEFAULT 0,
-  `webmaster_status` tinyint(4) NOT NULL DEFAULT 0,
+  `view_status` tinyint(4) NOT NULL DEFAULT '0',
+  `add_status` tinyint(4) NOT NULL DEFAULT '0',
+  `edit_status` tinyint(4) NOT NULL DEFAULT '0',
+  `delete_status` tinyint(4) NOT NULL DEFAULT '0',
+  `active_status` tinyint(4) NOT NULL DEFAULT '0',
+  `analytics_status` tinyint(4) NOT NULL DEFAULT '0',
+  `inbox_status` tinyint(4) NOT NULL DEFAULT '0',
+  `newsletter_status` tinyint(4) NOT NULL DEFAULT '0',
+  `calendar_status` tinyint(4) NOT NULL DEFAULT '0',
+  `banners_status` tinyint(4) NOT NULL DEFAULT '0',
+  `settings_status` tinyint(4) NOT NULL DEFAULT '0',
+  `webmaster_status` tinyint(4) NOT NULL DEFAULT '0',
   `data_sections` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `home_status` tinyint(4) NOT NULL DEFAULT 0,
-  `home_links` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `home_details_ar` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `home_details_en` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `home_status` tinyint(4) NOT NULL DEFAULT '0',
+  `home_links` text COLLATE utf8mb4_unicode_ci,
+  `home_details_ar` longtext COLLATE utf8mb4_unicode_ci,
+  `home_details_en` longtext COLLATE utf8mb4_unicode_ci,
   `status` tinyint(4) NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `home_details_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `home_details_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_permissions`
@@ -1787,8 +1901,9 @@ INSERT INTO `smartend_permissions` (`id`, `name`, `view_status`, `add_status`, `
 -- Table structure for table `smartend_photos`
 --
 
-CREATE TABLE `smartend_photos` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_photos`;
+CREATE TABLE IF NOT EXISTS `smartend_photos` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1796,7 +1911,8 @@ CREATE TABLE `smartend_photos` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1805,15 +1921,17 @@ CREATE TABLE `smartend_photos` (
 -- Table structure for table `smartend_related_topics`
 --
 
-CREATE TABLE `smartend_related_topics` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_related_topics`;
+CREATE TABLE IF NOT EXISTS `smartend_related_topics` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `topic2_id` int(11) NOT NULL,
   `row_no` int(11) NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1822,11 +1940,13 @@ CREATE TABLE `smartend_related_topics` (
 -- Table structure for table `smartend_safety`
 --
 
-CREATE TABLE `smartend_safety` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_safety`;
+CREATE TABLE IF NOT EXISTS `smartend_safety` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_safety`
@@ -1847,11 +1967,13 @@ INSERT INTO `smartend_safety` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_seats`
 --
 
-CREATE TABLE `smartend_seats` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_seats`;
+CREATE TABLE IF NOT EXISTS `smartend_seats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_seats`
@@ -1871,8 +1993,9 @@ INSERT INTO `smartend_seats` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_sections`
 --
 
-CREATE TABLE `smartend_sections` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_sections`;
+CREATE TABLE IF NOT EXISTS `smartend_sections` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1893,7 +2016,8 @@ CREATE TABLE `smartend_sections` (
   `seo_title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_description_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_keywords_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seo_url_slug_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `seo_url_slug_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1902,8 +2026,9 @@ CREATE TABLE `smartend_sections` (
 -- Table structure for table `smartend_seller`
 --
 
-CREATE TABLE `smartend_seller` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_seller`;
+CREATE TABLE IF NOT EXISTS `smartend_seller` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `mobile` varchar(50) NOT NULL,
@@ -1934,30 +2059,53 @@ CREATE TABLE `smartend_seller` (
   `name_transfer` tinyint(2) DEFAULT NULL,
   `thana` tinyint(4) DEFAULT NULL,
   `district` tinyint(4) DEFAULT NULL,
-  `address_line1` text DEFAULT NULL,
-  `address_line2` text DEFAULT NULL,
-  `message` text DEFAULT NULL,
+  `address_line1` text,
+  `address_line2` text,
+  `message` text,
   `price` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_by` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `smartend_seller`
 --
 
-INSERT INTO `smartend_seller` (`id`, `name`, `email`, `mobile`, `car_condition`, `brand`, `car_model`, `menufacturing_year`, `milage`, `engine_capacity`, `body_type`, `fuel_type`, `transmission`, `registration_year`, `registration_serial`, `registration_city`, `drive_type`, `exterior_color`, `interior_color`, `comfort`, `enterteinment`, `safty`, `seats`, `wwindow`, `others`, `tax_token_expaire`, `fitnes_exspaire`, `bank_loan`, `name_transfer`, `thana`, `district`, `address_line1`, `address_line2`, `message`, `price`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 19:50:57', '2022-02-05 19:50:57', NULL),
-(2, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 19:52:39', '2022-02-05 19:52:39', NULL),
-(3, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 19:55:12', '2022-02-05 19:55:12', NULL),
-(4, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:06:05', '2022-02-05 20:06:05', NULL),
-(5, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:12:00', '2022-02-05 20:12:00', NULL),
-(6, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:13:55', '2022-02-05 20:13:55', NULL),
-(7, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:15:49', '2022-02-05 20:15:49', NULL),
-(8, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:18:36', '2022-02-05 20:18:36', NULL),
-(9, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:23:19', '2022-02-05 20:23:19', NULL),
-(10, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:25:33', '2022-02-05 20:25:33', NULL);
+INSERT INTO `smartend_seller` (`id`, `name`, `email`, `mobile`, `car_condition`, `brand`, `car_model`, `menufacturing_year`, `milage`, `engine_capacity`, `body_type`, `fuel_type`, `transmission`, `registration_year`, `registration_serial`, `registration_city`, `drive_type`, `exterior_color`, `interior_color`, `comfort`, `enterteinment`, `safty`, `seats`, `wwindow`, `others`, `tax_token_expaire`, `fitnes_exspaire`, `bank_loan`, `name_transfer`, `thana`, `district`, `address_line1`, `address_line2`, `message`, `price`, `created_at`, `updated_at`, `created_by`, `status`) VALUES
+(1, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 19:50:57', '2022-02-05 19:50:57', NULL, 0),
+(2, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 19:52:39', '2022-02-05 19:52:39', NULL, 0),
+(3, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 19:55:12', '2022-02-05 19:55:12', NULL, 0),
+(4, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:06:05', '2022-02-05 20:06:05', NULL, 0),
+(5, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:12:00', '2022-02-05 20:12:00', NULL, 0),
+(6, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:13:55', '2022-02-05 20:13:55', NULL, 0),
+(7, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:15:49', '2022-02-05 20:15:49', NULL, 0),
+(8, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:18:36', '2022-02-05 20:18:36', NULL, 0),
+(9, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:23:19', '2022-02-05 20:23:19', NULL, 0),
+(10, 'Muhammad Golam Saroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 20:25:33', '2022-02-05 20:25:33', NULL, 0),
+(83, 'z', 'test@t.c', '324', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-17 12:25:30', '2022-02-17 12:25:30', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `smartend_seller_images`
+--
+
+DROP TABLE IF EXISTS `smartend_seller_images`;
+CREATE TABLE IF NOT EXISTS `smartend_seller_images` (
+  `seller_id` int(11) NOT NULL,
+  `car_photo_1` varchar(255) DEFAULT NULL,
+  `car_photo_2` varchar(255) DEFAULT NULL,
+  `car_photo_3` varchar(255) DEFAULT NULL,
+  `car_photo_4` varchar(255) DEFAULT NULL,
+  `car_photo_5` varchar(255) DEFAULT NULL,
+  `smart_card_photo` varchar(255) DEFAULT NULL,
+  `tax_token_photo` varchar(255) DEFAULT NULL,
+  `fitness_photo` varchar(255) DEFAULT NULL,
+  `bank_clearance_photo` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1965,13 +2113,17 @@ INSERT INTO `smartend_seller` (`id`, `name`, `email`, `mobile`, `car_condition`,
 -- Table structure for table `smartend_sessions`
 --
 
-CREATE TABLE `smartend_sessions` (
+DROP TABLE IF EXISTS `smartend_sessions`;
+CREATE TABLE IF NOT EXISTS `smartend_sessions` (
   `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci,
   `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_activity` int(11) NOT NULL
+  `last_activity` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `smartend_sessions_user_id_index` (`user_id`),
+  KEY `smartend_sessions_last_activity_index` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1980,11 +2132,12 @@ CREATE TABLE `smartend_sessions` (
 -- Table structure for table `smartend_settings`
 --
 
-CREATE TABLE `smartend_settings` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_settings`;
+CREATE TABLE IF NOT EXISTS `smartend_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `site_title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `site_desc_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `site_keywords_en` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_keywords_en` text COLLATE utf8mb4_unicode_ci,
   `site_webmails` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `notify_messages_status` tinyint(4) DEFAULT NULL,
   `notify_comments_status` tinyint(4) DEFAULT NULL,
@@ -1993,7 +2146,7 @@ CREATE TABLE `smartend_settings` (
   `notify_private_status` tinyint(4) DEFAULT NULL,
   `site_url` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `site_status` tinyint(4) NOT NULL,
-  `close_msg` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `close_msg` text COLLATE utf8mb4_unicode_ci,
   `social_link1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_link2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_link3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2025,18 +2178,19 @@ CREATE TABLE `smartend_settings` (
   `style_header` tinyint(4) DEFAULT NULL,
   `style_footer_bg` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `style_preload` tinyint(4) DEFAULT NULL,
-  `css` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `css` longtext COLLATE utf8mb4_unicode_ci,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `site_title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `site_desc_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `site_keywords_bn` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_keywords_bn` text COLLATE utf8mb4_unicode_ci,
   `contact_t1_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `contact_t7_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `style_logo_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `style_logo_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_settings`
@@ -2051,11 +2205,12 @@ INSERT INTO `smartend_settings` (`id`, `site_title_en`, `site_desc_en`, `site_ke
 -- Table structure for table `smartend_smartend_thana`
 --
 
-CREATE TABLE `smartend_smartend_thana` (
+DROP TABLE IF EXISTS `smartend_smartend_thana`;
+CREATE TABLE IF NOT EXISTS `smartend_smartend_thana` (
   `id` int(11) NOT NULL,
   `name` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
   `district_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `status` int(11) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
@@ -2068,16 +2223,18 @@ CREATE TABLE `smartend_smartend_thana` (
 -- Table structure for table `smartend_thana`
 --
 
-CREATE TABLE `smartend_thana` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_thana`;
+CREATE TABLE IF NOT EXISTS `smartend_thana` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
   `district_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `status` int(11) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=725 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `smartend_thana`
@@ -2703,16 +2860,17 @@ INSERT INTO `smartend_thana` (`id`, `name`, `district_id`, `status`, `created_at
 -- Table structure for table `smartend_topics`
 --
 
-CREATE TABLE `smartend_topics` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_topics`;
+CREATE TABLE IF NOT EXISTS `smartend_topics` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_en` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details_en` longtext COLLATE utf8mb4_unicode_ci,
   `date` date DEFAULT NULL,
   `expire_date` date DEFAULT NULL,
   `video_type` tinyint(4) DEFAULT NULL,
   `photo_file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `attach_file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `video_file` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video_file` text COLLATE utf8mb4_unicode_ci,
   `audio_file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
@@ -2729,12 +2887,13 @@ CREATE TABLE `smartend_topics` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_bn` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details_bn` longtext COLLATE utf8mb4_unicode_ci,
   `seo_title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_description_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_keywords_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seo_url_slug_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `seo_url_slug_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_topics`
@@ -2752,12 +2911,14 @@ INSERT INTO `smartend_topics` (`id`, `title_en`, `details_en`, `date`, `expire_d
 -- Table structure for table `smartend_topic_categories`
 --
 
-CREATE TABLE `smartend_topic_categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_topic_categories`;
+CREATE TABLE IF NOT EXISTS `smartend_topic_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2766,13 +2927,15 @@ CREATE TABLE `smartend_topic_categories` (
 -- Table structure for table `smartend_topic_fields`
 --
 
-CREATE TABLE `smartend_topic_fields` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_topic_fields`;
+CREATE TABLE IF NOT EXISTS `smartend_topic_fields` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `field_id` int(11) NOT NULL,
-  `field_value` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `field_value` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2781,11 +2944,13 @@ CREATE TABLE `smartend_topic_fields` (
 -- Table structure for table `smartend_transmission`
 --
 
-CREATE TABLE `smartend_transmission` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_transmission`;
+CREATE TABLE IF NOT EXISTS `smartend_transmission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_transmission`
@@ -2802,14 +2967,15 @@ INSERT INTO `smartend_transmission` (`id`, `name`, `status`) VALUES
 -- Table structure for table `smartend_users`
 --
 
-CREATE TABLE `smartend_users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_users`;
+CREATE TABLE IF NOT EXISTS `smartend_users` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `two_factor_secret` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `two_factor_recovery_codes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `two_factor_secret` text COLLATE utf8mb4_unicode_ci,
+  `two_factor_recovery_codes` text COLLATE utf8mb4_unicode_ci,
   `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `permissions_id` int(11) DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
@@ -2822,10 +2988,12 @@ CREATE TABLE `smartend_users` (
   `updated_by` int(11) DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `current_team_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `profile_photo_path` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_photo_path` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `smartend_users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_users`
@@ -2840,14 +3008,15 @@ INSERT INTO `smartend_users` (`id`, `name`, `email`, `email_verified_at`, `passw
 -- Table structure for table `smartend_webmails`
 --
 
-CREATE TABLE `smartend_webmails` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `cat_id` int(11) NOT NULL DEFAULT 0,
+DROP TABLE IF EXISTS `smartend_webmails`;
+CREATE TABLE IF NOT EXISTS `smartend_webmails` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cat_id` int(11) NOT NULL DEFAULT '0',
   `group_id` int(11) DEFAULT NULL,
   `contact_id` int(11) DEFAULT NULL,
   `father_id` int(11) DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details` longtext COLLATE utf8mb4_unicode_ci,
   `date` datetime NOT NULL,
   `from_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `from_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2856,12 +3025,13 @@ CREATE TABLE `smartend_webmails` (
   `to_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `to_cc` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `to_bcc` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 0,
-  `flag` tinyint(4) NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `flag` tinyint(4) NOT NULL DEFAULT '0',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2870,15 +3040,17 @@ CREATE TABLE `smartend_webmails` (
 -- Table structure for table `smartend_webmails_files`
 --
 
-CREATE TABLE `smartend_webmails_files` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_webmails_files`;
+CREATE TABLE IF NOT EXISTS `smartend_webmails_files` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `webmail_id` int(11) NOT NULL,
   `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2887,15 +3059,17 @@ CREATE TABLE `smartend_webmails_files` (
 -- Table structure for table `smartend_webmails_groups`
 --
 
-CREATE TABLE `smartend_webmails_groups` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_webmails_groups`;
+CREATE TABLE IF NOT EXISTS `smartend_webmails_groups` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `color` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_webmails_groups`
@@ -2912,8 +3086,9 @@ INSERT INTO `smartend_webmails_groups` (`id`, `name`, `color`, `created_by`, `up
 -- Table structure for table `smartend_webmaster_banners`
 --
 
-CREATE TABLE `smartend_webmaster_banners` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_webmaster_banners`;
+CREATE TABLE IF NOT EXISTS `smartend_webmaster_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `row_no` int(11) NOT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `width` int(11) NOT NULL,
@@ -2927,8 +3102,9 @@ CREATE TABLE `smartend_webmaster_banners` (
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_webmaster_banners`
@@ -2945,30 +3121,31 @@ INSERT INTO `smartend_webmaster_banners` (`id`, `row_no`, `title_en`, `width`, `
 -- Table structure for table `smartend_webmaster_sections`
 --
 
-CREATE TABLE `smartend_webmaster_sections` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_webmaster_sections`;
+CREATE TABLE IF NOT EXISTS `smartend_webmaster_sections` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `row_no` int(11) NOT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` tinyint(4) NOT NULL DEFAULT 0,
-  `title_status` tinyint(4) NOT NULL DEFAULT 1,
-  `photo_status` tinyint(4) NOT NULL DEFAULT 1,
-  `case_status` tinyint(4) NOT NULL DEFAULT 1,
-  `visits_status` tinyint(4) NOT NULL DEFAULT 1,
-  `sections_status` tinyint(4) NOT NULL DEFAULT 0,
-  `comments_status` tinyint(4) NOT NULL DEFAULT 0,
-  `date_status` tinyint(4) NOT NULL DEFAULT 0,
-  `expire_date_status` tinyint(4) NOT NULL DEFAULT 0,
-  `longtext_status` tinyint(4) NOT NULL DEFAULT 0,
-  `editor_status` tinyint(4) NOT NULL DEFAULT 0,
-  `attach_file_status` tinyint(4) NOT NULL DEFAULT 0,
-  `extra_attach_file_status` tinyint(4) NOT NULL DEFAULT 0,
-  `multi_images_status` tinyint(4) NOT NULL DEFAULT 0,
-  `section_icon_status` tinyint(4) NOT NULL DEFAULT 0,
-  `icon_status` tinyint(4) NOT NULL DEFAULT 0,
-  `maps_status` tinyint(4) NOT NULL DEFAULT 0,
-  `order_status` tinyint(4) NOT NULL DEFAULT 0,
-  `related_status` tinyint(4) NOT NULL DEFAULT 0,
-  `status` tinyint(4) NOT NULL DEFAULT 0,
+  `type` tinyint(4) NOT NULL DEFAULT '0',
+  `title_status` tinyint(4) NOT NULL DEFAULT '1',
+  `photo_status` tinyint(4) NOT NULL DEFAULT '1',
+  `case_status` tinyint(4) NOT NULL DEFAULT '1',
+  `visits_status` tinyint(4) NOT NULL DEFAULT '1',
+  `sections_status` tinyint(4) NOT NULL DEFAULT '0',
+  `comments_status` tinyint(4) NOT NULL DEFAULT '0',
+  `date_status` tinyint(4) NOT NULL DEFAULT '0',
+  `expire_date_status` tinyint(4) NOT NULL DEFAULT '0',
+  `longtext_status` tinyint(4) NOT NULL DEFAULT '0',
+  `editor_status` tinyint(4) NOT NULL DEFAULT '0',
+  `attach_file_status` tinyint(4) NOT NULL DEFAULT '0',
+  `extra_attach_file_status` tinyint(4) NOT NULL DEFAULT '0',
+  `multi_images_status` tinyint(4) NOT NULL DEFAULT '0',
+  `section_icon_status` tinyint(4) NOT NULL DEFAULT '0',
+  `icon_status` tinyint(4) NOT NULL DEFAULT '0',
+  `maps_status` tinyint(4) NOT NULL DEFAULT '0',
+  `order_status` tinyint(4) NOT NULL DEFAULT '0',
+  `related_status` tinyint(4) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
   `seo_title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_description_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_keywords_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2981,8 +3158,9 @@ CREATE TABLE `smartend_webmaster_sections` (
   `seo_title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_description_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_keywords_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seo_url_slug_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `seo_url_slug_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_webmaster_sections`
@@ -3005,21 +3183,22 @@ INSERT INTO `smartend_webmaster_sections` (`id`, `row_no`, `title_en`, `type`, `
 -- Table structure for table `smartend_webmaster_section_fields`
 --
 
-CREATE TABLE `smartend_webmaster_section_fields` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_webmaster_section_fields`;
+CREATE TABLE IF NOT EXISTS `smartend_webmaster_section_fields` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `webmaster_id` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `default_value` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_en` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `details_en` text COLLATE utf8mb4_unicode_ci,
   `row_no` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL,
   `required` tinyint(4) NOT NULL,
-  `in_table` tinyint(4) NOT NULL DEFAULT 0,
-  `in_search` tinyint(4) NOT NULL DEFAULT 0,
-  `in_listing` tinyint(4) NOT NULL DEFAULT 0,
-  `in_page` tinyint(4) NOT NULL DEFAULT 0,
-  `in_statics` tinyint(4) NOT NULL DEFAULT 0,
+  `in_table` tinyint(4) NOT NULL DEFAULT '0',
+  `in_search` tinyint(4) NOT NULL DEFAULT '0',
+  `in_listing` tinyint(4) NOT NULL DEFAULT '0',
+  `in_page` tinyint(4) NOT NULL DEFAULT '0',
+  `in_statics` tinyint(4) NOT NULL DEFAULT '0',
   `lang_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `css_class` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `view_permission_groups` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -3030,7 +3209,8 @@ CREATE TABLE `smartend_webmaster_section_fields` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `details_bn` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `details_bn` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -3039,8 +3219,9 @@ CREATE TABLE `smartend_webmaster_section_fields` (
 -- Table structure for table `smartend_webmaster_settings`
 --
 
-CREATE TABLE `smartend_webmaster_settings` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `smartend_webmaster_settings`;
+CREATE TABLE IF NOT EXISTS `smartend_webmaster_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `seo_status` tinyint(4) NOT NULL,
   `analytics_status` tinyint(4) NOT NULL,
   `banners_status` tinyint(4) NOT NULL,
@@ -3080,7 +3261,7 @@ CREATE TABLE `smartend_webmaster_settings` (
   `mail_encryption` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mail_no_replay` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mail_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mail_template` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_template` longtext COLLATE utf8mb4_unicode_ci,
   `nocaptcha_status` tinyint(4) NOT NULL,
   `nocaptcha_secret` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nocaptcha_sitekey` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3111,8 +3292,9 @@ CREATE TABLE `smartend_webmaster_settings` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `smartend_webmaster_settings`
@@ -3127,11 +3309,13 @@ INSERT INTO `smartend_webmaster_settings` (`id`, `seo_status`, `analytics_status
 -- Table structure for table `smartend_windows`
 --
 
-CREATE TABLE `smartend_windows` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smartend_windows`;
+CREATE TABLE IF NOT EXISTS `smartend_windows` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT 1
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `smartend_windows`
@@ -3142,618 +3326,6 @@ INSERT INTO `smartend_windows` (`id`, `name`, `status`) VALUES
 (2, 'Windows Defroster', 1),
 (3, 'Rear Window Wiper', 1),
 (4, 'Tinted Glass', 1);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `smartend_analytics_pages`
---
-ALTER TABLE `smartend_analytics_pages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_analytics_visitors`
---
-ALTER TABLE `smartend_analytics_visitors`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_attach_files`
---
-ALTER TABLE `smartend_attach_files`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_banners`
---
-ALTER TABLE `smartend_banners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_body_type`
---
-ALTER TABLE `smartend_body_type`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_car_brand`
---
-ALTER TABLE `smartend_car_brand`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_car_condition`
---
-ALTER TABLE `smartend_car_condition`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_car_model`
---
-ALTER TABLE `smartend_car_model`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_comfort`
---
-ALTER TABLE `smartend_comfort`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_comments`
---
-ALTER TABLE `smartend_comments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_contacts`
---
-ALTER TABLE `smartend_contacts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_contacts_groups`
---
-ALTER TABLE `smartend_contacts_groups`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_countries`
---
-ALTER TABLE `smartend_countries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_district`
---
-ALTER TABLE `smartend_district`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_drive`
---
-ALTER TABLE `smartend_drive`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_entertainment`
---
-ALTER TABLE `smartend_entertainment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_events`
---
-ALTER TABLE `smartend_events`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_exterior_color`
---
-ALTER TABLE `smartend_exterior_color`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_failed_jobs`
---
-ALTER TABLE `smartend_failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `smartend_failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indexes for table `smartend_fuel_type`
---
-ALTER TABLE `smartend_fuel_type`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_interior_color`
---
-ALTER TABLE `smartend_interior_color`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_languages`
---
-ALTER TABLE `smartend_languages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_ltm_translations`
---
-ALTER TABLE `smartend_ltm_translations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_maps`
---
-ALTER TABLE `smartend_maps`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_menus`
---
-ALTER TABLE `smartend_menus`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_migrations`
---
-ALTER TABLE `smartend_migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_other_feature`
---
-ALTER TABLE `smartend_other_feature`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_password_resets`
---
-ALTER TABLE `smartend_password_resets`
-  ADD KEY `smartend_password_resets_email_index` (`email`);
-
---
--- Indexes for table `smartend_permissions`
---
-ALTER TABLE `smartend_permissions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_photos`
---
-ALTER TABLE `smartend_photos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_related_topics`
---
-ALTER TABLE `smartend_related_topics`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_safety`
---
-ALTER TABLE `smartend_safety`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_seats`
---
-ALTER TABLE `smartend_seats`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_sections`
---
-ALTER TABLE `smartend_sections`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_seller`
---
-ALTER TABLE `smartend_seller`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_sessions`
---
-ALTER TABLE `smartend_sessions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `smartend_sessions_user_id_index` (`user_id`),
-  ADD KEY `smartend_sessions_last_activity_index` (`last_activity`);
-
---
--- Indexes for table `smartend_settings`
---
-ALTER TABLE `smartend_settings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_thana`
---
-ALTER TABLE `smartend_thana`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_topics`
---
-ALTER TABLE `smartend_topics`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_topic_categories`
---
-ALTER TABLE `smartend_topic_categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_topic_fields`
---
-ALTER TABLE `smartend_topic_fields`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_transmission`
---
-ALTER TABLE `smartend_transmission`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_users`
---
-ALTER TABLE `smartend_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `smartend_users_email_unique` (`email`);
-
---
--- Indexes for table `smartend_webmails`
---
-ALTER TABLE `smartend_webmails`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_webmails_files`
---
-ALTER TABLE `smartend_webmails_files`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_webmails_groups`
---
-ALTER TABLE `smartend_webmails_groups`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_webmaster_banners`
---
-ALTER TABLE `smartend_webmaster_banners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_webmaster_sections`
---
-ALTER TABLE `smartend_webmaster_sections`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_webmaster_section_fields`
---
-ALTER TABLE `smartend_webmaster_section_fields`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_webmaster_settings`
---
-ALTER TABLE `smartend_webmaster_settings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `smartend_windows`
---
-ALTER TABLE `smartend_windows`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `smartend_analytics_pages`
---
-ALTER TABLE `smartend_analytics_pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
-
---
--- AUTO_INCREMENT for table `smartend_analytics_visitors`
---
-ALTER TABLE `smartend_analytics_visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `smartend_attach_files`
---
-ALTER TABLE `smartend_attach_files`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_banners`
---
-ALTER TABLE `smartend_banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `smartend_body_type`
---
-ALTER TABLE `smartend_body_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `smartend_car_brand`
---
-ALTER TABLE `smartend_car_brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
-
---
--- AUTO_INCREMENT for table `smartend_car_condition`
---
-ALTER TABLE `smartend_car_condition`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `smartend_car_model`
---
-ALTER TABLE `smartend_car_model`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=464;
-
---
--- AUTO_INCREMENT for table `smartend_comfort`
---
-ALTER TABLE `smartend_comfort`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `smartend_comments`
---
-ALTER TABLE `smartend_comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_contacts`
---
-ALTER TABLE `smartend_contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_contacts_groups`
---
-ALTER TABLE `smartend_contacts_groups`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `smartend_countries`
---
-ALTER TABLE `smartend_countries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
-
---
--- AUTO_INCREMENT for table `smartend_district`
---
-ALTER TABLE `smartend_district`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
-
---
--- AUTO_INCREMENT for table `smartend_drive`
---
-ALTER TABLE `smartend_drive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `smartend_entertainment`
---
-ALTER TABLE `smartend_entertainment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `smartend_events`
---
-ALTER TABLE `smartend_events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_exterior_color`
---
-ALTER TABLE `smartend_exterior_color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
-
---
--- AUTO_INCREMENT for table `smartend_failed_jobs`
---
-ALTER TABLE `smartend_failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_fuel_type`
---
-ALTER TABLE `smartend_fuel_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `smartend_interior_color`
---
-ALTER TABLE `smartend_interior_color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `smartend_languages`
---
-ALTER TABLE `smartend_languages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `smartend_ltm_translations`
---
-ALTER TABLE `smartend_ltm_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_maps`
---
-ALTER TABLE `smartend_maps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_menus`
---
-ALTER TABLE `smartend_menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `smartend_migrations`
---
-ALTER TABLE `smartend_migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT for table `smartend_other_feature`
---
-ALTER TABLE `smartend_other_feature`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `smartend_permissions`
---
-ALTER TABLE `smartend_permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `smartend_photos`
---
-ALTER TABLE `smartend_photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_related_topics`
---
-ALTER TABLE `smartend_related_topics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_safety`
---
-ALTER TABLE `smartend_safety`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `smartend_seats`
---
-ALTER TABLE `smartend_seats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `smartend_sections`
---
-ALTER TABLE `smartend_sections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_seller`
---
-ALTER TABLE `smartend_seller`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `smartend_settings`
---
-ALTER TABLE `smartend_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `smartend_thana`
---
-ALTER TABLE `smartend_thana`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=725;
-
---
--- AUTO_INCREMENT for table `smartend_topics`
---
-ALTER TABLE `smartend_topics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `smartend_topic_categories`
---
-ALTER TABLE `smartend_topic_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_topic_fields`
---
-ALTER TABLE `smartend_topic_fields`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_transmission`
---
-ALTER TABLE `smartend_transmission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `smartend_users`
---
-ALTER TABLE `smartend_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `smartend_webmails`
---
-ALTER TABLE `smartend_webmails`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_webmails_files`
---
-ALTER TABLE `smartend_webmails_files`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_webmails_groups`
---
-ALTER TABLE `smartend_webmails_groups`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `smartend_webmaster_banners`
---
-ALTER TABLE `smartend_webmaster_banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `smartend_webmaster_sections`
---
-ALTER TABLE `smartend_webmaster_sections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `smartend_webmaster_section_fields`
---
-ALTER TABLE `smartend_webmaster_section_fields`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smartend_webmaster_settings`
---
-ALTER TABLE `smartend_webmaster_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `smartend_windows`
---
-ALTER TABLE `smartend_windows`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
