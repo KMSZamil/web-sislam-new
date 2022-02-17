@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\File;
 use App;
 use App\Models\Banner;
 use App\Mail\NotificationEmail;
+use App\Models\CarBrand;
+use App\Models\CarModel;
 use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Section;
@@ -215,6 +217,9 @@ class HomeController extends Controller
             $HomePage = Topic::where("status", 1)->find($WebmasterSettings->default_currency_id);
         }
 
+        $CarBrands = CarBrand::where('status',1)->get();
+        $CarModels = CarModel::where('status',1)->get();
+
         return view("frontEnd.home",
             compact("WebsiteSettings",
                 "WebmasterSettings",
@@ -230,7 +235,10 @@ class HomeController extends Controller
                 "HomeTopics",
                 "HomePhotos",
                 "HomePartners",
-                "LatestNews"));
+                "LatestNews",
+                "CarBrands",
+                "CarModels",
+            ));
 
     }
 

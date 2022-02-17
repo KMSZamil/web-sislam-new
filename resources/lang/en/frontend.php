@@ -73,6 +73,7 @@ return [
     'SELL' => 'Sell',
     'EXCHANGE' => 'Exchange',
     'CARSELL' => 'Sell your car with S Islam Cars & get payment instantly',
+    'CARBUY' => 'Buy car with S Islam Cars & get payment instantly',
     'CARINFO1' => 'Send your vehicle information!!!',
     'CARINFO2' => 'Right away our representative will arrive at your door with the money...',
     'NAME' => 'Full Name',
