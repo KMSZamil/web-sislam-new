@@ -258,6 +258,7 @@ return array(
     'editCars' => 'Edit Car',
     'deleteCars' => 'Delete Car',
     'searchAllCars' => 'Search all cars',
+     'allCars' => 'All Cars',
     'firstName' => 'First Name',
     'lastName' => 'Last Name',
     'companyName' => 'Company Name',
@@ -641,4 +642,20 @@ return array(
     'calendarFirstDay' => 'First Day of week',
     'dateFormat' => 'Date format',
     'daysName' => ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    
+    'CAR_CONDITION' => 'Car Condition',
+    'CAR_BRAND' => 'Car Brand',
+    'CAR_MODEL' => 'Car Model',
+    'YEAR' => 'Year',
+    'CAR_BODY' => 'Car Body',
+    'MILEAGE' => 'Mileage (KM)',
+    'FUEL_TYPE' => 'Fuel type',
+    'ENGINE_CAPACITY' => 'Engine Capacity',
+    'ACTIONS' => 'Actions',
+    'PRICE' => 'Price',
+    'SL' => 'Serial',
+    'CARDETAILS' => 'Car details',
+    'VIDEOURL' => 'Youtube video url'
+    
+    
 );

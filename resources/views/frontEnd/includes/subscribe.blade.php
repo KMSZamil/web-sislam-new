@@ -1,5 +1,5 @@
 @if(Helper::GeneralSiteSettings("style_subscribe"))
-    <div class="col-lg-{{$bx4w}}">
+    <div class="col-md-3">
         <div class="widget">
             <h4 class="widgetheading"><i class="fa fa-envelope-open"></i>&nbsp; {{ __('frontend.newsletter') }}</h4>
             <p>{{ __('frontend.subscribeToOurNewsletter') }}</p>

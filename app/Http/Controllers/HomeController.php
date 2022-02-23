@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seller;
 use Illuminate\Support\Facades\File;
 use App;
 use App\Models\Banner;
@@ -220,6 +221,21 @@ class HomeController extends Controller
         $CarBrands = CarBrand::where('status',1)->get();
         $CarModels = CarModel::where('status',1)->get();
 
+        $dashboardCars = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'drive_type',
+            'car_transmission'
+        )
+        ->where('status',1)
+        ->where('home_feature',1)
+        ->where('car_status',2)
+        ->get();
+        //dd($dashboardCars);
+
         return view("frontEnd.home",
             compact("WebsiteSettings",
                 "WebmasterSettings",
@@ -238,6 +254,7 @@ class HomeController extends Controller
                 "LatestNews",
                 "CarBrands",
                 "CarModels",
+            "dashboardCars"
             ));
 
     }

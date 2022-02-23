@@ -13,6 +13,7 @@
 <link href="{{ URL::asset('assets/frontend/css/style.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/frontend/css/color.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/frontend/css/colors.css') }}" rel="stylesheet"/>
+<link href="{{ URL::asset('assets/frontend/css/flaticon.css') }}" rel="stylesheet"/>
 <link rel="stylesheet" href="{{ URL::asset('assets/frontend/js/owl-carousel/assets/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/frontend/js/owl-carousel/assets/owl.theme.default.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/frontend/css/select2/select2.min.css') }}">

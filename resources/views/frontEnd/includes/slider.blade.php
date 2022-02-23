@@ -93,6 +93,7 @@
                     </div> --}}
                     @include('frontEnd.includes.buyform')
                     @include('frontEnd.includes.sellform')
+                    @include('frontEnd.includes.exchangeform')
                     <div class="tab-pane" id="tab-exc">
                         <p>amararr</p>
                     </div>

@@ -11,7 +11,7 @@
 @endif
 <header>
     <div class="site-top">
-        <div class="container">
+        <div class="container" style="position: unset;">
             <div>
                 <div class="pull-right">
                     @if(Helper::GeneralWebmasterSettings("dashboard_link_status"))
@@ -46,13 +46,7 @@
                                         {{ csrf_field() }}
                                     </form>
                                 </div>
-                            </div>
-                        @else
-                            <strong>
-                                <a href="{{ route("adminHome") }}"><i
-                                        class="fa fa-cog"></i> {{__('frontend.dashboard')}}
-                                </a>
-                            </strong>
+                            </div>                        
                         @endif
                     @endif
                     @if(count(Helper::languagesList()) >1)

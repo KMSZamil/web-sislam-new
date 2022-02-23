@@ -1,6 +1,6 @@
 <div class="tab-pane" id="tab-buy">
     <h2 class="form-h2-title">{{ __('frontend.CARBUY') }}</h2>
-    <p><span>{{ __('frontend.CARINFO1') }} {{ __('frontend.CARINFO2') }}</span></p>
+    <p><span>{{ __('frontend.CARINFO3') }}</span></p>
     @if (count($errors) > 0)
     <div class="custom-alerts alert alert-danger fade in">
         <div class="error">
@@ -19,44 +19,24 @@
     </div>
     @endif
     <div class="form-group">
-        {{-- {!! Form::open(array('url' => '/seller-basic', 'method' => 'post')) !!} --}}
+        {!! Form::open(array('url' => '/buyer-basic', 'method' => 'post')) !!}
         <!-- CROSS Site Request Forgery Protection -->
         @csrf
-            <div class="form-group">
-                <label>{{ __('frontend.CAR_BRAND') }} *</label>
-                <select class="form-control" name="car_brand" id="car_brand" required>
-                    @foreach($CarBrands as $row)
-                        <option value="{{ $row->id }}">{{ $row->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
-                <label>{{ __('frontend.CAR_MODEL') }} *</label>
-                <select class="form-control" name="car_model" id="car_model" required>
-                    @foreach($CarModels as $row)
-                        <option value="{{ $row->id }}">{{ $row->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-        <button name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
-        <br>
-        <table class="table table-bordered">
-            <tr>
-              <th>Brand</th>
-              <th>Model</th>
-              <th>Price</th>
-              <th>Action</th>
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>
-                  <button></button>
-              </td>
-            </tr>
-          </table>
-        {{-- {{Form::close()}} --}}
+        <div class="form-group">
+            <label>{{ __('frontend.NAME') }} *</label>
+            <input type="text" class="form-control" name="name" id="name" required>
+        </div>
+        <div class="form-group">
+            <label>{{ __('frontend.EMAIL') }}</label>
+            <input type="email" class="form-control" name="email" id="email">
+        </div>
+        <div class="form-group">
+            <label>{{ __('frontend.MOBILE') }} *</label>
+            <input type="text" class="form-control" name="mobile" id="mobile required">
+        </div>
+        <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
+
+        {{Form::close()}}
     </div>
 </div>
 

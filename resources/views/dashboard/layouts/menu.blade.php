@@ -192,14 +192,48 @@ $mnu_title_var2 = 'title_' . env('DEFAULT_LANGUAGE');
                             <?php
                             $currentFolder = 'cars'; // Put folder name here
                             $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+
+                            $currentFolder2 = 'cars'; // Put folder name here
+                            $PathCurrentFolder2 = substr($urlAfterRoot, 0, strlen($currentFolder2));
+
+
                             ?>
-                            <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
-                                <a href="{{ route('cars') }}">
+                            <li
+                                {{ $PathCurrentFolder == $currentFolder ||$PathCurrentFolder2 == $currentFolder2 ? 'class=active': '' }}>
+                                <a>
+                                    <span class="nav-caret">
+                                        <i class="fa fa-caret-down"></i>
+                                    </span>
                                     <span class="nav-icon">
-                                        <i class="material-icons">&#xe84f;</i>
+                                        <i class="material-icons">&#xe1b8;</i>
                                     </span>
                                     <span class="nav-text">{{ __('backend.car') }}</span>
                                 </a>
+                                <ul class="nav-sub">
+
+                                    <?php
+                                    $currentFolder = 'cars'; // Put folder name here
+                                    $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+                                    ?>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                        <a onclick="location.href='{{ route('carsAll') }}'">
+							                <span  class="nav-text">{{ __('backend.allCars') }}</span>
+                                        </a>
+                                    </li>
+
+                                    <?php
+                                    $currentFolder = 'cars'; // Put folder name here
+                                    $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+                                    ?>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                        <a onclick="location.href='{{ route('carsAdd') }}'">
+							                <span  class="nav-text">{{ __('backend.newCars') }}</span>
+                                        </a>
+                                    </li>
+
+
+
+                                </ul>
                             </li>
                         @endif
                     @endif

@@ -10,13 +10,19 @@
 /* ===================================
 1. General
 ==================================== */
+@font-face {
+    src: url(assets/frontend/font/flaticon.ttf);
+}
 
 body {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.6em;
-    color: #656565;
+    color: #000;
+}
+.para-cont{
+    font-size: 16px;
 }
 
 a:active {
@@ -2540,4 +2546,436 @@ li {
     left: auto;
     z-index: 99999999;
     margin-top: 5px;
+}
+.paralex-sec{
+    background-image: url("/uploads/frontend/s_islam_car_servicess.jpg");
+    background-size: 100% 100%!important;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: static;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50% 0%;
+    overflow: hidden;
+}
+.buy_box_side{
+    background-color: #fdb700;
+    opacity: 0.8;
+    padding: 15px 30px;
+}
+.buy_box_center{
+    background-color: #0b1b38;
+    opacity: 0.8;
+    padding: 15px 30px;
+}
+
+
+
+.m-b30 {
+    margin-bottom: 30px;
+}
+.compare-box {
+    padding: 20px 20px;
+    box-shadow: 0px 4px 10px rgb(0 0 0 / 18%);
+    border-radius: var(--border-radius-base);
+    text-align: center;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+.car-list-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 0px 4px 10px rgb(0 0 0 / 18%);
+    -webkit-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.car-list-box .media-box {
+    overflow: hidden;
+    position: relative;
+}
+.car-list-box .media-box .overlay-bx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.overlay-bx {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.car-list-box .media-box:after {
+    height: 100%;
+    width: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    -webkit-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+.car-list-box.box-sm .list-info {
+    padding: 25px 20px;
+}
+.car-list-box .list-info {
+    position: relative;
+    padding: 40px 40px;
+}
+.car-list-box.box-sm .list-info .title + .car-type {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.car-list-box.box-sm .list-info .badge {
+    padding: 10px 16px;
+    font-size: 18px;
+    right: 20px;
+}
+.car-list-box .list-info .badge {
+    position: absolute;
+    top: -25px;
+    right: 30px;
+    background-color: #0b1b38;
+    padding: 12px 20px;
+    font-size: 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    border: 1px #fff solid;
+}
+.badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+.feature-list {
+    display: flex;
+}
+.car-list-box.box-sm .feature-list > div:not(:last-child) {
+    margin-right: 20px;
+}
+.input-group > .form-control{
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+.bootstrap-select>select {
+    position: absolute!important;
+    bottom: 0;
+    left: 50%;
+    display: block!important;
+    width: 0.5px!important;
+    height: 100%!important;
+    padding: 0!important;
+    opacity: 0!important;
+    border: none;
+    z-index: 0!important;
+}
+.bootstrap-select>.dropdown-toggle {
+    position: relative;
+    width: 100%;
+    text-align: right;
+    white-space: nowrap;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.bootstrap-select .dropdown-toggle .filter-option {
+    position: static;
+    top: 0;
+    left: 0;
+    float: left;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+}
+.dropup .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.3em solid;
+    border-left: 0.3em solid transparent;
+}
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+.iconcol{
+    color: #fdb700;
+}
+.block-title {
+    position: relative;
+    display: block;
+    margin-bottom: 40px;
+    overflow: hidden;
+    text-align: center;
+}
+.block-title:before {
+    left: 0;
+    transform: skewY(4.5deg);
+}
+.block-title:before, .block-title:after {
+    position: absolute;
+    bottom: -3vw;
+    width: 50.01%;
+    height: 8vw;
+    background-color: #fff;
+    z-index: 101;
+    content: '';
+}
+.block-title:after {
+    right: 0;
+    transform: skewY(-4.5deg);
+}
+.block-title:before, .block-title:after {
+    position: absolute;
+    bottom: -3vw;
+    width: 50.01%;
+    height: 8vw;
+    background-color: #fff;
+    z-index: 101;
+    content: '';
+}
+.section-bg_second {
+    background-color: #0b1b38;
+}
+.block-title__inner {
+    padding-top: 60px;
+    padding-bottom: 120px;
+}
+.section-bg .bg-inner {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+.bg-inner {
+    position: relative;
+    z-index: 10;
+}
+.ui-title-page {
+    margin-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: Ubuntu;
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+.decor-1 {
+    width: 30px;
+    margin-bottom: 20px;
+    border-top: 1px solid #ccc;
+}
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.decor-1:after {
+    display: block;
+    width: 30px;
+    margin-top: 2px;
+    margin-left: 10px;
+    border-top: 1px solid #ccc;
+    content: '';
+}
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 18px;
+    list-style: none;
+    border-radius: 4px;
+}
+.breadcrumb > li {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.section-bg:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.1;
+    content: '';
+}
+.block-title__inner:after {
+    background-image: url("/uploads/frontend/card.jpeg");
+}
+.feter-img{
+    margin-bottom: 15px;
+}
+.img-thmb{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.car-details-book{
+    padding: 30px 25px;
+    border-bottom: solid 1px #e2e2e2;
+}
+.sidebar-right {
+    margin: 0 0 30px 0;
+    background: #fff;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+.img-featr{
+    max-width: 100%;
+}
+.car-details-book ul li {
+    list-style: none;
+    padding: 5px 0;
+    color: #787878;
+    font-size: 15px;
+    line-height: 30px!important;
+    border-bottom: 1px dotted #DDD;
+    text-align: right;
+    font-weight: 500;
+}
+.car-details-book ul span {
+    font-weight: 500;
+    float: left;
+    color: #474646;
+}
+.car-details-book ul, .car-details-book ol {
+    padding: 0;
+    margin: 0;
+}
+.sidebar-title {
+    font-size: 20px;
+    position: relative;
+    margin: 0 0 25px;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 1024px) {
+    /* STYLES HERE */
+}
+
+@media screen and (min-device-width: 551px) and (max-device-width: 1024px) { 
+    
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 15px;
+        margin-bottom: 10px
+    }
+
+    h4, .h4, h5, .h5, h6, .h6 {
+        margin-top: 10px;
+        margin-bottom: 10px
+    }
+    h1, .h1 {
+        font-size: 30px
+    }
+
+    h2, .h2 {
+        font-size: 24px
+    }
+
+    h3, .h3 {
+        font-size: 20px
+    }
+
+    h4, .h4 {
+        font-size: 16px
+    }
+
+    h5, .h5 {
+        font-size: 14px
+    }
+
+    h6, .h6 {
+        font-size: 12px
+    }
+
+    p {
+        margin: 0 0 10px
+    }
+}
+
+@media only screen and (max-device-width: 550px) {
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 15px;
+        margin-bottom: 10px
+    }
+
+    h4, .h4, h5, .h5, h6, .h6 {
+        margin-top: 10px;
+        margin-bottom: 10px
+    }
+
+    h1, .h1 {
+        font-size: 24px
+    }
+
+    h2, .h2 {
+        font-size: 20px
+    }
+
+    h3, .h3 {
+        font-size: 18px
+    }
+
+    h4, .h4 {
+        font-size: 16px
+    }
+
+    h5, .h5 {
+        font-size: 14px
+    }
+
+    h6, .h6 {
+        font-size: 12px
+    }
+
+    p {
+        margin: 0 0 10px
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\carSellController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 
 // Language Route
 Route::post('/lang', [LanguageController::class, 'index'])->middleware('LanguageSwitcher')->name('lang');
@@ -45,9 +50,24 @@ Route::get('/logout', function () {
     return redirect('/');
 })->name('logout');
 
+
+
 Route::post('/seller-basic', 'carSellController@index');
+Route::post('/cache-clear', 'carSellController@cacheClear');
+Route::post('/buyer-basic', 'carSellController@buyerBasic');
+Route::post('/exchange-basic', 'carSellController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
-Route::post('/seller_basic_data_save', [carSellController::class, 'seller_basic_data_save'])->name('seller_basic_data_save');
+Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
+
+
+
+Route::get('/car-details/{id}', 'carDetailsController@index')->name('car-details');
+Route::get('/buy-a-car', 'carsController@buyAcar');
+Route::get('/{lang?}/buy-a-car', 'carsController@buyAcar');
+Route::get('/sell-a-car', 'carsController@sellAcar');
+Route::get('/{lang?}/sell-a-car', 'carsController@sellAcar');
+Route::get('/exchange-a-car', 'carsController@exchangeAcar');
+Route::get('/{lang?}/exchange-a-car', 'carsController@exchangeAcar');
 
 // Start of Frontend Routes
 // ../site map

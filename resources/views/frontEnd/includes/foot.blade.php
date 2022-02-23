@@ -21,7 +21,6 @@
 <script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
 <script src="{{ URL::asset('assets/frontend/js/my_custom.js') }}"></script>
 
-
 {{--ajax subscribe to news letter--}}
 @if(Helper::GeneralSiteSettings("style_subscribe"))
     <script type="text/javascript">

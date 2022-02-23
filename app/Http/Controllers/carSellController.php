@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\BodyType;
 use App\Models\CarBrand;
 use App\Models\CarCondition;
@@ -24,6 +25,7 @@ use App\Models\Transmission;
 use App\Models\Window;
 use Illuminate\Http\Request;
 use App\Models\SmartendSeller;
+use App\Models\SmartendCustomer;
 use App\Models\WebmasterSection;
 use App\Models\WebmasterSetting;
 use App\Models\Topic;
@@ -33,22 +35,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Validator;
 
+class carSellController extends Controller {
 
-class carSellController extends Controller
-{
-    public function index(Request $request){
-        //dd($request->all());
-//        if ($lang != "") {
-//            // Set Language
-//            App::setLocale($lang);
-//            \Session::put('locale', $lang);
-//        }
+    public function index(Request $request) {
         // General Webmaster Settings
         $WebmasterSettings = WebmasterSetting::find(1);
 
         // General for all pages
         $WebsiteSettings = Setting::find(1);
-        
+
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
         //dd($site_desc_var);
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
@@ -57,79 +52,99 @@ class carSellController extends Controller
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        $CarConditions = CarCondition::where('status',1)->get();
-        $CarBrands = CarBrand::where('status',1)->get();
-        $CarModels = CarModel::where('status',1)->get();
-        $BodyTypes = BodyType::where('status',1)->get();
-        $FuelTypes = FuelType::where('status',1)->get();
-        $Transmissions = Transmission::where('status',1)->get();
-        $Drives = Drive::where('status',1)->get();
-        $ExteriorColors = ExteriorColor::where('status',1)->get();
-        $InteriorColors = InteriorColor::where('status',1)->get();
-        $Districts = District::where('status',1)->get();
-        $Comforts = Comfort::where('status',1)->get();
-        $Entertainments = Entertainment::where('status',1)->get();
-        $Safeties = Safety::where('status',1)->get();
-        $Seats = Seat::where('status',1)->get();
-        $Windows = Window::where('status',1)->get();
-        $OtherFeatures = OtherFeature::where('status',1)->get();
-        $District = District::where('status',1)->get();
-        $Thana = Thana::where('status',1)->get();
+        $CarConditions = CarCondition::where('status', 1)->get();
+        $CarBrands = CarBrand::where('status', 1)->get();
+        $CarModels = CarModel::where('status', 1)->get();
+        $BodyTypes = BodyType::where('status', 1)->get();
+        $FuelTypes = FuelType::where('status', 1)->get();
+        $Transmissions = Transmission::where('status', 1)->get();
+        $Drives = Drive::where('status', 1)->get();
+        $ExteriorColors = ExteriorColor::where('status', 1)->get();
+        $InteriorColors = InteriorColor::where('status', 1)->get();
+        $Districts = District::where('status', 1)->get();
+        $Comforts = Comfort::where('status', 1)->get();
+        $Entertainments = Entertainment::where('status', 1)->get();
+        $Safeties = Safety::where('status', 1)->get();
+        $Seats = Seat::where('status', 1)->get();
+        $Windows = Window::where('status', 1)->get();
+        $OtherFeatures = OtherFeature::where('status', 1)->get();
+        $District = District::where('status', 1)->get();
+        $Thana = Thana::where('status', 1)->get();
 
         $validator = Validator::make($request->all(), [
                     'name' => 'required',
                     'mobile' => 'required'
         ]);
-        
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
         $save_data = array(
             'name' => $request->name,
             'email' => $request->email,
-            'mobile' => $request->mobile,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
+            'sell_car' => 1
         );
-        $data = SmartendSeller::create($save_data);
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
         $GetID = $data->id;
         return view('frontEnd.sellCarDetaails', compact(
-                "data", 
-                "WebsiteSettings",
-                "WebmasterSettings",
-                "PageTitle",
-                "PageDescription",
-                "PageKeywords",
-                "PageTitle",
-                "CarConditions",
-                "CarBrands",
-                "CarModels",
-                "BodyTypes",
-                "FuelTypes",
-                "Transmissions",
-                "Drives",
-                "ExteriorColors",
-                "InteriorColors",
-                "Districts",
-                "Comforts",
-                "Entertainments",
-                "Safeties",
-                "Seats",
-                "Windows",
-                "District",
-                "Thana",
-                "OtherFeatures",
-                "PageDescription",
-                "LatestNews",
-                "GetID",
-                "PageKeywords",));
+                        "data",
+                        "WebsiteSettings",
+                        "WebmasterSettings",
+                        "PageTitle",
+                        "PageDescription",
+                        "PageKeywords",
+                        "PageTitle",
+                        "CarConditions",
+                        "CarBrands",
+                        "CarModels",
+                        "BodyTypes",
+                        "FuelTypes",
+                        "Transmissions",
+                        "Drives",
+                        "ExteriorColors",
+                        "InteriorColors",
+                        "Districts",
+                        "Comforts",
+                        "Entertainments",
+                        "Safeties",
+                        "Seats",
+                        "Windows",
+                        "District",
+                        "Thana",
+                        "OtherFeatures",
+                        "PageDescription",
+                        "LatestNews",
+                        "GetID",
+                        "PageKeywords",));
     }
 
-    public function seller_basic_data_save(Request $request){
-        $seller_data = Seller::where('id',$request->GetID)->first();
-        $seller_data->name = $request->name;
-        $seller_data->email = $request->email;
-        $seller_data->mobile = $request->mobile;
+    public function seller_basic_data_save(Request $request) {
+        $WebmasterSettings = WebmasterSetting::find(1);
+
+        // General for all pages
+        $WebsiteSettings = Setting::find(1);
+
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+
+        $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+        $customer_data = SmartendCustomer::where('id', $request->GetID)->first();
+        $save_data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'thana' => $request->thana,
+            'district' => $request->district,
+            'address_line1' => $request->address1,
+            'address_line2' => $request->address,
+            'buy_car' => 1
+        );
+        $customer = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
+
+        $seller_data = new Seller();
         $seller_data->car_condition = $request->car_condition;
         $seller_data->brand = $request->car_brand;
         $seller_data->car_model = $request->car_model;
@@ -154,83 +169,193 @@ class carSellController extends Controller
         $seller_data->fitnes_exspaire = isset($request->fitness_exp_date) ? date('Y-m-d', strtotime($request->fitness_exp_date)) : null;
         $seller_data->bank_loan = $request->bank_loan;
         $seller_data->name_transfer = $request->name_transfer;
-        $seller_data->thana = $request->thana;
-        $seller_data->district = $request->district;
-        $seller_data->address_line1 = $request->address1;
-        $seller_data->address_line2 = $request->address2;
+
         $seller_data->message = $request->sellers_note;
         $seller_data->price = $request->asking_price;
-        $seller_data->created_by = $request->GetID;
+        $seller_data->created_by = $customer->id;
+        $seller_data->customer_id = $customer->id;
         $seller_data->save();
         $seller_image = new SellerImage();
         if ($request->file('car_photo_1')) {
-            $md5Name = md5_file($request->file('car_photo_1')->getRealPath()).time();
+            $md5Name = md5_file($request->file('car_photo_1')->getRealPath()) . time();
             $mimeType = $request->file('car_photo_1')->guessExtension();
-            $path = $request->file('car_photo_1')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('car_photo_1')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->car_photo_1 = $path;
         }
         if ($request->file('car_photo_2')) {
-            $md5Name = md5_file($request->file('car_photo_2')->getRealPath()).time();
+            $md5Name = md5_file($request->file('car_photo_2')->getRealPath()) . time();
             $mimeType = $request->file('car_photo_2')->guessExtension();
-            $path = $request->file('car_photo_2')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('car_photo_2')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->car_photo_2 = $path;
         }
         if ($request->file('car_photo_3')) {
-            $md5Name = md5_file($request->file('car_photo_3')->getRealPath()).time();
+            $md5Name = md5_file($request->file('car_photo_3')->getRealPath()) . time();
             $mimeType = $request->file('car_photo_3')->guessExtension();
-            $path = $request->file('car_photo_3')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('car_photo_3')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->car_photo_3 = $path;
         }
         if ($request->file('car_photo_4')) {
-            $md5Name = md5_file($request->file('car_photo_4')->getRealPath()).time();
+            $md5Name = md5_file($request->file('car_photo_4')->getRealPath()) . time();
             $mimeType = $request->file('car_photo_4')->guessExtension();
-            $path = $request->file('car_photo_4')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('car_photo_4')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->car_photo_4 = $path;
         }
         if ($request->file('car_photo_5')) {
-            $md5Name = md5_file($request->file('car_photo_5')->getRealPath()).time();
+            $md5Name = md5_file($request->file('car_photo_5')->getRealPath()) . time();
             $mimeType = $request->file('car_photo_5')->guessExtension();
-            $path = $request->file('car_photo_5')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('car_photo_5')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->car_photo_5 = $path;
         }
         if ($request->file('smart_card')) {
-            $md5Name = md5_file($request->file('smart_card')->getRealPath()).time();
+            $md5Name = md5_file($request->file('smart_card')->getRealPath()) . time();
             $mimeType = $request->file('smart_card')->guessExtension();
-            $path = $request->file('smart_card')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('smart_card')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->smart_card_photo = $path;
         }
         if ($request->file('tax_token')) {
-            $md5Name = md5_file($request->file('tax_token')->getRealPath()).time();
+            $md5Name = md5_file($request->file('tax_token')->getRealPath()) . time();
             $mimeType = $request->file('tax_token')->guessExtension();
-            $path = $request->file('tax_token')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('tax_token')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->tax_token_photo = $path;
         }
         if ($request->file('fitness')) {
-            $md5Name = md5_file($request->file('fitness')->getRealPath()).time();
+            $md5Name = md5_file($request->file('fitness')->getRealPath()) . time();
             $mimeType = $request->file('fitness')->guessExtension();
-            $path = $request->file('fitness')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('fitness')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->fitness_photo = $path;
         }
         if ($request->file('bank_clearance')) {
-            $md5Name = md5_file($request->file('bank_clearance')->getRealPath()).time();
+            $md5Name = md5_file($request->file('bank_clearance')->getRealPath()) . time();
             $mimeType = $request->file('bank_clearance')->guessExtension();
-            $path = $request->file('bank_clearance')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('bank_clearance')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->bank_clearance_photo = $path;
         }
         $seller_image->seller_id = $seller_data->id;
         $seller_image->save();
-        return Redirect::to('/');
+
+        return view('frontEnd.thanks', compact("WebsiteSettings", "WebmasterSettings", "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))->with('success', __('frontend.SUCESSMSG'));
     }
-    
-    public function latest_topics($section_id, $limit = 3)
-    {
+
+    public function buyerBasic(Request $request) {
+        // General Webmaster Settings
+        $WebmasterSettings = WebmasterSetting::find(1);
+
+        // General for all pages
+        $WebsiteSettings = Setting::find(1);
+
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        //dd($site_desc_var);
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+
+        $PageTitle = ""; // will show default site Title
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+        $validator = Validator::make($request->all(), [
+                    'name' => 'required',
+                    'mobile' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $save_data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'buy_car' => 1
+        );
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
+        return redirect('buy-a-car');
+    }
+
+    public function exchangeBasic(Request $request) {
+        // General Webmaster Settings
+        $WebmasterSettings = WebmasterSetting::find(1);
+
+        // General for all pages
+        $WebsiteSettings = Setting::find(1);
+
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        //dd($site_desc_var);
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+
+        $PageTitle = ""; // will show default site Title
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+        $CarConditions = CarCondition::where('status', 1)->get();
+        $CarBrands = CarBrand::where('status', 1)->get();
+        $CarModels = CarModel::where('status', 1)->get();
+        $BodyTypes = BodyType::where('status', 1)->get();
+        $FuelTypes = FuelType::where('status', 1)->get();
+        $Transmissions = Transmission::where('status', 1)->get();
+        $Drives = Drive::where('status', 1)->get();
+        $ExteriorColors = ExteriorColor::where('status', 1)->get();
+        $InteriorColors = InteriorColor::where('status', 1)->get();
+        $Districts = District::where('status', 1)->get();
+        $Comforts = Comfort::where('status', 1)->get();
+        $Entertainments = Entertainment::where('status', 1)->get();
+        $Safeties = Safety::where('status', 1)->get();
+        $Seats = Seat::where('status', 1)->get();
+        $Windows = Window::where('status', 1)->get();
+        $OtherFeatures = OtherFeature::where('status', 1)->get();
+        $District = District::where('status', 1)->get();
+        $Thana = Thana::where('status', 1)->get();
+
+        $validator = Validator::make($request->all(), [
+                    'name' => 'required',
+                    'mobile' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $save_data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'exchange_car' => 1
+        );
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
+        $GetID = $data->id;
+        return view('frontEnd.exchangeCarDetails', compact(
+                        "data",
+                        "WebsiteSettings",
+                        "WebmasterSettings",
+                        "PageTitle",
+                        "PageDescription",
+                        "PageKeywords",
+                        "PageTitle",
+                        "CarConditions",
+                        "CarBrands",
+                        "CarModels",
+                        "BodyTypes",
+                        "FuelTypes",
+                        "Transmissions",
+                        "Drives",
+                        "ExteriorColors",
+                        "InteriorColors",
+                        "Districts",
+                        "Comforts",
+                        "Entertainments",
+                        "Safeties",
+                        "Seats",
+                        "Windows",
+                        "District",
+                        "Thana",
+                        "OtherFeatures",
+                        "PageDescription",
+                        "LatestNews",
+                        "GetID",
+                        "PageKeywords",));
+    }
+
+    public function latest_topics($section_id, $limit = 3) {
         return Topic::where([['status', 1], ['webmaster_id', $section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $section_id], ['expire_date', null]])->orderby('row_no', 'desc')->limit($limit)->get();
     }
 
-
-    public function get_car_models(Request $request)
-    {
-        $models = CarModel::where('car_brand',$request->car_brand_id)->get();
+    public function get_car_models(Request $request) {
+        $models = CarModel::where('car_brand', $request->car_brand_id)->get();
         //dd($models);
         return view('frontEnd.get_car_models', compact('models'));
     }
@@ -238,8 +363,7 @@ class carSellController extends Controller
     /**
      * Language Check
      */
-    public function getLanguage($lang)
-    {
+    public function getLanguage($lang) {
         // List of active languages for API
         $Language = Language::where("status", true)->where("code", $lang)->first();
 
@@ -248,4 +372,18 @@ class carSellController extends Controller
         }
         return $lang;
     }
+
+    public function cacheClear() {
+        exit('iii');
+        //laravel artisan clear cache 
+        Artisan::call('view:clear');
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+
+        Artisan::call('clear-compiled');
+        Artisan::call('route:clear');
+        Artisan::call('config:cache');
+        return 'Application cache cleared';
+    }
+
 }
