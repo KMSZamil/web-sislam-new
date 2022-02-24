@@ -1,6 +1,6 @@
-<div class="tab-pane" id="tab-exc-mob">
-    <h2 class="form-h2-title">{{ __('frontend.CAREXC') }}</h2>
-    <p><span>{{ __('frontend.CARINFO1') }}</span></p>
+<div class="tab-pane" id="tab-buy-mob">
+    <h2 class="form-h2-title">{{ __('frontend.CARBUY') }}</h2>
+    <p><span>{{ __('frontend.CARINFO3') }}</span></p>
     @if (count($errors) > 0)
     <div class="custom-alerts alert alert-danger fade in">
         <div class="error">
@@ -19,7 +19,7 @@
     </div>
     @endif
     <div class="form-group">
-        {!! Form::open(array('url' => '/exchange-basic', 'method' => 'post')) !!}
+        {!! Form::open(array('url' => '/buyer-basic', 'method' => 'post')) !!}
         <!-- CROSS Site Request Forgery Protection -->
         @csrf
         <div class="form-group">
@@ -39,6 +39,9 @@
         {{Form::close()}}
     </div>
 </div>
+
+<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>
+<script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         $('#car_brand').change(function () {

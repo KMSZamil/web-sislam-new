@@ -73,32 +73,22 @@
             </li>
             @endforeach
         </ul>
-        <div class="flex-form">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-buy" data-toggle="tab"><i class="fa fa-credit-card fa-bsle"></i><br/>{{ __('frontend.BUY') }}</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#tab-sel" data-toggle="tab"><i class="fa fa-money fa-bsle"></i><br/>{{ __('frontend.SELL') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-exc" data-toggle="tab"><i class="fa fa-exchange fa-bsle"></i><br/>{{ __('frontend.EXCHANGE') }}</a>
-                        </li>
-                    </ul>
-                    {{-- <div class="tab-pane" id="tab-buy">
-                        <h3>Hassle-free and easy way instantly sell, buy or exchange your car at any time in Bangladesh with S Islam Cars</h3>
-                        <p><i class="fa fa-check-circle fa-bse"></i>We will buy your used car, assist you in buying a new one or you can exchange your car<br>
-                            <i class="fa fa-check-circle fa-bse"></i>Secure &amp; instant payments by cash or bank online transfer<br>
-                            <i class="fa fa-check-circle fa-bse"></i>We arrange all the paperwork</p>
-                    </div> --}}
-                    @include('frontEnd.includes.buyform')
-                    @include('frontEnd.includes.sellform')
-                    @include('frontEnd.includes.exchangeform')
-                    <div class="tab-pane" id="tab-exc">
-                        <p>amararr</p>
-                    </div>
-
-                </div>
+        <div class="flex-form get-client">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-buy" data-toggle="tab"><i class="fa fa-credit-card fa-bsle"></i><br/>{{ __('frontend.BUY') }}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#tab-sel" data-toggle="tab"><i class="fa fa-money fa-bsle"></i><br/>{{ __('frontend.SELL') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-exc" data-toggle="tab"><i class="fa fa-exchange fa-bsle"></i><br/>{{ __('frontend.EXCHANGE') }}</a>
+                </li>
+            </ul>
+            @include('frontEnd.includes.buyform')
+            @include('frontEnd.includes.sellform')
+            @include('frontEnd.includes.exchangeform')
+        </div>
     </div>
     @else
     {{-- Video Banners--}}

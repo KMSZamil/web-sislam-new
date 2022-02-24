@@ -53,7 +53,6 @@ Route::get('/logout', function () {
 
 
 Route::post('/seller-basic', 'carSellController@index');
-Route::post('/cache-clear', 'carSellController@cacheClear');
 Route::post('/buyer-basic', 'carSellController@buyerBasic');
 Route::post('/exchange-basic', 'carSellController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');

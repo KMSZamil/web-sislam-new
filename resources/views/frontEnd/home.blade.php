@@ -45,47 +45,59 @@ if (count($TextBanners) > 3) {
     $col_width = 3;
 }
 ?>
+<section class="content-row-no-bg p-b-0 get-client-sec">
+    <div class="container">
+        <div class="flex-form">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-buy-mob" data-toggle="tab"><i class="fa fa-credit-card fa-bsle"></i><br/>{{ __('frontend.BUY') }}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#tab-sel-mob" data-toggle="tab"><i class="fa fa-money fa-bsle"></i><br/>{{ __('frontend.SELL') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-exc-mob" data-toggle="tab"><i class="fa fa-exchange fa-bsle"></i><br/>{{ __('frontend.EXCHANGE') }}</a>
+                </li>
+            </ul>
+            @include('frontEnd.includes.buyformmob')
+            @include('frontEnd.includes.sellformmob')
+            @include('frontEnd.includes.exchangeformmob')
+
+        </div>
+    </div>
+</section>
 <section class="content-row-no-bg p-b-0">
     <div class="container">
-        <div class="home-sec">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <h1 class="text-center">{{ __('frontend.HOMETITLE') }}</h1>
-                </div>
-                <div class="col-md-2"></div>
+        <div class="home-sec row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1 class="text-center">{{ __('frontend.HOMETITLE') }}</h1>
             </div>
-            <div class="row">
-                <div class="col-md-6"><p class="para-cont text-justify" style="font-size: 16px; margin-top: 15px; ">{{ __('frontend.HOME1') }}</p></div>
-                <div class="col-md-6">
-                    <img src="/uploads/frontend/s_islam_cars.jpg" style="max-width: 100%; margin: 0 auto;">
-                </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-6"><p class="para-cont text-justify" style="font-size: 16px; margin-top: 15px; ">{{ __('frontend.HOME1') }}</p></div>
+            <div class="col-md-6">
+                <img src="/uploads/frontend/s_islam_cars.jpg" style="max-width: 100%; margin: 0 auto;">
             </div>
         </div>
     </div>
 </section>
 <section class="content-row-no-bg p-b-0">
     <div class="container">
-        <div class="why-we">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <h2 class="text-center">{{ __('frontend.WHYWETITLE') }}</h2>
-                </div>
-                <div class="col-md-2"></div>
+        <div class="why-we row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h2 class="text-center">{{ __('frontend.WHYWETITLE') }}</h2>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="/uploads/frontend/why_we_diff.jpg" style="max-width: 100%; margin: 0 auto;">
-                </div>
-                <div class="col-md-6">
-                    <p class="para-cont text-justify" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET1') }}</span><br /><span>{{ __('frontend.WHYWEp1') }}</span></p>
-                    <p class="para-cont text-justify" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET2') }}</span><br /><span>{{ __('frontend.WHYWEp2') }}</span></p>
-                    <p class="para-cont text-justify" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET3') }}</span><br /><span>{{ __('frontend.WHYWEp3') }}</span></p>
-                    <p class="para-cont text-justify" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET4') }}</span><br /><span>{{ __('frontend.WHYWEp4') }}</span></p>
-                    <p class="para-cont text-justify" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET5') }}</span><br /><span>{{ __('frontend.WHYWEp5') }}</span></p>
-                </div>
-
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <img src="/uploads/frontend/why_we_diff.jpg" style="max-width: 100%; margin: 0 auto;">
+            </div>
+            <div class="col-md-6">
+                <p class="para-cont" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET1') }}</span><br /><span>{{ __('frontend.WHYWEp1') }}</span></p>
+                <p class="para-cont" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET2') }}</span><br /><span>{{ __('frontend.WHYWEp2') }}</span></p>
+                <p class="para-cont" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET3') }}</span><br /><span>{{ __('frontend.WHYWEp3') }}</span></p>
+                <p class="para-cont" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET4') }}</span><br /><span>{{ __('frontend.WHYWEp4') }}</span></p>
+                <p class="para-cont" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET5') }}</span><br /><span>{{ __('frontend.WHYWEp5') }}</span></p>
             </div>
         </div>
     </div>
@@ -140,46 +152,56 @@ if (count($TextBanners) > 3) {
 </section>
 <section class="content-row-no-bg p-b-0">
     <div class="container">
-        <div class="col-xs-12">
-        <h2>{{__('frontend.CARFIND')}}</h2>
-        </div>
-        @if(count($dashboardCars)>0)
-            @foreach($dashboardCars as $data)
-            <div class="col-md-4" style=" margin-bottom: 30px;">
-                    <div class="car-list-box box-sm">
-                        <div class="media-box">
-                            <img src="{{ asset('storage/'.$data->car_images[0]->car_image) }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
-                        </div>
-                        <div class="list-info">
-                            <div class="row">
-                                <div style="float: left;">
-                                    <span class="badge-book m-b30"><a href="{{ route('car-details',$data->id) }}">Book Now</a></span>
-                                </div>
-                                <div style="float: right;">
-                                    <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
-                                </div>
-                            </div>
-
-                            <h5 class="title mb-0"><a href="{{ route('car-details',$data->id) }}">{{ isset($data->car_title) ? $data->car_title : '' }}</a></h5>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14"> {{ isset($data->exterior_color->name) ? $data->exterior_color->name : '' }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
-                            <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="car-details"><a href="{{url('car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a></div>
-                    </div>
+            <h2>{{__('frontend.CARFIND')}}</h2>
+<?php            
+        if(count($dashboardCars)>0):
+        $i=0;
+        foreach($dashboardCars as $data):
+        $i++;
+        if($i > 9):
+        break;
+        endif;
+            ?>
+        <div class="col-md-4" style=" margin-bottom: 30px;">
+            <div class="car-list-box box-sm">
+                <div class="media-box">
+                    <img src="{{ asset('storage/'.$data->car_images[0]->car_image) }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
                 </div>
-            @endforeach
-        @endif
+                <div class="list-info">
+                    <div class="row">
+                        <div style="float: left;">
+                            <span class="badge-book m-b30"><a href="{{ route('car-details',$data->id) }}">Book Now</a></span>
+                        </div>
+                        <div style="float: right;">
+                            <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
+                        </div>
+                    </div>
+
+                    <h5 class="title mb-0"><a href="{{ route('car-details',$data->id) }}">{{ isset($data->car_title) ? $data->car_title : '' }}</a></h5>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14"> {{ isset($data->exterior_color->name) ? $data->exterior_color->name : '' }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
+                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
+                </div>
+                <div class="clear"></div>
+                <div class="car-details"><a href="{{url('car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a></div>
+            </div>
+        </div>
+        <?php 
+        endforeach;
+         endif;
+         ?>
+        <div class="col-md-12 text-center">
+            <a href="{{url('buy-a-car')}}"><button type="button" class="btn btn-warning btn-lg">View More Cars</button></a>
+        </div>
     </div>
 </section>
-<section class="content-row-no-bg p-b-0">
+<section class="content-row-no-bg p-b-0" style="padding-top: 0;">
     <div class="test-section wrap-section-border wow bounceInUp" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: bounceInUp;">
         <div class="section_mod-g section-bg section-bg_primary">
             <div class="bg-inner border-section-top border-section-top_mod-a">
@@ -202,32 +224,32 @@ if (count($TextBanners) > 3) {
                                             <div class="reviews">
                                                 <h3 class="reviews__title">affordable deals!!!</h3>
 
-                                                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmohammad.raselahamed.7%2Fposts%2F1585609011776855&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                                                </div>
-                                                
+                                                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmohammad.raselahamed.7%2Fposts%2F1585609011776855&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                                             </div>
+
+                                        </div>
                                         <div class="owl-item" >
                                             <div class="reviews">
                                                 <h3 class="reviews__title">very much satisfied.</h3>
                                                 <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1561745950870895%26id%3D100011065154837&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                                        </div>
-                                        </div>
-                                        <div class="owl-item" >
-                                            <div class="reviews">
-                                                <h3 class="reviews__title">BEST CARS!</h3>
-                                               <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D3046487975639813%26id%3D100008359201998&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                                             </div>
                                         </div>
                                         <div class="owl-item" >
                                             <div class="reviews">
                                                 <h3 class="reviews__title">BEST CARS!</h3>
-                                               <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshowkotosman.salim%2Fposts%2F4839794459423271&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D3046487975639813%26id%3D100008359201998&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                                             </div>
                                         </div>
                                         <div class="owl-item" >
                                             <div class="reviews">
                                                 <h3 class="reviews__title">BEST CARS!</h3>
-                                               <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fakash.gangachara%2Fposts%2F4181245341979914&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshowkotosman.salim%2Fposts%2F4839794459423271&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item" >
+                                            <div class="reviews">
+                                                <h3 class="reviews__title">BEST CARS!</h3>
+                                                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fakash.gangachara%2Fposts%2F4181245341979914&show_text=true&width=500" width="100%" class="ifrm-review" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                                             </div>
                                         </div>
                                     </div>
@@ -357,466 +379,6 @@ if (count($TextBanners) > 3) {
 </section>
 
 @endif
-
-<style>
-    .ifrm-review{
-        height: 300px;
-        
-    }
-    .badge-book{ 
-        padding: 0.35em 0.65em;
-        font-size: 0.75em;
-        font-weight: 700;
-        line-height: 1;
-        color: #fff;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: baseline;
-        border-radius: 0.25rem;
-        position: absolute;
-        top: -25px;
-        background-color: #0b1b38;
-        padding: 10px 16px;
-        font-size: 18px;
-        border-radius: 30px;
-        font-weight: 500;
-        border: 1px #fff solid;
-    }
-    .badge-book a{
-        color: #fff;
-    }
-    .car-list-box.box-sm .list-info .badge{
-        right: 5px!important;
-    }
-    .section_mod-g:after {
-        background-image: url(/uploads/frontend/7.jpeg);
-    }
-    .section-bg:after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        opacity: 0.1;
-        content: '';
-    }
-    .section-bg_primary{
-        background-color: #fdb700;
-    }
-    .section-bg_second{
-        background-color: #0b1b38;
-    }
-    .section-bg .bg-inner {
-        padding-top: 60px;
-        padding-bottom: 30px;
-    }
-    .border-section-top_mod-a:before, .border-section-top_mod-a:after {
-        background-color: #0b1b38;
-    }
-    .border-section-top:before {
-        left: -70px;
-        box-shadow: 4px 1px 0 2px #f5f5f5;
-        transform: skew(-58deg, 10deg);
-    }
-    .border-section-top:before, .border-section-top:after {
-        position: absolute;
-        top: -16px;
-        width: 170px;
-        height: 80px;
-        content: '';
-    }
-    .border-section-top:after {
-        right: -70px;
-        box-shadow: -4px 1px 0 2px #f5f5f5;
-        transform: skew(58deg, -10deg);
-    }
-    .test-section{
-        margin-top: 40px;
-    }
-    .reviews {
-        position: relative;
-        margin-right: 15px;
-        margin-left: 15px;
-        padding-top: 25px;
-        padding-bottom: 38px;
-        background-color: #fff;
-        overflow: hidden;
-        transition: all 0.3s;
-    }
-    .reviews__text {
-        padding: 11px 15px 21px 45px;
-    }
-    .reviews__img {
-        float: left;
-        width: 55px;
-        height: 55px;
-        margin-left: 44px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-    .reviews__title {
-        margin-top: 14px;
-        margin-bottom: 13px;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        padding-left: 40px;
-        font-family: Raleway;
-        font-size: 16px;
-        font-weight: 700;
-        color: #222;
-        border-left: 4px solid #999;
-        transition: all 0.3s;
-        text-align: left;
-        text-transform: uppercase;
-    }
-    .owl-theme_mod-a .owl-controls {
-        text-align: center;
-        top: -120px;
-        right: 0;
-    }
-    .owl-theme .owl-controls {
-        position: absolute;
-    }
-
-    .owl-theme .owl-controls .owl-page {
-        display: inline-block;
-        zoom: 1;
-        padding-left: 3px;
-        padding-right: 3px;
-        display: inline;
-    }
-    .owl-theme .owl-controls .owl-page span {
-        display: block;
-        width: 8px;
-        height: 8px;
-        margin: 5px 3px;
-        border: 1px solid #eeeeee;
-        transition: all .3s;
-        transform: rotate(45deg);
-    }
-    .owl-theme .owl-controls .owl-page.active span, .owl-theme .owl-controls.clickable .owl-page:hover span {
-        background-color: #fff;
-        border-color: #eee;
-    }
-    .owl-carousel .owl-wrapper-outer{
-        width: 100%;
-    }
-    .owl-carousel .owl-wrapper:after {
-        content: ".";
-        display: block;
-        clear: both;
-        visibility: hidden;
-        line-height: 0;
-        height: 0;
-    }
-    .wrap-section-border{
-        padding-top: 30px;
-        overflow: hidden;
-    }
-    /*#main-slider:before {
-        left: 0;
-        transform: skewY(4.5deg);
-    }
-    #main-slider:before, #main-slider:after {
-        position: absolute;
-        bottom: -3vw;
-        width: 50%;
-        height: 8vw;
-        background-color: #fff;
-        z-index: 101;
-        content: '';
-    }
-    #main-slider:after {
-        right: 0;
-        transform: skewY(-4.5deg);
-    }*/
-    /*    .accordion_one .panel-group {
-            border: 1px solid #f1f1f1;
-        }
-    
-        a:link {
-            text-decoration: none
-        }
-    
-        .accordion_one .panel {
-            background-color: transparent;
-            box-shadow: none;
-            border-bottom: 0px solid transparent;
-            border-radius: 0;
-            margin: 0
-        }
-    
-        .accordion_one .panel-default {
-            border: 0
-        }
-    
-        .accordion-wrap .panel-heading {
-            padding: 0px;
-            border-radius: 0px
-        }
-    
-        h4 {
-            font-size: 18px;
-            line-height: 24px
-        }
-    
-        .accordion_one .panel .panel-heading a.collapsed {
-            color: #999999;
-            display: block;
-            padding: 12px 30px;
-            border-top: 0px
-        }
-    
-        .accordion_one .panel .panel-heading a {
-            display: block;
-            padding: 12px 30px;
-            background: #fff;
-            color: #000;
-        }
-    
-        .accordion-wrap .panel .panel-heading a {
-            font-size: 14px
-        }
-    
-        .accordion_one .panel-group .panel-heading+.panel-collapse>.panel-body {
-            border-top: 0;
-            padding-top: 0;
-            padding: 25px 30px 30px 35px;
-            background: #0b1b38;
-            color: #fff;
-        }
-    
-        .img-accordion {
-            width: 81px;
-            float: left;
-            margin-right: 15px;
-            display: block
-        }
-    
-        .accordion_one .panel .panel-heading a.collapsed:after {
-            content: "\2b";
-            color: #f1f1f1;
-            background: #fdb700;
-        }
-    
-        .accordion_one .panel .panel-heading a:after,
-        .accordion_one .panel .panel-heading a.collapsed:after {
-            font-family: 'FontAwesome';
-            font-size: 15px;
-            width: 36px;
-            line-height: 48px;
-            text-align: center;
-            background: #fdb700;
-            float: left;
-            margin-left: -31px;
-            margin-top: -12px;
-            margin-right: 15px
-        }
-    
-        .accordion_one .panel .panel-heading a:after {
-            content: "\2212"
-        }
-        .panel-default > .panel-heading{
-            background-color: #0b1b38;
-        }
-        .panel-heading{
-            padding: 2px;
-        }
-        .accordion_one .panel .panel-heading a:after{
-            color: #fff;
-        }*/
-    .accordion-toggle:hover {
-        text-decoration: none
-    }
-    .glyphicon-plus:before, .glyphicon-minus:before {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .panel-default>.panel-heading {
-        color: #fff;
-        background-color: #0b1b38;;
-        border-color:#0b1b38;
-    }
-    .panel-title > a:hover, .panel-title > a:focus{
-        color: #fdb700;
-    }
-    #contactus {
-        /*        background: #F9F9F9;
-                padding: 25px;
-                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)*/
-    }
-
-    /*    #contactus h3 {
-            display: block;
-            font-size: 30px;
-            font-weight: 300;
-            margin-bottom: 10px
-        }*/
-
-    #contactus h4 {
-        margin: 5px 0 15px;
-        display: block;
-        font-size: 13px;
-        font-weight: 400
-    }
-
-    #contactus input[type="text"],
-    #contactus input[type="email"],
-    #contactus input[type="tel"],
-    #contactus input[type="url"],
-    #contactus textarea {
-        width: 100%;
-        border: 1px solid #ccc;
-        background: #FFF;
-        margin: 0 0 5px;
-        padding: 10px
-    }
-
-    #contactus input[type="text"]:hover,
-    #contactus input[type="email"]:hover,
-    #contactus input[type="tel"]:hover,
-    #contactus input[type="url"]:hover,
-    #contactus textarea:hover {
-        -webkit-transition: border-color 0.3s ease-in-out;
-        -moz-transition: border-color 0.3s ease-in-out;
-        transition: border-color 0.3s ease-in-out;
-        border: 1px solid #aaa
-    }
-
-    #contactus textarea {
-        height: 100px;
-        max-width: 100%;
-        resize: none
-    }
-
-    #contactus button[type="submit"] {
-        cursor: pointer;
-        width: 100%;
-        border: none;
-        background: #0b1b38;
-        color: #FFF;
-        margin: 0 0 5px;
-        padding: 10px;
-        font-size: 15px
-    }
-
-    #contactus button[type="submit"]:hover {
-        background: #333;
-        -webkit-transition: background 0.3s ease-in-out;
-        -moz-transition: background 0.3s ease-in-out;
-        transition: background-color 0.3s ease-in-out
-    }
-
-    #contactus button[type="submit"]:active {
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5)
-    }
-
-    #contactus input:focus,
-    #contactus textarea:focus {
-        outline: 0;
-        border: 1px solid #aaa
-    }
-
-    ::-webkit-input-placeholder {
-        color: #888
-    }
-
-    :-moz-placeholder {
-        color: #888
-    }
-
-    ::-moz-placeholder {
-        color: #888
-    }
-
-    :-ms-input-placeholder {
-        color: #888
-    }
-
-    .section_mod-c:after {
-        background-image: url(/uploads/frontend/3car.jpeg);
-    }
-    .border-section-top_mod-b:before, .border-section-top_mod-b:after{
-        background-color: #fdb700;
-    }
-    .ui-title-block_mod-a {
-        color: #fff;
-    }
-    .ui-subtitle-block_mod-a {
-        font-size: 16px;
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.7);
-        text-align: center;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-    .list-progress {
-        margin-top: 52px;
-        margin-bottom: 150px;
-        text-align: center;
-    }
-    .list-progress__item {
-        position: relative;
-        display: inline-block;
-        margin-right: 7px;
-        margin-left: 7px;
-        padding: 20px 0 0;
-        vertical-align: top;
-        background-repeat: no-repeat;
-        background-position: 0 0;
-        background-size: contain;
-    }
-    .list-progress__item:nth-child(1) {
-        width: 350px;
-        height: 122px;
-        background-image: 'https://pro-theme.com/html/autozone/assets/media/figure/figure-1.svg';
-    }
-    .section-bg {
-        position: relative;
-    }
-    .list-progress__item:nth-child(1) .icon {
-        font-size: 78px;
-    }
-    .list-progress .icon{
-        color: #fdb700;
-    }
-    .list-progress .icon {
-        display: inline-block;
-        margin-right: 22px;
-        line-height: 1;
-    }
-    .flaticon-transport391:before {
-        content: "\e009";
-    }
-    .list-progress__inner {
-        display: inline-block;
-        text-align: left;
-    }
-    .list-progress .chart {
-        font-size: 34px;
-        font-weight: 700;
-        color: #fff;
-    }
-    .list-progress__name {
-        display: block;
-        font-family: Raleway;
-        font-size: 15px;
-        font-weight: 600;
-        color: #999;
-    }
-
-    .map-container{
-        margin: 0;
-        padding-bottom: 25%;
-    }
-    .map-container iframe{
-        top: unset;
-        bottom: 0;
-    }
-
-</style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function ($) {

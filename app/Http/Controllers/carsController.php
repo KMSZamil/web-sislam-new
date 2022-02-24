@@ -50,6 +50,21 @@ class carsController extends Controller {
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+        
+        $dashboardCars = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'drive_type',
+            'car_transmission'
+        )
+        ->where('status',1)
+        ->where('home_feature',1)
+        ->where('car_status',2)
+        ->get();
+        
         return view("frontEnd.buyAcar",
                 compact("WebsiteSettings",
                         "WebmasterSettings",
@@ -57,7 +72,8 @@ class carsController extends Controller {
                         "PageDescription",
                         "PageKeywords",
                         "PageTitle",
-                        "LatestNews"));
+                        "LatestNews",
+                        "dashboardCars"));
     }
 
     public function sellAcar(Request $request) {

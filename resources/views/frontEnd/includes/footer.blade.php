@@ -28,7 +28,7 @@ if (Helper::GeneralSiteSettings("style_footer") != 1) {
         $bx4w = 4;
     }
     ?>
-    <div class="wrap-section-border wow bounceInUp" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: bounceInUp;">
+    <div class="wrap-section-border wow bounceInUp" data-wow-duration="2s" style="visibility: visible; background-color: #fff;">
         <div class="footer-main section_mod-bg section-bg section-bg_second">
             <div class="border-section-top border-section-top_mod-b">
                 <div class="container" style="z-index: 9999;">

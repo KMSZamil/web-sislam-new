@@ -1,6 +1,6 @@
-<div class="tab-pane" id="tab-exc-mob">
-    <h2 class="form-h2-title">{{ __('frontend.CAREXC') }}</h2>
-    <p><span>{{ __('frontend.CARINFO1') }}</span></p>
+<div class="tab-pane active" id="tab-sel-mob">
+    <h2 class="form-h2-title">{{ __('frontend.CARSELL') }}</h2>
+    <p><span>{{ __('frontend.CARINFO1') }} {{ __('frontend.CARINFO2') }}</span></p>
     @if (count($errors) > 0)
     <div class="custom-alerts alert alert-danger fade in">
         <div class="error">
@@ -19,7 +19,7 @@
     </div>
     @endif
     <div class="form-group">
-        {!! Form::open(array('url' => '/exchange-basic', 'method' => 'post')) !!}
+        {!! Form::open(array('url' => '/seller-basic', 'method' => 'post')) !!}
         <!-- CROSS Site Request Forgery Protection -->
         @csrf
         <div class="form-group">
@@ -39,23 +39,3 @@
         {{Form::close()}}
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('#car_brand').change(function () {
-            var car_brand_id = $(this).val();
-
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            // console.log({DistributorCode});
-            $.ajax
-            ({
-                type: 'POST',
-                url: "{{ route('get_car_models') }}",
-                data: { car_brand_id: car_brand_id, _token: CSRF_TOKEN },
-                success: function (response) {
-                    $('#car_model').html(response);
-
-                },
-            });
-        });
-    });
-</script>
