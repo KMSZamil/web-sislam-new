@@ -165,7 +165,7 @@ if (count($TextBanners) > 3) {
         <div class="col-md-4" style=" margin-bottom: 30px;">
             <div class="car-list-box box-sm">
                 <div class="media-box">
-                    <img src="{{ asset('storage/'.$data->car_images[0]->car_image) }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
+                    <img src="{{ asset('uploads/car_images/full/'.$data->car_images[0]->car_image) }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
                 </div>
                 <div class="list-info">
                     <div class="row">

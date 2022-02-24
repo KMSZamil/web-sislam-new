@@ -1,7 +1,7 @@
 <link href="{{ asset('assets/dashboard/sweetalert2/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
 
 <style>
-.imagePreview {
+/* .imagePreview {
     width: 100%;
     height: 180px;
     background-position: center center;
@@ -11,7 +11,7 @@
   background-repeat:no-repeat;
     display: inline-block;
   box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
-}
+} */
 .btn-primary
 {
   display:block;
@@ -453,9 +453,12 @@
                     <h3>Photo Upload</h3>
                     <div class="row">
                         <!-- Image -->
+                        {{-- {{dd($carDetails->seller_car_images)}} --}}
                         @foreach($carDetails->seller_car_images as $row)
                         <div class="col-sm-2 imgUp">
-                            <div class="" style="background:url({{ asset('storage/'.$row->car_image) }}); 
+                            {{-- asset('storage/'.$row->car_image) --}}
+                            {{-- asset('uploads/car_images/full/'.$row->car_image) --}}
+                            <div class="" style="background:url('{{ asset('uploads/car_images/full/'.$row->car_image) }}'); 
                                                                 width: 100%;
                                                                 height: 180px;
                                                                 background-position: center center;

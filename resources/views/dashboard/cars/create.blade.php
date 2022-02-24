@@ -398,7 +398,7 @@
                                 <div class="col-sm-2 imgUp">
                                     <div class="imagePreview"></div>
                                     <label class="btn btn-primary">Upload
-                                    <input type="file" class="uploadFile img" name="carphoto[]" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                    <input type="file" class="uploadFile img" name="carphoto[]" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" required>
                 				    </label>
                                 </div>
                                 <i class="fa fa-plus imgAdd"></i>
