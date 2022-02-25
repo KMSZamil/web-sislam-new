@@ -154,6 +154,7 @@ if (count($TextBanners) > 3) {
     <div class="container">
             <h2>{{__('frontend.CARFIND')}}</h2>
 <?php            
+        //dd(count($dashboardCars));
         if(count($dashboardCars)>0):
         $i=0;
         foreach($dashboardCars as $data):
@@ -162,36 +163,41 @@ if (count($TextBanners) > 3) {
         break;
         endif;
             ?>
-        <div class="col-md-4" style=" margin-bottom: 30px;">
-            <div class="car-list-box box-sm">
-                <div class="media-box">
-                    <img src="{{ asset('uploads/car_images/full/'.$data->car_images[0]->car_image) }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
-                </div>
-                <div class="list-info">
-                    <div class="row">
-                        <div style="float: left;">
-                            <span class="badge-book m-b30"><a href="{{ route('car-details',$data->id) }}">Book Now</a></span>
-                        </div>
-                        <div style="float: right;">
-                            <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
-                        </div>
+        @if(isset($data->car_images[0]->car_image))
+            <div class="col-md-4" style=" margin-bottom: 30px;">
+                <div class="car-list-box box-sm">
+                    <div class="media-box">
+                        <img src="{{ asset('files/'.$data->car_images[0]->car_image) }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
                     </div>
+                    <div class="list-info">
+                        <div class="row">
+                            <div style="float: left;">
+                                <span class="badge-book m-b30"><a href="{{ route('car-details',$data->id) }}">Book Now</a></span>
+                            </div>
+                            <div style="float: right;">
+                                <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
+                            </div>
+                        </div>
 
-                    <h5 class="title mb-0"><a href="{{ route('car-details',$data->id) }}">{{ isset($data->car_title) ? $data->car_title : '' }}</a></h5>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14"> {{ isset($data->exterior_color->name) ? $data->exterior_color->name : '' }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
-                    <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
+                        <h5 class="title mb-0"><a href="{{ route('car-details',$data->id) }}">{{ isset($data->car_title) ? $data->car_title : '' }}</a></h5>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14"> {{ isset($data->exterior_color->name) ? $data->exterior_color->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="car-details"><a href="{{url('car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a></div>
                 </div>
-                <div class="clear"></div>
-                <div class="car-details"><a href="{{url('car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a></div>
             </div>
-        </div>
+        @else
+            @continue;
+        @endif
+
         <?php 
         endforeach;
          endif;

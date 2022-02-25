@@ -33,6 +33,7 @@ use Helper;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Validator;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class carSellController extends Controller
@@ -115,7 +116,7 @@ class carSellController extends Controller
                 "PageDescription",
                 "LatestNews",
                 "GetID",
-                "PageKeywords",));
+                "PageKeywords"));
     }
 
     public function seller_basic_data_save(Request $request){
@@ -177,34 +178,91 @@ class carSellController extends Controller
         $seller_data->save();
         $seller_image = new SellerImage();
         if ($request->file('car_photo_1')) {
+            
+            /*
             $md5Name = md5_file($request->file('car_photo_1')->getRealPath()).time();
             $mimeType = $request->file('car_photo_1')->guessExtension();
             $path = $request->file('car_photo_1')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
             $seller_image->car_photo_1 = $path;
+            */
+            $image       = $request->file('car_photo_1')[$i];
+            $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
+            $image_resize = Image::make($image->getRealPath());
+            //$image_resize->resize(1024, null);
+            $image_resize->insert('/home2/sislamcarscom/public_html/public/uploads/car_images/watermark/watermark.png', 'center');
+            $image_resize->resize(1024, null, function ($constraint) {
+                $constraint->aspectRatio(); //to preserve the aspect ratio
+                $constraint->upsize();
+            });
+
+            $image_resize->save(public_path('uploads/car_images/full/' .$filename));
+            $image_resize->resize(300, 300);
+            $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
+            $seller_image->car_photo_1 = $filename;
+
+            
+            
+            
         }
         if ($request->file('car_photo_2')) {
-            $md5Name = md5_file($request->file('car_photo_2')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_2')->guessExtension();
-            $path = $request->file('car_photo_2')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_image->car_photo_2 = $path;
+            $image       = $request->file('car_photo_2')[$i];
+            $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
+            $image_resize = Image::make($image->getRealPath());
+            //$image_resize->resize(1024, null);
+            $image_resize->resize(1024, null, function ($constraint) {
+                $constraint->aspectRatio(); //to preserve the aspect ratio
+                $constraint->upsize();
+            });
+
+            $image_resize->save(public_path('uploads/car_images/full/' .$filename));
+            $image_resize->resize(300, 300);
+            $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
+            $seller_image->car_photo_2 = $filename;
         }
         if ($request->file('car_photo_3')) {
-            $md5Name = md5_file($request->file('car_photo_3')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_3')->guessExtension();
-            $path = $request->file('car_photo_3')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_image->car_photo_3 = $path;
+            $image       = $request->file('car_photo_3')[$i];
+            $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
+            $image_resize = Image::make($image->getRealPath());
+            //$image_resize->resize(1024, null);
+            $image_resize->resize(1024, null, function ($constraint) {
+                $constraint->aspectRatio(); //to preserve the aspect ratio
+                $constraint->upsize();
+            });
+
+            $image_resize->save(public_path('uploads/car_images/full/' .$filename));
+            $image_resize->resize(300, 300);
+            $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
+            $seller_image->car_photo_3 = $filename;
         }
         if ($request->file('car_photo_4')) {
-            $md5Name = md5_file($request->file('car_photo_4')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_4')->guessExtension();
-            $path = $request->file('car_photo_4')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_image->car_photo_4 = $path;
+            $image       = $request->file('car_photo_4')[$i];
+            $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
+            $image_resize = Image::make($image->getRealPath());
+            //$image_resize->resize(1024, null);
+            $image_resize->resize(1024, null, function ($constraint) {
+                $constraint->aspectRatio(); //to preserve the aspect ratio
+                $constraint->upsize();
+            });
+
+            $image_resize->save(public_path('uploads/car_images/full/' .$filename));
+            $image_resize->resize(300, 300);
+            $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
+            $seller_image->car_photo_4 = $filename;
         }
         if ($request->file('car_photo_5')) {
-            $md5Name = md5_file($request->file('car_photo_5')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_5')->guessExtension();
-            $path = $request->file('car_photo_5')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_image->car_photo_5 = $path;
+            $image       = $request->file('car_photo_5')[$i];
+            $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
+            $image_resize = Image::make($image->getRealPath());
+            //$image_resize->resize(1024, null);
+            $image_resize->resize(1024, null, function ($constraint) {
+                $constraint->aspectRatio(); //to preserve the aspect ratio
+                $constraint->upsize();
+            });
+
+            $image_resize->save(public_path('uploads/car_images/full/' .$filename));
+            $image_resize->resize(300, 300);
+            $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
+            $seller_image->car_photo_5 = $filename;
         }
         if ($request->file('smart_card')) {
             $md5Name = md5_file($request->file('smart_card')->getRealPath()).time();
@@ -349,7 +407,7 @@ class carSellController extends Controller
                 "PageDescription",
                 "LatestNews",
                 "GetID",
-                "PageKeywords",));
+                "PageKeywords"));
     }
     
     

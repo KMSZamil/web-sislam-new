@@ -29,10 +29,21 @@
 <link rel="stylesheet" href="{{ asset('assets/dashboard/css/topic.css') }}" type="text/css"/>
 
 
-<link rel="stylesheet" href="{{ URL::asset('assets/frontend/css/select2/select2.min.css') }}">
+{{--<link rel="stylesheet" href="{{ URL::asset('assets/frontend/css/select2/select2.min.css') }}">--}}
 
 @if( @Helper::currentLanguage()->direction=="rtl")
     <link rel="stylesheet" href="{{ asset('assets/dashboard/css/bootstrap-rtl/dist/bootstrap-rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dashboard/css/app.rtl.css') }}">
 @endif
+
+<!-- Bootstrap styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css"/>
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload-ui.css')}}" />
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload-noscript.css')}}" /></noscript>
+    <noscript><link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload-ui-noscript.css')}}" /></noscript>
 @stack('after-styles')

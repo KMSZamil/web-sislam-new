@@ -16,7 +16,7 @@ class Seller extends Model
     }
 
     public function car_images(){
-        return $this->hasMany(SellerCarImage::class,'seller_id','id');
+        return $this->hasMany(SellerCarImage::class,'seller_id','id')->orderBy('id');
     }
 
     public function seller_fuel_types(){
@@ -81,7 +81,7 @@ class Seller extends Model
     
     
     public function seller_car_images(){
-        return $this->hasMany(SellerCarImage::class,'seller_id','id');
+        return $this->hasMany(SellerCarImage::class,'seller_id','id')->orderBy('id');
     }
 
     

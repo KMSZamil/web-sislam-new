@@ -32,7 +32,7 @@ use App\Models\Window;
 use App\Models\Seller_fuel_type;
 use App\Models\Seller_Comfort;
 use App\Models\Seller_Entertainment;
-use App\Models\Seller_Other_feature;
+use App\Models\Seller_Other_Feature;
 use App\Models\Seller_Seat;
 use App\Models\Seller_Window;
 use App\Models\Seller_Safety;
@@ -41,6 +41,7 @@ use File;
 use Helper;
 use Illuminate\Config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Redirect;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -335,6 +336,7 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $Car = new Seller(); 
         $Car->car_title = $request->car_title;
         $Car->car_condition = $request->car_condition;
@@ -367,8 +369,8 @@ class CarsController extends Controller
         $Car->car_details = $request->car_details;
         $Car->video_url = $request->video_url;
         $Car->save();
-        if ($request->file('carphoto')) {
-            for($i=0 ; $i < count($request->file('carphoto')) ; $i++){
+        if ($request->car_photo) {
+            for($i=0 ; $i < count($request->car_photo) ; $i++){
                 //echo '<pre/>';print_r($request->file('carphoto'));
                 
                 // $seller_car_image = new SellerCarImage();
@@ -378,11 +380,12 @@ class CarsController extends Controller
                 // $seller_car_image->seller_id = $Car->id;
                 // $seller_car_image->car_image = $path;
                 // $seller_car_image->save();
-
+            /*
             $image       = $request->file('carphoto')[$i];
             $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
             $image_resize = Image::make($image->getRealPath());
             //$image_resize->resize(1024, null);
+            $image_resize->insert('/home2/sislamcarscom/public_html/public/uploads/car_images/watermark/watermark.png', 'center');
             $image_resize->resize(1024, null, function ($constraint) {
                 $constraint->aspectRatio(); //to preserve the aspect ratio
                 $constraint->upsize();
@@ -391,13 +394,13 @@ class CarsController extends Controller
             $image_resize->save(public_path('uploads/car_images/full/' .$filename));
             $image_resize->resize(300, 300);
             $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
-
+            */
+            //dd($request->car_photo[0]);
             $seller_car_image  = new SellerCarImage();
             $seller_car_image->seller_id = $Car->id;
-            $seller_car_image->car_image = $filename;
+            $seller_car_image->car_image = $request->car_photo[$i];
+            //dd($seller_car_image->car_image);
             $seller_car_image->save();
-
-            
             }
         }
         //exit();
@@ -544,6 +547,7 @@ class CarsController extends Controller
         }
         //return Redirect::to('/');
 
+        $request->session()->flash('alert-success', 'Data successfully added!');
         return redirect()->action('Dashboard\CarsController@index');
     }
 
@@ -659,10 +663,9 @@ class CarsController extends Controller
             'file' => 'mimes:png,jpeg,jpg,gif,svg'
         ]);
   
-       // echo '<pre/>';print_r($request->all());exit();
-
             // End of Upload Files
-            //dd($request->all());
+        //dd($request->all());
+            
         $Car = Seller::where("id",$request->id)->first();
             //dd($request->id);
 
@@ -695,19 +698,55 @@ class CarsController extends Controller
         $Car->home_feature = $request->home_feature;
         $Car->car_details = $request->car_details;
         $Car->video_url = $request->video_url;
-        //dd($request->file('carphoto'));
-        if ($request->file('carphoto')) {
-            //$temp = SellerCarImage::where('seller_id',$request->id)->delete();
-            //dd($temp);
-            for($i=1 ; $i <= count($request->file('carphoto')) ; $i++){
-                //echo '<pre/>';print_r($request->file('carphoto'));
-                // $seller_car_image = new SellerCarImage();
-                // $md5Name = md5_file(($request->file('carphoto')[$i])->getRealPath()).time();
-                // $mimeType = ($request->file('carphoto')[$i])->guessExtension();
-                // $path = ($request->file('carphoto')[$i])->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-                // $seller_car_image->seller_id = $Car->id;
-                // $seller_car_image->car_image = $path;
-                // $seller_car_image->save();
+
+        if ($request->car_photo) {
+            for($i=0 ; $i < count($request->car_photo) ; $i++){
+                $seller_car_image  = new SellerCarImage();
+                $seller_car_image->seller_id = $Car->id;
+                $seller_car_image->car_image = $request->car_photo[$i];
+                $seller_car_image->save();
+            }
+        }
+            
+            /*foreach ($request->file('carphoto') as $key => $value) {
+                
+                $car_photo_id = isset($request->input('carphoto_id')[$key]) ? $request->input('carphoto_id')[$key] : null;
+                
+                $image       = $request->file('carphoto')[$key];
+                $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
+                $image_resize = Image::make($image->getRealPath());
+                //$image_resize->resize(1024, null);
+                //echo '<pre>'; print_r($image_resize);
+                
+                $image_resize->insert('/home2/sislamcarscom/public_html/public/uploads/car_images/watermark/watermark.png', 'center');
+                //echo '<pre>'; print_r($image_resize);
+                $image_resize->resize(1024, null, function ($constraint) {
+                    $constraint->aspectRatio(); //to preserve the aspect ratio
+                    $constraint->upsize();
+                });
+                
+                //echo '<pre>'; print_r($image_resize);
+                //exit();
+                $image_resize->save(public_path('uploads/car_images/full/' .$filename));
+                $image_resize->resize(300, 300);
+                $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
+                
+                if($car_photo_id!=null){
+                    $seller_car_image  = SellerCarImage::where('id',$car_photo_id)->first();
+                    $seller_car_image->seller_id = $Car->id;
+                    $seller_car_image->car_image = $filename;
+                    $seller_car_image->save();
+                }else{
+                    $seller_car_image  = new SellerCarImage();
+                    $seller_car_image->seller_id = $Car->id;
+                    $seller_car_image->car_image = $filename;
+                    $seller_car_image->save();
+                }
+                
+            }*/
+            /*
+            for($i=0 ; $i < count($request->file('carphoto')) ; $i++){
+
             $image       = $request->file('carphoto')[$i];
             $filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
             $image_resize = Image::make($image->getRealPath());
@@ -726,8 +765,8 @@ class CarsController extends Controller
             $seller_car_image->car_image = $filename;
             $seller_car_image->save();
             }
+            */
             //exit();
-        }
 
                 /*
                     $fuel_type = new Seller_fuel_type();
@@ -819,9 +858,11 @@ class CarsController extends Controller
                 }
             }
 
+            $request->session()->flash('alert-success', 'Data successfully updated!');
             return redirect()->action('Dashboard\CarsController@all')->with('CarToEdit', $Car)->with('doneMessage2',
                 __('backend.saveDone'));
         } else {
+            $request->session()->flash('alert-danger', 'Something went wrong!');
             return redirect()->action('Dashboard\CarsController@index');
         }
     }
@@ -859,10 +900,6 @@ class CarsController extends Controller
         }
     }
 
-
-    
-
-
     /**
      * Update the specified resource in storage.
      *
@@ -892,6 +929,13 @@ class CarsController extends Controller
     {
         // Check Permissions
         //dd($id);
+        $previous_image = SellerCarImage::where('id',$id)->first()->car_image;
+        //dd(asset('uploads/car_images/full/'.$previous_image));
+        
+        if (asset('files/'.$previous_image)){
+                //unlink('/home2/sislamcarscom/public_html/public/files/'.$previous_image);
+            }
+        
         if (SellerCarImage::where('id',$id)->delete()) {
             
             $data = array(

@@ -61,6 +61,7 @@ Route::post('/seller-car-information', 'carSellController@seller_basic_data_save
 
 
 Route::get('/car-details/{id}', 'carDetailsController@index')->name('car-details');
+Route::post('/upload-file', 'carPhotoUploadController@index');
 Route::get('/buy-a-car', 'carsController@buyAcar');
 Route::get('/{lang?}/buy-a-car', 'carsController@buyAcar');
 Route::get('/sell-a-car', 'carsController@sellAcar');

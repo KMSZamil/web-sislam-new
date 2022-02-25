@@ -29,7 +29,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
              @php
             foreach($carDetails->car_images as $row){
             @endphp
-            <a href="{{ asset('storage/'.$row->car_image) }}"><img src="{{ asset('storage/'.$row->car_image) }}"></a>
+            <a href="{{ asset('uploads/car_images/full/'.$row->car_image) }}"><img src="{{ asset('uploads/car_images/full/'.$row->car_image) }}"></a>
             @php
             }
             @endphp
@@ -94,9 +94,9 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     <li>
                         <span>Engine Capacity</span>{{ isset($carDetails->engine_capacity) ? $carDetails->engine_capacity . ' cc' : '-' }}
                     </li>
-                    <li>
-                        <span>No. of Gears:</span>
-                    </li>
+                    <!--<li>-->
+                    <!--    <span>No. of Gears:</span>-->
+                    <!--</li>-->
                     <li>
                         <span>Fuel Type</span>{{ isset($carDetails->fuel_type) ? $carDetails->fuel_type : '-' }}
                     </li>

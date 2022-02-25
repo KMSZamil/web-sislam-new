@@ -4,7 +4,7 @@
     width: 100%;
     height: 180px;
     background-position: center center;
-  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background:url(/assets/dashboard/images/no-image.jpeg);
   background-color:#fff;
     background-size: cover;
   background-repeat:no-repeat;
@@ -57,12 +57,21 @@
                     &#xe02e;</i> {{ __('backend.newCars') }}
             </h6>
         </div>
+        <div class="flash-message">
+            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                @if(Session::has('alert-' . $msg))
+
+                    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                @endif
+            @endforeach
+        </div>
         <div class="row-row">
             <div class="row-body">
                 <div class="row-inner">
                     <div class="padding p-y-sm ">
                         <?php //echo '<pre/>';print_r($carDetails->body_type);exit();?>
-                        {{Form::open(['route'=>['carsStore'],'method'=>'POST', 'files' => true ])}}
+                        <!--{!! Form::open(array('url' => '/carsStore', 'id' => "fileupload", 'method' => 'post', 'files' => true, 'enctype' => "multipart/form-data" )) !!}-->
+                        {{Form::open(['route'=>['carsStore'],'method'=>'POST', 'files' => true, 'id' => 'fileupload', 'enctype' => 'multipart/form-data'])}}
                         <h3>Car Details</h3>
                         <div class="form-horizontal">
                             <div class="row">
@@ -394,15 +403,19 @@
 
                             <h3>Car Photo</h3>
                             <div class="row">
+                                <div class="col-sm-12">
+                                    @include('dashboard.cars.photoUpload')
+                                </div>
+                                <div class=" clear"></div>
                                 <!-- Image -->
-                                <div class="col-sm-2 imgUp">
+<!--                                <div class="col-sm-2 imgUp">
                                     <div class="imagePreview"></div>
                                     <label class="btn btn-primary">Upload
                                     <input type="file" class="uploadFile img" name="carphoto[]" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;" required>
                 				    </label>
                                 </div>
                                 <i class="fa fa-plus imgAdd"></i>
-                                <!--
+                                
                                 <div class="col-sm-8">
                                     <div class="form-group">
                                         <label>{{ __('frontend.CAR_PHOTO') }}</label>
@@ -416,11 +429,11 @@
                                         </button>
                                     </div>
                                 </div>
-                                -->
+                                
                             </div>
 
-                            <div class="after-add-more"></div>
-
+                            <div class="after-add-more"></div>-->
+<!--
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -452,7 +465,7 @@
                             </div>
 
                             <hr/>
-
+-->
                             <div class="row">
                                 <div class="col-sm-4">
                                     <label>{{ __('frontend.ASKING_PRICE') }}</label>
@@ -508,6 +521,94 @@
     </div>
 </div>
 <!-- /column -->
+
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade{%=o.options.loadImageFileTypes.test(file.type)?' image':''%}">
+    <td>
+    <span class="preview"></span>
+    </td>
+    <td>
+    <p class="name">{%=file.name%}</p>
+    <strong class="error text-danger"></strong>
+    </td>
+    <td>
+    <p class="size">Processing...</p>
+    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+    </td>
+    <td>
+    {% if (!o.options.autoUpload && o.options.edit && o.options.loadImageFileTypes.test(file.type)) { %}
+    <button class="btn btn-success edit" data-index="{%=i%}" disabled>
+    <i class="glyphicon glyphicon-edit"></i>
+    <span>Edit</span>
+    </button>
+    {% } %}
+    {% if (!i && !o.options.autoUpload) { %}
+    <button class="btn btn-primary start" disabled>
+    <i class="glyphicon glyphicon-upload"></i>
+    <span>Start</span>
+    </button>
+    {% } %}
+    {% if (!i) { %}
+    <button class="btn btn-warning cancel">
+    <i class="glyphicon glyphicon-ban-circle"></i>
+    <span>Cancel</span>
+    </button>
+    {% } %}
+    </td>
+    </tr>
+    {% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}        
+    <tr class="template-download fade{%=file.thumbnailUrl?' image':''%}">
+    <td>
+    <span class="preview">
+    {% if (file.thumbnailUrl) { %}
+    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+    <input type="hidden" id="custId" name="car_photo[]" value="{%=file.name%}">
+    {% } %}
+    </span>
+    </td>
+    <td>
+    <p class="name">
+    {% if (file.url) { %}
+    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+    {% } else { %}
+    <span>{%=file.name%}</span>
+    {% } %}
+    </p>
+    {% if (file.error) { %}
+    <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+    {% } %}
+    </td>
+    <td>
+    <span class="size">{%=o.formatFileSize(file.size)%}</span>
+    </td>
+    <td>
+    {% if (file.deleteUrl) { %}
+    <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+    <i class="glyphicon glyphicon-trash"></i>
+    <span>Delete</span>
+    </button>
+    <input type="checkbox" name="delete" value="1" class="toggle">
+    {% } else { %}
+    <button class="btn btn-warning cancel">
+    <i class="glyphicon glyphicon-ban-circle"></i>
+    <span>Cancel</span>
+    </button>
+    {% } %}
+    </td>
+    </tr>
+    {% } %}
+    
+    $('#fileupload').fileupload({
+    imageCrop: true // Force cropped images
+})
+</script>
+
 <script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
 <script>
