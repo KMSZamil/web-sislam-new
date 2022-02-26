@@ -1496,17 +1496,17 @@
         },
         {
             "name": "google/gax",
-            "version": "v1.11.4",
-            "version_normalized": "1.11.4.0",
+            "version": "v1.12.0",
+            "version_normalized": "1.12.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/gax-php.git",
-                "reference": "bf32dd04b5a31e6616f18bf62f49873ff16a340d"
+                "reference": "d802c9b40c349f5368f077bfcbc2982e7c31f43c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/bf32dd04b5a31e6616f18bf62f49873ff16a340d",
-                "reference": "bf32dd04b5a31e6616f18bf62f49873ff16a340d",
+                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/d802c9b40c349f5368f077bfcbc2982e7c31f43c",
+                "reference": "d802c9b40c349f5368f077bfcbc2982e7c31f43c",
                 "shasum": ""
             },
             "require": {
@@ -1526,7 +1526,7 @@
                 "phpunit/phpunit": "^4.8.36",
                 "squizlabs/php_codesniffer": "3.*"
             },
-            "time": "2022-01-26T19:06:45+00:00",
+            "time": "2022-02-24T22:04:47+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1546,7 +1546,7 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/gax-php/issues",
-                "source": "https://github.com/googleapis/gax-php/tree/v1.11.4"
+                "source": "https://github.com/googleapis/gax-php/tree/v1.12.0"
             },
             "install-path": "../google/gax"
         },

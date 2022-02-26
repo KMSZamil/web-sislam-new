@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'cef2dff97d8260d090637128a16e447d6411cff2',
+        'reference' => '0d15064def40c9e38ae62a7b209d131fb5766695',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -230,12 +230,12 @@
             'dev_requirement' => false,
         ),
         'google/gax' => array(
-            'pretty_version' => 'v1.11.4',
-            'version' => '1.11.4.0',
+            'pretty_version' => 'v1.12.0',
+            'version' => '1.12.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../google/gax',
             'aliases' => array(),
-            'reference' => 'bf32dd04b5a31e6616f18bf62f49873ff16a340d',
+            'reference' => 'd802c9b40c349f5368f077bfcbc2982e7c31f43c',
             'dev_requirement' => false,
         ),
         'google/grpc-gcp' => array(
@@ -562,7 +562,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'cef2dff97d8260d090637128a16e447d6411cff2',
+            'reference' => '0d15064def40c9e38ae62a7b209d131fb5766695',
             'dev_requirement' => false,
         ),
         'laravel/sanctum' => array(
