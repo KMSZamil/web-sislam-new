@@ -3,7 +3,8 @@
 <script type="text/javascript">
     var page_dir = "{{ @Helper::currentLanguage()->direction }}";
 </script>
-<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>
+{{--<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>--}}
 <script src="{{ URL::asset('assets/frontend/js/jquery.easing.1.3.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/jquery.fancybox.pack.js') }}"></script>
@@ -20,6 +21,26 @@
 <script src="{{ URL::asset('assets/frontend/js/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
 <script src="{{ URL::asset('assets/frontend/js/my_custom.js') }}"></script>
+
+
+<!-----------------IMAGE UPLOAD START---------------------------->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>
+<script src="{{ asset('assets/dashboard/js/rupload/vendor/jquery.ui.widget.js') }}" defer></script>
+<script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+<script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.iframe-transport.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload-process.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload-image.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload-audio.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload-video.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload-validate.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload-ui.js') }}" defer></script>
+<script src="{{ asset('assets/dashboard/js/rupload/ripons-js.js') }}" defer></script>
+<!-----------------IMAGE UPLOAD END---------------------------->
+
 
 {{--ajax subscribe to news letter--}}
 @if(Helper::GeneralSiteSettings("style_subscribe"))

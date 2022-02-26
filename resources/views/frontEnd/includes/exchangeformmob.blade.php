@@ -1,4 +1,4 @@
-<div class="tab-pane" id="tab-exc">
+<div class="tab-pane" id="tab-exc-mob">
     <h2 class="form-h2-title">{{ __('frontend.CAREXC') }}</h2>
     <p><span>{{ __('frontend.CARINFO1') }}</span></p>
     @if (count($errors) > 0)

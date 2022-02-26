@@ -40,7 +40,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 </div>
                 @endif
                 <div class="form-group">
-                    {!! Form::open(array('url' => '/seller-car-information', $GetID, 'method' => 'post', 'files' => true )) !!}
+                    {!! Form::open(array('url' => '/seller-car-information', $GetID, 'method' => 'post','id' => 'fileupload', 'files' => true )) !!}
                     <!-- CROSS Site Request Forgery Protection -->
                     @csrf
                     <input type="hidden" name="GetID" value="{{ $GetID }}"/>

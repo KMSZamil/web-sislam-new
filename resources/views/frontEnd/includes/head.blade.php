@@ -18,6 +18,17 @@
 <link rel="stylesheet" href="{{ URL::asset('assets/frontend/js/owl-carousel/assets/owl.theme.default.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/frontend/css/select2/select2.min.css') }}">
 
+<!-------------------------------------IMAGE UPLOAD START---------------------------->
+
+<link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css"/>
+<link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload-ui.css')}}" />
+<noscript><link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload-noscript.css')}}" /></noscript>
+<noscript><link rel="stylesheet" href="{{asset('assets/dashboard/css/rupload/jquery.fileupload-ui-noscript.css')}}" /></noscript>
+
+<!------------------------------------IMAGE UPLOAD END---------------------------->
+
+
 @if( @Helper::currentLanguage()->direction=="rtl")
 <link href="{{ URL::asset('assets/frontend/css/rtl.css') }}" rel="stylesheet"/>
 @endif

@@ -7,13 +7,13 @@
 <!-- end Home Slider -->
 
 @if(!empty($HomePage))
-@if(@$HomePage->{"details_" . @Helper::currentLanguage()->code} !="")
-<section class="content-row-no-bg home-welcome">
-    <div class="container">
-        {!! @$HomePage->{"details_" . @Helper::currentLanguage()->code} !!}
-    </div>
-</section>
-@endif
+    @if(@$HomePage->{"details_" . @Helper::currentLanguage()->code} !="")
+    <section class="content-row-no-bg home-welcome">
+        <div class="container">
+            {!! @$HomePage->{"details_" . @Helper::currentLanguage()->code} !!}
+        </div>
+    </section>
+    @endif
 @endif
 
 @if(count($TextBanners)>0)

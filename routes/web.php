@@ -52,6 +52,7 @@ Route::get('/logout', function () {
 
 
 
+Route::get('/test', 'carSellController@test');
 Route::post('/seller-basic', 'carSellController@index');
 Route::post('/buyer-basic', 'carSellController@buyerBasic');
 Route::post('/exchange-basic', 'carSellController@exchangeBasic');
