@@ -84,7 +84,7 @@ class carSellController extends Controller
         ]);
         
         if ($validator->fails()) {
-            return redirect()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $save_data = array(
@@ -245,41 +245,6 @@ class carSellController extends Controller
         }
         
         return view('frontEnd.thanks', compact("WebsiteSettings", "WebmasterSettings", "PageTitle", "PageDescription", "PageKeywords", "PageTitle",  "LatestNews"))->with('success', __('frontend.SUCESSMSG'));
-    }
-    
-    public function buyerBasic(Request $request) {
-        // General Webmaster Settings
-        $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
-        $WebsiteSettings = Setting::find(1);
-        
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        //dd($site_desc_var);
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
-        $PageTitle = ""; // will show default site Title
-        $PageDescription = $WebsiteSettings->$site_desc_var;
-        $PageKeywords = $WebsiteSettings->$site_keywords_var;
-        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        
-
-        $validator = Validator::make($request->all(), [
-                    'name' => 'required',
-                    'mobile' => 'required'
-        ]);
-        
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $save_data = array(
-            'name' => $request->name,
-            'email' => $request->email,
-            'buy_car' =>1
-        );
-        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
-        return redirect('buy-a-car');
-        
     }
     
     public function exchangeBasic(Request $request){

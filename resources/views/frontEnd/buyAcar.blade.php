@@ -41,7 +41,9 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     <div class="list-info">
                         <div class="row">
                             <div style="float: left;">
-                                <span class="badge-book m-b30"><a href="{{ route('car-details',$data->id) }}">Book Now</a></span>
+                                <span class="badge-book m-b30">
+                                    <a href="{{ route('car-details',$data->id,$CustomerID) }}">Book Now</a>
+                                </span>
                             </div>
                             <div style="float: right;">
                                 <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
@@ -60,7 +62,14 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
                     </div>
                     <div class="clear"></div>
-                    <div class="car-details"><a href="{{url('car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a></div>
+                    <div class="car-details">
+                            <form action="{{url('car-details')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="CustomerID" value="{{ isset($CustomerID) ? $CustomerID : null }}">
+                                <input type="hidden" name="CarID" value="{{ isset($data->id) ? $data->id : null }}">
+                                <button type="submit" class="btn btn-warning btn-lg btn-block">Details</button>
+                            </form>
+                        </div>
                 </div>
             </div>
         @else

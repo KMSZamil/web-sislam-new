@@ -4,26 +4,75 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\CarBuy;
 use App\Models\Setting;
+use App\Models\SmartendCustomer;
 use App\Models\Topic;
 use App\Models\WebmasterSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use function Sodium\compare;
 
 class carBuyController extends Controller
 {
-    public function buyBasic($id){
+    public function buyerBasic(Request $request) {
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
-        $PageTitle = ""; // will show default site Title
+        $PageTitle = "";
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        return view('frontEnd.buyCarDetails',compact( "PageTitle",
-        "PageDescription","PageKeywords","WebsiteSettings",
-        "WebmasterSettings","LatestNews"));
+
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'mobile' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $save_data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'buy_car' =>1
+        );
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
+        $CustomerID = $data->id;
+        //dd($CustomerID);
+
+        //return redirect('buy-a-car', compact('CustomerID'));
+        return Redirect::route('buyCars', compact("CustomerID"));
+
+    }
+
+    public function carBook(Request $request){
+
+        //dd($request->all());
+        $WebmasterSettings = WebmasterSetting::find(1);
+        $WebsiteSettings = Setting::find(1);
+
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+
+        $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+        $Booking = new CarBuy();
+        $Booking->car_id = $request->CarID;
+        $Booking->customer_id = $request->CustomerID;
+        $Booking->status = 1;
+        $Booking->save();
+
+        return view('frontEnd.thanks_book',
+            compact("WebsiteSettings", "WebmasterSettings",
+                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
+            ->with('success', __('frontend.SUCESSMSGBOOK'));;
     }
 
     public function latest_topics($section_id, $limit = 3)

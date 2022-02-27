@@ -55,7 +55,7 @@ Route::get('/logout', function () {
 Route::get('/test', 'carSellController@test');
 Route::post('/seller-basic', [carSellController::class, 'index']);
 //Route::post('/seller-basic', [carSellController::class, 'seller_basic'])->name('seller_basic');
-Route::post('/buyer-basic', 'carSellController@buyerBasic');
+Route::post('/buyer-basic', 'carBuyController@buyerBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
 Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
 
@@ -67,10 +67,12 @@ Route::post('/exchange-car-information', 'carExchangeController@exchange_basic_d
 
 //Buy
 Route::get('/buyBasic/{id}', 'carBuyController@buyBasic')->name('buyBasic');
+Route::post('/buy-a-car', 'carsController@buyAcar')->name('buyCars');
+Route::post('/car-book', 'carBuyController@carBook')->name('carBook');
 
 
-
-Route::get('/car-details/{id}', 'carDetailsController@index')->name('car-details');
+Route::get('/car-details/{id}', 'carDetailsController@cardetails');
+Route::post('/car-details', 'carDetailsController@index')->name('car-details');
 Route::post('/upload-file', 'carPhotoUploadController@index');
 Route::get('/buy-a-car', 'carsController@buyAcar');
 Route::get('/{lang?}/buy-a-car', 'carsController@buyAcar');

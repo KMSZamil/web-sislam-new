@@ -20,6 +20,7 @@ use App\Models\Safety;
 use App\Models\Seller;
 use App\Models\SellerImage;
 use App\Models\SmartendCarCondition;
+use App\Models\SmartendCustomer;
 use App\Models\Thana;
 use App\Models\Transmission;
 use App\Models\Window;
@@ -37,15 +38,13 @@ use Validator;
 class carsController extends Controller {
 
     public function buyAcar(Request $request) {
-        // General Webmaster Settings
+
+        //dd($request->all());
+        $CustomerID = $request->CustomerID;
         $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
         $WebsiteSettings = Setting::find(1);
-
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
         $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
@@ -73,7 +72,8 @@ class carsController extends Controller {
                         "PageKeywords",
                         "PageTitle",
                         "LatestNews",
-                        "dashboardCars"));
+                        "dashboardCars",
+                        "CustomerID"));
     }
 
     public function sellAcar(Request $request) {

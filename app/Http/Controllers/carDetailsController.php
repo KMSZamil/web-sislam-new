@@ -15,17 +15,15 @@ use Validator;
 
 class carDetailsController extends Controller
 {
-    public function index($id){
-        // General Webmaster Settings
+    public function index(Request $request){
+        //dd($request->all());
+        $CustomerID = $request->CustomerID;
+        $CarID = $request->CarID;
         $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
         $WebsiteSettings = Setting::find(1);
-        
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
-        $PageTitle = ""; // will show default site Title
+        $PageTitle = "";
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
@@ -39,7 +37,7 @@ class carDetailsController extends Controller
             'drive_type',
             'car_transmission'
         )->where('status',1)
-            ->where('id',$id)->first();
+            ->where('id',$CarID)->first();
 
         return view("frontEnd.carDetails",
             compact("WebsiteSettings",
@@ -49,7 +47,44 @@ class carDetailsController extends Controller
                 "PageKeywords",
                 "PageTitle",
                 "LatestNews",
-                "carDetails"));
+                "carDetails","CustomerID","CarID"));
+
+        return view('frontEnd.carDetails', compact('LatestNews'));
+    }
+
+    public function cardetails($id){
+        //dd($request->all());
+
+        $CarID = $id;
+        $WebmasterSettings = WebmasterSetting::find(1);
+        $WebsiteSettings = Setting::find(1);
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+        $PageTitle = "";
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+        $carDetails = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'drive_type',
+            'car_transmission'
+        )->where('status',1)
+            ->where('id',$CarID)->first();
+
+        return view("frontEnd.carDetails",
+            compact("WebsiteSettings",
+                "WebmasterSettings",
+                "PageTitle",
+                "PageDescription",
+                "PageKeywords",
+                "PageTitle",
+                "LatestNews",
+                "carDetails","CarID"));
 
         return view('frontEnd.carDetails', compact('LatestNews'));
     }
