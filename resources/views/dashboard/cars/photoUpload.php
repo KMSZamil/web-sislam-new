@@ -11,14 +11,14 @@
             <i class="glyphicon glyphicon-upload"></i>
             <span>Start upload</span>
         </button>
-    <!--        <button type="reset" class="btn btn-warning cancel">-->
-    <!--            <i class="glyphicon glyphicon-ban-circle"></i>-->
-    <!--            <span>Cancel upload</span>-->
-    <!--        </button>-->
-    <!--        <button type="button" class="btn btn-danger delete">-->
-    <!--            <i class="glyphicon glyphicon-trash"></i>-->
-    <!--            <span>Delete selected</span>-->
-    <!--        </button>-->
+<!--        <button type="reset" class="btn btn-warning cancel">-->
+<!--            <i class="glyphicon glyphicon-ban-circle"></i>-->
+<!--            <span>Cancel upload</span>-->
+<!--        </button>-->
+<!--        <button type="button" class="btn btn-danger delete">-->
+<!--            <i class="glyphicon glyphicon-trash"></i>-->
+<!--            <span>Delete selected</span>-->
+<!--        </button>-->
         <input type="checkbox" class="toggle" />
         <!-- The global file processing state -->
         <span class="fileupload-process"></span>

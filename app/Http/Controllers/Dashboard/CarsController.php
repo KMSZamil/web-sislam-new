@@ -1050,10 +1050,54 @@ class CarsController extends Controller
                 'bodytype',
                 'car_exterior_color',
                 'drive_type',
-                'car_transmission')->orderby('id', 'desc')->paginate(env('BACKEND_PAGINATION'));
+                'car_transmission')->orderby('id', 'desc')->get();
         }
         // dd($SellerCars);
         return view("dashboard.cars.all", compact("SellerCars", "GeneralWebmasterSections"));
+
+    }
+
+    public function exchange(Request $request)
+    {
+        //dd('d');
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+        // General END
+        if (@Auth::user()->permissionsGroup->view_status) {
+            $ExchangeCars = Seller::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
+        } else {
+            $ExchangeCars = Seller::with('images',
+                'condition',
+                'car_brand',
+                'model',
+                'bodytype',
+                'car_exterior_color',
+                'drive_type',
+                'car_transmission')->orderby('id', 'desc')->get();
+        }
+        // dd($ExchangeCars);
+        return view("dashboard.cars.exchange", compact("ExchangeCars", "GeneralWebmasterSections"));
+
+    }
+
+    public function buy(Request $request)
+    {
+        //dd('d');
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+        // General END
+        if (@Auth::user()->permissionsGroup->view_status) {
+            $BuyCars = Seller::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
+        } else {
+            $BuyCars = Seller::with('images',
+                'condition',
+                'car_brand',
+                'model',
+                'bodytype',
+                'car_exterior_color',
+                'drive_type',
+                'car_transmission')->orderby('id', 'desc')->get();
+        }
+        // dd($BuyCars);
+        return view("dashboard.cars.buy", compact("BuyCars", "GeneralWebmasterSections"));
 
     }
 
