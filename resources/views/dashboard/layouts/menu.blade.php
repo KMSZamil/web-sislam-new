@@ -220,6 +220,16 @@ $mnu_title_var2 = 'title_' . env('DEFAULT_LANGUAGE');
 							                <span  class="nav-text">{{ __('backend.allCars') }}</span>
                                         </a>
                                     </li>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                        <a onclick="location.href='{{ route('carsBuy') }}'">
+							                <span  class="nav-text">{{ __('backend.buyCars') }}</span>
+                                        </a>
+                                    </li>
+                                    <li {{ $PathCurrentFolder == $currentFolder ? 'class=active' : '' }}>
+                                        <a onclick="location.href='{{ route('carsExchange') }}'">
+							                <span  class="nav-text">{{ __('backend.exchangeCars') }}</span>
+                                        </a>
+                                    </li>
 
                                     <?php
                                     $currentFolder = 'cars'; // Put folder name here

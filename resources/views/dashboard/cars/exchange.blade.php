@@ -19,7 +19,7 @@
                     @endif
                 @endforeach
             </div>
-            @if($SellerCars->count() == 0)
+            @if($ExchangeCars->count() == 0)
                 <div class="row p-a">
                     <div class="col-sm-12">
                         <div class=" p-a text-center light ">
@@ -29,7 +29,7 @@
                 </div>
             @endif
 
-            @if($SellerCars->count() > 0)
+            @if($ExchangeCars->count() > 0)
 
                 <div class="portlet-body">
                     <table id="dtVerticalScroll" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
@@ -47,7 +47,7 @@
                         </thead>
                         <tbody>
 
-                        @foreach($SellerCars as $row)
+                        @foreach($ExchangeCars as $row)
                             <?php  //echo '<pre/>';print_r($row->brand); ?>
 
                             <tr>

@@ -57,14 +57,6 @@
                     &#xe02e;</i> {{ __('backend.newCars') }}
             </h6>
         </div>
-        <div class="flash-message">
-            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-                @if(Session::has('alert-' . $msg))
-
-                    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-                @endif
-            @endforeach
-        </div>
         <div class="row-row">
             <div class="row-body">
                 <div class="row-inner">
@@ -433,7 +425,7 @@
                             </div>
 
                             <div class="after-add-more"></div>-->
-<!--
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -465,7 +457,7 @@
                             </div>
 
                             <hr/>
--->
+
                             <div class="row">
                                 <div class="col-sm-4">
                                     <label>{{ __('frontend.ASKING_PRICE') }}</label>
@@ -545,7 +537,7 @@
     </button>
     {% } %}
     {% if (!i && !o.options.autoUpload) { %}
-    <button class="btn btn-primary start" disabled>
+    <button class="btn btn-primary start" disabled style="float: left; margin: 0 5px; border-radius: 5px; box-shadow: unset;">
     <i class="glyphicon glyphicon-upload"></i>
     <span>Start</span>
     </button>
