@@ -40,15 +40,53 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 </div>
                 @endif
                 <div class="form-group">
-                    {!! Form::open(array('url' => '/exchange-car-information', $GetID, 'id'=>'fileupload', 'method' => 'post', 'files' => true )) !!}
+                    {!! Form::open(array('url' => '/buy-car-information', 'id'=>'fileupload', 'method' => 'post', 'files' => true )) !!}
                     <!-- CROSS Site Request Forgery Protection -->
                     @csrf
-                    <input type="hidden" name="GetID" value="{{ $GetID }}"/>
-                    @include('frontEnd.sellers.carDetails')
-                    @include('frontEnd.sellers.carFeatures')
-                    @include('frontEnd.sellers.paperDetails')
-                    @include('frontEnd.sellers.carPhoto')
-                    @include('frontEnd.sellers.contactDetails')
+                    
+                    <h3>Contact Details</h3>
+                        <div class="form-group">
+                            <label>{{ __('frontend.NAME') }}</label>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ $data->name ?? '' }}">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('frontend.EMAIL') }}</label>
+                            <input type="email" class="form-control" name="email" id="email" value="{{ $data->email ?? '' }}">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('frontend.MOBILE') }} *</label>
+                            <input type="text" class="form-control" name="mobile" id="mobile required" value="{{ $data->mobile ?? '' }}">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>{{ __('frontend.ADDRESS1') }}</label>
+                                    <input type="text" class="form-control" name="address1" id="address1">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>{{ __('frontend.ADDRESS2') }}</label>
+                                    <input type="text" class="form-control" name="address2" id="address2">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>{{ __('frontend.ASKING_PRICE') }}</label>
+                                <input type="text" class="form-control" name="asking_price" id="asking_price" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>{{ __('frontend.SELLER_NOTE') }}</label>
+                                    <textarea class="form-control" name="sellers_note" id=""></textarea>
+                                </div>
+                            </div>
+                        </div>
 
                     <div class="row">
                         <div class="form-group">

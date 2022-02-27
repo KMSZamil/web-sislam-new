@@ -53,11 +53,20 @@ Route::get('/logout', function () {
 
 
 Route::get('/test', 'carSellController@test');
-Route::post('/seller-basic', 'carSellController@index');
+Route::post('/seller-basic', [carSellController::class, 'index']);
+//Route::post('/seller-basic', [carSellController::class, 'seller_basic'])->name('seller_basic');
 Route::post('/buyer-basic', 'carSellController@buyerBasic');
-Route::post('/exchange-basic', 'carSellController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
 Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
+
+
+
+//Exchange
+Route::post('/exchange-basic', 'carExchangeController@exchangeBasic');
+Route::post('/exchange-car-information', 'carExchangeController@exchange_basic_data_save');
+
+//Buy
+Route::get('/buyBasic/{id}', 'carBuyController@buyBasic')->name('buyBasic');
 
 
 

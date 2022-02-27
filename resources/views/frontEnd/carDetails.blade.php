@@ -101,7 +101,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <span>Fuel Type</span>{{ isset($carDetails->fuel_type) ? $carDetails->fuel_type : '-' }}
                     </li>
                 </ul>
-                <div class="car-details"><a href="{{url('car-details',$carDetails->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Book Now</button></a></div>
+                <div class="car-details"><a href="{{ route('buyBasic',$carDetails->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Book Now</button></a></div>
             </div>
         </div>
         <div class="social-share">

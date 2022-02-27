@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Helpers\Helper;
+use App\Http\Controllers\Controller;
 use App\Models\BodyType;
 use App\Models\CarBrand;
 use App\Models\CarCondition;
@@ -12,49 +15,31 @@ use App\Models\Entertainment;
 use App\Models\ExteriorColor;
 use App\Models\FuelType;
 use App\Models\InteriorColor;
-use App\Models\Language;
 use App\Models\OtherFeature;
 use App\Models\Safety;
 use App\Models\Seat;
 use App\Models\Seller;
 use App\Models\SellerCarImage;
 use App\Models\SellerImage;
-use App\Models\SmartendCarCondition;
+use App\Models\Setting;
+use App\Models\SmartendCustomer;
 use App\Models\Thana;
+use App\Models\Topic;
 use App\Models\Transmission;
+use App\Models\WebmasterSetting;
 use App\Models\Window;
 use Illuminate\Http\Request;
-use App\Models\SmartendSeller;
-use App\Models\SmartendCustomer;
-use App\Models\WebmasterSection;
-use App\Models\WebmasterSetting;
-use App\Models\Topic;
-use App\Models\Setting;
-use Helper;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 use Validator;
-use Intervention\Image\ImageManagerStatic as Image;
 
-
-class carSellController extends Controller
+class carExchangeController extends Controller
 {
-    public function test(){
-        return view('test');
-    }
+    public function exchangeBasic(Request $request){
 
-    public function index(Request $request){
-        // General Webmaster Settings
         $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
         $WebsiteSettings = Setting::find(1);
-        
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        //dd($site_desc_var);
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
-        $PageTitle = ""; // will show default site Title
+        $PageTitle = "";
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
@@ -94,7 +79,7 @@ class carSellController extends Controller
         );
         $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
         $GetID = $data->id;
-        return view('frontEnd.sellCarDetaails', compact(
+        return view('frontEnd.exchangeCarDetails', compact(
                 "data", 
                 "WebsiteSettings",
                 "WebmasterSettings",
@@ -125,20 +110,18 @@ class carSellController extends Controller
                 "GetID",
                 "PageKeywords"));
     }
-    public function seller_basic(Request $request){
-        dd($request->all());
+
+    public function latest_topics($section_id, $limit = 3)
+    {
+        return Topic::where([['status', 1], ['webmaster_id', $section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $section_id], ['expire_date', null]])->orderby('row_no', 'desc')->limit($limit)->get();
     }
 
-    public function seller_basic_data_save(Request $request){
+    public function exchange_basic_data_save(Request $request){
         $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
         $WebsiteSettings = Setting::find(1);
-        
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
-        $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
+        $PageTitle = __('frontend.BAYCARTITLE'); 
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
@@ -155,7 +138,16 @@ class carSellController extends Controller
         );
         $customer = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
 
-        //dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'car_condition' => 'required',
+            'car_brand' => 'required',
+            'car_model' => 'required',
+            'car_year' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         
         $seller_data = new Seller();
         $seller_data->car_condition = $request->car_condition;
@@ -189,22 +181,7 @@ class carSellController extends Controller
         $seller_data->created_by = $customer->id;
         $seller_data->customer_id = $customer->id;
 
-        //dd($request->all());
-        $validator = Validator::make($request->all(), [
-            'car_condition' => 'required',
-            'car_brand' => 'required',
-            'car_model' => 'required',
-            'car_year' => 'required',
-            'asking_price' => 'required',
-            'car_photo' => 'required',
-        ]);
-        //dd($validator->fails());
-        //dd(redirect()->route('seller-basic'));
-        if ($validator->fails()) {
-            
-            return redirect()->route('seller-basic')->withErrors($validator)->withInput();
-        }else{
-
+    
         $seller_data->save();
         if ($request->car_photo) {
             for($i=0 ; $i < count($request->car_photo) ; $i++){
@@ -242,154 +219,7 @@ class carSellController extends Controller
         }
         $seller_image->seller_id = $seller_data->id;
         $seller_image->save();
-        }
         
         return view('frontEnd.thanks', compact("WebsiteSettings", "WebmasterSettings", "PageTitle", "PageDescription", "PageKeywords", "PageTitle",  "LatestNews"))->with('success', __('frontend.SUCESSMSG'));
-    }
-    
-    public function buyerBasic(Request $request) {
-        // General Webmaster Settings
-        $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
-        $WebsiteSettings = Setting::find(1);
-        
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        //dd($site_desc_var);
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
-        $PageTitle = ""; // will show default site Title
-        $PageDescription = $WebsiteSettings->$site_desc_var;
-        $PageKeywords = $WebsiteSettings->$site_keywords_var;
-        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        
-
-        $validator = Validator::make($request->all(), [
-                    'name' => 'required',
-                    'mobile' => 'required'
-        ]);
-        
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $save_data = array(
-            'name' => $request->name,
-            'email' => $request->email,
-            'buy_car' =>1
-        );
-        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
-        return redirect('buy-a-car');
-        
-    }
-    
-    public function exchangeBasic(Request $request){
-        $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
-        $WebsiteSettings = Setting::find(1);
-        
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        //dd($site_desc_var);
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-
-        $PageTitle = ""; // will show default site Title
-        $PageDescription = $WebsiteSettings->$site_desc_var;
-        $PageKeywords = $WebsiteSettings->$site_keywords_var;
-        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        $CarConditions = CarCondition::where('status',1)->get();
-        $CarBrands = CarBrand::where('status',1)->get();
-        $CarModels = CarModel::where('status',1)->get();
-        $BodyTypes = BodyType::where('status',1)->get();
-        $FuelTypes = FuelType::where('status',1)->get();
-        $Transmissions = Transmission::where('status',1)->get();
-        $Drives = Drive::where('status',1)->get();
-        $ExteriorColors = ExteriorColor::where('status',1)->get();
-        $InteriorColors = InteriorColor::where('status',1)->get();
-        $Districts = District::where('status',1)->get();
-        $Comforts = Comfort::where('status',1)->get();
-        $Entertainments = Entertainment::where('status',1)->get();
-        $Safeties = Safety::where('status',1)->get();
-        $Seats = Seat::where('status',1)->get();
-        $Windows = Window::where('status',1)->get();
-        $OtherFeatures = OtherFeature::where('status',1)->get();
-        $District = District::where('status',1)->get();
-        $Thana = Thana::where('status',1)->get();
-        
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'mobile' => 'required'
-            ]);
-
-            
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator)->withInput();
-            }
-
-            $save_data = array(
-                'name' => $request->name,
-                'email' => $request->email,
-                'buy_car' =>1
-            );
-             $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
-             return view('frontEnd.sellCarDetaails', compact(
-                "data", 
-                "WebsiteSettings",
-                "WebmasterSettings",
-                "PageTitle",
-                "PageDescription",
-                "PageKeywords",
-                "PageTitle",
-                "CarConditions",
-                "CarBrands",
-                "CarModels",
-                "BodyTypes",
-                "FuelTypes",
-                "Transmissions",
-                "Drives",
-                "ExteriorColors",
-                "InteriorColors",
-                "Districts",
-                "Comforts",
-                "Entertainments",
-                "Safeties",
-                "Seats",
-                "Windows",
-                "District",
-                "Thana",
-                "OtherFeatures",
-                "PageDescription",
-                "LatestNews",
-                "GetID",
-                "PageKeywords"));
-
-            
-    }
-    
-    
-    public function latest_topics($section_id, $limit = 3)
-    {
-        return Topic::where([['status', 1], ['webmaster_id', $section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $section_id], ['expire_date', null]])->orderby('row_no', 'desc')->limit($limit)->get();
-    }
-
-
-    public function get_car_models(Request $request)
-    {
-        $models = CarModel::where('car_brand',$request->car_brand_id)->get();
-        //dd($models);
-        return view('frontEnd.get_car_models', compact('models'));
-    }
-
-    /**
-     * Language Check
-     */
-    public function getLanguage($lang)
-    {
-        // List of active languages for API
-        $Language = Language::where("status", true)->where("code", $lang)->first();
-
-        if ($lang == "" || empty($Language)) {
-            $lang = env('DEFAULT_LANGUAGE');
-        }
-        return $lang;
     }
 }

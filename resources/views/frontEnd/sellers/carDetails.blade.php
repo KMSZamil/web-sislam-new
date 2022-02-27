@@ -4,6 +4,7 @@
         <div class="form-group">
             <label>{{ __('frontend.CAR_CONDITION') }} *</label>
             <select class="form-control" name="car_condition" id="car_condition" required>
+                <option value="">Select</option>
                 @foreach($CarConditions as $row)
                 <option value="{{ $row->id }}">{{ $row->name }}</option>
                 @endforeach
@@ -14,6 +15,7 @@
         <div class="form-group">
             <label>{{ __('frontend.CAR_BRAND') }} *</label>
             <select class="form-control" name="car_brand" id="car_brand" required>
+                <option value="">Select</option>
                 @foreach($CarBrands as $row)
                 <option value="{{ $row->id }}">{{ $row->name }}</option>
                 @endforeach
@@ -24,6 +26,7 @@
         <div class="form-group">
             <label>{{ __('frontend.CAR_MODEL') }} *</label>
             <select class="form-control" name="car_model" id="car_model" required>
+                <option value="">Select</option>
                 @foreach($CarModels as $row)
                 <option value="{{ $row->id }}">{{ $row->name }}</option>
                 @endforeach
@@ -34,6 +37,7 @@
         <div class="form-group">
             <label>{{ __('frontend.YEAR') }} *</label>
             <select class="form-control" name="car_year" id="car_year" required>
+                <option value="">Select</option>
                 @php
                 $firstYear = (int)date('Y') - 32;
                 $lastYear = (int)date('Y');
