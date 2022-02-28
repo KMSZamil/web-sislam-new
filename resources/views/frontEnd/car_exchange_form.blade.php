@@ -21,7 +21,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
         <div class="col-md-12">
             <div class="tab-pane active" id="tab-sel">
                 <h2 class="form-h2-title">{{ __('frontend.CAREXC') }}</h2>
-                <p><span>{{ __('frontend.CARINFO1') }} {{ __('frontend.CARINFO2') }}</span></p>
+                <p><span> {{ __('frontend.CARINFO2') }}</span></p>
                 @if (count($errors) > 0)
                 <div class="custom-alerts alert alert-danger fade in">
                     <div class="error">
@@ -40,40 +40,42 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 </div>
                 @endif
                 <div class="form-group">
-                    {!! Form::open(array('url' => '/exchange-car-information', $GetID, 'id'=>'fileupload', 'method' => 'post', 'files' => true )) !!}
-                    <!-- CROSS Site Request Forgery Protection -->
+                    {!! Form::open(array('route' => 'exchangeSubmitFinal', 'id'=>'fileupload', 'method' => 'post', 'files' => true )) !!}
                     @csrf
-                    <input type="hidden" name="GetID" value="{{ $GetID }}"/>
-                    @include('frontEnd.sellers.carDetails')
-                    @include('frontEnd.sellers.carFeatures')
-                    @include('frontEnd.sellers.paperDetails')
-                    @include('frontEnd.sellers.carPhoto')
-                    @include('frontEnd.sellers.contactDetails')
-
+                    <input type="hidden" class="form-control" name="CustomerID" id="CustomerID" value="{{ $CustomerID ?? '' }}" required>
+                    <input type="hidden" class="form-control" name="SellerCarID" id="SellerCarID" value="{{ $SellerCarID ?? '' }}" required>
+                    <input type="hidden" class="form-control" name="ShowroomCarID" id="ShowroomCarID" value="{{ $ShowroomCarID ?? '' }}" required>
+                    <h3>Contact Details</h3>
+                    <div class="form-group">
+                        <label>{{ __('frontend.NAME') }}</label>
+                        <input type="text" class="form-control" name="name" id="name" value="{{ $Customer->name ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ __('frontend.EMAIL') }}</label>
+                        <input type="email" class="form-control" name="email" id="email" value="{{ $Customer->email ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ __('frontend.MOBILE') }} *</label>
+                        <input type="text" class="form-control" name="mobile" id="mobile required" value="{{ $Customer->mobile ?? '' }}" required>
+                    </div>
                     <div class="row">
-                        <div class="form-group">
-                            <input type="checkbox" class="form-check-input" name="terms_and_condition" value="1" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">{{ __('frontend.TERMS_AND_CONDITION') }}</label>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.ADDRESS1') }}</label>
+                                <input type="text" class="form-control" name="address1" id="address1" value="{{ $Customer->address_line1 ?? '' }}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('frontend.ADDRESS2') }}</label>
+                                <input type="text" class="form-control" name="address2" id="address2" value="{{ $Customer->address_line2 ?? '' }}" required>
+                            </div>
                         </div>
                     </div>
 
-{{--                    <div class="row">--}}
-{{--                        <div class="form-group">--}}
-{{--                            <label>{{ __('frontend.ADD_VIDEO') }}</label>--}}
-{{--                            <input type="text" class="form-control" name="video" id="video">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="row">--}}
-{{--                        <div class="form-group">--}}
-{{--                            <label>{{ __('frontend.SELLER_NOTE') }}</label>--}}
-{{--                            <textarea class="form-control" name="sellers_note" id="sellers_note"></textarea>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
                     <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
 {{--                </form>--}}
-                    {{Form::close()}}
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
@@ -96,23 +98,6 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 data: { car_brand_id: car_brand_id, _token: CSRF_TOKEN },
                 success: function (response) {
                     $('#car_model').html(response);
-
-                },
-            });
-        });
-
-        $('#district').change(function () {
-            var district = $(this).val();
-
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            // console.log({DistributorCode});
-            $.ajax
-            ({
-                type: 'POST',
-                url: "{{ route('get_thana') }}",
-                data: {district_id: district, _token: CSRF_TOKEN},
-                success: function (response) {
-                    $('#thana').html(response);
 
                 },
             });

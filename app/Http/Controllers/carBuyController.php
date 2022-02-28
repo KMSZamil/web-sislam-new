@@ -129,7 +129,7 @@ class carBuyController extends Controller
         return view('frontEnd.thanks_book',
             compact("WebsiteSettings", "WebmasterSettings",
                 "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
-            ->with('success', __('frontend.SUCESSMSGBOOK'));;
+            ->with('success', __('frontend.SUCESSMSGBOOK'));
     }
 
     public function latest_topics($section_id, $limit = 3)

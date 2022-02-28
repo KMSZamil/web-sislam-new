@@ -17,6 +17,13 @@ use App\Models\OtherFeature;
 use App\Models\Safety;
 use App\Models\Seat;
 use App\Models\Seller;
+use App\Models\Seller_Comfort;
+use App\Models\Seller_Entertainment;
+use App\Models\Seller_fuel_type;
+use App\Models\Seller_Other_Feature;
+use App\Models\Seller_Safety;
+use App\Models\Seller_Seat;
+use App\Models\Seller_Window;
 use App\Models\SellerCarImage;
 use App\Models\SellerImage;
 use App\Models\SmartendCarCondition;
@@ -125,9 +132,6 @@ class carSellController extends Controller
                 "GetID",
                 "PageKeywords"));
     }
-    public function seller_basic(Request $request){
-        dd($request->all());
-    }
 
     public function seller_basic_data_save(Request $request){
         $WebmasterSettings = WebmasterSetting::find(1);
@@ -158,54 +162,38 @@ class carSellController extends Controller
         //dd($request->all());
         
         $seller_data = new Seller();
+        $seller_data->car_title = $request->car_title;
         $seller_data->car_condition = $request->car_condition;
-        $seller_data->brand = $request->car_brand;
+        $seller_data->made_in = 0;//$request->made_in;
+        $seller_data->brand = $request->brand;
         $seller_data->car_model = $request->car_model;
-        $seller_data->menufacturing_year = $request->car_year;
+        $seller_data->menufacturing_year = $request->menufacturing_year;
+        $seller_data->body_type = $request->body_type;
+        $seller_data->milage = $request->milage;
+        //fuel_type
         $seller_data->engine_capacity = $request->engine_capacity;
-        $seller_data->body_type = $request->car_body;
-        $seller_data->fuel_type = isset($request->fuel_type) ? implode(',', $request->fuel_type) : '';
         $seller_data->transmission = $request->transmission;
+        $seller_data->drive_type = $request->drive_type;
+        $seller_data->exterior_color = $request->exterior_color;
+        $seller_data->interior_color = $request->interior_color;
         $seller_data->registration_year = $request->registration_year;
         $seller_data->registration_serial = $request->registration_serial;
         $seller_data->registration_city = $request->registration_city;
-        $seller_data->drive_type = $request->drive;
-        $seller_data->exterior_color = $request->exterior_color;
-        $seller_data->interior_color = $request->interior_color;
-        $seller_data->comfort = isset($request->comfort) ? implode(',', $request->comfort) : '';
-        $seller_data->enterteinment = isset($request->entertainment) ? implode(',', $request->entertainment) : '';
-        $seller_data->safty = isset($request->safety) ? implode(',', $request->safety) : '';
-        $seller_data->seats = isset($request->seat) ? implode(',', $request->seat) : '';
-        $seller_data->wwindow = isset($request->window) ? implode(',', $request->window) : '';
-        $seller_data->others = isset($request->other_feature) ? implode(',', $request->other_feature) : '';
-        $seller_data->tax_token_expaire = isset($request->tax_token_exp_date) ? date('Y-m-d', strtotime($request->tax_token_exp_date)) : null;
-        $seller_data->fitnes_exspaire = isset($request->fitness_exp_date) ? date('Y-m-d', strtotime($request->fitness_exp_date)) : null;
+        $seller_data->seats = $request->seats;
+        $seller_data->tax_token_expaire = date('Y-m-d',strtotime($request->tax_token_expaire));
+        $seller_data->fitnes_exspaire = date('Y-m-d',strtotime($request->fitnes_exspaire));
         $seller_data->bank_loan = $request->bank_loan;
         $seller_data->name_transfer = $request->name_transfer;
-        $seller_data->status = isset($request->status) ? $request->status : 0;
-        
-        $seller_data->message = $request->sellers_note;
-        $seller_data->price = $request->asking_price;
+        $seller_data->price = $request->price;
+        $seller_data->status = 1;
+        $seller_data->car_status = 1;
+        $seller_data->home_feature = '';//$request->home_feature;
+        $seller_data->car_details = $request->car_details;
+        $seller_data->video_url = $request->video_url;
         $seller_data->created_by = $customer->id;
         $seller_data->customer_id = $customer->id;
-
-        //dd($request->all());
-        $validator = Validator::make($request->all(), [
-            'car_condition' => 'required',
-            'car_brand' => 'required',
-            'car_model' => 'required',
-            'car_year' => 'required',
-            'asking_price' => 'required',
-            'car_photo' => 'required',
-        ]);
-        //dd($validator->fails());
-        //dd(redirect()->route('seller-basic'));
-        if ($validator->fails()) {
-            
-            return redirect()->route('seller-basic')->withErrors($validator)->withInput();
-        }else{
-
         $seller_data->save();
+
         if ($request->car_photo) {
             for($i=0 ; $i < count($request->car_photo) ; $i++){
                 $seller_car_image  = new SellerCarImage();
@@ -242,7 +230,73 @@ class carSellController extends Controller
         }
         $seller_image->seller_id = $seller_data->id;
         $seller_image->save();
+
+
+        if($request->fuel_type){
+            for($i=0 ; $i < count($request->fuel_type) ; $i++){
+                $fuel_type = new Seller_fuel_type();
+                $fuel_type->seller_id = $seller_data->id;
+                $fuel_type->fuel_type_id = $request->fuel_type[$i];
+                $fuel_type->save();
+            }
         }
+
+
+        if($request->comfort){
+            for($i=0 ; $i < count($request->comfort) ; $i++){
+                $comfort = new Seller_Comfort();
+                $comfort->seller_id = $seller_data->id;
+                $comfort->comfort_id = $request->comfort[$i];
+                $comfort->save();
+            }
+        }
+        //dd($request->entertainment[0]);
+        if($request->entertainment){
+            for($i=0 ; $i < count($request->entertainment) ; $i++){
+                $entertainment = new Seller_Entertainment();
+                $entertainment->seller_id = $seller_data->id;
+                $entertainment->entertainment_id = $request->entertainment[$i];
+                //dd($entertainment);
+                $entertainment->save();
+            }
+        }
+
+        if($request->safety){
+            for($i=0 ; $i < count($request->safety) ; $i++){
+                $safety = new Seller_Safety();
+                $safety->seller_id = $seller_data->id;
+                $safety->safety_id = $request->safety[$i];
+                $safety->save();
+            }
+        }
+
+        if($request->seat){
+            for($i=0 ; $i < count($request->seat) ; $i++){
+                $seat = new Seller_Seat();
+                $seat->seller_id = $seller_data->id;
+                $seat->seat_id = $request->seat[$i];
+                $seat->save();
+            }
+        }
+
+        if($request->window){
+            for($i=0 ; $i < count($request->window) ; $i++){
+                $window = new Seller_Window();
+                $window->seller_id = $seller_data->id;
+                $window->window_id = $request->window[$i];
+                $window->save();
+            }
+        }
+
+        if($request->other_feature){
+            for($i=0 ; $i < count($request->other_feature) ; $i++){
+                $other_feature = new Seller_Other_Feature();
+                $other_feature->seller_id = $seller_data->id;
+                $other_feature->other_feature_id = $request->other_feature[$i];
+                $other_feature->save();
+            }
+        }
+
         
         return view('frontEnd.thanks', compact("WebsiteSettings", "WebmasterSettings", "PageTitle", "PageDescription", "PageKeywords", "PageTitle",  "LatestNews"))->with('success', __('frontend.SUCESSMSG'));
     }

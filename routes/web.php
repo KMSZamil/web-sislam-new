@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\SocialAuthController;
+use App\Http\Controllers\Dashboard\CarsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\SiteMapController;
@@ -58,9 +59,13 @@ Route::post('/exchange-basic', 'carSellController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
 Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
 
+Route::post('get_thana', [CarsController::class, 'get_thana'])->name('get_thana');
 //Exchange
 Route::post('/exchange-basic', 'carExchangeController@exchangeBasic');
 Route::post('/exchange-car-information', 'carExchangeController@exchange_basic_data_save');
+Route::post('/car-exchange-details', 'carExchangeController@carExchangeDetails');
+Route::post('/car-exchange-submit', 'carExchangeController@exchangeSubmit')->name('exchangeSubmit');
+Route::post('/car-exchange-submit-final', 'carExchangeController@exchangeSubmitFinal')->name('exchangeSubmitFinal');
 
 //Buy
 Route::get('/buyBasic/{id}', 'carBuyController@buyBasic')->name('buyBasic');

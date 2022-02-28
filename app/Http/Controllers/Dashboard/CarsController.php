@@ -403,54 +403,6 @@ class CarsController extends Controller
             $seller_car_image->save();
             }
         }
-        //exit();
-        /*
-        if ($request->file('car_photo_1')) {
-            $seller_car_image = new SellerCarImage();
-            $md5Name = md5_file($request->file('car_photo_1')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_1')->guessExtension();
-            $path = $request->file('car_photo_1')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_car_image->seller_id = $Car->id;
-            $seller_car_image->car_image = $path;
-            $seller_car_image->save();
-        }
-        if ($request->file('car_photo_2')) {
-            $seller_car_image = new SellerCarImage();
-            $md5Name = md5_file($request->file('car_photo_2')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_2')->guessExtension();
-            $path = $request->file('car_photo_2')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_car_image->seller_id = $Car->id;
-            $seller_car_image->car_image = $path;
-            $seller_car_image->save();
-        }
-        if ($request->file('car_photo_3')) {
-            $seller_car_image = new SellerCarImage();
-            $md5Name = md5_file($request->file('car_photo_3')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_3')->guessExtension();
-            $path = $request->file('car_photo_3')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_car_image->seller_id = $Car->id;
-            $seller_car_image->car_image = $path;
-            $seller_car_image->save();
-        }
-        if ($request->file('car_photo_4')) {
-            $seller_car_image = new SellerCarImage();
-            $md5Name = md5_file($request->file('car_photo_4')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_4')->guessExtension();
-            $path = $request->file('car_photo_4')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_car_image->seller_id = $Car->id;
-            $seller_car_image->car_image = $path;
-            $seller_car_image->save();
-        }
-        if ($request->file('car_photo_5')) {
-            $seller_car_image = new SellerCarImage();
-            $md5Name = md5_file($request->file('car_photo_5')->getRealPath()).time();
-            $mimeType = $request->file('car_photo_5')->guessExtension();
-            $path = $request->file('car_photo_5')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-            $seller_car_image->seller_id = $Car->id;
-            $seller_car_image->car_image = $path;
-            $seller_car_image->save();
-        }
-        */
 
         if ($request->file('smart_card')) {
             $md5Name = md5_file($request->file('smart_card')->getRealPath()).time();
@@ -676,6 +628,7 @@ class CarsController extends Controller
         $Car->car_model = $request->car_model;
         $Car->menufacturing_year = $request->menufacturing_year;
         $Car->body_type = $request->body_type;
+
         $Car->milage = $request->milage;
         //fuel_type
         $Car->engine_capacity = $request->engine_capacity;

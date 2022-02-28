@@ -1,5 +1,13 @@
 <h3>Car Details</h3>
 <div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label>{{ __('frontend.CAR_TITLE') }}</label>
+            <input type="text" class="form-control" name="car_title" id="car_title" value="">
+        </div>
+    </div>
+</div>
+<div class="row">
 <div class="col-sm-3">
     <div class="form-group">
         <label>{{ __('frontend.CAR_CONDITION') }} *</label>
@@ -73,7 +81,7 @@
         <select class="form-control js-example-basic-single" name="fuel_type[]" id="fuel_type" multiple="multiple">
             <option value="">Select</option>
             @foreach($FuelTypes as $row)
-            <option value="{{ $row->name }}">{{ $row->name }}</option>
+            <option value="{{ $row->id }}">{{ $row->name }}</option>
             @endforeach
         </select>
     </div>
