@@ -1,12 +1,9 @@
 <h3>Photo Upload</h3>
-<div class="row">
-    <div class="row">
         <label>{{ __('frontend.CAR_PHOTO') }}</label>
         <div class="col-sm-12">
-            @include('dashboard.cars.photoUpload')
+            @include('frontEnd.sellers.photoUpload')
         </div>
         <div class=" clear"></div>
-    </div>
 {{--    <div class="col-sm-8">--}}
 {{--        <div class="form-group">--}}
 {{--            <label>{{ __('frontend.CAR_PHOTO') }}</label>--}}
@@ -20,7 +17,6 @@
 {{--            </button>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-</div>
 
 {{--<div class="after-add-more"></div>--}}
 <!--

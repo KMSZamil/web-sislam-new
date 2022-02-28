@@ -43,23 +43,22 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
             </div>
             @endif
             <div class="form-group">                
-                {!! Form::open(array('url' => '/seller-car-information', $GetID, 'method' => 'post', 'files' => true )) !!}
+                {!! Form::open(array('url' => '/seller-car-information', $GetID, 'method' => 'post', 'id' => 'fileupload', 'files' => true, 'enctype' => 'multipart/form-data')) !!}
                 <!-- CROSS Site Request Forgery Protection -->
                 @csrf
                 <input type="hidden" name="GetID" value="{{ $GetID }}"/>
+                <div class="car-list-box container">
                 @include('frontEnd.sellers.carDetails')
                 @include('frontEnd.sellers.carFeatures')
                 @include('frontEnd.sellers.paperDetails')
                 @include('frontEnd.sellers.carPhoto')
                 @include('frontEnd.sellers.contactDetails')
-
-                <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 page-content">
                         <div class="form-group">
                             <input type="checkbox" class="form-check-input" name="terms_and_condition" value="1" id="exampleCheck1" required>
                             <label class="form-check-label" for="exampleCheck1">{{ __('frontend.TERMS_AND_CONDITION') }}</label>
                         </div>
-                        <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
+                        <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.SUBMIT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
                     </div>
                 </div>
                 {{Form::close()}}

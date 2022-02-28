@@ -5,7 +5,7 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>
 {{--<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>--}}
-<script src="{{ URL::asset('assets/frontend/js/jquery.easing.1.3.js') }}"></script>
+{{-- <script src="{{ URL::asset('assets/frontend/js/jquery.easing.1.3.js') }}"></script> --}}
 <script src="{{ URL::asset('assets/frontend/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/jquery.fancybox.pack.js') }}"></script>
 <script src="{{ URL::asset('assets/frontend/js/jquery.fancybox-media.js') }}"></script>
@@ -24,7 +24,7 @@
 
 
 <!-----------------IMAGE UPLOAD START---------------------------->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script> --}}
 <script src="{{ asset('assets/dashboard/js/rupload/vendor/jquery.ui.widget.js') }}" defer></script>
 <script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
 <script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>

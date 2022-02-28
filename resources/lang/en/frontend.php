@@ -72,7 +72,7 @@ return [
     'BUY' => 'Buy',
     'SELL' => 'Sell',
     'EXCHANGE' => 'Exchange',
-    'CARSELL' => 'Sell your car with S Islam Cars & get payment instantly',
+    'CARSELL' => "Sell your car to S Islam Cars\n&\nGet payment instantly",
     'CARBUY' => 'Buy car with S Islam Cars & get payment instantly',
     'CAREXC' => 'You can exchange your used car with any other car of S Islam Cars',
     'CARINFO1' => 'Send your vehicle information!!!',
@@ -105,7 +105,7 @@ return [
     'EXLONGDETAILS' => 'Selling a used private car is a long and arduous process. Again the process becomes more stressful when you plan to buy another car. If you want to sell your used private car and buy another car of choice, we are here to help you out. Exchange your used private car with one of our favorite cars. Give us the details of your car to start this process and we will ask you a few questions about the car you are looking for so that you can get the best possible service with us. It will save you time and money and you will be free from hassle.',
     'LEARNMORE' => 'Read more.',
     'BCACAR' => 'Find a fantastic Car',
-    'SCACAR' => 'Sell your car with S Islam Cars & get payment instantly',
+    'SCACAR' => 'Sell your car to S Islam Cars & get payment instantly',
     'ECACAR' => 'Exchage A Car',
     'BAYCARTITLE' => 'Buy A Car in Bangladesh',
     'SELLCARTITLE' => 'Sell A Car in Bagladesh',
@@ -158,7 +158,8 @@ return [
     'HOMEFEATURE' => 'Home Feature',
     'CARSTATUS' => 'Status',
     'CAR_TITLE' => 'Car Title',
-    'MADEIN' => 'Made in country'
+    'MADEIN' => 'Made in country',
+    'SUBMIT' => 'Submit'
 ];
 
 ?>

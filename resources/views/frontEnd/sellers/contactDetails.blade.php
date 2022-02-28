@@ -49,7 +49,7 @@
 <div class="row">
     <div class="col-sm-12">
         <label>{{ __('frontend.ASKING_PRICE') }}</label>
-        <input type="text" class="form-control" name="asking_price" id="asking_price" required>
+        <input type="text" class="form-control" name="asking_price" id="asking_price">
     </div>
 </div>
 

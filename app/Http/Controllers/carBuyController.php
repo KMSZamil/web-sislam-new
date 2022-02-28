@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\CarBuy;
+use App\Models\Customer;
 use App\Models\Setting;
 use App\Models\SmartendCustomer;
 use App\Models\Topic;
@@ -49,7 +50,32 @@ class carBuyController extends Controller
 
     }
 
-    public function carBook(Request $request){
+    public function carBook(Request $request,$id){
+
+        //dd($request->all());
+        //dd($id);
+        isset($id) ? $CarID = $id : $CarID = $request->CarID;
+    
+        $WebmasterSettings = WebmasterSetting::find(1);
+        $WebsiteSettings = Setting::find(1);
+
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+
+        $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+        $customer = Customer::where('id',$request->CustomerID)->first();
+        //dd($customer);
+
+        return view('frontEnd.car_book_form',
+            compact("WebsiteSettings", "WebmasterSettings",
+                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews","customer","CarID"));
+    }
+
+    public function carBookSubmit(Request $request){
 
         //dd($request->all());
         $WebmasterSettings = WebmasterSetting::find(1);
@@ -63,9 +89,33 @@ class carBuyController extends Controller
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'address1' => 'required',
+            'address2' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $save_data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'address1' => $request->address1,
+            'address2' => $request->address1,
+            'buy_car' =>1
+        );
+
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
+        //dd($data);
+        $CustomerID = $data->id;
+
         $Booking = new CarBuy();
         $Booking->car_id = $request->CarID;
-        $Booking->customer_id = $request->CustomerID;
+        $Booking->customer_id = $CustomerID;
         $Booking->status = 1;
         $Booking->save();
 

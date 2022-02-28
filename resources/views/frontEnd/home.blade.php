@@ -172,12 +172,20 @@ if (count($TextBanners) > 3) {
                     <div class="list-info">
                         <div class="row">
                             <div style="float: left;">
-                                <span class="badge-book m-b30"><a href="{{ route('car-details',$data->id) }}">Book Now</a></span>
+                                <span class="badge-book m-b30"><a href="{{ url('car-book',$data->id) }}">Book Now</a></span>
+                                {{-- <form action="{{ url('car-book',$data->id) }}" method="post">
+                                    {{-- @csrf
+                                    <input type="hidden" name="CustomerID" id="CustomerID" value="{{ isset($CustomerID) ? $CustomerID : null }}">
+                                    <input type="hidden" name="CarID"  id="CarID" value="{{ isset($carDetails->id) ? $carDetails->id : null }}">
+                                    <a class="btnSubmit">Book Now</a> 
+                                </form> --}}
+                                
                             </div>
                             <div style="float: right;">
                                 <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
                             </div>
                         </div>
+                        
 
                         <h5 class="title mb-0"><a href="{{ route('car-details',$data->id) }}">{{ isset($data->car_title) ? $data->car_title : '' }}</a></h5>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
@@ -310,7 +318,7 @@ if (count($TextBanners) > 3) {
             </div>
             <div class="col-md-6">
                 <h3>Contact Us</h3>
-                <formmethod="POST" action="/contact">
+                <form method="POST" action="/contact">
 
                     {{ csrf_field() }}
 
@@ -348,7 +356,7 @@ if (count($TextBanners) > 3) {
                         <div class="col-xs-12">
                             <h2 class="ui-title-block ui-title-block_mod-a text-center">Real Facts</h2>
                             <div class="ui-subtitle-block_mod-a">we have some superb facts here</div>
-                            <script src="assets/plugins/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+                            {{-- <script src="assets/plugins/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script> --}}
                             <ul class="list-progress list-unstyled">
                                 <li class="list-progress__item"> <i class="icon flaticon-transport391"></i>
                                     <div class="list-progress__inner"> <span class="chart" data-percent="900"><span class="percent">900</span>+<canvas height="0" width="0"></canvas></span> <span class="list-progress__name">COUNTRIES REACHED</span> </div>
@@ -386,39 +394,65 @@ if (count($TextBanners) > 3) {
 
 @endif
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function ($) {
-    jQuery(".owl-wrapper").owlCarousel({
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplaySpeed: 5000,
-        dots: true,
-        merge: true,
-        mouseDrag: true,
-        touchDrag: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 2,
-            },
-            1000: {
-                items: 3,
-            }
-        }
-    })
-});
-$(document).ready(function () {
 
-    $('.collapse').on('shown.bs.collapse', function () {
-        $(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
-    }).on('hidden.bs.collapse', function () {
-        $(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-    });
-});
+<script>
+//      jQuery(document).ready(function ($) {
+//         jQuery(".btnSubmit").onclick(function () {
+//         alert("kk");
+//         var CustomerID = document.getElementById("CustomerID");
+//         var CarID = document.getElementById("CarID");
+//         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+//          console.log({CustomerID});
+//          return false;
+//          jQuery.ajax
+//                 ({
+//                     type: 'POST',
+//                     url: "{{ url('car-book') }}",
+//                     data: {district_id: district, _token: CSRF_TOKEN},
+//                     success: function (response) {
+//                         jQuery('#thana').html(response);
+
+//                     },
+//                 });
+//     });
+// });
+
+
 </script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        jQuery(".owl-wrapper").owlCarousel({
+            loop: true,
+            margin: 10,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 5000,
+            dots: true,
+            merge: true,
+            mouseDrag: true,
+            touchDrag: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                600: {
+                    items: 2,
+                },
+                1000: {
+                    items: 3,
+                }
+            }
+        })
+    });
+    $(document).ready(function () {
+
+        $('.collapse').on('shown.bs.collapse', function () {
+            $(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+        }).on('hidden.bs.collapse', function () {
+            $(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+        });
+    });
+</script>
+
 @endsection

@@ -106,9 +106,9 @@
                             @csrf
                             <input type="hidden" name="CustomerID" value="{{ isset($CustomerID) ? $CustomerID : null }}">
                             <input type="hidden" name="CarID" value="{{ isset($carDetails->id) ? $carDetails->id : null }}">
-                            @isset($CustomerID)
-                                <button type="submit" class="btn btn-warning btn-lg btn-block">Book Now</button>
-                            @endisset
+                          
+                            <button type="submit" class="btn btn-warning btn-lg btn-block">Book Now</button>
+                           
                         </form>
 
                     </div>

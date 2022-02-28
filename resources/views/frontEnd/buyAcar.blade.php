@@ -42,7 +42,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                         <div class="row">
                             <div style="float: left;">
                                 <span class="badge-book m-b30">
-                                    <a href="{{ route('car-details',$data->id) }}">Book Now</a>
+                                    <a href="{{ url('car-book',$data->id) }}">Book Now</a>
                                 </span>
                             </div>
                             <div style="float: right;">
