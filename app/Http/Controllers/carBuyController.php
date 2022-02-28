@@ -50,12 +50,18 @@ class carBuyController extends Controller
 
     }
 
-    public function carBook(Request $request,$id){
+    public function carBook(Request $request){
 
         //dd($request->all());
         //dd($id);
-        isset($id) ? $CarID = $id : $CarID = $request->CarID;
-    
+        
+        $CarID = $request->CarID;
+
+        if($CarID==null){
+            $CarID = last(request()->segments(1));
+        }
+
+        //dd($CarID);
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
 
@@ -67,12 +73,13 @@ class carBuyController extends Controller
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
+        $CustomerID = $request->CustomerID;
         $customer = Customer::where('id',$request->CustomerID)->first();
         //dd($customer);
 
         return view('frontEnd.car_book_form',
             compact("WebsiteSettings", "WebmasterSettings",
-                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews","customer","CarID"));
+                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews","customer","CarID","CustomerID"));
     }
 
     public function carBookSubmit(Request $request){

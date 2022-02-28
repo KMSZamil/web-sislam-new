@@ -7,6 +7,7 @@ use App\Models\CarBrand;
 use App\Models\CarCondition;
 use App\Models\CarModel;
 use App\Models\Comfort;
+use App\Models\Customer;
 use App\Models\District;
 use App\Models\Drive;
 use App\Models\ExteriorColor;
@@ -41,6 +42,7 @@ class carsController extends Controller {
 
         //dd($request->all());
         $CustomerID = $request->CustomerID;
+        //dd($CustomerID);
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
@@ -49,7 +51,9 @@ class carsController extends Controller {
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        
+
+        $customer = Customer::where('id',$request->CustomerID)->first();
+        //dd($customer);
         $dashboardCars = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
             'condition',
             'car_brand',
@@ -73,7 +77,7 @@ class carsController extends Controller {
                         "PageTitle",
                         "LatestNews",
                         "dashboardCars",
-                        "CustomerID"));
+                        "customer","CustomerID"));
     }
 
     public function sellAcar(Request $request) {

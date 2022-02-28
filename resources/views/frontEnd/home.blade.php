@@ -172,13 +172,13 @@ if (count($TextBanners) > 3) {
                     <div class="list-info">
                         <div class="row">
                             <div style="float: left;">
-                                <span class="badge-book m-b30"><a href="{{ url('car-book',$data->id) }}">Book Now</a></span>
-                                {{-- <form action="{{ url('car-book',$data->id) }}" method="post">
-                                    {{-- @csrf
-                                    <input type="hidden" name="CustomerID" id="CustomerID" value="{{ isset($CustomerID) ? $CustomerID : null }}">
-                                    <input type="hidden" name="CarID"  id="CarID" value="{{ isset($carDetails->id) ? $carDetails->id : null }}">
-                                    <a class="btnSubmit">Book Now</a> 
-                                </form> --}}
+                                    <span class="badge-book m-b30"><a href="{{ url('car-book',$data->id) }}">Book Now</a></span>
+                                    {{-- <form action="{{ url('car-book',$data->id) }}" method="post">
+                                        {{-- @csrf
+                                        <input type="hidden" name="CustomerID" id="CustomerID" value="{{ isset($CustomerID) ? $CustomerID : null }}">
+                                        <input type="hidden" name="CarID"  id="CarID" value="{{ isset($carDetails->id) ? $carDetails->id : null }}">
+                                        <a class="btnSubmit">Book Now</a> 
+                                    </form> --}}
                                 
                             </div>
                             <div style="float: right;">
