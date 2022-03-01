@@ -8,6 +8,7 @@ use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\carSellController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------

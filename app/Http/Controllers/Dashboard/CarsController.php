@@ -70,16 +70,10 @@ class CarsController extends Controller
     public function index($group_id = null)
     {
 
-        // General for all pages
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
-        //dd($GeneralWebmasterSections);
-        // General END
-
-        //List of groups
         if (@Auth::user()->permissionsGroup->view_status) {
             $CarsGroups = CarsGroup::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->get();
         } else {
-            //$CarsGroups = CarsGroup::orderby('id', 'asc')->get();
             $CarsGroups = 0;
         }
 
@@ -87,46 +81,6 @@ class CarsController extends Controller
         //List of Countries
         $Countries = Country::orderby('title_' . @Helper::currentLanguage()->code, 'asc')->get();
 
-        /*if (@Auth::user()->permissionsGroup->view_status) {
-            if ($group_id > 0) {
-                //List of group cars
-                $Cars = Car::where('created_by', '=', Auth::user()->id)->where('group_id', '=',
-                    $group_id)->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-            } elseif ($group_id == "wait") {
-                //List waiting activation Cars
-                $Cars = Car::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                    '0')->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-            } elseif ($group_id == "blocked") {
-                //List waiting activation Cars
-                $Cars = Car::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                    '2')->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-            } else {
-                //List of all cars
-                $Cars = Car::where('created_by', '=', Auth::user()->id)->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-
-            }
-        } else {
-            if ($group_id > 0) {
-                //List of group cars
-                $Cars = Car::where('group_id', '=', $group_id)->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-            } elseif ($group_id == "wait") {
-                //List waiting activation Cars
-                $Cars = Car::where('status', '=', '0')->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-            } elseif ($group_id == "blocked") {
-                //List waiting activation Cars
-                $Cars = Car::where('status', '=', '2')->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-            } else {
-                //List of all cars
-                $Cars = Car::orderby('id', 'desc')->paginate(env('BACKEND_PAGINATION'));
-            }
-        }*/
 
         if (@Auth::user()->permissionsGroup->view_status) {
             //Count of waiting activation Cars
@@ -1018,14 +972,15 @@ class CarsController extends Controller
         if (@Auth::user()->permissionsGroup->view_status) {
             $ExchangeCars = Seller::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
         } else {
-            $ExchangeCars = Seller::with('images',
+            $ExchangeCars = Seller::join('car_exchange','car_exchange.seller_car_id','=','seller.id')
+            ->with('images',
                 'condition',
                 'car_brand',
                 'model',
                 'bodytype',
                 'car_exterior_color',
                 'drive_type',
-                'car_transmission')->orderby('id', 'desc')->get();
+                'car_transmission')->orderby('car_exchange.id', 'desc')->get();
         }
         // dd($ExchangeCars);
         return view("dashboard.cars.exchange", compact("ExchangeCars", "GeneralWebmasterSections"));
@@ -1034,25 +989,22 @@ class CarsController extends Controller
 
     public function buy(Request $request)
     {
-        //dd('d');
+        
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
-        // General END
         if (@Auth::user()->permissionsGroup->view_status) {
             $BuyCars = Seller::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
         } else {
-            $BuyCars = Seller::with('images',
-                'condition',
-                'car_brand',
-                'model',
-                'bodytype',
-                'car_exterior_color',
-                'drive_type',
-                'car_transmission')->orderby('id', 'desc')->get();
+            $BuyCars = Seller::join('car_buy','car_buy.car_id','=','seller.id')
+                ->with('images',
+                    'condition',
+                    'car_brand',
+                    'model',
+                    'bodytype',
+                    'car_exterior_color',
+                    'drive_type',
+                    'car_transmission')->orderby('seller.id', 'desc')->get();
+                    //dd($BuyCars);
         }
-        // dd($BuyCars);
         return view("dashboard.cars.buy", compact("BuyCars", "GeneralWebmasterSections"));
-
     }
-
-
 }

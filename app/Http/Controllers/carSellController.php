@@ -154,7 +154,7 @@ class carSellController extends Controller
             'thana' => $request->thana,
             'district' => $request->district,
             'address_line1' => $request->address1,
-            'address_line2' => $request->address,
+            'address_line2' => $request->address2,
             'buy_car' => 1
         );
         $customer = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
@@ -165,7 +165,7 @@ class carSellController extends Controller
         $seller_data->car_title = $request->car_title;
         $seller_data->car_condition = $request->car_condition;
         $seller_data->made_in = 0;//$request->made_in;
-        $seller_data->brand = $request->brand;
+        $seller_data->brand = $request->car_brand;
         $seller_data->car_model = $request->car_model;
         $seller_data->menufacturing_year = $request->menufacturing_year;
         $seller_data->body_type = $request->body_type;
