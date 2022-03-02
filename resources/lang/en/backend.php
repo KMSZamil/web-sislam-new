@@ -259,8 +259,10 @@ return array(
     'deleteCars' => 'Delete Car',
     'searchAllCars' => 'Search all cars',
     'allCars' => 'All Cars',
+    'showroomCars' => 'Showroom Cars',
     'exchangeCars' => 'Exchange Cars',
     'buyCars' => 'Buy Cars',
+    'sellCars' => 'Sell Cars',
     'firstName' => 'First Name',
     'lastName' => 'Last Name',
     'companyName' => 'Company Name',
@@ -657,7 +659,12 @@ return array(
     'PRICE' => 'Price',
     'SL' => 'Serial',
     'CARDETAILS' => 'Car details',
-    'VIDEOURL' => 'Youtube video url'
+    'VIDEOURL' => 'Youtube video url',
+    'CUSTOMER_NAME' => 'Name',
+    'EMAIL' => 'Email',
+    'MOBILE' => 'Mobile',
+    'ADDRESS' => 'Address',
+    'STATUS' => 'Status',
     
     
 );

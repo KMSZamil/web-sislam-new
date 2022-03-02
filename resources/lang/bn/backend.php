@@ -259,6 +259,7 @@ return array(
     'deleteCars' => 'গাড়ি মুছে ফেলা',
     'searchAllCars' => 'Search all cars',
     'allCars' => 'সকল গাড়ি লিস্ট',
+    'showroomCars' => 'Showroom Cars',
     'firstName' => 'First Name',
     'lastName' => 'Last Name',
     'companyName' => 'Company Name',
@@ -655,4 +656,9 @@ return array(
     'PRICE' => 'মূল্য',
     'SL' => 'সিরিয়াল',
     'CARDETAILS' => 'বিস্তারিত',
+    'NAME' => 'নাম',
+    'EMAIL' => 'ইমেইল',
+    'MOBILE' => 'মোবাইল',
+    'ADDRESS' => 'মোবাইল',
+    'STATUS' => 'Status',
 );

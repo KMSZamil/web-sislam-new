@@ -59,13 +59,13 @@
 {{--                                <td>{{ $row->fuel_type }}</td>--}}
                                 <td>{{ $row->condition->name }}</td>
                                 <td>{{ $row->price }}</td>
-                                <td><a class="btn btn-fw btn-sm primary" href="{{ route("carsEdit",["id"=>$row->id]) }}">
-                                        <i class="material-icons">&#xe02e;</i>
-                                        &nbsp; {{ __('backend.edit') }}</a>&nbsp;
-                                        <a class="btn btn-fw btn-sm danger" onclick="return confirm('Are you sure?')" href="{{ route("carsDestroy",["id"=>$row->id]) }}">
-                                        <i class="material-icons">&#xE872;</i>
-                                        &nbsp; {{ __('backend.delete') }}</a>
-                                        </td>
+                                <td><a class="btn btn-fw btn-sm primary" href="{{ route("editBuy",["id"=>$row->car_id]) }}">
+                                    <i class="material-icons">&#xe02e;</i>
+                                    &nbsp; {{ __('backend.edit') }}</a>&nbsp;
+                                    <a class="btn btn-fw btn-sm danger" onclick="return confirm('Are you sure?')" href="{{ route("carsDestroy",["id"=>$row->car_id]) }}">
+                                    <i class="material-icons">&#xE872;</i>
+                                    &nbsp; {{ __('backend.delete') }}</a>
+                                </td>
                             </tr>
                         @endforeach
 

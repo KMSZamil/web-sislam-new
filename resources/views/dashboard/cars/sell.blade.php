@@ -19,7 +19,7 @@
                     @endif
                 @endforeach
             </div>
-            @if($ExchangeCars->count() == 0)
+            @if($SellCars->count() == 0)
                 <div class="row p-a">
                     <div class="col-sm-12">
                         <div class=" p-a text-center light ">
@@ -29,7 +29,7 @@
                 </div>
             @endif
 
-            @if($ExchangeCars->count() > 0)
+            @if($SellCars->count() > 0)
 
                 <div class="portlet-body">
                     <table id="dtVerticalScroll" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
@@ -47,7 +47,7 @@
                         </thead>
                         <tbody>
 
-                        @foreach($ExchangeCars as $row)
+                        @foreach($SellCars as $row)
                             <?php  //echo '<pre/>';print_r($row->brand); ?>
 
                             <tr>
@@ -59,10 +59,10 @@
 {{--                                <td>{{ $row->fuel_type }}</td>--}}
                                 <td>{{ $row->condition->name }}</td>
                                 <td>{{ $row->price }}</td>
-                                <td><a class="btn btn-fw btn-sm primary" href="{{ route("editExchange",["id"=>$row->seller_car_id]) }}">
+                                <td><a class="btn btn-fw btn-sm primary" href="{{ route("editSell",["id"=>$row->id]) }}">
                                         <i class="material-icons">&#xe02e;</i>
                                         &nbsp; {{ __('backend.edit') }}</a>&nbsp;
-                                        <a class="btn btn-fw btn-sm danger" onclick="return confirm('Are you sure?')" href="{{ route("carsDestroy",["id"=>$row->seller_car_id]) }}">
+                                        <a class="btn btn-fw btn-sm danger" onclick="return confirm('Are you sure?')" href="{{ route("carsDestroy",["id"=>$row->id]) }}">
                                         <i class="material-icons">&#xE872;</i>
                                         &nbsp; {{ __('backend.delete') }}</a>
                                         </td>
