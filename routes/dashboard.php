@@ -196,7 +196,6 @@ Route::get('/cars/all', [CarsController::class, 'all'])->name('carsAll');
 Route::get('/cars/exchange', [CarsController::class, 'exchange'])->name('carsExchange');
 Route::get('/cars/buy', [CarsController::class, 'buy'])->name('carsBuy');
 Route::get('/cars/sell', [CarsController::class, 'sell'])->name('carsSell');
-Route::get('/cars/all', [CarsController::class, 'all'])->name('carsAll');
 Route::get('/cars/{group_id?}', [CarsController::class, 'index'])->name('carsAdd');
 Route::post('/cars/store', [CarsController::class, 'store'])->name('carsStore');
 Route::get('/cars/{id}/edit', [CarsController::class, 'edit'])->name('carsEdit');

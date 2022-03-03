@@ -48,7 +48,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     @include('frontEnd.sellers.carFeatures')
                     @include('frontEnd.sellers.paperDetails')
                     @include('frontEnd.sellers.carPhoto')
-                    @include('frontEnd.sellers.contactDetails')
+                    {{-- @include('frontEnd.sellers.contactDetails') --}}
 
                     <div class="row">
                         <div class="form-group">

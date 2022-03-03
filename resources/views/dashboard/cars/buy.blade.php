@@ -36,8 +36,8 @@
                         <thead  class="dker">
                         <tr>
                             <th class="th-sm">{{ __('backend.SL') }}</th>
+                            <th>{{ __('backend.CAR_TITLE') }}</th>
                             <th>{{ __('backend.CAR_MODEL') }}</th>
-                            <th>Title</th>
                             <th class="text-center">{{ __('backend.CAR_BRAND') }}</th>
 {{--                            <th class="text-center">{{ __('backend.FUEL_TYPE') }}</th>--}}
                             <th class="text-center" style="width:50px;">{{ __('backend.CAR_CONDITION') }}</th>

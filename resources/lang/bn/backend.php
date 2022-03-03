@@ -661,4 +661,5 @@ return array(
     'MOBILE' => 'মোবাইল',
     'ADDRESS' => 'মোবাইল',
     'STATUS' => 'Status',
+    'CAR_TITLE' => 'Car Title',
 );

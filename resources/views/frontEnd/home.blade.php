@@ -193,7 +193,7 @@ if (count($TextBanners) > 3) {
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14"> {{ isset($data->exterior_color->name) ? $data->exterior_color->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14"> {{ isset($data->car_exterior_color->name) ? $data->car_exterior_color->name : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>

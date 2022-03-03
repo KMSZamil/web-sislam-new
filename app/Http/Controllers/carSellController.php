@@ -350,7 +350,7 @@ class carSellController extends Controller
                 'buy_car' =>1
             );
              $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
-             return view('frontEnd.sellCarDetaails', compact(
+             return view('frontEnd.exchangeCarDetaails', compact(
                 "data", 
                 "WebsiteSettings",
                 "WebmasterSettings",

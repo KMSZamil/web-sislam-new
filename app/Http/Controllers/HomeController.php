@@ -178,38 +178,26 @@ class HomeController extends Controller
     {
 
         if ($lang != "") {
-            // Set Language
             App::setLocale($lang);
             \Session::put('locale', $lang);
         }
-        // General Webmaster Settings
         $WebmasterSettings = WebmasterSetting::find(1);
-
-        // General for all pages
         $WebsiteSettings = Setting::find(1);
-
-        // Home topics
         $HomeTopics = Topic::where([['status', 1], ['webmaster_id', $WebmasterSettings->home_content1_section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $WebmasterSettings->home_content1_section_id], ['expire_date', null]])->orderby('row_no', env("FRONTEND_TOPICS_ORDER", "asc"))->limit(12)->get();
-        // Home photos
         $HomePhotos = Topic::where([['status', 1], ['webmaster_id', $WebmasterSettings->home_content2_section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $WebmasterSettings->home_content2_section_id], ['expire_date', null]])->orderby('row_no', env("FRONTEND_TOPICS_ORDER", "asc"))->limit(6)->get();
-// Home Partners
         $HomePartners = Topic::where([['status', 1], ['webmaster_id', $WebmasterSettings->home_content3_section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $WebmasterSettings->home_content3_section_id], ['expire_date', null]])->orderby('row_no', env("FRONTEND_TOPICS_ORDER", "asc"))->get();
-
-        // Get Latest News
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
-        // Get Home page slider banners
         $SliderBanners = Banner::where('section_id', $WebmasterSettings->home_banners_section_id)->where('status',
             1)->orderby('row_no', 'asc')->get();
 
-        // Get Home page Test banners
         $TextBanners = Banner::where('section_id', $WebmasterSettings->home_text_banners_section_id)->where('status',
             1)->orderby('row_no', 'asc')->get();
 
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
         $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
 
-        $PageTitle = ""; // will show default site Title
+        $PageTitle = ""; 
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
 
@@ -230,11 +218,11 @@ class HomeController extends Controller
             'drive_type',
             'car_transmission'
         )
-        ->where('status',1)
-        ->where('home_feature',1)
-        ->where('car_status',2)
-        ->orderBy('id', 'DESC')
-        ->get();
+            ->where('status',1)
+            ->where('home_feature',1)
+            ->where('car_status',2)
+            ->orderBy('id', 'DESC')
+            ->get();
         //dd($dashboardCars);
 
         return view("frontEnd.home",

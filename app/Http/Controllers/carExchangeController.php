@@ -127,6 +127,7 @@ class carExchangeController extends Controller
     }
 
     public function exchange_basic_data_save(Request $request){
+        //dd($request->all());
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
 
@@ -139,16 +140,16 @@ class carExchangeController extends Controller
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
         $customer_data = SmartendCustomer::where('id',$request->GetID)->first();
-        $save_data = array(
-            'name' => $request->name,
-            'email' => $request->email,
-            'thana' => $request->thana,
-            'district' => $request->district,
-            'address_line1' => $request->address1,
-            'address_line2' => $request->address2,
-            'exchange_car' => 1
-        );
-        $customer = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
+        // $save_data = array(
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'thana' => $request->thana,
+        //     'district' => $request->district,
+        //     'address_line1' => $request->address1,
+        //     'address_line2' => $request->address2,
+        //     'exchange_car' => 1
+        // );
+        // $customer = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
 
         //dd($request->all());
 
@@ -181,8 +182,8 @@ class carExchangeController extends Controller
         $seller_data->home_feature = '';//$request->home_feature;
         $seller_data->car_details = $request->car_details;
         $seller_data->video_url = $request->video_url;
-        $seller_data->created_by = $customer->id;
-        $seller_data->customer_id = $customer->id;
+        $seller_data->created_by = $request->GetID;
+        $seller_data->customer_id = $request->GetID;
         $seller_data->save();
 
         if ($request->car_photo) {
@@ -289,7 +290,7 @@ class carExchangeController extends Controller
         }
 
         $seller_car_id = $seller_data->id;
-        $customer_id = $customer->id;
+        $customer_id = $request->GetID;
         //dd($seller_car_id);
         //dd($customer_id);
 
