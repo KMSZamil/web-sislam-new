@@ -19,6 +19,7 @@ use App\Models\ExteriorColor;
 use App\Models\FuelType;
 use App\Models\InteriorColor;
 use App\Models\OtherFeature;
+use App\Models\RegistrationSerial;
 use App\Models\Safety;
 use App\Models\Seat;
 use App\Models\Seller;
@@ -71,6 +72,7 @@ class carExchangeController extends Controller
         $OtherFeatures = OtherFeature::where('status',1)->get();
         $District = District::where('status',1)->get();
         $Thana = Thana::where('status',1)->get();
+        $RegistrationSerial = RegistrationSerial::where('status',1)->get();
 
         $validator = Validator::make($request->all(), [
                     'name' => 'required',
@@ -118,7 +120,8 @@ class carExchangeController extends Controller
                 "PageDescription",
                 "LatestNews",
                 "GetID",
-                "PageKeywords"));
+                "PageKeywords",
+                "RegistrationSerial"));
     }
 
     public function latest_topics($section_id, $limit = 3)
@@ -171,6 +174,7 @@ class carExchangeController extends Controller
         $seller_data->registration_year = $request->registration_year;
         $seller_data->registration_serial = $request->registration_serial;
         $seller_data->registration_city = $request->registration_city;
+        $seller_data->registration_number = $request->registration_number;
         $seller_data->seats = $request->seats;
         $seller_data->tax_token_expaire = date('Y-m-d',strtotime($request->tax_token_expaire));
         $seller_data->fitnes_exspaire = date('Y-m-d',strtotime($request->fitnes_exspaire));

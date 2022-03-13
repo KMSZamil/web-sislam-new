@@ -10,11 +10,13 @@ use App\Http\Controllers\Dashboard\BannersController;
 use App\Http\Controllers\Dashboard\CategoriesController;
 use App\Http\Controllers\Dashboard\TopicsController;
 use App\Http\Controllers\Dashboard\ContactsController;
+use App\Http\Controllers\Dashboard\DealersController;
 use App\Http\Controllers\Dashboard\CarsController;
 use App\Http\Controllers\Dashboard\WebmailsController;
 use App\Http\Controllers\Dashboard\EventsController;
 use App\Http\Controllers\Dashboard\AnalyticsController;
 use App\Http\Controllers\Dashboard\MenusController;
+use App\Http\Controllers\Dashboard\LeadsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -191,6 +193,15 @@ Route::post('/contacts/{id}/update', [ContactsController::class, 'update'])->nam
 Route::get('/contacts/destroy/{id}', [ContactsController::class, 'destroy'])->name('contactsDestroy');
 Route::post('/contacts/updateAll', [ContactsController::class, 'updateAll'])->name('contactsUpdateAll');
 
+// dealers
+Route::get('/dealers/{group_id?}', [DealersController::class, 'index'])->name('dealers');
+Route::post('/dealers/store', [DealersController::class, 'store'])->name('dealersStore');
+Route::post('/dealers/search', [DealersController::class, 'search'])->name('dealersSearch');
+Route::get('/dealers/{id}/edit', [DealersController::class, 'edit'])->name('dealersEdit');
+Route::post('/dealers/{id}/update', [DealersController::class, 'update'])->name('dealersUpdate');
+Route::get('/dealers/destroy/{id}', [DealersController::class, 'destroy'])->name('dealersDestroy');
+Route::post('/dealers/updateAll', [DealersController::class, 'updateAll'])->name('dealersUpdateAll');
+
 //Cars
 Route::get('/cars/all', [CarsController::class, 'all'])->name('carsAll');
 Route::get('/cars/exchange', [CarsController::class, 'exchange'])->name('carsExchange');
@@ -212,6 +223,9 @@ Route::get('/cars/destroy/{id}', [CarsController::class, 'destroy'])->name('cars
 Route::post('/cars/updateAll', [CarsController::class, 'updateAll'])->name('carsUpdateAll');
 Route::post('get_car_models', [CarsController::class, 'get_car_models'])->name('get_car_models');
 Route::post('get_thana', [CarsController::class, 'get_thana'])->name('get_thana');
+
+Route::get('add-new-leads', [LeadsController::class, 'create'])->name('addNewLeads');
+Route::get('store-leads', [contactLeadsController::class, 'store'])->name('storeLeads');
 
 
 

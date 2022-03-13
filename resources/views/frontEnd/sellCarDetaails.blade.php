@@ -100,23 +100,6 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 },
             });
         });
-
-        $('#district').change(function () {
-            var district = $(this).val();
-
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            // console.log({DistributorCode});
-            $.ajax
-            ({
-                type: 'POST',
-                url: "{{ route('get_thana') }}",
-                data: {district_id: district, _token: CSRF_TOKEN},
-                success: function (response) {
-                    $('#thana').html(response);
-
-                },
-            });
-        });
     });
 </script>
 

@@ -149,7 +149,7 @@ return [
     'THANA' => "Thana",
     'ASKING_PRICE' => "Price",
     'TERMS_AND_CONDITION' => "Terms and Condition",
-    'SUCESSMSG' => 'Your car information received with thanks, we will contact you very soon',
+    'SUCESSMSG' => 'Your car information received with thanks, we will contact you very soon.',
     'SUCESSMSGBOOK' => 'We got the booking request, we will contact you very soon',
     'SUCESSMSGEXCHANGE' => 'We got the exchange request, we will contact you very soon',
     'CARRECIVED' => 'Received your car information',
@@ -161,7 +161,15 @@ return [
     'CARSTATUS' => 'Status',
     'CAR_TITLE' => 'Car Title',
     'MADEIN' => 'Made in country',
-    'SUBMIT' => 'Submit'
+    'SUBMIT' => 'Submit',
+    'QUESTION1' => 'How do I sell my car to S Islam Cars?',
+    'ANSWER1' => 'To sell your car to S Islam Cars or find out the price of your car, just give us the information of your car and find out the price. If you do not satisfied the price offered by us, you can contact our responsible executive and negotiate the price. If you approve the final offer, we will deposit money directly into your bank account or you will be able to receive cash instantly. We will bring the car and transfer the name as soon as possible.',
+    'FAQN' => 'Frequently Asked Questions (FAQ)',
+    'QUESTION2' => 'How is your car valued?',
+    'ANSWER2' => 'S Islam Cars uses a number of strategies to determine the price of your car. Pricing based on your vehicle description, mileage, buyer demand, features, package and current condition of the vehicle.',
+    'QUESTION3' => 'How and when do I get the price of the car?',
+    'ANSWER3' => 'S Islam Cars pays for your car directly via bank transfer or in cash. S Islam Cars makes bank transfers within 24 hours or pay instant cash of selling your car.',
+    'REGISTRATION_NUMBER' => 'Registration Number',
 ];
 
 ?>

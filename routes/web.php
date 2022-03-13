@@ -8,7 +8,6 @@ use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\carSellController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +55,7 @@ Route::get('/logout', function () {
 
 Route::post('/seller-basic', 'carSellController@index');
 Route::post('/buyer-basic', 'carBuyController@buyerBasic');
-Route::post('/exchange-basic', 'carSellController@exchangeBasic');
+//Route::post('/exchange-basic', 'carSellController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
 Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
 

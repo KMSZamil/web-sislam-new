@@ -3,33 +3,33 @@
 <script type="text/javascript">
     var page_dir = "{{ @Helper::currentLanguage()->direction }}";
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>
-{{--<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>--}}
-{{-- <script src="{{ URL::asset('assets/frontend/js/jquery.easing.1.3.js') }}"></script> --}}
-<script src="{{ URL::asset('assets/frontend/js/bootstrap.min.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/jquery.fancybox.pack.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/jquery.fancybox-media.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/google-code-prettify/prettify.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/portfolio/jquery.quicksand.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/portfolio/setting.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/jquery.flexslider.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/animate.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/custom.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/owl-carousel/owl.carousel.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/Chart.min.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/select2/select2.min.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
-<script src="{{ URL::asset('assets/frontend/js/my_custom.js') }}"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>-->
+<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}" defer></script>
+<!--<script src="{{ URL::asset('assets/frontend/js/jquery.easing.1.3.js') }}"></script>-->
+<script src="{{ URL::asset('assets/frontend/js/bootstrap.min.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/jquery.fancybox.pack.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/jquery.fancybox-media.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/google-code-prettify/prettify.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/portfolio/jquery.quicksand.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/portfolio/setting.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/jquery.flexslider.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/animate.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/custom.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/owl-carousel/owl.carousel.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/Chart.min.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/select2/select2.min.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/tinymce/tinymce.min.js') }}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}" defer></script>
+<script src="{{ URL::asset('assets/frontend/js/my_custom.js') }}" defer></script>
 
 
 <!-----------------IMAGE UPLOAD START---------------------------->
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>
 <script src="{{ asset('assets/dashboard/js/rupload/vendor/jquery.ui.widget.js') }}" defer></script>
-<script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
-<script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-<script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js" defer></script>
+<script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js" defer></script>
+<script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js" defer></script>
+<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js" defer></script>
 <script src="{{ asset('assets/dashboard/js/rupload/jquery.iframe-transport.js') }}" defer></script>
 <script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload.js') }}" defer></script>
 <script src="{{ asset('assets/dashboard/js/rupload/jquery.fileupload-process.js') }}" defer></script>
