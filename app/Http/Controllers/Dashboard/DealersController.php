@@ -17,7 +17,6 @@ use Redirect;
 
 class DealersController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -35,7 +34,8 @@ class DealersController extends Controller
      */
     public function index()
     {
-        //
+        $small_date = Dealer::orderby('created_at','ASC')->first()->created_at;
+        $large_date = Dealer::orderby('created_at','DESC')->first()->created_at;
         // General for all pages
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
         // General END
@@ -48,7 +48,26 @@ class DealersController extends Controller
 
         return view("dashboard.dealers.list",
             compact("Dealers", "GeneralWebmasterSections", "Districts","Thana",
-                 "AllDealersCount", "search_word"));
+                 "AllDealersCount", "search_word", "small_date","large_date"));
+    }
+
+
+
+    public function get_dealer_data(Request $request)
+    {
+        if ($request['FromDate'])
+        {
+            $DateFrom = $request['FromDate'];
+            $ToDate = $request['ToDate'];
+        }
+        else {
+            $DateFrom = date('Y-m-01');
+            $ToDate =  date('Y-m-d');
+        }
+        //dd($ToDate);
+        $Dealers = Dealer::all();
+
+        return view('dashboard.dealers.get_dealers', compact('Dealers','DateFrom','ToDate'));
     }
 
     /**
@@ -88,7 +107,18 @@ class DealersController extends Controller
             compact("Dealers", "GeneralWebmasterSections", "Countries", "AllDealersCount", "search_word"));
     }
 
+    public function addDealer()
+    {
+        //dd("dd");
 
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+        // General END
+        $Districts = District::where('status',1)->get();
+        $Thana= Country::orderby('title_' . @Helper::currentLanguage()->code, 'asc')->get();
+
+        return view("dashboard.dealers.list_add",
+            compact("GeneralWebmasterSections", "Districts","Thana"));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -98,6 +128,7 @@ class DealersController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         // Check Permissions
         if (!@Auth::user()->permissionsGroup->add_status) {
             return Redirect::to(route('NoPermission'))->send();
@@ -105,36 +136,17 @@ class DealersController extends Controller
 
         //
         $this->validate($request, [
-            'email' => 'email|required',
-            'file' => 'mimes:png,jpeg,jpg,gif,svg'
+            'first_name' => 'required'
+            
         ]);
-
-
-        // Start of Upload Files
-        $formFileName = "file";
-        $fileFinalName_ar = "";
-        if ($request->$formFileName != "") {
-            $fileFinalName_ar = time() . rand(1111,
-                    9999) . '.' . $request->file($formFileName)->getClientOriginalExtension();
-            $path = $this->getUploadPath();
-            $request->file($formFileName)->move($path, $fileFinalName_ar);
-        }
-        // End of Upload Files
 
         $Dealer = new Dealer;
         $Dealer->first_name = $request->first_name;
         $Dealer->last_name = $request->last_name;
         $Dealer->company = $request->company;
         $Dealer->email = $request->email;
-        $Dealer->password = $request->password;
         $Dealer->phone = $request->phone;
-        $Dealer->country_id = $request->country_id;
-        $Dealer->city = $request->city;
         $Dealer->address = $request->address;
-        $Dealer->address = $request->address;
-        $Dealer->photo = $fileFinalName_ar;
-        $Dealer->notes = $request->notes;
-        $Dealer->status = 1;
         $Dealer->created_by = Auth::user()->id;
         $Dealer->save();
 
@@ -159,7 +171,7 @@ class DealersController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
         $DealerToEdit = Dealer::find($id);
         if (!empty($DealerToEdit)) {
             return redirect()->action('Dashboard\DealersController@index', $DealerToEdit->group_id)->with('DealerToEdit',
@@ -208,6 +220,7 @@ class DealersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
         // Check Permissions
         if (!@Auth::user()->permissionsGroup->edit_status) {
             return Redirect::to(route('NoPermission'))->send();

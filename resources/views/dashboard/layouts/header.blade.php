@@ -113,7 +113,7 @@
         <!-- / navbar right -->
 
         <!-- navbar collapse -->
-        <div class="collapse navbar-toggleable-sm" id="collapse">
+        {{-- <div class="collapse navbar-toggleable-sm" id="collapse">
             {{Form::open(['route'=>['adminFind'],'method'=>'POST', 'role'=>'search', 'class' => "navbar-form form-inline pull-right pull-none-sm navbar-item v-m" ])}}
 
             <div class="form-group l-h m-a-0">
@@ -213,7 +213,7 @@
             </ul>
             @endif
             <!-- / -->
-        </div>
+        </div> --}}
         <!-- / navbar collapse -->
     </div>
 </div>

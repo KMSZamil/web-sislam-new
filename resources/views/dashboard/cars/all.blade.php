@@ -19,90 +19,90 @@
                     @endif
                 @endforeach
             </div>
-            @if($SellerCars->count() == 0)
-                <div class="row p-a">
+
+
+            <div class="container-fluid">
+                <div class="row">
                     <div class="col-sm-12">
-                        <div class=" p-a text-center light ">
-                            {{ __('backend.noData') }}
+    
+                    <form method="POST" autocomplete="off">
+                        @csrf
+                        
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-2">Date From</label>
+                                    <input type="date" class="form-control col-sm-10" name="dateFrom" id="dateFrom" value="{{ isset($small_date) ? date('Y-m-d',strtotime($small_date)) : date('Y-m-01') }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-2">Date To</label>
+                                    <input type="date" class="form-control col-sm-10" name="dateTo" id="dateTo" value="{{ isset($large_date) ? date('Y-m-d',strtotime($large_date)) : date('Y-m-d') }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-2">&nbsp;</label>
+                                    <button type="button" class="btn btn-primary submit col-sm-10" id="submit_data">Filter Data</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="text-center" id="loaderDiv"></div>
+                        <section id="product_sales_table_data"></section>
+                    </form>
                 </div>
-            @endif
-
-            @if($SellerCars->count() > 0)
-
-                <div class="portlet-body">
-                    <table id="dtVerticalScroll" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                        <thead  class="dker">
-                        <tr>
-                            <th class="th-sm">{{ __('backend.SL') }}</th>
-                            <th>{{ __('backend.CAR_TITLE') }}</th>
-                            <th>{{ __('backend.CAR_MODEL') }}</th>
-                            <th class="text-center">{{ __('backend.CAR_BRAND') }}</th>
-{{--                            <th class="text-center">{{ __('backend.FUEL_TYPE') }}</th>--}}
-                            <th class="text-center" style="width:50px;">{{ __('backend.CAR_CONDITION') }}</th>
-                            <th class="text-center" style="width:200px;">{{ __('backend.PRICE') }}</th>
-                            <th class="text-center" style="width:200px;">{{ __('backend.ACTIONS') }}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        @foreach($SellerCars as $row)
-                            <?php  //echo '<pre/>';print_r($row->brand); ?>
-
-                            <tr>
-
-                                <td>{{ $row->id }}</td>
-                                <td>{{ $row->car_title }}</td>
-                                <td>{{ $row->model->name }}</td>
-                                <td>{{ $row->car_brand->name }}</td>
-{{--                                <td>{{ $row->fuel_type }}</td>--}}
-                                <td>{{ $row->condition->name }}</td>
-                                <td>{{ $row->price }}</td>
-                                <td><a class="btn btn-fw btn-sm primary" href="{{ route("carsEdit",["id"=>$row->id]) }}">
-                                        <i class="material-icons">&#xe02e;</i>
-                                        &nbsp; {{ __('backend.edit') }}</a>&nbsp;
-                                        <a class="btn btn-fw btn-sm danger" onclick="return confirm('Are you sure?')" href="{{ route("carsDestroy",["id"=>$row->id]) }}">
-                                        <i class="material-icons">&#xE872;</i>
-                                        &nbsp; {{ __('backend.delete') }}</a>
-                                        </td>
-                            </tr>
-                        @endforeach
-
-                        </tbody>
-                    </table>
-
-                </div>
-            @endif
+            </div>
+        </div>
         </div>
     </div>
 @endsection
 @push("after-scripts")
-    <script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery('#dtVerticalScroll').DataTable({
-            "scrollY": "30%",
-            "scrollCollapse": true,
+ 
+
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script>
+    $(document).ready(function(){
+        dataCapture();
+        $("#submit_data").click(function()
+        {
+            dataCapture();
         });
-        jQuery('.dataTables_length').addClass('bs-select');
-    });
-    jQuery('#approveModalCenter').on('show.bs.modal', function (e) {
-        jQuery(this).find('.app-buitton').attr('href', jQuery(e.relatedTarget).data('href'));
     });
 
-</script>
-    <script type="text/javascript">
-        $("#checkAll").click(function () {
-            $('input:checkbox').not(this).prop('checked', this.checked);
-        });
-        $("#action").change(function () {
-            if (this.value == "delete") {
-                $("#submit_all").css("display", "none");
-                $("#submit_show_msg").css("display", "inline-block");
-            } else {
-                $("#submit_all").css("display", "inline-block");
-                $("#submit_show_msg").css("display", "none");
+    function dataCapture(){
+
+        var FromDate = $('#dateFrom').val();
+        var ToDate = $('#dateTo').val();
+        if(FromDate==''){
+            alert('Enter start date'); return false;
+        }else if(ToDate==''){
+            alert('Enter end date'); return false;
+        }
+        var dataString = { FromDate: FromDate, ToDate:ToDate, _token: '{{csrf_token()}}'};
+        console.log(dataString);
+
+        $.ajax
+        ({
+            type: "POST",
+            url: '{{ route('get_all_car_data') }}',
+            data: dataString,
+            cache: false,
+            beforeSend: function() {
+                $("#loaderDiv").html('<img src="{{asset('assets/images/ajax-loader.gif')}}" alt="Wait" />');
+            },
+            success: function(html)
+            {
+                $("#loaderDiv").html('');
+                $("#product_sales_table_data").html(html);
             }
         });
-    </script>
+    }
+</script>
+
 @endpush

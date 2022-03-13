@@ -672,6 +672,11 @@ return array(
     'ADDLEEADS' => 'Add Leads',
     'IMPORTLEEADS' => 'Import Leads',
     
+    'FIRST_NAME' => 'First Name',
+    'LAST_NAME' => 'Last Name',
+    'COMPANY' => 'Company',
+    'PHONE' => 'Phone',
+    'NAME' => 'Name',
     'DEALER' => 'Dealer',
     'NEW_DEALER' => 'New Dealer',
     'DEALER_PHONE' => 'Phone',

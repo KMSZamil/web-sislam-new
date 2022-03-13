@@ -313,6 +313,7 @@ class CarsController extends Controller
         $Car->registration_year = $request->registration_year;
         $Car->registration_serial = $request->registration_serial;
         $Car->registration_city = $request->registration_city;
+        $Car->registration_city = $request->registration_number;
         $Car->seats = $request->seats;
 
     

@@ -181,7 +181,7 @@
             <div class="form-group">
                 <label>{{ __('frontend.REGISTRATION_SERIAL') }}</label>
                 <select class="form-control" name="registration_serial" id="registration_serial">
-                    <option value="">Select</option>
+                    {{-- <option value="">Select</option>
                     @php
                         $first = 0;
                         $last = 99;
@@ -191,7 +191,11 @@
                             <option {{ (old('registration_serial', $carDetails->registration_serial) == $i) ? 'selected' : ''  }} value='{{$i}}'>{{$i}}</option>
                         @php 
                         }
-                    @endphp
+                    @endphp --}}
+                    <option value="">Select</option>
+                    @foreach($RegistrationSerial as $row)
+                    <option {{ (old('registration_city', $carDetails->registration_serial) == $row->id) ? 'selected' : ''  }} value="{{ $row->id }}">{{ $row->name }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -207,7 +211,15 @@
             </div>
         </div>
 
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>{{ __('frontend.REGISTRATION_NUMBER') }}</label>
+                <input type="text" class="form-control" name="registration_number" id="registration_number" value="{{  $carDetails->registration_number }}">
+            </div>
+        </div>
+    </div>
 
+    <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
                 <label>{{ __('frontend.SEAT_CAPACITY') }}</label>

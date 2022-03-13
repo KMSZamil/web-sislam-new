@@ -1,6 +1,6 @@
 
 <!-- column -->
-<div class="col-sm-6 col-md-7">
+<div class="col-sm-12 col-md-12">
     <div class="row-col">
         <div class="p-a-sm">
             <h6 class="m-b-0 m-t-sm"><i class="material-icons">
@@ -15,9 +15,21 @@
                         <!-- fields -->
                         <div class="form-horizontal">
                             <div class="form-group row">
-                                <label class="col-sm-3 form-control-label">{{ __('backend.DEALER_PHONE') }}</label>
+                                <label class="col-sm-3 form-control-label">{{ __('backend.FIRST_NAME') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::text('phone','', array('placeholder' =>'','class' => 'form-control','id'=>'phone')) !!}
+                                    {!! Form::text('first_name','', array('placeholder' =>'','class' => 'form-control','id'=>'first_name')) !!}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">{{ __('backend.LAST_NAME') }}</label>
+                                <div class="col-sm-9">
+                                    {!! Form::text('last_name','', array('placeholder' =>'','class' => 'form-control','id'=>'last_name')) !!}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">{{ __('backend.COMPANY') }}</label>
+                                <div class="col-sm-9">
+                                    {!! Form::text('company','', array('placeholder' =>'','class' => 'form-control','id'=>'company')) !!}
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -27,34 +39,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 form-control-label">{{ __('backend.SHOWROOM_NAME') }}</label>
+                                <label class="col-sm-3 form-control-label">{{ __('backend.PHONE') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::text('company','', array('placeholder' =>'','class' => 'form-control','id'=>'company')) !!}
+                                    {!! Form::text('phone','', array('placeholder' =>'','class' => 'form-control','id'=>'phone')) !!}
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 form-control-label">{{ __('backend.DISTRICT') }}</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control js-example-basic-single" name="district" id="district">
-                                        <option value="">Select</option>
-                                        @foreach($Districts as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 form-control-label">{{ __('backend.THANA') }}</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control js-example-basic-single" name="thana" id="thana">
-                                        <option value="">Select</option>
-                                        @foreach($Thana as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
+                            
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">{{ __('backend.SHOWROOM_ADDRESS') }}</label>
                                 <div class="col-sm-9">

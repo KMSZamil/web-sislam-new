@@ -195,14 +195,21 @@ Route::post('/contacts/updateAll', [ContactsController::class, 'updateAll'])->na
 
 // dealers
 Route::get('/dealers/{group_id?}', [DealersController::class, 'index'])->name('dealers');
+Route::get('/dealers-add', [DealersController::class, 'addDealer'])->name('add.dealer');
 Route::post('/dealers/store', [DealersController::class, 'store'])->name('dealersStore');
 Route::post('/dealers/search', [DealersController::class, 'search'])->name('dealersSearch');
 Route::get('/dealers/{id}/edit', [DealersController::class, 'edit'])->name('dealersEdit');
 Route::post('/dealers/{id}/update', [DealersController::class, 'update'])->name('dealersUpdate');
 Route::get('/dealers/destroy/{id}', [DealersController::class, 'destroy'])->name('dealersDestroy');
 Route::post('/dealers/updateAll', [DealersController::class, 'updateAll'])->name('dealersUpdateAll');
+Route::post('/get_dealer_data',[DealersController::class,'get_dealer_data'])->name('get_dealer_data');
 
 //Cars
+Route::post('/get_buy_car_data',[CarsController::class,'get_buy_car_data'])->name('get_buy_car_data');
+Route::post('/get_sell_car_data',[CarsController::class,'get_sell_car_data'])->name('get_sell_car_data');
+Route::post('/get_exchange_car_data',[CarsController::class,'get_exchange_car_data'])->name('get_exchange_car_data');
+Route::post('/get_all_car_data',[CarsController::class,'get_all_car_data'])->name('get_all_car_data');
+
 Route::get('/cars/all', [CarsController::class, 'all'])->name('carsAll');
 Route::get('/cars/exchange', [CarsController::class, 'exchange'])->name('carsExchange');
 Route::get('/cars/buy', [CarsController::class, 'buy'])->name('carsBuy');

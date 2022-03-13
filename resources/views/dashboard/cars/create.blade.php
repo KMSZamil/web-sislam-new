@@ -238,7 +238,7 @@
                                     <div class="form-group">
                                         <label>{{ __('frontend.REGISTRATION_SERIAL') }}</label>
                                         <select class="form-control" name="registration_serial" id="registration_serial">
-                                            <option value="">Select</option>
+                                            {{-- <option value="">Select</option>
                                             @php
                                             $first = 0;
                                             $last = 99;
@@ -248,7 +248,11 @@
                                             <option value='{{$i}}'>{{$i}}</option>
                                             @php
                                             }
-                                            @endphp
+                                            @endphp --}}
+                                            <option value="">Select</option>
+                                            @foreach($RegistrationSerial as $row)
+                                            <option  value="{{ $row->id }}">{{ $row->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -257,28 +261,35 @@
                                         <label>{{ __('frontend.REGISTRATION_CITY') }}</label>
                                         <select class="form-control" name="registration_city" id="registration_city">
                                             <option value="">Select</option>
-                                            @foreach($registration_cities as $row)
+                                            @foreach($District as $row)
                                             <option value="{{ $row->id }}">{{ $row->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
 
-
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>{{ __('frontend.REGISTRATION_NUMBER') }}</label>
+                                        <input type="text" class="form-control" name="registration_number" id="registration_number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>{{ __('frontend.SEAT_CAPACITY') }}</label>
                                         <select class="form-control" name="seats" id="seats">
                                             <option value="">Select</option>
                                             @php
-                                            $first = 1;
-                                            $last = 20;
-                                            for($i=$first;$i<=$last;$i++)
-                                            {
-                                            @endphp
-                                            <option value='{{$i}}'>{{$i}}</option>
-                                            @php
-                                            }
+                                                $first = 1;
+                                                $last = 20;
+                                                for($i=$first;$i<=$last;$i++)
+                                                {
+                                                @endphp
+                                                    <option value='{{$i}}'>{{$i}}</option>
+                                                @php                                                   
+                                                }
                                             @endphp
                                         </select>
                                     </div>

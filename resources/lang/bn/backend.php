@@ -661,5 +661,10 @@ return array(
     'PRICE' => 'মূল্য',
     'SL' => 'সিরিয়াল',
     'CARDETAILS' => 'বিস্তারিত',
-    'CAR_TITLE' => 'Car Title',
+    'CAR_TITLE' => 'গাড়ির শিরোনাম',
+    'NAME' => 'নাম',
+    'COMPANY' => 'প্রতিষ্ঠান',
+    'FIRST_NAME' => 'নামের প্রথম অংশ',
+    'LAST_NAME' => 'নামের শেষাংশ',
+    'PHONE' => 'ফোন',
 );
