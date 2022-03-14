@@ -171,7 +171,7 @@ class DealersController extends Controller
      */
     public function edit($id)
     {
-        dd($id);
+        
         $DealerToEdit = Dealer::find($id);
         if (!empty($DealerToEdit)) {
             return redirect()->action('Dashboard\DealersController@index', $DealerToEdit->group_id)->with('DealerToEdit',
