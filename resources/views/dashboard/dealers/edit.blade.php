@@ -11,49 +11,60 @@
             <div class="row-body">
                 <div class="row-inner">
                     <div class="padding p-y-sm ">
-                        {{Form::open(['route'=>['dealersUpdate'],'method'=>'POST', 'files' => true ])}}
+                        {{Form::open(['route'=>['dealersUpdate',$DealerToEdit->id],'method'=>'POST', 'files' => true ])}}
                         <!-- fields -->
+                        <input type="hidden" name="dealer_id" value="{{ $DealerToEdit->id }}" />
                         <div class="form-horizontal">
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">{{ __('backend.FIRST_NAME') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::text('first_name','', array('placeholder' =>'','class' => 'form-control','id'=>'first_name')) !!}
+                                    {!! Form::text('first_name',$DealerToEdit->first_name, array('placeholder' =>'','class' => 'form-control','id'=>'first_name')) !!}
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">{{ __('backend.LAST_NAME') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::text('last_name','', array('placeholder' =>'','class' => 'form-control','id'=>'last_name')) !!}
+                                    {!! Form::text('last_name',$DealerToEdit->last_name, array('placeholder' =>'','class' => 'form-control','id'=>'last_name')) !!}
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">{{ __('backend.COMPANY') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::text('company','', array('placeholder' =>'','class' => 'form-control','id'=>'company')) !!}
+                                    {!! Form::text('company',$DealerToEdit->company, array('placeholder' =>'','class' => 'form-control','id'=>'company')) !!}
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">{{ __('backend.DEALER_Email') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::email('email','', array('placeholder' =>'','class' => 'form-control','id'=>'email','required'=>'')) !!}
+                                    {!! Form::email('email',$DealerToEdit->email, array('placeholder' =>'','class' => 'form-control','id'=>'email','required'=>'')) !!}
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">{{ __('backend.PHONE') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::text('phone','', array('placeholder' =>'','class' => 'form-control','id'=>'phone')) !!}
+                                    {!! Form::text('phone',$DealerToEdit->phone, array('placeholder' =>'','class' => 'form-control','id'=>'phone')) !!}
                                 </div>
                             </div>
                             
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">{{ __('backend.SHOWROOM_ADDRESS') }}</label>
                                 <div class="col-sm-9">
-                                    {!! Form::textarea('address','', array('placeholder' => '','class' => 'form-control','rows'=>'2')) !!}
+                                    {!! Form::textarea('address',$DealerToEdit->address, array('placeholder' => '','class' => 'form-control','rows'=>'2')) !!}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">{{ __('backend.STATUS') }}</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="status" id="status">
+                                        <option value="">Select</option>                                       
+                                        <option {{(old('status', $DealerToEdit->status) == 1) ? 'selected' : ''}} value="1">Active</option>
+                                        <option {{(old('status', $DealerToEdit->status) == 0) ? 'selected' : ''}} value="0">Inactive</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-offset-3 col-sm-9">
-                                    <button type="submit" class="btn btn-primary"> {!! __('backend.add') !!}</button>
+                                    <button type="submit" class="btn btn-primary"> {!! __('backend.edit') !!}</button>
                                 </div>
                             </div>
 

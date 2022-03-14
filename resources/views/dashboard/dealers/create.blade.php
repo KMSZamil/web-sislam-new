@@ -52,6 +52,16 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">{{ __('backend.STATUS') }}</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="status" id="status">
+                                        <option value="">Select</option>                                       
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <button type="submit" class="btn btn-primary"> {!! __('backend.add') !!}</button>
                                 </div>

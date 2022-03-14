@@ -147,10 +147,16 @@ class DealersController extends Controller
         $Dealer->email = $request->email;
         $Dealer->phone = $request->phone;
         $Dealer->address = $request->address;
+        $Dealer->status = $request->status;
         $Dealer->created_by = Auth::user()->id;
-        $Dealer->save();
 
-        return redirect()->action('Dashboard\DealersController@index');
+        if($Dealer->save()){
+            $request->session()->flash('alert-class', 'alert-success');
+            return redirect()->action('Dashboard\DealersController@index')->with('message', 'Successfully Saved Data');
+        }else{
+            $request->session()->flash('alert-class', 'alert-warning');
+            return redirect()->action('Dashboard\DealersController@index')->with('message', 'Insert Failed');
+        }
     }
 
     public function getUploadPath()
@@ -171,11 +177,12 @@ class DealersController extends Controller
      */
     public function edit($id)
     {
-        
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+        $Districts = District::where('status',1)->get();
+        $Thana= Country::orderby('title_' . @Helper::currentLanguage()->code, 'asc')->get();
         $DealerToEdit = Dealer::find($id);
         if (!empty($DealerToEdit)) {
-            return redirect()->action('Dashboard\DealersController@index', $DealerToEdit->group_id)->with('DealerToEdit',
-                $DealerToEdit);
+            return view("dashboard.dealers.list_edit", compact("GeneralWebmasterSections", "Districts","Thana","DealerToEdit"));
         } else {
             return redirect()->action('Dashboard\DealersController@index');
         }
@@ -210,7 +217,6 @@ class DealersController extends Controller
         }
     }
 
-
     /**
      * Update the specified resource in storage.
      *
@@ -220,67 +226,34 @@ class DealersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
-        // Check Permissions
-        if (!@Auth::user()->permissionsGroup->edit_status) {
+        if (!@Auth::user()->permissionsGroup->add_status) {
             return Redirect::to(route('NoPermission'))->send();
         }
-        //
-        if (@Auth::user()->permissionsGroup->view_status) {
-            $Dealer = Dealer::where('created_by', '=', Auth::user()->id)->find($id);
-        } else {
-            $Dealer = Dealer::find($id);
+
+        $this->validate($request, [
+            'first_name' => 'required'
+            
+        ]);
+
+        $Dealer = Dealer::where('id',$request->dealer_id)->first();
+        $Dealer->first_name = $request->first_name;
+        $Dealer->last_name = $request->last_name;
+        $Dealer->company = $request->company;
+        $Dealer->email = $request->email;
+        $Dealer->phone = $request->phone;
+        $Dealer->address = $request->address;
+        $Dealer->status = $request->status;
+        $Dealer->updated_by = Auth::user()->id;
+        
+
+        if($Dealer->save()){
+            $request->session()->flash('alert-class', 'alert-success');
+            return redirect()->action('Dashboard\DealersController@index')->with('message', 'Successfully Updated');
+        }else{
+            $request->session()->flash('alert-class', 'alert-warning');
+            return redirect()->action('Dashboard\DealersController@index')->with('message', 'Update Failed');
         }
-        if (!empty($Dealer)) {
-
-
-            $this->validate($request, [
-                'email' => 'email|required',
-                'file' => 'mimes:png,jpeg,jpg,gif,svg'
-            ]);
-
-
-            // Start of Upload Files
-            $formFileName = "file";
-            $fileFinalName_ar = "";
-            if ($request->$formFileName != "") {
-                $fileFinalName_ar = time() . rand(1111,
-                        9999) . '.' . $request->file($formFileName)->getClientOriginalExtension();
-                $path = $this->getUploadPath();
-                $request->file($formFileName)->move($path, $fileFinalName_ar);
-            }
-            // End of Upload Files
-
-
-            $Dealer->first_name = $request->first_name;
-            $Dealer->last_name = $request->last_name;
-            $Dealer->company = $request->company;
-            $Dealer->email = $request->email;
-            $Dealer->password = $request->password;
-            $Dealer->phone = $request->phone;
-            $Dealer->country_id = $request->country_id;
-            $Dealer->city = $request->city;
-            $Dealer->address = $request->address;
-            $Dealer->address = $request->address;
-            $Dealer->notes = $request->notes;
-
-            if ($fileFinalName_ar != "") {
-                // Delete a Dealer file
-                if ($Dealer->photo != "") {
-                    File::delete($this->getUploadPath() . $Dealer->photo);
-                }
-
-                $Dealer->photo = $fileFinalName_ar;
-            }
-
-            $Dealer->status = $request->status;
-            $Dealer->updated_by = Auth::user()->id;
-            $Dealer->save();
-            return redirect()->action('Dashboard\DealersController@index')->with('DealerToEdit', $Dealer)->with('doneMessage2',
-                __('backend.saveDone'));
-        } else {
-            return redirect()->action('Dashboard\DealersController@index');
-        }
+        
     }
 
 
