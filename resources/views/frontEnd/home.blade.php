@@ -76,7 +76,7 @@ if (count($TextBanners) > 3) {
             <div class="col-md-2"></div>
             <div class="col-md-6"><p class="para-cont text-justify" style="font-size: 16px; margin-top: 15px; ">{{ __('frontend.HOME1') }}</p></div>
             <div class="col-md-6">
-                <img src="/uploads/frontend/s_islam_cars.jpg" style="max-width: 100%; margin: 0 auto;">
+                <img src="/uploads/frontend/s_islam_cars.jpg" style="max-width: 100%; margin: 0 auto;" alt="Showroom">
             </div>
         </div>
     </div>
@@ -90,7 +90,7 @@ if (count($TextBanners) > 3) {
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-6">
-                <img src="/uploads/frontend/why_we_diff.jpg" style="max-width: 100%; margin: 0 auto;">
+                <img src="/uploads/frontend/why_we_diff.jpg" style="max-width: 100%; margin: 0 auto;" alt="Why we are different">
             </div>
             <div class="col-md-6">
                 <p class="para-cont" style="font-size: 16px;"><span style="font-weight: bold;"><i class="fa fa-check-circle fa-bse" style="margin: 0!important; font-size: 16px;"></i> {{ __('frontend.WHYWET1') }}</span><br /><span>{{ __('frontend.WHYWEp1') }}</span></p>
@@ -188,15 +188,15 @@ if (count($TextBanners) > 3) {
                         
 
                         <h5 class="title mb-0"><a href="{{ route('car-details',$data->id) }}">{{ isset($data->car_title) ? $data->car_title : '' }}</a></h5>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14"> {{ isset($data->car_exterior_color->name) ? $data->car_exterior_color->name : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14" alt="Road"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14" alt="Gear"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14" alt="Calender"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14" alt="Fuel"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14" alt="Car Body"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14" alt="Car Colors"> {{ isset($data->car_exterior_color->name) ? $data->car_exterior_color->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14" alt="Car Engine"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14" alt="4wd Drive"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14" alt="Car Seat SI"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
                     </div>
                     <div class="clear"></div>
                     <div class="car-details"><a href="{{url('car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a></div>
@@ -291,26 +291,26 @@ if (count($TextBanners) > 3) {
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> <span class="glyphicon glyphicon-minus"></span> My Collapsable item #1 </a> </h4>
+                            <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> <span class="glyphicon glyphicon-minus"></span> {{__('frontend.FAQ1')}} </a> </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                            <div class="panel-body"> {{__('frontend.ANS1')}}</div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"> <span class="glyphicon glyphicon-plus"></span> My Collapsable item #2 </a> </h4>
+                            <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"> <span class="glyphicon glyphicon-plus"></span> {{__('frontend.FAQ2')}} </a> </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                            <div class="panel-body"> {{__('frontend.ANS2')}} </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> <span class="glyphicon glyphicon-plus"></span> My Collapsable item #3 </a> </h4>
+                            <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> <span class="glyphicon glyphicon-plus"></span> {{__('frontend.FAQ3')}} </a> </h4>
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                            <div class="panel-body"> {!!__("frontend.ANS3")!!} </div>
                         </div>
                     </div>
                 </div>

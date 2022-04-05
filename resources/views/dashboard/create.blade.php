@@ -11,7 +11,7 @@
             <div class="row-body">
                 <div class="row-inner">
                     <div class="padding p-y-sm ">
-                        {{Form::open(['route'=>['dealersUpdate'],'method'=>'POST', 'files' => true ])}}
+                        {{Form::open(['route'=>['dealersStore'],'method'=>'POST', 'files' => true ])}}
                         <!-- fields -->
                         <div class="form-horizontal">
                             <div class="form-group row">
@@ -49,6 +49,16 @@
                                 <label class="col-sm-3 form-control-label">{{ __('backend.SHOWROOM_ADDRESS') }}</label>
                                 <div class="col-sm-9">
                                     {!! Form::textarea('address','', array('placeholder' => '','class' => 'form-control','rows'=>'2')) !!}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">{{ __('backend.STATUS') }}</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="status" id="status">
+                                        <option value="">Select</option>                                       
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">

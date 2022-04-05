@@ -228,7 +228,7 @@
                         </li>
                     @endif
                 @endforeach
-
+                <li><a href="https://www.youtube.com/channel/UCd1FJ9NRXlKIavNbZoscvQg" target="_blank" rel="nofollow"><i class="fa fa-youtube-play" aria-hidden="true" style="color: red;"></i>{{ __('frontend.WATCH_CHANNEL') }}</a>
             </ul>
         </div>
     @endif

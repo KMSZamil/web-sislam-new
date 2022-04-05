@@ -12,7 +12,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
 <div class="block-title">
     <div class="block-title__inner section-bg section-bg_second">        
         <div class="bg-inner">
-            <h1 class="ui-title-page">{{ __('frontend.BCACAR') }}</h1>
+            <h1 class="ui-title-page">View Showroom Cars</h1>
         </div>        
     </div>
 </div>
@@ -63,7 +63,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     </div>
                     <div class="clear"></div>
                     <div class="car-details">
-                        <a href="{{url('car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a>
+                        <a href="{{url('fb/car-details',$data->id)}}"><button type="button" class="btn btn-warning btn-lg btn-block">Details</button></a>
                            
                         </div>
                 </div>

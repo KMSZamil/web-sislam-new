@@ -12,16 +12,15 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
 <div class="block-title">
     <div class="block-title__inner section-bg section-bg_second">        
         <div class="bg-inner">
-            <h1 class="ui-title-page">{{ __('frontend.BCACAR') }}</h1>
+            <h2 class="ui-title-page">Book Your Car</h2>
         </div>        
     </div>
 </div>
 <div class="container">
+    <h1>Book {{$carDetails->car_title}}</h1>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="tab-pane active" id="tab-sel">
-                <h2 class="form-h2-title">{{ __('frontend.CARSELL') }}</h2>
-                <p><span>{{ __('frontend.CARBUY') }} {{ __('frontend.CARINFO2') }}</span></p>
                 @if (count($errors) > 0)
                 <div class="custom-alerts alert alert-danger fade in">
                     <div class="error">
@@ -43,7 +42,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     {!! Form::open(array('url' => '/car-book-submit', 'id'=>'fileupload', 'method' => 'post', 'files' => true )) !!}
                     @csrf
                     <input type="hidden" class="form-control" name="CarID" id="CarID" value="{{ $CarID ?? '' }}" required>
-                    <h3>Contact Details</h3>
+                    <h3>Please send us your contact Details, We will contact you soon!</h3>
                     <div class="form-group">
                         <label>{{ __('frontend.NAME') }}</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ $customer->name ?? '' }}" required>
@@ -76,6 +75,9 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     {{ Form::close() }}
                 </div>
             </div>
+        </div>
+        <div class="col-md-6">
+            <img class=" img-responsive" src="{{ asset('files/'.$carDetails->car_images[0]->car_image) }}" alt="{{ isset($carDetails->car_title) ? $carDetails->car_title : '' }}">
         </div>
     </div>
 </div>

@@ -56,7 +56,7 @@
                                 @if(@Helper::currentLanguage()->icon !="")
                                     <img
                                         src="{{ asset('assets/dashboard/images/flags/'.@Helper::currentLanguage()->icon.".svg") }}"
-                                        alt="">
+                                        alt="language icon">
                                 @endif
                                 {{ @Helper::currentLanguage()->title }} <i class="fa fa-angle-down"></i>
                             </button>
@@ -66,7 +66,7 @@
                                         @if($ActiveLanguage->icon !="")
                                             <img
                                                 src="{{ asset('assets/dashboard/images/flags/'.$ActiveLanguage->icon.".svg") }}"
-                                                alt="">
+                                                alt="Language Icon">
                                         @endif
                                         {{ $ActiveLanguage->title }}
                                     </a>
@@ -102,10 +102,10 @@
                 </button>
                 <a class="navbar-brand" href="{{ route("Home") }}">
                     @if(Helper::GeneralSiteSettings("style_logo_" . @Helper::currentLanguage()->code) !="")
-                    <img height="80" alt="S Islam Cars"
+                    <img height="80" alt="S Islam Cars Logo"
                              src="{{ URL::to('uploads/settings/'.Helper::GeneralSiteSettings("style_logo_" . @Helper::currentLanguage()->code)) }}">
                     @else
-                    <img alt="" width="100" src="{{ URL::to('uploads/settings/sislam.png') }}">
+                    <img alt="S Islam Cars Logo" width="100" src="{{ URL::to('uploads/settings/sislam.png') }}">
                     @endif
 
                 </a>

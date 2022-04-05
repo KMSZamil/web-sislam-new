@@ -138,6 +138,48 @@
                 </ul>
             </div>
         </div>
+        <div class="clear"></div>
+       
+            <?php if(isset($same_car) && !empty($same_car)):?>
+        <div class="col-md-12">
+             <h2>Similar Car</h2>
+            <div class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                                <div class="owl-wrapper-outer">
+                                    <div class="owl-wrapper">
+            <?php foreach ($same_car as $row):?>
+            <?php if(count($row->car_images) > 0):?>
+            <div class="owl-item">
+                <?php foreach ($row->car_images as $data):?>
+                <a href="{{url('car-details',$row->id)}}">
+                 <img src="{{asset('files/'.$data->car_image)}}" alt="">
+                 
+                 <?php if($data->car_image):
+                    break; 
+                endif;
+                ?>
+                 
+                 <?php endforeach;?>
+                 <h4>{{ isset($row->car_title) ? $row->car_title : '' }}</h4>
+                 <p><strong>Tk. {{ number_format($row->price, 2)}}</strong></p>
+                 <p>{{$row->milage}} Km</p>
+                 <p>{{$row->menufacturing_year}} / {{$row->registration_year}}</p>
+                </a>
+            </div>
+                                        <?php endif;?>
+                                        <?php endforeach;?>
+                                    </div>
+                                </div>
+                <div class="owl-controls clickable">
+                                    <div class="owl-pagination">
+                                        <div class="owl-page active"><span class=""></span></div>
+                                        <div class="owl-page"><span class=""></span></div>
+                                    </div>
+                                </div>
+            </div>
+            
+        </div>
+            <?php endif;?>
+        </div>
     </div>
     <style>
         .social-share{
@@ -158,8 +200,34 @@
             margin-bottom: 50px;
             margin-top: 30px;
         }
+        
     </style>
     <script language="javascript">
+        jQuery(document).ready(function ($) {
+        jQuery(".owl-wrapper").owlCarousel({
+            loop: true,
+            margin: 20,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 5000,
+            dots: true,
+            merge: true,
+            mouseDrag: true,
+            touchDrag: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                600: {
+                    items: 3,
+                },
+                1000: {
+                    items: 4,
+                }
+            }
+        })
+    });
         jQuery( document ).ready(function() {
             jQuery('.img-thmb').css('cursor', 'pointer');
         });

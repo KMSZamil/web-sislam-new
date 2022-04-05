@@ -153,24 +153,7 @@
     </div>
 </div>
 <div class="col-sm-4">
-    <div class="form-group">
-        <label>{{ __('frontend.REGISTRATION_SERIAL') }}</label>
-        <select class="form-control" name="registration_serial" id="registration_serial">
-            {{-- <option value="">Select</option>
-            @php
-            $first = 0;
-            $last = 99;
-            for($i=$first;$i<=$last;$i++)
-            {
-            echo '<option value='.$i.'>'.$i.'</option>';
-            }
-            @endphp --}}
-            <option value="">Select</option>
-            @foreach($RegistrationSerial as $row)
-            <option value="{{ $row->id }}">{{ $row->name }}</option>
-            @endforeach
-        </select>
-    </div>
+
 </div>
 
 <div class="col-sm-4">

@@ -79,6 +79,42 @@ class carsController extends Controller {
                         "dashboardCars",
                         "customer","CustomerID"));
     }
+    
+    public function showroomCars(Request $request) {
+        $WebmasterSettings = WebmasterSetting::find(1);
+        $WebsiteSettings = Setting::find(1);
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+        $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+        //dd($customer);
+        $dashboardCars = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'drive_type',
+            'car_transmission'
+        )
+        ->where('status',1)
+        ->where('home_feature',1)
+        ->where('car_status',2)
+         ->inRandomOrder()->get();
+        
+        return view("frontEnd.showroomsCars",
+                compact("WebsiteSettings",
+                        "WebmasterSettings",
+                        "PageTitle",
+                        "PageDescription",
+                        "PageKeywords",
+                        "PageTitle",
+                        "LatestNews",
+                        "dashboardCars",));
+        
+    }
 
     public function sellAcar(Request $request) {
         // General Webmaster Settings

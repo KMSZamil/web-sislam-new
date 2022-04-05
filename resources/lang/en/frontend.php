@@ -81,7 +81,7 @@ return [
     'EMAIL' => 'Email',
     'MOBILE' => 'Mobile',
     'NEXT' => 'Next',
-    'HOMETITLE' => 'S Islam Cars is a reliable and trustworthy company of used cars in Bangladesh',
+    'HOMETITLE' => 'S Islam Cars is a Reliable and Best Used Car Showroom in Dhaka, Bangladesh',
     'HOME1' => 'S Islam Cars is a reliable and trustworthy company for buying and selling used cars in Bangladesh which is located in Dhaka. We have created a new and modern way of buying, selling and replacing used cars. Now car owners can easily sell their cars directly to us without any third party through our safe, convenient and hassle free process. Our used car showroom is located in Uttara, Dhaka. You can easily buy the car of your choice from our showroom and change your used car very easily. You can also choose the car from our website and mobile app.',
     'WHYWETITLE' => 'Why we are different from others',
     'WHYWET1' => 'Instant payment',
@@ -170,6 +170,19 @@ return [
     'QUESTION3' => 'How and when do I get the price of the car?',
     'ANSWER3' => 'S Islam Cars pays for your car directly via bank transfer or in cash. S Islam Cars makes bank transfers within 24 hours or pay instant cash of selling your car.',
     'REGISTRATION_NUMBER' => 'Registration Number',
+    'WATCH_CHANNEL' => 'Watch Channel',
+    'FAQ1' => 'Can I sell my used car to S Islam without any media?',
+    'ANS1' => 'Yes, you can sell your own car to directly S Islam without media and get payment instantly.',
+    'FAQ2' => 'How much time need payment after price negotiate?',
+    'ANS2' => 'In 3 hours our representative will be reach you and you can get payment.',
+    'FAQ3' => 'How can I sell my car to S Islam Cars?',
+    'ANS3' => 'Our car purchase is follow <br />1. Go to our website <a href="/sell-a-car">https://www.sislamcars.com.bd/sell-a-car</a> <br />2. Give us your car details <br />3. Phone / direct meetup <br />4. Price negotiate <br />5. Get payment <br />6. Name transfer',
+    'FAQ4' => 'How can I buy a car from S Islam?',
+    'ANS4' => 'You can buy car any time from S Islam, you should follow some step:\n 1. Go to our website https://www.sislamcars.com.bd/buy-a-car \n2. Choice a car \n3. Call us or visit our showroom \n4. Get a test drive \n5. Negotiate the price \n6. Make payment \n7. Name transfer',
+    'FAQ5' => 'How can I exchange my car with S Islam?',
+    'ANS5' => 'You can exchange your car with our any showroom car, please follow the some steps: \n1. Go to our website https://www.sislamcars.com.bd/exchange-a-car \n2. Give us your car information \n3. Choice a car from our showroom \n4. Call us or visit our showroom \n5. Get a test drive \n6. Negotiate the price \n7. Make payment \n8. Name transfer',
+    'FAQ6' => 'How much time need payment after price negotiate?',
+    'ANS6' => 'In 3 hours our representative will be reach you and you can get payment.',
 ];
 
 ?>

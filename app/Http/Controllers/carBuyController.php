@@ -10,6 +10,7 @@ use App\Models\Setting;
 use App\Models\SmartendCustomer;
 use App\Models\Topic;
 use App\Models\WebmasterSetting;
+use App\Models\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -60,6 +61,17 @@ class carBuyController extends Controller
         if($CarID==null){
             $CarID = last(request()->segments(1));
         }
+        
+        $carDetails = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'drive_type',
+            'car_transmission'
+        )->where('status',1)
+            ->where('id',$CarID)->first();
 
         //dd($CarID);
         $WebmasterSettings = WebmasterSetting::find(1);
@@ -79,7 +91,7 @@ class carBuyController extends Controller
 
         return view('frontEnd.car_book_form',
             compact("WebsiteSettings", "WebmasterSettings",
-                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews","customer","CarID","CustomerID"));
+                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews","customer","CarID","CustomerID", "carDetails"));
     }
 
     public function carBookSubmit(Request $request){

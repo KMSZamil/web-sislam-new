@@ -6,6 +6,12 @@
         <div class="app-body-inner">
             <div class="row-col row-col-xs">
                 <div class="card">
+                    @if(Session::has('message'))
+                        <div class="text-center">
+                            <p class="alert {{ Session::get('alert-class') }}">{{ Session::get('message') }}</p>
+                        </div>
+                    @endif
+                    
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12">

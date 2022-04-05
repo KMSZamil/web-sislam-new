@@ -55,7 +55,7 @@ Route::get('/logout', function () {
 
 Route::post('/seller-basic', 'carSellController@index');
 Route::post('/buyer-basic', 'carBuyController@buyerBasic');
-//Route::post('/exchange-basic', 'carSellController@exchangeBasic');
+Route::post('/exchange-basic', 'carSellController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
 Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
 
@@ -70,12 +70,15 @@ Route::post('/car-exchange-submit-final', 'carExchangeController@exchangeSubmitF
 //Buy
 Route::get('/buyBasic/{id}', 'carBuyController@buyBasic')->name('buyBasic');
 Route::post('/buy-a-car', 'carsController@buyAcar')->name('buyCars');
+Route::get('/showroom-cars', 'carsController@showroomCars')->name('showroomCars');
 Route::get('/car-book/{id}', 'carBuyController@carBook');
 Route::post('/car-book', 'carBuyController@carBook')->name('carBook');
 Route::post('/car-book-submit', 'carBuyController@carBookSubmit')->name('carBookSubmit');
 
 
 Route::get('/car-details/{id}', 'carDetailsController@cardetails');
+Route::get('/google-review', 'carDetailsController@googleReview');
+Route::get('/fb/car-details/{id}', 'carDetailsController@fbCcardetails');
 Route::post('/car-details', 'carDetailsController@index')->name('car-details');
 Route::post('/upload-file', 'carPhotoUploadController@index');
 Route::get('/buy-a-car', 'carsController@buyAcar');
