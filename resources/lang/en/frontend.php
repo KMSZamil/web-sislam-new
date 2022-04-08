@@ -132,9 +132,9 @@ return [
     'SEAT' => 'Seat',
     'WINDOW' => 'Window',
     'OTHER_FEATURE' => 'Other Feature',
-    'CAR_PHOTO' => 'Car Photo (max 5)',
+    'CAR_PHOTO' => 'Car Photo',
     'ADD_VIDEO' => 'Add Video Link',
-    'SELLER_NOTE' => "Add Seller's Note",
+    'SELLER_NOTE' => "Tell us about your car",
     'TAX_TOKEN_EXP_DATE' => "Tax Token Expire Date",
     'FITNESS_EXP_DATE' => "Fitness Expire Date",
     'BANK_LOAN' => "Bank Loan (if any)",
@@ -178,11 +178,18 @@ return [
     'FAQ3' => 'How can I sell my car to S Islam Cars?',
     'ANS3' => 'Our car purchase is follow <br />1. Go to our website <a href="/sell-a-car">https://www.sislamcars.com.bd/sell-a-car</a> <br />2. Give us your car details <br />3. Phone / direct meetup <br />4. Price negotiate <br />5. Get payment <br />6. Name transfer',
     'FAQ4' => 'How can I buy a car from S Islam?',
-    'ANS4' => 'You can buy car any time from S Islam, you should follow some step:\n 1. Go to our website https://www.sislamcars.com.bd/buy-a-car \n2. Choice a car \n3. Call us or visit our showroom \n4. Get a test drive \n5. Negotiate the price \n6. Make payment \n7. Name transfer',
+    'ANS4' => "You can buy car any time from S Islam, you should follow some step:\n 1. Go to our website https://www.sislamcars.com.bd/buy-a-car \n2. Choice a car \n3. Call us or visit our showroom \n4. Get a test drive \n5. Negotiate the price \n6. Make payment \n7. Name transfer",
     'FAQ5' => 'How can I exchange my car with S Islam?',
-    'ANS5' => 'You can exchange your car with our any showroom car, please follow the some steps: \n1. Go to our website https://www.sislamcars.com.bd/exchange-a-car \n2. Give us your car information \n3. Choice a car from our showroom \n4. Call us or visit our showroom \n5. Get a test drive \n6. Negotiate the price \n7. Make payment \n8. Name transfer',
+    'ANS5' => "You can exchange your car with our any showroom car, please follow the some steps: \n1. Go to our website https://www.sislamcars.com.bd/exchange-a-car \n2. Give us your car information \n3. Choice a car from our showroom \n4. Call us or visit our showroom \n5. Get a test drive \n6. Negotiate the price \n7. Make payment \n8. Name transfer",
     'FAQ6' => 'How much time need payment after price negotiate?',
     'ANS6' => 'In 3 hours our representative will be reach you and you can get payment.',
+    'HOWITWORKS' => 'How it Works',
+    'WHYSALETOUS' => 'Why Sale to Us',
+    'FAQ' => 'Frequently Asked Questions',
+    'SENDCARINFO' => 'SEND YOUR CAR INFORMATION',
+    'TESTIMONIAL' => 'Testimonial',
+    'ADDRESS' => "Address",
+    
 ];
 
 ?>

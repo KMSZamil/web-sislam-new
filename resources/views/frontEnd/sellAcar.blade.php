@@ -1,143 +1,189 @@
 @extends('frontEnd.layout')
 
 @section('content')
-<?php
-$title_var = "title_" . @Helper::currentLanguage()->code;
-$title_var2 = "title_" . env('DEFAULT_LANGUAGE');
-$details_var = "details_" . @Helper::currentLanguage()->code;
-$details_var2 = "details_" . env('DEFAULT_LANGUAGE');
-$file_var = "file_" . @Helper::currentLanguage()->code;
-$file_var2 = "file_" . env('DEFAULT_LANGUAGE');
-?>
-<div class="block-title">
-    <div class="block-title__inner section-bg section-bg_second">        
-        <div class="bg-inner">
-            <h1 class="ui-title-page">{{ __('frontend.CARSELL') }}</h1>
-        </div>        
-    </div>
-</div>
-<section class="content-row-no-bg p-b-0" style="padding-top: 0;">
-    <div class="container page-content">
-        <div class="cont-title">
-            <p>{{ __('frontend.SELLLONGDETAILS') }}</p>
-        </div>
-
-        <div class="tab-pane active" id="tab-sel">
-            <h2 class="form-h2-title">{{ __('frontend.CARSELL') }}</h2>
-            <p><span>{{ __('frontend.CARINFO1') }} {{ __('frontend.CARINFO2') }}</span></p>
-            @if (count($errors) > 0)
-            <div class="custom-alerts alert alert-danger fade in">
-                <div class="error">
-                    @foreach ($errors->all() as $error)
-                    <ul>
-                        <li>{{ $error }}</li>
-                    </ul>
-                    @endforeach
-                </div>
+    <?php
+    $title_var = 'title_' . @Helper::currentLanguage()->code;
+    $title_var2 = 'title_' . env('DEFAULT_LANGUAGE');
+    $details_var = 'details_' . @Helper::currentLanguage()->code;
+    $details_var2 = 'details_' . env('DEFAULT_LANGUAGE');
+    $file_var = 'file_' . @Helper::currentLanguage()->code;
+    $file_var2 = 'file_' . env('DEFAULT_LANGUAGE');
+    ?>
+    <div class="block-title">
+        <div class="block-title__inner section-bg section-bg_second">
+            <div class="bg-inner">
+                <h1 class="ui-title-page">{{ __('frontend.CARSELL') }}</h1>
+                <a href="{{ route('sellAcarForm') }}"><button class="btn btn-lg btn-primary"> SEND YOUR CAR
+                        INFORMATION</button></a>
             </div>
-            @endif
-
-            @if (session('success'))
-            <div class="alert alert-success">
+        </div>
+    </div>
+    <section class="content-row-no-bg p-b-0" style="padding-top: 0;">
+        @if (session('success'))
+            <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
-            @endif
-            <div class="form-group">                
-                {!! Form::open(array('url' => '/seller-car-information', $GetID, 'method' => 'post', 'id' => 'fileupload', 'files' => true, 'enctype' => 'multipart/form-data')) !!}
-                <!-- CROSS Site Request Forgery Protection -->
-                @csrf
-                <input type="hidden" name="GetID" value="{{ $GetID }}"/>
-                <div class="car-list-box container">
-                @include('frontEnd.sellers.carDetails')
-                @include('frontEnd.sellers.carFeatures')
-                @include('frontEnd.sellers.paperDetails')
-                @include('frontEnd.sellers.carPhoto')
-                @include('frontEnd.sellers.contactDetails')
-                    <div class="col-sm-12 page-content">
-                        <div class="form-group">
-                            <input type="checkbox" class="form-check-input" name="terms_and_condition" value="1" id="exampleCheck1" required>
-                            <label class="form-check-label" for="exampleCheck1">{{ __('frontend.TERMS_AND_CONDITION') }}</label>
-                        </div>
-                        <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.SUBMIT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
+        @endif
+        <div class="container page-content">
+            <div class="cont-title">
+                <div class="row">
+                    <div class="col-sm-6 text-justify">
+                        <p>{{ __('frontend.SELLLONGDETAILS') }}</p>
+                        <a href="{{ route('sellAcarForm') }}"><button class="btn btn-lg btn-primary">
+                                {{ __('frontend.SENDCARINFO') }}</button></a>
+                    </div>
+                    <div class="col-sm-6 text-justify">
+                        <img src="https://via.placeholder.com/500x250" />
                     </div>
                 </div>
-                {{Form::close()}}
             </div>
-        </div>
 
-    </div>
-</section>
-<style>
-    .block-title{
-        margin-bottom: 0;
-    }
-    .section-bg .bg-inner{
-        padding: 120px auto;
-    }
-    .page-content{
-        margin-bottom: 50px;
-    }
-</style>
-<script src="{{ URL::asset('assets/frontend/js/jquery.js') }}"></script>
-<script src="{{ URL::asset('assets/frontend/js/feather-icons/feather.min.js')}}"></script>
-<script>
-$(document).ready(function () {
-    $('#car_brand').change(function () {
-        var car_brand_id = $(this).val();
+            <div class="cont-title">
+                <div class="row">
+                    <div class="col-sm-6 text-justify">
+                        <h2>{{ __('frontend.HOWITWORKS') }}</h2>
+                        <img src="https://via.placeholder.com/500x250" />
+                    </div>
+                    <div class="col-sm-6 text-justify">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of
+                            Lorem Ipsum</p>
+                        <a href="{{ route('sellAcarForm') }}"><button class="btn btn-lg btn-primary">
+                                {{ __('frontend.SENDCARINFO') }}</button></a>
+                    </div>
+                </div>
+            </div>
 
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        // console.log({DistributorCode});
-        $.ajax
-                ({
-                    type: 'POST',
-                    url: "{{ route('get_car_models') }}",
-                    data: {car_brand_id: car_brand_id, _token: CSRF_TOKEN},
-                    success: function (response) {
-                        $('#car_model').html(response);
+            <div class="cont-title">
+                <div class="row">
+                    <h2>{{ __('frontend.FAQ') }}</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <img src="https://via.placeholder.com/100x100" />
+                        </div>
+                        <div class="col-sm-8">
+                            <h4>Q1. {{ __('frontend.FAQ1') }}</h4>
+                            <h5>Ans. {{ __('frontend.ANS1') }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <img src="https://via.placeholder.com/100x100" />
+                        </div>
+                        <div class="col-sm-8">
+                            <h4>Q1. {{ __('frontend.FAQ2') }}</h4>
+                            <h5>Ans. {{ __('frontend.ANS2') }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <img src="https://via.placeholder.com/100x100" />
+                        </div>
+                        <div class="col-sm-8">
+                            <h4>Q1. {{ __('frontend.FAQ3') }}</h4>
+                            <h5>Ans. {{ __('frontend.ANS3') }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <img src="https://via.placeholder.com/100x100" />
+                        </div>
+                        <div class="col-sm-8">
+                            <h4>Q1. {{ __('frontend.FAQ4') }}</h4>
+                            <h5>Ans. {{ __('frontend.ANS4') }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <img src="https://via.placeholder.com/100x100" />
+                        </div>
+                        <div class="col-sm-8">
+                            <h4>Q1. {{ __('frontend.FAQ5') }}</h4>
+                            <h5>Ans. {{ __('frontend.ANS5') }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <img src="https://via.placeholder.com/100x100" />
+                        </div>
+                        <div class="col-sm-8">
+                            <h4>Q1. {{ __('frontend.FAQ6') }}</h4>
+                            <h5>Ans. {{ __('frontend.ANS6') }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    },
-                });
-    });
-});
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        feather.replace();
-        var i = 1;
-        $(".add-more").click(function () {
-            i++;
-            //alert("alert");
-            //var html = $(".copy").html();
-            $sections = $("<div class='row cc'>\
-                                    <div class='col-sm-8'>\
-                                        <div class='form-group'>\
-                                            <input type='file' class='form-control' name='car_photo_" + i + "' id='car_photo'>\
-                                        </div>\
-                                    </div>\
-                                    <div class='col-sm-4'>\
-                                        <div class='form-group'>\
-                                            <button type='button' class='btn btn-danger btn-icon remove'>\
-                                                <i data-feather='x-circle'></i>\
-                                            </button>\
-                                        </div>\
-                                    </div>\
-                                </div>");
-
-
-            if (i >= 6) {
-                alert('Upto 5 image added');
-                i--;
-            } else {
-                $('.after-add-more').append($sections);
-                feather.replace();
-            }
-        });
-        $("body").on("click", ".remove", function () {
-            i--;
-            $(this).parents(".cc").remove();
-        });
-    });
-</script>
+            <div class="cont-title">
+                <div class="row">
+                    <div class="col-sm-2 text-justify">
+                        <h2>{{ __('frontend.TESTIMONIAL') }}</h2>
+                    </div>
+                </div>
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="col-md-2 col-lg-2 col-sm-6 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class=" image d-flex flex-column justify-content-center align-items-center">
+                                    <button class="btn btn-secondary">
+                                        <img style="border-radius: 10%" src="https://via.placeholder.com/100x100"
+                                            height="100" width="100" /></button>
+                                    <span class="name mt-3">Sample Name</span> <span
+                                        class="idd">Designation</span>
+                                    <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                                        <span class="idd1">Company Name</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
+            </div>
+            <div class="cont-title">
+                <div class="row">
+                    <div class="col-sm-6 text-justify">
+                        <br />
+                        <p>1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book. </p>
+                        <p>2. It has survived not only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of
+                            Lorem Ipsum</p>
+                        <p>3. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book. </p>
+                        <p>4. It has survived not only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of
+                            Lorem Ipsum</p>
+                    </div>
+                    <div class="col-sm-6 text-justify">
+                        <h2>{{ __('frontend.WHYSALETOUS') }}</h2>
+                        <a href="{{ route('sellAcarForm') }}"><button class="btn btn-lg btn-primary">
+                                {{ __('frontend.SENDCARINFO') }}</button></a>
+                    </div>
+                </div>
+            </div>
+    </section>
 @endsection
-
