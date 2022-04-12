@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\BodyType;
 use App\Models\CarBrand;
 use App\Models\CarCondition;
@@ -350,6 +351,13 @@ class carSellController extends Controller
         $models = CarModel::where('car_brand', $request->car_brand_id)->get();
         //dd($models);
         return view('frontEnd.get_car_models', compact('models'));
+    }
+
+    public function get_car_thana(Request $request)
+    {
+        $thanas = Thana::where('district_id', $request->district_id)->get();
+        //dd($models);
+        return view('dashboard.cars.get_thana', compact('thanas'));
     }
 
     /**

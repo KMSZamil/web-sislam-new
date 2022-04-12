@@ -57,6 +57,7 @@ Route::post('/seller-basic', 'carSellController@index');
 Route::post('/buyer-basic', 'carBuyController@buyerBasic');
 Route::post('/exchange-basic', 'carSellController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
+Route::post('/get_car_thana', [carSellController::class, 'get_car_thana'])->name('get_car_thana');
 Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
 
 Route::post('get_thana', [CarsController::class, 'get_thana'])->name('get_thana');
