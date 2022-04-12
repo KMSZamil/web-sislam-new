@@ -241,6 +241,8 @@ For more details check <a href='http://smartfordesign.net/smartend/documentation
      */
     public function website_social()
     {
+        echo 'uuuuuu';
+        die;
         // Get Site Settings
         $Setting = Setting::find(1);
 

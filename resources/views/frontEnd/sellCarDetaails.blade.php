@@ -39,6 +39,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     {{ session('success') }}
                 </div>
                 @endif
+                <div class="col-sm-9">
                 <div class="form-group">
                     {!! Form::open(array('url' => '/seller-car-information', $GetID, 'method' => 'post','id' => 'fileupload', 'files' => true )) !!}
                     <!-- CROSS Site Request Forgery Protection -->
@@ -75,6 +76,8 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
 {{--                </form>--}}
                     {{Form::close()}}
                 </div>
+                </div>
+                <div class="col-sm-3"> <img src="{{ asset('uploads/frontend/car-details.jpg') }}" alt="S Islam adds"></div> 
             </div>
         </div>
     </div>

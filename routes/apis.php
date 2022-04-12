@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/', 'APIsController@api')->name('apiURL');
+// Car AAPI
+Route::get('/get-carinfo', 'APIsCarController@getCarInfo');
 // general
 Route::get('/website/status', 'APIsController@website_status');
 Route::get('/website/info/{lang?}', 'APIsController@website_info');

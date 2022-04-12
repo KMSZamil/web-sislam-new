@@ -1,6 +1,6 @@
 
 <div class="fileupload-buttonbar">
-    <div class="col-lg-8">
+    <div class="photo-btn">
         <!-- The fileinput-button span is used to style the file input field as button -->
         <span class="btn btn-success fileinput-button" style="float: left;">
             <i class="glyphicon glyphicon-plus"></i>

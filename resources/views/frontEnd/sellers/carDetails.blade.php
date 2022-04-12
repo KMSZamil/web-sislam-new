@@ -1,6 +1,6 @@
 <h3>Car Details</h3>
 {{-- <div class="row">
-    <div class="col-sm-12">
+    <div>
         <div class="form-group">
             <label>{{ __('frontend.CAR_TITLE') }}</label>
             <input type="text" class="form-control" name="car_title" id="car_title" value="">
@@ -8,7 +8,7 @@
     </div>
 </div> --}}
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <div class="form-group">
             <label>{{ __('frontend.CAR_CONDITION') }} *</label>
             <select class="form-control" name="car_condition" id="car_condition" required>
@@ -19,7 +19,7 @@
             </select>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <div class="form-group">
             <label>{{ __('frontend.CAR_BRAND') }} *</label>
             <select class="form-control" name="car_brand" id="car_brand" required>
@@ -30,7 +30,7 @@
             </select>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <div class="form-group">
             <label>{{ __('frontend.CAR_MODEL') }} *</label>
             <select class="form-control" name="car_model" id="car_model" required>
@@ -42,9 +42,9 @@
             </select>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <div class="form-group">
-            <label>{{ __('frontend.YEAR') }} *</label>
+            <label>Manufacturing {{ __('frontend.YEAR') }} *</label>
             <select class="form-control" name="car_year" id="car_year" required>
                 <option value="">Select</option>
                 @php
@@ -57,6 +57,21 @@
             </select>
         </div>
     </div>
+    <div class="col-sm-4">
+    <div class="form-group">
+        <label>{{ __('frontend.REGISTRATION_YEAR') }}</label>
+        <select class="form-control" name="registration_year" id="registration_year">
+            <option value="">Select</option>
+            @php
+            $firstYear = (int)date('Y') - 32;
+            $lastYear = (int)date('Y');
+            for ($i = $lastYear; $i >= $firstYear; $i--) {
+                        echo '<option value=' . $i . '>' . $i . '</option>';
+                    }
+            @endphp
+        </select>
+    </div>
+</div>
     {{-- <div class="col-sm-4">
     <div class="form-group">
         <label>{{ __('frontend.CAR_BODY') }}</label>
@@ -170,17 +185,21 @@
     <div class="col-sm-4">
         <div class="form-group">
             <label>{{ __('frontend.REGISTRATION_NUMBER') }}</label>
-            <div class="row">
-                <div class="col-sm-6">
+            <div>
+                <div class="col-sm-3">
+                    <div class="row">
                     <select class="form-control" name="registration_serial" id="registration_serial">
                         <option value="">Select</option>
                         @foreach ($RegistrationSerial as $row)
                             <option value="{{ $row->id }}">{{ $row->name }}</option>
                         @endforeach
                     </select>
+                    </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-9">
+                    <div class="row">
                     <input type="text" class="form-control" name="registration_number" id="registration_number">
+                    </div>
                 </div>
             </div>
         </div>
