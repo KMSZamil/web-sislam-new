@@ -78,7 +78,10 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
          ?>
         {{-- <div id="msg_loader"><img src="bigLoader.gif"></div> --}}
         <br/>
-        <p><button id="proceed" class="btn btn-lg btn-primary">Load More</button></p>
+        {{-- <p><button id="proceed" class="btn btn-lg btn-primary">Load More</button></p> --}}
+        <div class="row text-center">
+            <button id="proceed" class="btn btn-lg btn-warning btn-start"> Load More</button>
+        </div>
         
     </section>
 </div>

@@ -79,7 +79,7 @@ class carsController extends Controller
             ->take(6)
             ->get();
 
-        return view('frontEnd.testACarMore', compact('dashboardCars'));
+        return view('frontEnd.buyACarMore', compact('dashboardCars'));
     }
 
 
@@ -166,9 +166,7 @@ class carsController extends Controller
         $District = District::where('status', 1)->get();
         $Thana = Thana::where('status', 1)->get();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
-        return view(
-            'frontEnd.sellAcar', //sellAcar
-            compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'GetID', 'RegistrationSerial'),
+        return view('frontEnd.sellAcar',compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'GetID', 'RegistrationSerial'),
         );
     }
 
