@@ -76,7 +76,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
         endforeach;
          endif;
          ?>
-        {{-- <div id="msg_loader"><img src="bigLoader.gif"></div> --}}
+        <div id="msg_loader"><img src="bigLoader.gif"></div>
         <br/>
         <p><button id="proceed" class="btn btn-lg btn-primary">Load More</button></p>
         
@@ -105,7 +105,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 $("#msg_loader").show();
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('buyACarMore') }}",
+                    url: "{{ route('testACarMore') }}",
                     data: {msg_id: msg_id, _token: CSRF_TOKEN},
                     cache: false,
                     success: function (data) {

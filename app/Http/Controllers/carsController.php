@@ -39,6 +39,7 @@ use Validator;
 
 class carsController extends Controller
 {
+ 
     public function buyAcar(Request $request)
     {
         //dd($request->all());
@@ -59,10 +60,55 @@ class carsController extends Controller
             ->where('status', 1)
             ->where('home_feature', 1)
             ->where('car_status', 2)
+            ->take(9)
             ->get();
 
         return view('frontEnd.buyAcar', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'dashboardCars', 'customer', 'CustomerID'));
     }
+
+    public function buyAcarMore(Request $request)
+    {
+        //dd($request->msg_id);
+        $ID = $request->msg_id;
+
+        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+            ->where('status', 1)
+            ->where('home_feature', 1)
+            ->where('car_status', 2)
+            ->where('id','>',$ID)
+            ->take(6)
+            ->get();
+
+        return view('frontEnd.testACarMore', compact('dashboardCars'));
+    }
+
+
+ 
+    // public function buyAcarMore(Request $request)
+    // {
+    //     dd($request->all());
+    //     //msg_id
+    //     $CustomerID = $request->CustomerID;
+    //     //dd($CustomerID);
+    //     $WebmasterSettings = WebmasterSetting::find(1);
+    //     $WebsiteSettings = Setting::find(1);
+    //     $site_desc_var = 'site_desc_' . @Helper::currentLanguage()->code;
+    //     $site_keywords_var = 'site_keywords_' . @Helper::currentLanguage()->code;
+    //     $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
+    //     $PageDescription = $WebsiteSettings->$site_desc_var;
+    //     $PageKeywords = $WebsiteSettings->$site_keywords_var;
+    //     $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+    //     $customer = Customer::where('id', $request->CustomerID)->first();
+    //     //dd($customer);
+    //     $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+    //         ->where('status', 1)
+    //         ->where('home_feature', 1)
+    //         ->where('car_status', 2)
+    //         ->get();
+
+    //     return view('frontEnd.buyAcar', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'dashboardCars', 'customer', 'CustomerID'));
+    // }
 
     public function showroomCars(Request $request)
     {

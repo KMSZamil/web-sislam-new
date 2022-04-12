@@ -71,6 +71,7 @@ Route::post('/car-exchange-submit-final', 'carExchangeController@exchangeSubmitF
 //Buy
 Route::get('/buyBasic/{id}', 'carBuyController@buyBasic')->name('buyBasic');
 Route::post('/buy-a-car', 'carsController@buyAcar')->name('buyCars');
+Route::post('/buy-a-car-more', 'carsController@buyACarMore')->name('buyACarMore');
 Route::get('/showroom-cars', 'carsController@showroomCars')->name('showroomCars');
 Route::get('/car-book/{id}', 'carBuyController@carBook');
 Route::post('/car-book', 'carBuyController@carBook')->name('carBook');
