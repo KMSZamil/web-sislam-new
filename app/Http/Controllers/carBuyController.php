@@ -89,8 +89,7 @@ class carBuyController extends Controller
         $customer = Customer::where('id',$request->CustomerID)->first();
         //dd($customer);
 
-        return view('frontEnd.car_book_form',
-            compact("WebsiteSettings", "WebmasterSettings",
+        return view('frontEnd.car_book_form',compact("WebsiteSettings", "WebmasterSettings",
                 "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews","customer","CarID","CustomerID", "carDetails"));
     }
 

@@ -39,7 +39,7 @@ use Validator;
 
 class carsController extends Controller
 {
- 
+
     public function buyAcar(Request $request)
     {
         //dd($request->all());
@@ -68,22 +68,24 @@ class carsController extends Controller
 
     public function buyAcarMore(Request $request)
     {
-        //dd($request->msg_id);
+
         $ID = $request->msg_id;
 
         $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
             ->where('status', 1)
             ->where('home_feature', 1)
             ->where('car_status', 2)
-            ->where('id','>',$ID)
+            ->where('id', '>', $ID)
             ->take(6)
             ->get();
+        //dd($dashboardCars);
+        //dd(count($dashboardCars)==0);
 
         return view('frontEnd.buyACarMore', compact('dashboardCars'));
     }
 
 
- 
+
     // public function buyAcarMore(Request $request)
     // {
     //     dd($request->all());
@@ -166,7 +168,9 @@ class carsController extends Controller
         $District = District::where('status', 1)->get();
         $Thana = Thana::where('status', 1)->get();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
-        return view('frontEnd.sellAcar',compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'GetID', 'RegistrationSerial'),
+        return view(
+            'frontEnd.sellAcar',
+            compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'GetID', 'RegistrationSerial'),
         );
     }
 
@@ -206,7 +210,7 @@ class carsController extends Controller
         $Thana = Thana::where('status', 1)->get();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
         return view(
-            'frontEnd.sellAcarForm', //sellAcar
+            'frontEnd.sellAcarForm',
             compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'GetID', 'RegistrationSerial'),
         );
     }

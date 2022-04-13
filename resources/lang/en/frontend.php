@@ -189,6 +189,7 @@ return [
     'SENDCARINFO' => 'SEND YOUR CAR INFORMATION',
     'TESTIMONIAL' => 'Testimonial',
     'ADDRESS' => "Address",
+    'NOMORECAR' => "No more car in the list",
 ];
 
 ?>
