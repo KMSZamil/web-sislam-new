@@ -209,8 +209,7 @@ class carsController extends Controller
         $District = District::where('status', 1)->get();
         $Thana = Thana::where('status', 1)->get();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
-        return view(
-            'frontEnd.sellAcarForm',
+        return view('frontEnd.sellAcarForm',
             compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'GetID', 'RegistrationSerial'),
         );
     }

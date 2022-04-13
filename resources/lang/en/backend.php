@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
     'home' => 'Home',
     'main' => 'Main',
     'siteData' => 'Site Data',
@@ -578,27 +578,27 @@ return array(
     'messageDetails' => 'Message Details',
 
     'dataTablesTranslation' => [
-        "sEmptyTable" => "No data available in table",
-        "sInfo" => "Showing _START_ to _END_ of _TOTAL_ entries",
-        "sInfoEmpty" => "Showing 0 to 0 of 0 entries",
-        "sInfoFiltered" => "(filtered from _MAX_ total entries)",
-        "sInfoPostFix" => "",
-        "sInfoThousands" => ",",
-        "sLengthMenu" => "Show _MENU_",
-        "sLoadingRecords" => "Loading...",
-        "sProcessing" => "Processing...",
-        "sSearch" => "Search:",
-        "sZeroRecords" => "No matching records found",
-        "oPaginate" => [
-            "sFirst" => "First",
-            "sLast" => "Last",
-            "sNext" => "Next",
-            "sPrevious" => "Previous"
+        'sEmptyTable' => 'No data available in table',
+        'sInfo' => 'Showing _START_ to _END_ of _TOTAL_ entries',
+        'sInfoEmpty' => 'Showing 0 to 0 of 0 entries',
+        'sInfoFiltered' => '(filtered from _MAX_ total entries)',
+        'sInfoPostFix' => '',
+        'sInfoThousands' => ',',
+        'sLengthMenu' => 'Show _MENU_',
+        'sLoadingRecords' => 'Loading...',
+        'sProcessing' => 'Processing...',
+        'sSearch' => 'Search:',
+        'sZeroRecords' => 'No matching records found',
+        'oPaginate' => [
+            'sFirst' => 'First',
+            'sLast' => 'Last',
+            'sNext' => 'Next',
+            'sPrevious' => 'Previous',
         ],
-        "oAria" => [
-            "sSortAscending" => ": activate to sort column ascending",
-            "sSortDescending" => ": activate to sort column descending"
-        ]
+        'oAria' => [
+            'sSortAscending' => ': activate to sort column ascending',
+            'sSortDescending' => ': activate to sort column descending',
+        ],
     ],
     'cssClass' => 'CSS Class',
     'cssCustom' => 'Custom CSS',
@@ -643,16 +643,16 @@ return array(
     'homeRow_4' => 'Home Page Contents ROW 4',
     'calendarFirstDay' => 'First Day of week',
     'dateFormat' => 'Date format',
-    'daysName' => ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    'daysName' => ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     'showroomCars' => 'Showroom Cars',
     'sellCars' => 'Sell Cars',
-     'VIDEOURL' => 'Youtube video url',
+    'VIDEOURL' => 'Youtube video url',
     'CUSTOMER_NAME' => 'Name',
     'EMAIL' => 'Email',
     'MOBILE' => 'Mobile',
     'ADDRESS' => 'Address',
     'STATUS' => 'Status',
-    
+
     'CAR_CONDITION' => 'Car Condition',
     'CAR_BRAND' => 'Car Brand',
     'CAR_MODEL' => 'Car Model',
@@ -671,7 +671,7 @@ return array(
     'ALLLEEADS' => 'All Leads',
     'ADDLEEADS' => 'Add Leads',
     'IMPORTLEEADS' => 'Import Leads',
-    
+
     'FIRST_NAME' => 'First Name',
     'LAST_NAME' => 'Last Name',
     'COMPANY' => 'Company',
@@ -686,5 +686,9 @@ return array(
     'SHOWROOM_THANA' => 'Thana',
     'SHOWROOM_ADDRESS' => 'Address',
     'SHOWROOM_CONTACT_PERSON_NAME' => 'Name',
-    
-);
+    'SELLER_NAME' => 'Seller Name',
+    'SELLER_MOBILE' => 'Seller mobile',
+    'CAR_MENUFACTURING_YEAR' => 'Car Manufacturing Year',
+    'CAR_REGISTRATION_YEAR' => 'Car Registration Year',
+    'ASKING_PRICE' => 'Asking Price',
+];

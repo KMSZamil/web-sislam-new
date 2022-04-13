@@ -45,7 +45,7 @@
     <div class="col-sm-4">
         <div class="form-group">
             <label>Manufacturing {{ __('frontend.YEAR') }} *</label>
-            <select class="form-control" name="car_year" id="car_year" required>
+            <select class="form-control" name="menufacturing_year" id="menufacturing_year" required>
                 <option value="">Select</option>
                 @php
                     $firstYear = (int) date('Y') - 32;

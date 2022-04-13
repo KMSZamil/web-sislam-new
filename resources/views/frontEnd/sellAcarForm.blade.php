@@ -37,6 +37,7 @@
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
+                        {{ session()->flush('success') }}
                     </div>
                 @endif
                 <div class="car-list-box container">
@@ -141,19 +142,19 @@
                 //alert("alert");
                 //var html = $(".copy").html();
                 $sections = $("<div class='row cc'>\
-                                                <div class='col-sm-8'>\
-                                                    <div class='form-group'>\
-                                                        <input type='file' class='form-control' name='car_photo_" + i + "' id='car_photo'>\
+                                                    <div class='col-sm-8'>\
+                                                        <div class='form-group'>\
+                                                            <input type='file' class='form-control' name='car_photo_" + i + "' id='car_photo'>\
+                                                        </div>\
                                                     </div>\
-                                                </div>\
-                                                <div class='col-sm-4'>\
-                                                    <div class='form-group'>\
-                                                        <button type='button' class='btn btn-danger btn-icon remove'>\
-                                                            <i data-feather='x-circle'></i>\
-                                                        </button>\
+                                                    <div class='col-sm-4'>\
+                                                        <div class='form-group'>\
+                                                            <button type='button' class='btn btn-danger btn-icon remove'>\
+                                                                <i data-feather='x-circle'></i>\
+                                                            </button>\
+                                                        </div>\
                                                     </div>\
-                                                </div>\
-                                            </div>");
+                                                </div>");
 
 
                 if (i >= 6) {

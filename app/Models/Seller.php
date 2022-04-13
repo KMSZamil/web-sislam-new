@@ -84,5 +84,9 @@ class Seller extends Model
         return $this->hasMany(SellerCarImage::class,'seller_id','id')->orderBy('id');
     }
 
+    public function customer_info(){
+        return $this->belongsTo(Customer::class,'customer_id','id');
+    }
+
     
 }
