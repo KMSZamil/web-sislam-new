@@ -220,6 +220,7 @@ Route::get('/cars/{id}/edit', [CarsController::class, 'edit'])->name('carsEdit')
 Route::get('/cars/{id}/editBuy', [CarsController::class, 'editBuy'])->name('editBuy');
 Route::get('/cars/{id}/editExchange', [CarsController::class, 'editExchange'])->name('editExchange');
 Route::get('/cars/{id}/editSell', [CarsController::class, 'editSell'])->name('editSell');
+Route::get('/cars/{id}/showSell', [CarsController::class, 'showSell'])->name('showSell');
 Route::post('/cars/search', [CarsController::class, 'search'])->name('carsSearch');
 Route::post('/cars/{id}/update', [CarsController::class, 'update'])->name('carsUpdate');
 Route::post('/cars/{id}/updateSell', [CarsController::class, 'updateSell'])->name('updateSell');

@@ -691,4 +691,5 @@ return [
     'CAR_MENUFACTURING_YEAR' => 'Car Manufacturing Year',
     'CAR_REGISTRATION_YEAR' => 'Car Registration Year',
     'ASKING_PRICE' => 'Asking Price',
+    'view_details' => 'View Details',
 ];

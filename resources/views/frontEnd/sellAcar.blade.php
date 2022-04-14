@@ -31,7 +31,7 @@
         @if (session('success'))
             <div class="alert alert-success text-center">
                 {{ session('success') }}
-                {{ session()->flush('success') }}
+                {{ session()->forget('success') }}
             </div>
         @endif
         <div class="container page-content">

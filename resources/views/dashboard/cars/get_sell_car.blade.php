@@ -46,6 +46,9 @@
                         <td><a class="btn btn-fw btn-sm primary" href="{{ route('editSell', ['id' => $row->id]) }}">
                                 <i class="material-icons">&#xe02e;</i>
                                 &nbsp; {{ __('backend.edit') }}</a>&nbsp;
+                                <a class="btn btn-fw btn-sm secondary" href="{{ route('showSell', ['id' => $row->id]) }}">
+                                    <i class="material-icons">&#xe02e;</i>
+                                    &nbsp; {{ __('backend.view_details') }}</a>
                             {{-- <a class="btn btn-fw btn-sm danger" onclick="return confirm('Are you sure?')" href="{{ route("carsDestroy",["id"=>$row->id]) }}">
                             <i class="material-icons">&#xE872;</i>
                             &nbsp; {{ __('backend.delete') }}</a> --}}

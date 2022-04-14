@@ -37,7 +37,7 @@
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
-                        {{ session()->flush('success') }}
+                        {{ session()->forget('success') }}
                     </div>
                 @endif
                 <div class="car-list-box container">

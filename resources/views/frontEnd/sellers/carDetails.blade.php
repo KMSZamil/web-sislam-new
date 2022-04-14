@@ -191,7 +191,7 @@
                     <select class="form-control" name="registration_serial" id="registration_serial">
                         <option value="">Select</option>
                         @foreach ($RegistrationSerial as $row)
-                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                            <option value="{{ $row->name }}">{{ $row->name }}</option>
                         @endforeach
                     </select>
                     </div>

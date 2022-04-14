@@ -64,7 +64,7 @@
     <div class="col-sm-12">
         <div class="form-group">
             <label>{{ __('frontend.SELLER_NOTE') }}</label>
-            <textarea class="form-control" name="sellers_note" id=""></textarea>
+            <textarea class="form-control" name="car_details"></textarea>
         </div>
     </div>
 </div>
