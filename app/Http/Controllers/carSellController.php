@@ -275,10 +275,8 @@ class carSellController extends Controller
             }
         }
 
-        //Session::flash('success', __('frontend.SUCESSMSG'));
         $request->session()->put('success', __('frontend.SUCESSMSG'));
-        return redirect()->route('sellAcar', ['success' => __('frontend.SUCESSMSG')]);
-        //return view('frontEnd.thanks', compact("WebsiteSettings", "WebmasterSettings", "PageTitle", "PageDescription", "PageKeywords", "PageTitle",  "LatestNews"))->with('success', __('frontend.SUCESSMSG'));
+        return redirect()->route('Home', ['success' => __('frontend.SUCESSMSG')]);
     }
 
     public function exchangeBasic(Request $request)

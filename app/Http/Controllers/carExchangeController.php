@@ -44,105 +44,82 @@ use Validator;
 
 class carExchangeController extends Controller
 {
-    public function exchangeBasic(Request $request){
-
+    public function exchangeBasic(Request $request)
+    {
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-        $PageTitle = "";
+        $site_desc_var = 'site_desc_' . @Helper::currentLanguage()->code;
+        $site_keywords_var = 'site_keywords_' . @Helper::currentLanguage()->code;
+        $PageTitle = '';
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
-        $CarConditions = CarCondition::where('status',1)->get();
-        $CarBrands = CarBrand::where('status',1)->get();
-        $CarModels = CarModel::where('status',1)->get();
-        $BodyTypes = BodyType::where('status',1)->get();
-        $FuelTypes = FuelType::where('status',1)->get();
-        $Transmissions = Transmission::where('status',1)->get();
-        $Drives = Drive::where('status',1)->get();
-        $ExteriorColors = ExteriorColor::where('status',1)->get();
-        $InteriorColors = InteriorColor::where('status',1)->get();
-        $Districts = District::where('status',1)->get();
-        $Comforts = Comfort::where('status',1)->get();
-        $Entertainments = Entertainment::where('status',1)->get();
-        $Safeties = Safety::where('status',1)->get();
-        $Seats = Seat::where('status',1)->get();
-        $Windows = Window::where('status',1)->get();
-        $OtherFeatures = OtherFeature::where('status',1)->get();
-        $District = District::where('status',1)->get();
-        $Thana = Thana::where('status',1)->get();
-        $RegistrationSerial = RegistrationSerial::where('status',1)->get();
+        $CarConditions = CarCondition::where('status', 1)->get();
+        $CarBrands = CarBrand::where('status', 1)->get();
+        $CarModels = CarModel::where('status', 1)->get();
+        $BodyTypes = BodyType::where('status', 1)->get();
+        $FuelTypes = FuelType::where('status', 1)->get();
+        $Transmissions = Transmission::where('status', 1)->get();
+        $Drives = Drive::where('status', 1)->get();
+        $ExteriorColors = ExteriorColor::where('status', 1)->get();
+        $InteriorColors = InteriorColor::where('status', 1)->get();
+        $Districts = District::where('status', 1)->get();
+        $Comforts = Comfort::where('status', 1)->get();
+        $Entertainments = Entertainment::where('status', 1)->get();
+        $Safeties = Safety::where('status', 1)->get();
+        $Seats = Seat::where('status', 1)->get();
+        $Windows = Window::where('status', 1)->get();
+        $OtherFeatures = OtherFeature::where('status', 1)->get();
+        $District = District::where('status', 1)->get();
+        $Thana = Thana::where('status', 1)->get();
+        $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
 
         $validator = Validator::make($request->all(), [
-                    'name' => 'required',
-                    'mobile' => 'required',
-                    //'car_condition' => 'required',
+            'name' => 'required',
+            'mobile' => 'required',
+            //'car_condition' => 'required',
         ]);
-        
+
         if ($validator->fails()) {
-            return redirect()->withErrors($validator)->withInput();
+            return redirect()
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        $save_data = array(
+        $save_data = [
             'name' => $request->name,
             'email' => $request->email,
-            'sell_car' =>1
-        );
-        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
+            'sell_car' => 1,
+        ];
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
         $GetID = $data->id;
-        return view('frontEnd.exchangeCarDetails', compact(
-                "data", 
-                "WebsiteSettings",
-                "WebmasterSettings",
-                "PageTitle",
-                "PageDescription",
-                "PageKeywords",
-                "PageTitle",
-                "CarConditions",
-                "CarBrands",
-                "CarModels",
-                "BodyTypes",
-                "FuelTypes",
-                "Transmissions",
-                "Drives",
-                "ExteriorColors",
-                "InteriorColors",
-                "Districts",
-                "Comforts",
-                "Entertainments",
-                "Safeties",
-                "Seats",
-                "Windows",
-                "District",
-                "Thana",
-                "OtherFeatures",
-                "PageDescription",
-                "LatestNews",
-                "GetID",
-                "PageKeywords",
-                "RegistrationSerial"));
+        return view('frontEnd.exchangeCarDetails', compact('data', 'WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'LatestNews', 'GetID', 'PageKeywords', 'RegistrationSerial'));
     }
 
     public function latest_topics($section_id, $limit = 3)
     {
-        return Topic::where([['status', 1], ['webmaster_id', $section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $section_id], ['expire_date', null]])->orderby('row_no', 'desc')->limit($limit)->get();
+        return Topic::where([['status', 1], ['webmaster_id', $section_id], ['expire_date', '>=', date('Y-m-d')], ['expire_date', '<>', null]])
+            ->orwhere([['status', 1], ['webmaster_id', $section_id], ['expire_date', null]])
+            ->orderby('row_no', 'desc')
+            ->limit($limit)
+            ->get();
     }
 
-    public function exchange_basic_data_save(Request $request){
+    public function exchange_basic_data_save(Request $request)
+    {
         //dd($request->all());
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
 
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+        $site_desc_var = 'site_desc_' . @Helper::currentLanguage()->code;
+        $site_keywords_var = 'site_keywords_' . @Helper::currentLanguage()->code;
 
         $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
-        $customer_data = SmartendCustomer::where('id',$request->GetID)->first();
+        $customer_data = SmartendCustomer::where('id', $request->GetID)->first();
         // $save_data = array(
         //     'name' => $request->name,
         //     'email' => $request->email,
@@ -157,9 +134,9 @@ class carExchangeController extends Controller
         //dd($request->all());
 
         $seller_data = new Seller();
-        $seller_data->car_title = $request->car_title;
+        $seller_data->car_title = isset($request->car_title) ? $request->car_title : '';
         $seller_data->car_condition = $request->car_condition;
-        $seller_data->made_in = 0;//$request->made_in;
+        $seller_data->made_in = 0; //$request->made_in;
         $seller_data->brand = $request->car_brand;
         $seller_data->car_model = $request->car_model;
         $seller_data->menufacturing_year = $request->menufacturing_year;
@@ -176,14 +153,14 @@ class carExchangeController extends Controller
         $seller_data->registration_city = $request->registration_city;
         $seller_data->registration_number = $request->registration_number;
         $seller_data->seats = $request->seats;
-        $seller_data->tax_token_expaire = date('Y-m-d',strtotime($request->tax_token_expaire));
-        $seller_data->fitnes_exspaire = date('Y-m-d',strtotime($request->fitnes_exspaire));
+        $seller_data->tax_token_expaire = date('Y-m-d', strtotime($request->tax_token_expaire));
+        $seller_data->fitnes_exspaire = date('Y-m-d', strtotime($request->fitnes_exspaire));
         $seller_data->bank_loan = $request->bank_loan;
         $seller_data->name_transfer = $request->name_transfer;
         $seller_data->price = $request->price;
         $seller_data->status = 1;
         $seller_data->car_status = 3;
-        $seller_data->home_feature = '';//$request->home_feature;
+        $seller_data->home_feature = ''; //$request->home_feature;
         $seller_data->car_details = $request->car_details;
         $seller_data->video_url = $request->video_url;
         $seller_data->created_by = $request->GetID;
@@ -191,8 +168,8 @@ class carExchangeController extends Controller
         $seller_data->save();
 
         if ($request->car_photo) {
-            for($i=0 ; $i < count($request->car_photo) ; $i++){
-                $seller_car_image  = new SellerCarImage();
+            for ($i = 0; $i < count($request->car_photo); $i++) {
+                $seller_car_image = new SellerCarImage();
                 $seller_car_image->seller_id = $seller_data->id;
                 $seller_car_image->car_image = $request->car_photo[$i];
                 $seller_car_image->save();
@@ -201,35 +178,34 @@ class carExchangeController extends Controller
 
         $seller_image = new SellerImage();
         if ($request->file('smart_card')) {
-            $md5Name = md5_file($request->file('smart_card')->getRealPath()).time();
+            $md5Name = md5_file($request->file('smart_card')->getRealPath()) . time();
             $mimeType = $request->file('smart_card')->guessExtension();
-            $path = $request->file('smart_card')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('smart_card')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->smart_card_photo = $path;
         }
         if ($request->file('tax_token')) {
-            $md5Name = md5_file($request->file('tax_token')->getRealPath()).time();
+            $md5Name = md5_file($request->file('tax_token')->getRealPath()) . time();
             $mimeType = $request->file('tax_token')->guessExtension();
-            $path = $request->file('tax_token')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('tax_token')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->tax_token_photo = $path;
         }
         if ($request->file('fitness')) {
-            $md5Name = md5_file($request->file('fitness')->getRealPath()).time();
+            $md5Name = md5_file($request->file('fitness')->getRealPath()) . time();
             $mimeType = $request->file('fitness')->guessExtension();
-            $path = $request->file('fitness')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('fitness')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->fitness_photo = $path;
         }
         if ($request->file('bank_clearance')) {
-            $md5Name = md5_file($request->file('bank_clearance')->getRealPath()).time();
+            $md5Name = md5_file($request->file('bank_clearance')->getRealPath()) . time();
             $mimeType = $request->file('bank_clearance')->guessExtension();
-            $path = $request->file('bank_clearance')->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
+            $path = $request->file('bank_clearance')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
             $seller_image->bank_clearance_photo = $path;
         }
         $seller_image->seller_id = $seller_data->id;
         $seller_image->save();
 
-
-        if($request->fuel_type){
-            for($i=0 ; $i < count($request->fuel_type) ; $i++){
+        if ($request->fuel_type) {
+            for ($i = 0; $i < count($request->fuel_type); $i++) {
                 $fuel_type = new Seller_fuel_type();
                 $fuel_type->seller_id = $seller_data->id;
                 $fuel_type->fuel_type_id = $request->fuel_type[$i];
@@ -237,9 +213,8 @@ class carExchangeController extends Controller
             }
         }
 
-
-        if($request->comfort){
-            for($i=0 ; $i < count($request->comfort) ; $i++){
+        if ($request->comfort) {
+            for ($i = 0; $i < count($request->comfort); $i++) {
                 $comfort = new Seller_Comfort();
                 $comfort->seller_id = $seller_data->id;
                 $comfort->comfort_id = $request->comfort[$i];
@@ -247,8 +222,8 @@ class carExchangeController extends Controller
             }
         }
         //dd($request->entertainment[0]);
-        if($request->entertainment){
-            for($i=0 ; $i < count($request->entertainment) ; $i++){
+        if ($request->entertainment) {
+            for ($i = 0; $i < count($request->entertainment); $i++) {
                 $entertainment = new Seller_Entertainment();
                 $entertainment->seller_id = $seller_data->id;
                 $entertainment->entertainment_id = $request->entertainment[$i];
@@ -257,8 +232,8 @@ class carExchangeController extends Controller
             }
         }
 
-        if($request->safety){
-            for($i=0 ; $i < count($request->safety) ; $i++){
+        if ($request->safety) {
+            for ($i = 0; $i < count($request->safety); $i++) {
                 $safety = new Seller_Safety();
                 $safety->seller_id = $seller_data->id;
                 $safety->safety_id = $request->safety[$i];
@@ -266,8 +241,8 @@ class carExchangeController extends Controller
             }
         }
 
-        if($request->seat){
-            for($i=0 ; $i < count($request->seat) ; $i++){
+        if ($request->seat) {
+            for ($i = 0; $i < count($request->seat); $i++) {
                 $seat = new Seller_Seat();
                 $seat->seller_id = $seller_data->id;
                 $seat->seat_id = $request->seat[$i];
@@ -275,8 +250,8 @@ class carExchangeController extends Controller
             }
         }
 
-        if($request->window){
-            for($i=0 ; $i < count($request->window) ; $i++){
+        if ($request->window) {
+            for ($i = 0; $i < count($request->window); $i++) {
                 $window = new Seller_Window();
                 $window->seller_id = $seller_data->id;
                 $window->window_id = $request->window[$i];
@@ -284,8 +259,8 @@ class carExchangeController extends Controller
             }
         }
 
-        if($request->other_feature){
-            for($i=0 ; $i < count($request->other_feature) ; $i++){
+        if ($request->other_feature) {
+            for ($i = 0; $i < count($request->other_feature); $i++) {
                 $other_feature = new Seller_Other_Feature();
                 $other_feature->seller_id = $seller_data->id;
                 $other_feature->other_feature_id = $request->other_feature[$i];
@@ -298,28 +273,17 @@ class carExchangeController extends Controller
         //dd($seller_car_id);
         //dd($customer_id);
 
-
-        $dashboardCars = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
-            'condition',
-            'car_brand',
-            'model',
-            'bodytype',
-            'car_exterior_color',
-            'drive_type',
-            'car_transmission'
-        )
-            ->where('status',1)
-            ->where('home_feature',1)
-            ->where('car_status',2)
+        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+            ->where('status', 1)
+            ->where('home_feature', 1)
+            ->where('car_status', 2)
             ->get();
 
-        return view('frontEnd.car_exchange_list', compact(
-            "WebsiteSettings", "WebmasterSettings", "PageTitle", "PageDescription",
-            "PageKeywords", "PageTitle",  "LatestNews","dashboardCars","seller_car_id","customer_id"
-        ));
+        return view('frontEnd.car_exchange_list', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'dashboardCars', 'seller_car_id', 'customer_id'));
     }
 
-    public function carExchangeDetails(Request $request){
+    public function carExchangeDetails(Request $request)
+    {
         //dd($request->all());
 
         $CustomerID = $request->CustomerID;
@@ -328,37 +292,23 @@ class carExchangeController extends Controller
 
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
-        $PageTitle = "";
+        $site_desc_var = 'site_desc_' . @Helper::currentLanguage()->code;
+        $site_keywords_var = 'site_keywords_' . @Helper::currentLanguage()->code;
+        $PageTitle = '';
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
-        $carDetails = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
-            'condition',
-            'car_brand',
-            'model',
-            'bodytype',
-            'car_exterior_color',
-            'drive_type',
-            'car_transmission'
-        )->where('status',1)
-            ->where('id',$ShowroomCarID)->first();
+        $carDetails = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+            ->where('status', 1)
+            ->where('id', $ShowroomCarID)
+            ->first();
 
-        return view("frontEnd.carExchangeDetails",
-            compact("WebsiteSettings",
-                "WebmasterSettings",
-                "PageTitle",
-                "PageDescription",
-                "PageKeywords",
-                "PageTitle",
-                "LatestNews",
-                "carDetails","CustomerID","SellerCarID","ShowroomCarID"));
+        return view('frontEnd.carExchangeDetails', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'carDetails', 'CustomerID', 'SellerCarID', 'ShowroomCarID'));
     }
 
-    public function exchangeSubmit(Request $request){
-
+    public function exchangeSubmit(Request $request)
+    {
         //dd($request->all());
         $CustomerID = $request->CustomerID;
         $SellerCarID = $request->SellerCarID;
@@ -366,31 +316,28 @@ class carExchangeController extends Controller
 
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+        $site_desc_var = 'site_desc_' . @Helper::currentLanguage()->code;
+        $site_keywords_var = 'site_keywords_' . @Helper::currentLanguage()->code;
 
         $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
-        $Customer = Customer::where('id',$CustomerID)->first();
+        $Customer = Customer::where('id', $CustomerID)->first();
         //dd($customer);
 
-        return view('frontEnd.car_exchange_form',
-            compact("WebsiteSettings", "WebmasterSettings",
-                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews",
-                "Customer","CustomerID","SellerCarID","ShowroomCarID"
-            ));
-        }
+        return view('frontEnd.car_exchange_form', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'Customer', 'CustomerID', 'SellerCarID', 'ShowroomCarID'));
+    }
 
-    public function exchangeSubmitFinal(Request $request){
+    public function exchangeSubmitFinal(Request $request)
+    {
         //dd($request->all());
 
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
-        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
-        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+        $site_desc_var = 'site_desc_' . @Helper::currentLanguage()->code;
+        $site_keywords_var = 'site_keywords_' . @Helper::currentLanguage()->code;
         $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
@@ -401,22 +348,25 @@ class carExchangeController extends Controller
             'email' => 'required',
             'mobile' => 'required',
             'address1' => 'required',
-            'address2' => 'required'
+            'address2' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        $save_data = array(
+        $save_data = [
             'name' => $request->name,
             'email' => $request->email,
             'address1' => $request->address1,
             'address2' => $request->address1,
-            'exchange_car' =>1
-        );
+            'exchange_car' => 1,
+        ];
 
-        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
 
         $CustomerID = $data->id;
         $SellerCarID = $request->SellerCarID;
@@ -429,10 +379,11 @@ class carExchangeController extends Controller
         $Exchange->status = 1;
         $Exchange->save();
 
-        return view('frontEnd.thanks_exchange',
-            compact("WebsiteSettings", "WebmasterSettings",
-                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
-            ->with('success', __('frontend.SUCESSMSGEXCHANGE'));
+        // return view('frontEnd.thanks_exchange',
+        //     compact("WebsiteSettings", "WebmasterSettings",
+        //         "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
+        //     ->with('success', __('frontend.SUCESSMSGEXCHANGE'));
+        $request->session()->put('success', __('frontend.SUCESSMSGEXCHANGE'));
+        return redirect()->route('Home', ['success' => __('frontend.SUCESSMSGEXCHANGE')]);
     }
-
 }

@@ -25,10 +25,16 @@ Route::get('/linkstorage', function () {
 });
 
 // Language Route
-Route::post('/lang', [LanguageController::class, 'index'])->middleware('LanguageSwitcher')->name('lang');
+Route::post('/lang', [LanguageController::class, 'index'])
+    ->middleware('LanguageSwitcher')
+    ->name('lang');
 // For Language direct URL link
-Route::get('/lang/{lang}', [LanguageController::class, 'change'])->middleware('LanguageSwitcher')->name('langChange');
-Route::get('/locale/{lang}', [LanguageController::class, 'locale'])->middleware('LanguageSwitcher')->name('localeChange');
+Route::get('/lang/{lang}', [LanguageController::class, 'change'])
+    ->middleware('LanguageSwitcher')
+    ->name('langChange');
+Route::get('/locale/{lang}', [LanguageController::class, 'locale'])
+    ->middleware('LanguageSwitcher')
+    ->name('localeChange');
 // .. End of Language Route
 
 // Backend Routes
@@ -51,11 +57,9 @@ Route::get('/logout', function () {
     return redirect('/');
 })->name('logout');
 
-
-
 Route::post('/seller-basic', 'carSellController@index');
 Route::post('/buyer-basic', 'carBuyController@buyerBasic');
-Route::post('/exchange-basic', 'carSellController@exchangeBasic');
+Route::post('/exchange-basic', 'carExchangeController@exchangeBasic');
 Route::post('/get_car_models', [carSellController::class, 'get_car_models'])->name('get_car_models');
 Route::post('/get_car_thana', [carSellController::class, 'get_car_thana'])->name('get_car_thana');
 Route::post('/seller-car-information', 'carSellController@seller_basic_data_save');
@@ -76,7 +80,6 @@ Route::get('/showroom-cars', 'carsController@showroomCars')->name('showroomCars'
 Route::get('/car-book/{id}', 'carBuyController@carBook');
 Route::post('/car-book', 'carBuyController@carBook')->name('carBook');
 Route::post('/car-book-submit', 'carBuyController@carBookSubmit')->name('carBookSubmit');
-
 
 Route::get('/car-details/{id}', 'carDetailsController@cardetails');
 Route::get('/google-review', 'carDetailsController@googleReview');
@@ -123,16 +126,13 @@ Route::post('/search', [HomeController::class, 'searchTopics'])->name('searchTop
 Route::get('/{section}/topic/{id}', [HomeController::class, 'topic'])->name('FrontendTopic');
 Route::get('/{lang?}/{section}/topic/{id}', [HomeController::class, 'topicByLang'])->name('FrontendTopicByLang');
 
-
 // ..Sub category url for Section  ( ex: www.site.com/products/2 )
 Route::get('/{section}/{cat}', [HomeController::class, 'topics'])->name('FrontendTopicsByCat');
 Route::get('/{lang?}/{section}/{cat}', [HomeController::class, 'topicsByLang'])->name('FrontendTopicsByCatWithLang');
 
-
 // ..Section url by name  ( ex: www.site.com/news )
 Route::get('/{section}', [HomeController::class, 'topics'])->name('FrontendTopics');
 Route::get('/{lang?}/{section}', [HomeController::class, 'topicsByLang'])->name('FrontendTopicsByLang');
-
 
 // ..SEO url  ( ex: www.site.com/title-here )
 Route::get('/{seo_url_slug}', [HomeController::class, 'SEO'])->name('FrontendSEO');
@@ -141,4 +141,3 @@ Route::get('/{lang?}/{seo_url_slug}', [HomeController::class, 'SEOByLang'])->nam
 // ..if page by name and language( ex: www.site.com/ar/about )
 Route::get('/{lang?}/topic/{id}', [HomeController::class, 'topicByLang'])->name('FrontendPageByLang');
 // .. End of Frontend Route
-

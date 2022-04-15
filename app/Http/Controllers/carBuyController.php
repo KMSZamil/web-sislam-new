@@ -137,10 +137,12 @@ class carBuyController extends Controller
         $Booking->status = 1;
         $Booking->save();
 
-        return view('frontEnd.thanks_book',
-            compact("WebsiteSettings", "WebmasterSettings",
-                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
-            ->with('success', __('frontend.SUCESSMSGBOOK'));
+        // return view('frontEnd.thanks_book',
+        //     compact("WebsiteSettings", "WebmasterSettings",
+        //         "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
+        //     ->with('success', __('frontend.SUCESSMSGBOOK'));
+        $request->session()->put('success', __('frontend.SUCESSMSGBOOK'));
+        return redirect()->route('Home', ['success' => __('frontend.SUCESSMSGBOOK')]);
     }
 
     public function latest_topics($section_id, $limit = 3)

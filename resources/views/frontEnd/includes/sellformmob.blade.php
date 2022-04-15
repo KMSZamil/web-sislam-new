@@ -2,24 +2,25 @@
     <h2 class="form-h2-title">{{ __('frontend.CARSELL') }}</h2>
     <p><span>{{ __('frontend.CARINFO1') }} {{ __('frontend.CARINFO2') }}</span></p>
     @if (count($errors) > 0)
-    <div class="custom-alerts alert alert-danger fade in">
-        <div class="error">
-            @foreach ($errors->all() as $error)
-            <ul>
-                <li>{{ $error }}</li>
-            </ul>
-            @endforeach
+        <div class="custom-alerts alert alert-danger fade in">
+            <div class="error">
+                @foreach ($errors->all() as $error)
+                    <ul>
+                        <li>{{ $error }}</li>
+                    </ul>
+                @endforeach
+            </div>
         </div>
-    </div>
     @endif
 
     @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
+        <div class="alert alert-success">
+            {{ session('success') }}
+            {{ session()->forget('success') }}
+        </div>
     @endif
     <div class="form-group">
-        {!! Form::open(array('url' => '/seller-basic', 'method' => 'post')) !!}
+        {!! Form::open(['url' => '/seller-basic', 'method' => 'post']) !!}
         <!-- CROSS Site Request Forgery Protection -->
         @csrf
         <div class="form-group">
@@ -34,8 +35,9 @@
             <label>{{ __('frontend.MOBILE') }} *</label>
             <input type="text" class="form-control" name="mobile" id="mobile required">
         </div>
-        <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }}   <i class='fa fa-arrow-right' aria-hidden='true'></i></button>
+        <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }} <i
+                class='fa fa-arrow-right' aria-hidden='true'></i></button>
 
-        {{Form::close()}}
+        {{ Form::close() }}
     </div>
 </div>

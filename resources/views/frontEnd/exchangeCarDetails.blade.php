@@ -50,12 +50,12 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     @include('frontEnd.sellers.carPhoto')
                     {{-- @include('frontEnd.sellers.contactDetails') --}}
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="form-group">
                             <input type="checkbox" class="form-check-input" name="terms_and_condition" value="1" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">{{ __('frontend.TERMS_AND_CONDITION') }}</label>
                         </div>
-                    </div>
+                    </div> --}}
 
 {{--                    <div class="row">--}}
 {{--                        <div class="form-group">--}}
