@@ -111,6 +111,13 @@ class carSellController extends Controller
         return view('frontEnd.sellCarDetaails', compact('data', 'WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'Seats', 'Windows', 'District', 'Thana', 'OtherFeatures', 'PageDescription', 'LatestNews', 'GetID', 'PageKeywords', 'RegistrationSerial'));
     }
 
+
+    public function messengerIntregation()
+    {
+        //dd("dd");
+        return view('frontEnd.mesengerIntregation');
+    }
+
     public function seller_basic_data_save(Request $request)
     {
         $WebmasterSettings = WebmasterSetting::find(1);

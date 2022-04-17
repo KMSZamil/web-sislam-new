@@ -119,10 +119,11 @@ class carExchangeController extends Controller
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
-        $customer_data = SmartendCustomer::where('id', $request->GetID)->first();
+        // $customer_data = SmartendCustomer::where('id', $request->GetID)->first();
         // $save_data = array(
         //     'name' => $request->name,
         //     'email' => $request->email,
+        //     'mobile' => $request->mobile,
         //     'thana' => $request->thana,
         //     'district' => $request->district,
         //     'address_line1' => $request->address1,

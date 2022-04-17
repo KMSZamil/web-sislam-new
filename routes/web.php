@@ -57,6 +57,7 @@ Route::get('/logout', function () {
     return redirect('/');
 })->name('logout');
 
+Route::get('/messenger-intregation', 'carSellController@messengerIntregation')->name('messengerIntregation');
 Route::post('/seller-basic', 'carSellController@index');
 Route::post('/buyer-basic', 'carBuyController@buyerBasic');
 Route::post('/exchange-basic', 'carExchangeController@exchangeBasic');
