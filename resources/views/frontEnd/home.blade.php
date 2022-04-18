@@ -395,30 +395,6 @@ if (count($TextBanners) > 3) {
 @endif
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-<script>
-//      jQuery(document).ready(function ($) {
-//         jQuery(".btnSubmit").onclick(function () {
-//         alert("kk");
-//         var CustomerID = document.getElementById("CustomerID");
-//         var CarID = document.getElementById("CarID");
-//         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-//          console.log({CustomerID});
-//          return false;
-//          jQuery.ajax
-//                 ({
-//                     type: 'POST',
-//                     url: "{{ url('car-book') }}",
-//                     data: {district_id: district, _token: CSRF_TOKEN},
-//                     success: function (response) {
-//                         jQuery('#thana').html(response);
-
-//                     },
-//                 });
-//     });
-// });
-
-
-</script>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         jQuery(".owl-wrapper").owlCarousel({

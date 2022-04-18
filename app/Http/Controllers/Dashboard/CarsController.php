@@ -604,7 +604,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         $SellCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission', 'customer_info')
             ->where('customer_id', '!=', 0)
             ->where('car_status', 1)
-            ->where('id',$id)
+            ->where('id', $id)
             ->orderby('seller.id', 'desc')
             ->get();
 
@@ -650,13 +650,14 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
             ->first();
 
         $CustomerData = Customer::where('id', $carDetails->customer_id)->first();
-        //dd($CustomerData);
+
         $SellCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission', 'customer_info')
             ->where('customer_id', '!=', 0)
-            ->where('car_status', 1)
-            ->where('id', $id)
+            //->where('car_status', 1)
+            ->where('seller.id', $id)
             ->orderby('seller.id', 'desc')
             ->first();
+        //dd($SellCars);
 
         return view('dashboard.cars.showsell', compact('SellCars', 'GeneralWebmasterSections', 'carDetails', 'CarConditions', 'CarBrands', 'CarModels', 'BodyTypes', 'FuelTypes', 'Transmissions', 'Drives', 'ExteriorColors', 'InteriorColors', 'Districts', 'Comforts', 'Entertainments', 'Safeties', 'registration_cities', 'Seats', 'Windows', 'OtherFeatures', 'District', 'Thana', 'Country', 'CustomerData', 'Status', 'RegistrationSerial'));
     }
@@ -1653,11 +1654,17 @@ $fuel_type->save();
         //dd($ToDate);
 
         $ExchangeCars = Seller::join('car_exchange', 'car_exchange.seller_car_id', '=', 'seller.id')
-            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission', 'customer_info')
             ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
-            ->orderby('car_exchange.id', 'desc')
+            ->where('seller.customer_id', '!=', 0)
+            ->where('seller.car_status', 3)
+            //->where('id',91)
+            ->orderby(
+                'seller.id',
+                'desc'
+            )
             ->get();
-
+        //dd($ExchangeCars);
         return view('dashboard.cars.get_exchange_car', compact('ExchangeCars', 'DateFrom', 'ToDate'));
     }
 }

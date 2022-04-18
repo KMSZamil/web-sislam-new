@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\BodyType;
 use App\Models\CarBrand;
 use App\Models\CarCondition;
@@ -114,8 +115,51 @@ class carSellController extends Controller
 
     public function messengerIntregation()
     {
-        //dd("dd");
-        return view('frontEnd.mesengerIntregation');
+        $WebmasterSettings = WebmasterSetting::find(1);
+        $WebsiteSettings = Setting::find(1);
+        $HomeTopics = Topic::where([['status', 1], ['webmaster_id', $WebmasterSettings->home_content1_section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $WebmasterSettings->home_content1_section_id], ['expire_date', null]])->orderby('row_no', env("FRONTEND_TOPICS_ORDER", "asc"))->limit(12)->get();
+        $HomePhotos = Topic::where([['status', 1], ['webmaster_id', $WebmasterSettings->home_content2_section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $WebmasterSettings->home_content2_section_id], ['expire_date', null]])->orderby('row_no', env("FRONTEND_TOPICS_ORDER", "asc"))->limit(6)->get();
+        $HomePartners = Topic::where([['status', 1], ['webmaster_id', $WebmasterSettings->home_content3_section_id], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['status', 1], ['webmaster_id', $WebmasterSettings->home_content3_section_id], ['expire_date', null]])->orderby('row_no', env("FRONTEND_TOPICS_ORDER", "asc"))->get();
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+        $SliderBanners = Banner::where('section_id', $WebmasterSettings->home_banners_section_id)->where(
+            'status',
+            1
+        )->orderby('row_no', 'asc')->get();
+
+        $TextBanners = Banner::where('section_id', $WebmasterSettings->home_text_banners_section_id)->where(
+            'status',
+            1
+        )->orderby('row_no', 'asc')->get();
+
+        $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+        $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+
+        $PageTitle = "";
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+
+        $HomePage = [];
+        if ($WebmasterSettings->default_currency_id > 0) {
+            $HomePage = Topic::where("status", 1)->find($WebmasterSettings->default_currency_id);
+        }
+        return view('frontEnd.mesengerIntregation', compact(
+            "WebsiteSettings",
+            "WebmasterSettings",
+            "SliderBanners",
+            "TextBanners",
+            "PageTitle",
+            "PageDescription",
+            "PageKeywords",
+            "PageTitle",
+            "PageDescription",
+            "PageKeywords",
+            "HomePage",
+            "HomeTopics",
+            "HomePhotos",
+            "HomePartners",
+            "LatestNews"
+        ));
     }
 
     public function seller_basic_data_save(Request $request)

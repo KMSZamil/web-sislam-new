@@ -692,4 +692,6 @@ return [
     'CAR_REGISTRATION_YEAR' => 'Car Registration Year',
     'ASKING_PRICE' => 'Asking Price',
     'view_details' => 'View Details',
+    'view_details_showroom_car' => 'View Details Showroom Car',
+    'view_details_seller_car' => 'View Details Seller Car',
 ];

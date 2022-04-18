@@ -21,11 +21,11 @@
                                                     <tbody>
                                                         <tr>
                                                             <td style="width:200px">Car Condition</td>
-                                                            <td>{{ $SellCars->condition->name }}</td>
+                                                            <td>{{ isset($SellCars->condition->name) ? $SellCars->condition->name : '' }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Car Brand</td>
-                                                            <td>{{ $SellCars->car_brand->name }}</td>
+                                                            <td>{{ isset($SellCars->car_brand->name) ? $SellCars->car_brand->name : '' }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Car Model</td>

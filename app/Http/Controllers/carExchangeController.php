@@ -152,7 +152,7 @@ class carExchangeController extends Controller
         $seller_data->registration_year = $request->registration_year;
         $seller_data->registration_serial = $request->registration_serial;
         $seller_data->registration_city = $request->registration_city;
-        $seller_data->registration_number = $request->registration_number;
+        $seller_data->registration_number = $request->registration_serial . ' - ' . $request->registration_number;
         $seller_data->seats = $request->seats;
         $seller_data->tax_token_expaire = date('Y-m-d', strtotime($request->tax_token_expaire));
         $seller_data->fitnes_exspaire = date('Y-m-d', strtotime($request->fitnes_exspaire));
@@ -362,6 +362,7 @@ class carExchangeController extends Controller
         $save_data = [
             'name' => $request->name,
             'email' => $request->email,
+            'mobile' => $request->mobile,
             'address1' => $request->address1,
             'address2' => $request->address1,
             'exchange_car' => 1,
