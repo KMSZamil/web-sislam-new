@@ -22,6 +22,7 @@
                     <th>{{ __('backend.CAR_MODEL') }}</th>
                     <th>{{ __('backend.CAR_MENUFACTURING_YEAR') }}</th>
                     <th>{{ __('backend.CAR_REGISTRATION_YEAR') }}</th>
+                    <th>{{ __('backend.CAR_NUMBER') }}</th>
                     <th class="text-center" style="width:200px;">{{ __('backend.ASKING_PRICE') }}</th>
 
                     <th class="text-center" style="width:200px;">{{ __('backend.ACTIONS') }}</th>
@@ -41,14 +42,16 @@
                         <td>{{ $row->model->name }}</td>
                         <td>{{ $row->menufacturing_year }}</td>
                         <td>{{ $row->registration_year }}</td>
+                        <td>{{ $row->registration_number }}</td>
                         <td>{{ $row->price }}</td>
 
-                        <td><a class="btn btn-fw btn-sm primary" href="{{ route('editSell', ['id' => $row->id]) }}">
+                        <td>
+                            {{-- <a class="btn btn-fw btn-sm primary" href="{{ route('editSell', ['id' => $row->id]) }}">
                                 <i class="material-icons">&#xe02e;</i>
-                                &nbsp; {{ __('backend.edit') }}</a>&nbsp;
-                                <a class="btn btn-fw btn-sm secondary" href="{{ route('showSell', ['id' => $row->id]) }}">
-                                    <i class="material-icons">&#xe02e;</i>
-                                    &nbsp; {{ __('backend.view_details') }}</a>
+                                &nbsp; {{ __('backend.edit') }}</a>&nbsp; --}}
+                            <a class="btn btn-fw btn-sm primary" href="{{ route('showSell', ['id' => $row->id]) }}">
+                                <i class="material-icons">&#xe02e;</i>
+                                &nbsp; {{ __('backend.view_details') }}</a>
                             {{-- <a class="btn btn-fw btn-sm danger" onclick="return confirm('Are you sure?')" href="{{ route("carsDestroy",["id"=>$row->id]) }}">
                             <i class="material-icons">&#xE872;</i>
                             &nbsp; {{ __('backend.delete') }}</a> --}}

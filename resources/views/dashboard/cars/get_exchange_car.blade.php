@@ -24,6 +24,7 @@
                     <th>{{ __('backend.CAR_MODEL') }}</th>
                     <th>{{ __('backend.CAR_MENUFACTURING_YEAR') }}</th>
                     <th>{{ __('backend.CAR_REGISTRATION_YEAR') }}</th>
+                    <th>{{ __('backend.CAR_NUMBER') }}</th>
                     <th class="text-center" style="width:200px;">{{ __('backend.ASKING_PRICE') }}</th>
 
                     <th class="text-center" style="width:200px;">{{ __('backend.ACTIONS') }}</th>
@@ -43,6 +44,7 @@
                         <td>{{ $row->model->name }}</td>
                         <td>{{ $row->menufacturing_year }}</td>
                         <td>{{ $row->registration_year }}</td>
+                        <td>{{ $row->registration_number }}</td>
                         <td>{{ $row->price }}</td>
 
                         <td><a class="btn btn-fw btn-sm primary" href="{{ route('editSell', ['id' => $row->id]) }}">

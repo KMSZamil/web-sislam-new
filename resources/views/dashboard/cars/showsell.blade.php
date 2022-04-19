@@ -21,11 +21,13 @@
                                                     <tbody>
                                                         <tr>
                                                             <td style="width:200px">Car Condition</td>
-                                                            <td>{{ isset($SellCars->condition->name) ? $SellCars->condition->name : '' }}</td>
+                                                            <td>{{ isset($SellCars->condition->name) ? $SellCars->condition->name : '' }}
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Car Brand</td>
-                                                            <td>{{ isset($SellCars->car_brand->name) ? $SellCars->car_brand->name : '' }}</td>
+                                                            <td>{{ isset($SellCars->car_brand->name) ? $SellCars->car_brand->name : '' }}
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Car Model</td>
@@ -48,62 +50,65 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="padding p-y-sm ">
-                                        <h3>Contact Details</h3>
-                                        <div class="form-horizontal">
-                                            <div class="row">
-                                                <table class="table table-bordered">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style="width:200px">Full Name</td>
-                                                            <td>{{ $SellCars->customer_info->name }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Email</td>
-                                                            <td>{{ $SellCars->customer_info->email }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Mobile</td>
-                                                            <td>{{ $SellCars->customer_info->mobile }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Address</td>
-                                                            <td>{{ $SellCars->customer_info->address_line1 }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Price</td>
-                                                            <td>{{ $SellCars->price }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>About Car</td>
-                                                            <td>{{ $SellCars->car_details }}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                    @if (isset($SellCars->customer_info))
+                                        <div class="padding p-y-sm ">
+                                            <h3>Contact Details</h3>
+                                            <div class="form-horizontal">
+                                                <div class="row">
+                                                    <table class="table table-bordered">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="width:200px">Full Name</td>
+                                                                <td>{{ $SellCars->customer_info->name }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Email</td>
+                                                                <td>{{ $SellCars->customer_info->email }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Mobile</td>
+                                                                <td>{{ $SellCars->customer_info->mobile }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Address</td>
+                                                                <td>{{ $SellCars->customer_info->address_line1 }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Price</td>
+                                                                <td>{{ $SellCars->price }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>About Car</td>
+                                                                <td>{{ $SellCars->car_details }}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                     <div class="padding p-y-sm ">
                                         <h3>Car Photos</h3>
                                         <div class="form-horizontal">
                                             <div class="row">
-                                                @foreach($SellCars->seller_car_images as $row)
-                                                <table role="presentation" class="table table-striped">
-                                                    <tbody class="">
-                                                        <tr class=" fade image in">
-                                                            <td>
-                                                                <span class="preview">
-                                                                    <img src="{{ asset('files/'.$row->car_image) }}" width="400" height="200">
-                                                                </span>
-                                                            </td>
-                                                            <td>
-                                                                <p class="name">{{ $row->car_image }}</p>
-                                                                <strong class="error text-danger"></strong>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            @endforeach
+                                                @foreach ($SellCars->seller_car_images as $row)
+                                                    <table role="presentation" class="table table-striped">
+                                                        <tbody class="">
+                                                            <tr class=" fade image in">
+                                                                <td>
+                                                                    <span class="preview">
+                                                                        <img src="{{ asset('files/' . $row->car_image) }}"
+                                                                            width="400" height="200">
+                                                                    </span>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="name">{{ $row->car_image }}</p>
+                                                                    <strong class="error text-danger"></strong>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

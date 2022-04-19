@@ -694,4 +694,7 @@ return [
     'view_details' => 'View Details',
     'view_details_showroom_car' => 'View Details Showroom Car',
     'view_details_seller_car' => 'View Details Seller Car',
+    'CAR_NUMBER' => 'Car Number',
+    'BUYER_NAME' => 'Buyer Name',
+    'BUYER_MOBILE' => 'Buyer mobile',
 ];

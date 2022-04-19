@@ -482,9 +482,10 @@ if (!empty($carDetails->seller_other_feature)){
         <label>{{ __('frontend.CARSTATUS') }}</label>
         <select class="form-control" name="status" id="status">
             <option value="">Select</option>
-            <option {{(old('status', $carDetails->status) == 0) ? 'selected' : ''}} value="0">Inactive</option>
-            <option {{(old('status', $carDetails->status) == 1) ? 'selected' : ''}} value="1">Active</option>
+            <option {{(old('status', $carDetails->status) == 0) ? 'selected' : ''}} value="0">In Active</option>
+            <option {{(old('status', $carDetails->status) == 1) ? 'selected' : ''}} value="1">In Stock</option>
             <option {{(old('status', $carDetails->status) == 2) ? 'selected' : ''}} value="2">Sold Out</option>
+            <option {{(old('status', $carDetails->status) == 3) ? 'selected' : ''}} value="2">Booked</option>
         </select>
     </div>
 </div>

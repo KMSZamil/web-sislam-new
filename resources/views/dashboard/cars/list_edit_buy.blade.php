@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.master')
-@section('title', __('backend.newsletter'))
+@section('title', __('backend.car'))
 @section('content')
     <div class="padding">
         <div class="app-body-inner">
@@ -22,11 +22,11 @@
 <!-- column -->
 <div class="col-sm-6 col-md-7">
     <div class="row-col">
-        <div class="p-a-sm">
+        {{-- <div class="p-a-sm">
             <h6 class="m-b-0 m-t-sm"><i class="material-icons">
                     &#xe02e;</i> {{ __('backend.newCars') }}
             </h6>
-        </div>
+        </div> --}}
         <div class="row-row">
             <div class="row-body">
                 <div class="row-inner">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>{{ __('backend.STATUS') }}</label>
@@ -83,7 +83,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- / fields -->
                         <div class="form-group row">
                             <div class="col-sm-offset-3 col-sm-9">
