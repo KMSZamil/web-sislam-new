@@ -278,10 +278,32 @@ class carExchangeController extends Controller
             ->where('status', 1)
             ->where('home_feature', 1)
             ->where('car_status', 2)
+            ->take(9)
             ->get();
 
         return view('frontEnd.car_exchange_list', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'dashboardCars', 'seller_car_id', 'customer_id'));
     }
+
+    public function exchangeAcarMore(Request $request)
+    {
+        //dd($request->all());
+        $seller_car_id = $request->SellerCarID;
+        $customer_id = $request->CustomerID;
+
+        $ID = $request->msg_id;
+        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+            ->where('status', 1)
+            ->where('home_feature', 1)
+            ->where('car_status', 2)
+            ->where('id', '>', $ID)
+            ->take(6)
+            ->get();
+        //dd($dashboardCars);
+        //dd(count($dashboardCars)==0);
+
+        return view('frontEnd.exchangeACarMore', compact('dashboardCars', 'seller_car_id', 'customer_id'));
+    }
+
 
     public function carExchangeDetails(Request $request)
     {
@@ -306,6 +328,23 @@ class carExchangeController extends Controller
             ->first();
 
         return view('frontEnd.carExchangeDetails', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'carDetails', 'CustomerID', 'SellerCarID', 'ShowroomCarID'));
+    }
+
+    public function exchangeSubmitForm(Request $request)
+    {
+
+        $WebmasterSettings = WebmasterSetting::find(1);
+        $WebsiteSettings = Setting::find(1);
+        $site_desc_var = 'site_desc_' . @Helper::currentLanguage()->code;
+        $site_keywords_var = 'site_keywords_' . @Helper::currentLanguage()->code;
+
+        $PageTitle = __('frontend.BAYCARTITLE'); // will show default site Title
+        $PageDescription = $WebsiteSettings->$site_desc_var;
+        $PageKeywords = $WebsiteSettings->$site_keywords_var;
+        $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+        //dd($customer);
+
+        return view('frontEnd.car_exchange_form_initial', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews'));
     }
 
     public function exchangeSubmit(Request $request)

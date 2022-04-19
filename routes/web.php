@@ -67,9 +67,11 @@ Route::post('/seller-car-information', 'carSellController@seller_basic_data_save
 
 Route::post('get_thana', [CarsController::class, 'get_thana'])->name('get_thana');
 //Exchange
-Route::post('/exchange-basic', 'carExchangeController@exchangeBasic');
+Route::post('/exchange-basic', 'carExchangeController@exchangeBasic')->name('exchangeBasic');
 Route::post('/exchange-car-information', 'carExchangeController@exchange_basic_data_save');
+Route::post('/exchange-a-car-more', 'carExchangeController@exchangeACarMore')->name('exchangeACarMore');
 Route::post('/car-exchange-details', 'carExchangeController@carExchangeDetails');
+Route::post('/car-exchange-submit-form', 'carExchangeController@exchangeSubmitForm')->name('exchangeSubmitForm');
 Route::post('/car-exchange-submit', 'carExchangeController@exchangeSubmit')->name('exchangeSubmit');
 Route::post('/car-exchange-submit-final', 'carExchangeController@exchangeSubmitFinal')->name('exchangeSubmitFinal');
 
@@ -92,7 +94,8 @@ Route::get('/{lang?}/buy-a-car', 'carsController@buyAcar');
 Route::get('/sell-a-car', 'carsController@sellAcar');
 Route::get('/{lang?}/sell-a-car', 'carsController@sellAcar')->name('sellAcar');
 Route::get('/sell-car-details', 'carsController@sellAcarForm')->name('sellAcarForm');
-Route::get('/exchange-a-car', 'carsController@exchangeAcar');
+//Route::get('/exchange-a-car', 'carsController@exchangeAcar');
+Route::get('/exchange-a-car', 'carExchangeController@exchangeSubmitForm')->name('exchangeSubmitForm');
 Route::get('/{lang?}/exchange-a-car', 'carsController@exchangeAcar');
 
 // Start of Frontend Routes

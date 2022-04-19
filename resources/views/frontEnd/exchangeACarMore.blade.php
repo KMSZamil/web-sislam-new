@@ -1,38 +1,10 @@
-@extends('frontEnd.layout')
+ <?php            
+    if(count($dashboardCars)>0){?>
 
-@section('content')
-    <?php
-    $title_var = 'title_' . @Helper::currentLanguage()->code;
-    $title_var2 = 'title_' . env('DEFAULT_LANGUAGE');
-    $details_var = 'details_' . @Helper::currentLanguage()->code;
-    $details_var2 = 'details_' . env('DEFAULT_LANGUAGE');
-    $file_var = 'file_' . @Helper::currentLanguage()->code;
-    $file_var2 = 'file_' . env('DEFAULT_LANGUAGE');
-    ?>
-    <div class="block-title">
-        <div class="block-title__inner section-bg section-bg_second">
-            <div class="bg-inner">
-                <h1 class="ui-title-page">{{ __('frontend.BCACAR') }}</h1>
-            </div>
-        </div>
-    </div>
-
-    <div class="container page-content">
-        <div class="cont-title">
-            <p>{{ __('frontend.BUYLONGDETAILS') }}</p>
-        </div>
-        <section class="content-row-no-bg p-b-0">
-            <h2>{{ __('frontend.CARFIND') }}</h2>
-            <?php            
-        if(count($dashboardCars)>0):
-        $i=0;
-        foreach($dashboardCars as $data):
-        $i++;
-        //if($i > 9):
-        //break;
-        //endif;
-            ?>
-            @if (isset($data->car_images[0]->car_image))
+ <?php
+foreach($dashboardCars as $data):
+?>
+ @if (isset($data->car_images[0]->car_image))
                 <div class="col-md-4 message_box" data-id="<?php echo $data->id; ?>" style=" margin-bottom: 30px;">
                     <div class="car-list-box box-sm">
                         <div class="media-box">
@@ -95,86 +67,32 @@
                         <div class="car-details">
                             <form action="{{ url('car-exchange-details') }}" method="post">
                                 @csrf
-                                <input type="hidden" name="CustomerID" id="CustomerID"  value="{{ $customer_id }}">
-                                <input type="hidden" name="SellerCarID" id="SellerCarID" value="{{ $seller_car_id }}">
+                                <input type="hidden" name="CustomerID" value="{{ $customer_id }}">
+                                <input type="hidden" name="SellerCarID" value="{{ $seller_car_id }}">
                                 <input type="hidden" name="ShowroomCarID" value="{{ $data->id }}">
                                 <button type="submit" class="btn btn-warning btn-lg btn-block">Details</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            @else
-                @continue;
-            @endif
+ @else
+     @continue;
+ @endif
 
-            <?php 
-        endforeach;
-         endif;
-         ?>
+ <?php 
 
-            <br />
-            {{-- <p><button id="proceed" class="btn btn-lg btn-primary">Load More</button></p> --}}
+endforeach;
+?>
 
-            <div class="col-sm-12">
-                <div class="row text-center">
-                    <div id="msg_loader" style="display:none"><img src="{{ asset('assets/images/ajax-loader.gif') }}">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="row text-center">
-                    <button id="proceed" class="btn btn-lg btn-warning btn-start"> Load More</button>
-                </div>
-            </div>
+ <?php 
+    }else{?>
+ <div class="col-sm-12">
+     <div class="row text-center">
+         <div class="alert alert-warning text-center">
+             No more car
+         </div>
+     </div>
+ </div>
 
-        </section>
-    </div>
-    </div>
-    <style>
-        .block-title {
-            margin-bottom: 0;
-        }
-
-        .section-bg .bg-inner {
-            padding: 120px auto;
-        }
-
-        .page-content {
-            margin-bottom: 50px;
-        }
-
-    </style>
-
-    <script>
-        $(document).ready(function() {
-            $('#proceed').click(function() {
-                //console.log($(document).height());
-                //console.log($(window).height());
-                //if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                var msg_id = $(".message_box:last").data("id");
-                var CustomerID = $("#CustomerID").val();
-                var SellerCarID = $("#SellerCarID").val();
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                $("#msg_loader").show();
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('exchangeACarMore') }}",
-                    data: {
-                        msg_id: msg_id,
-                        CustomerID: CustomerID,
-                        SellerCarID: SellerCarID,
-                        _token: CSRF_TOKEN
-                    },
-                    cache: false,
-                    success: function(data) {
-                        //Insert data after the message_box 
-                        $(".message_box:last").after(data);
-                        $("#msg_loader").hide();
-                    }
-                });
-
-                //}
-            });
-        });
-    </script>
-@endsection
+ <?php }
+    ?>
