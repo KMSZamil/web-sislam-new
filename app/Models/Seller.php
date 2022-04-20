@@ -67,8 +67,8 @@ class Seller extends Model
         return $this->belongsTo(ExteriorColor::class,'exterior_color','id');
     }
 
-    public function drive_type(){
-        return $this->hasOne(Drive::class,'id','drive_type');
+    public function car_drive_type(){
+        return $this->belongsTo(Drive::class,'drive_type','id');
     }
 
     public function car_transmission(){

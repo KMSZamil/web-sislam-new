@@ -56,13 +56,13 @@ class carsController extends Controller
 
         $customer = Customer::where('id', $request->CustomerID)->first();
         //dd($customer);
-        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('status', 1)
             ->where('home_feature', 1)
             ->where('car_status', 2)
             ->take(9)
             ->get();
-
+        //dd($dashboardCars);
         return view('frontEnd.buyAcar', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'dashboardCars', 'customer', 'CustomerID'));
     }
 

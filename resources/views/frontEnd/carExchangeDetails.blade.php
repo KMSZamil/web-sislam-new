@@ -97,8 +97,19 @@
                         <!--<li>-->
                         <!--    <span>No. of Gears:</span>-->
                         <!--</li>-->
+                        @php
+                            $data_array = [];
+                            if (!empty($carDetails->seller_fuel_types)) {
+                                foreach ($carDetails->seller_fuel_types as $row) {
+                                    $data_array[] = $row->fuel_type_name['name'];
+                                }
+                            }
+                            
+                            $fules = implode(', ', $data_array);
+                            //dd($fules)
+                        @endphp
                         <li>
-                            <span>Fuel Type</span>{{ isset($carDetails->fuel_type) ? $carDetails->fuel_type : '-' }}
+                            <span>Fuel Type</span>{{ isset($carDetails->seller_fuel_types) ? $fules : '-' }}
                         </li>
                     </ul>
                     <div class="car-details">

@@ -274,7 +274,7 @@ class carExchangeController extends Controller
         //dd($seller_car_id);
         //dd($customer_id);
 
-        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('status', 1)
             ->where('home_feature', 1)
             ->where('car_status', 2)
@@ -291,7 +291,7 @@ class carExchangeController extends Controller
         $customer_id = $request->CustomerID;
 
         $ID = $request->msg_id;
-        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('status', 1)
             ->where('home_feature', 1)
             ->where('car_status', 2)
@@ -322,7 +322,7 @@ class carExchangeController extends Controller
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
-        $carDetails = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $carDetails = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('status', 1)
             ->where('id', $ShowroomCarID)
             ->first();

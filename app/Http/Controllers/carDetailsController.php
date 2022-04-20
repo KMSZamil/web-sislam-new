@@ -34,7 +34,7 @@ class carDetailsController extends Controller {
                                 'model',
                                 'bodytype',
                                 'car_exterior_color',
-                                'drive_type',
+                                'car_drive_type',
                                 'car_transmission'
                         )->where('status', 1)
                         ->where('id', $CarID)->first();
@@ -138,7 +138,7 @@ class carDetailsController extends Controller {
                                 'model',
                                 'bodytype',
                                 'car_exterior_color',
-                                'drive_type',
+                                'car_drive_type',
                                 'car_transmission'
                         )->where('status', 1)
                         ->where('id', $CarID)->first();
@@ -149,7 +149,7 @@ class carDetailsController extends Controller {
                                 'model',
                                 'bodytype',
                                 'car_exterior_color',
-                                'drive_type',
+                                'car_drive_type',
                                 'car_transmission'
                         )->where('status', 1)
                         ->where('car_model', $carDetails->car_model)
@@ -164,7 +164,7 @@ class carDetailsController extends Controller {
                                     'model',
                                     'bodytype',
                                     'car_exterior_color',
-                                    'drive_type',
+                                    'car_drive_type',
                                     'car_transmission'
                             )->where('status', 1)
                             ->where('car_model', '!=', $carDetails->car_model)
@@ -189,7 +189,7 @@ class carDetailsController extends Controller {
                         "CarID",
                         "same_car"));
 
-        return view('frontEnd.carDetails', compact('LatestNews'));
+        //return view('frontEnd.carDetails', compact('LatestNews'));
     }
 
     public function latest_topics($section_id, $limit = 3) {

@@ -215,7 +215,7 @@ class HomeController extends Controller
             'model',
             'bodytype',
             'car_exterior_color',
-            'drive_type',
+            'car_drive_type',
             'car_transmission'
         )
             ->where('status',1)

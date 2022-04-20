@@ -494,7 +494,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         $Thana = Thana::where('status', 1)->get();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
 
-        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('status', 1)
             ->where('id', $id)
             ->first();
@@ -536,7 +536,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         $Status = Status::all();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
 
-        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('id', $id)
             ->first();
 
@@ -582,7 +582,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         $Status = Status::all();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
 
-        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('id', $id)
             ->first();
         //dd($carDetails);
@@ -626,7 +626,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         $Status = Status::all();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
 
-        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
         ->where('id', $id)
             ->first();
 
@@ -671,13 +671,13 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         $Status = Status::all();
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
 
-        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('id', $id)
             ->first();
 
         $CustomerData = Customer::where('id', $carDetails->customer_id)->first();
 
-        $SellCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission', 'customer_info')
+        $SellCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission', 'customer_info')
             //->where('customer_id', '!=', 0)
             //->where('car_status', 1)
             ->where('seller.id', $id)
@@ -1618,7 +1618,7 @@ $fuel_type->save();
         }
         //dd($ToDate);
         $BuyCars = Seller::join('car_buy', 'car_buy.car_id', '=', 'seller.id')
-            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission', 'customer_info')
+            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission', 'customer_info')
             ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
             ->orderby('seller.id', 'desc')
             ->get();
@@ -1637,7 +1637,7 @@ $fuel_type->save();
         }
         //dd($ToDate);
 
-        $SellerCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type','car_transmission', 'customer_info')
+        $SellerCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type','car_transmission', 'customer_info')
             ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
             ->orderby('id', 'desc')
             ->get();
@@ -1656,7 +1656,7 @@ $fuel_type->save();
         }
         //dd($ToDate);
 
-        $SellCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission', 'customer_info')
+        $SellCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission', 'customer_info')
             ->whereBetween('created_at', [$DateFrom, $ToDate])
             ->where('customer_id', '!=', 0)
             ->where('car_status', 1)
@@ -1680,7 +1680,7 @@ $fuel_type->save();
         //dd($ToDate);
 
         $ExchangeCars = Seller::join('car_exchange', 'car_exchange.seller_car_id', '=', 'seller.id')
-            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission', 'customer_info')
+            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission', 'customer_info')
             ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
             ->where('seller.customer_id', '!=', 0)
             ->where('seller.car_status', 3)

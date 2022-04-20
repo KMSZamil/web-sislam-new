@@ -191,11 +191,22 @@ if (count($TextBanners) > 3) {
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14" alt="Road"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14" alt="Gear"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14" alt="Calender"> {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14" alt="Fuel"> {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div></div>
+                        @php
+                            $data_array = [];
+                            if (!empty($data->seller_fuel_types)) {
+                                foreach ($data->seller_fuel_types as $row) {
+                                    $data_array[] = $row->fuel_type_name['name'];
+                                }
+                            }
+                            
+                            $fules = implode(', ', $data_array);
+                            //dd($fules)
+                        @endphp
+                        <div class="col-xs-4"><div class="row" style="font-size: 12px"><img src="/uploads/frontend/icon/fuel.png" width="14" alt="Fuel"> {{ isset($data->seller_fuel_types) ? $fules : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14" alt="Car Body"> {{ isset($data->bodytype->name) ? $data->bodytype->name : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14" alt="Car Colors"> {{ isset($data->car_exterior_color->name) ? $data->car_exterior_color->name : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14" alt="Car Engine"> {{ isset($data->engine_capacity) ? $data->engine_capacity.' CC' : '' }}</div></div>
-                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14" alt="4wd Drive"> {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div></div>
+                        <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14" alt="4wd Drive"> {{ isset($data->car_drive_type->name) ? $data->car_drive_type->name : '' }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14" alt="Car Seat SI"> {{ isset($data->seats) ? $data->seats : '' }}</div></div>
                     </div>
                     <div class="clear"></div>

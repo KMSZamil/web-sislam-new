@@ -66,9 +66,20 @@
                                 <div class="row"><img src="/uploads/frontend/icon/calendar.png" width="14">
                                     {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div>
                             </div>
+                            @php
+                            $data_array = [];
+                                if (!empty($data->seller_fuel_types)){
+                                    foreach ($data->seller_fuel_types as $row){
+                                        $data_array[] = $row->fuel_type_name['name'];
+                                    }
+                                }
+                                
+                                $fules = implode(', ', $data_array);
+                                //dd($fules)
+                            @endphp
                             <div class="col-xs-4">
-                                <div class="row"><img src="/uploads/frontend/icon/fuel.png" width="14">
-                                    {{ isset($data->fuel_type) ? $data->fuel_type : '' }}</div>
+                                <div class="row" style="font-size: 12px"><img src="/uploads/frontend/icon/fuel.png" width="14">
+                                    {{ isset($data->seller_fuel_types) ? $fules : '' }}</div>
                             </div>
                             <div class="col-xs-4">
                                 <div class="row"><img src="/uploads/frontend/icon/car-body.png" width="14">
@@ -85,7 +96,7 @@
                             </div>
                             <div class="col-xs-4">
                                 <div class="row"><img src="/uploads/frontend/icon/4wd-drive.png" width="14">
-                                    {{ isset($data->drive_type->name) ? $data->drive_type->name : '' }}</div>
+                                    {{ isset($data->drive_type) ? $data->car_drive_type->name : '' }}</div>
                             </div>
                             <div class="col-xs-4">
                                 <div class="row"><img src="/uploads/frontend/icon/car-seat-si.png" width="14">
