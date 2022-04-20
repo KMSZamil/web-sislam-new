@@ -89,6 +89,9 @@ class carExchangeController extends Controller
         $save_data = [
             'name' => $request->name,
             'email' => $request->email,
+            'thana' => $request->thana,
+            'district' => $request->district,
+            'address_line1' => $request->address1,
             'sell_car' => 1,
         ];
         $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
@@ -346,7 +349,7 @@ class carExchangeController extends Controller
         $Thana = Thana::where('status', 1)->get();
         //dd($customer);
 
-        return view('frontEnd.car_exchange_form_initial', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews',"Thana","District"));
+        return view('frontEnd.car_exchange_form_initial', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', "Thana", "District"));
     }
 
     public function exchangeSubmit(Request $request)
@@ -366,10 +369,13 @@ class carExchangeController extends Controller
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
+        $District = District::where('status', 1)->get();
+        $Thana = Thana::where('status', 1)->get();
+
         $Customer = Customer::where('id', $CustomerID)->first();
         //dd($customer);
 
-        return view('frontEnd.car_exchange_form', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'Customer', 'CustomerID', 'SellerCarID', 'ShowroomCarID'));
+        return view('frontEnd.car_exchange_form', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews', 'Customer', 'CustomerID', 'SellerCarID', 'ShowroomCarID', "District", "Thana"));
     }
 
     public function exchangeSubmitFinal(Request $request)
@@ -384,6 +390,7 @@ class carExchangeController extends Controller
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
 
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
             'name' => 'required',
