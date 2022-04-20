@@ -1607,44 +1607,6 @@ $fuel_type->save();
         return view('dashboard.cars.sell', compact('GeneralWebmasterSections', 'small_date', 'large_date'));
     }
 
-    public function get_buy_car_data(Request $request)
-    {
-        if ($request['FromDate']) {
-            $DateFrom = $request['FromDate'] . ' 00:00:00:000';
-            $ToDate = $request['ToDate'] . ' 23:59:59:000';
-        } else {
-            $DateFrom = date('Y-m-01') . ' 00:00:00:000';
-            $ToDate = date('Y-m-d') . ' 23:59:59:000';
-        }
-        //dd($ToDate);
-        $BuyCars = Seller::join('car_buy', 'car_buy.car_id', '=', 'seller.id')
-            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission', 'customer_info')
-            ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
-            ->orderby('seller.id', 'desc')
-            ->get();
-
-        return view('dashboard.cars.get_buy_car', compact('BuyCars', 'DateFrom', 'ToDate'));
-    }
-
-    public function get_all_car_data(Request $request)
-    {
-        if ($request['FromDate']) {
-            $DateFrom = $request['FromDate'] . ' 00:00:00:000';
-            $ToDate = $request['ToDate'] . ' 23:59:59:000';
-        } else {
-            $DateFrom = date('Y-m-01') . ' 00:00:00:000';
-            $ToDate = date('Y-m-d') . ' 23:59:59:000';
-        }
-        //dd($ToDate);
-
-        $SellerCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type','car_transmission', 'customer_info')
-            ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
-            ->orderby('id', 'desc')
-            ->get();
-
-        return view('dashboard.cars.get_all_car', compact('SellerCars', 'DateFrom', 'ToDate'));
-    }
-
     public function get_sell_car_data(Request $request)
     {
         if ($request['FromDate']) {
@@ -1666,6 +1628,45 @@ $fuel_type->save();
         //dd($SellCars);
 
         return view('dashboard.cars.get_sell_car', compact('SellCars', 'DateFrom', 'ToDate'));
+    }
+
+    public function get_buy_car_data(Request $request)
+    {
+        if ($request['FromDate']) {
+            $DateFrom = $request['FromDate'] . ' 00:00:00:000';
+            $ToDate = $request['ToDate'] . ' 23:59:59:000';
+        } else {
+            $DateFrom = date('Y-m-01') . ' 00:00:00:000';
+            $ToDate = date('Y-m-d') . ' 23:59:59:000';
+        }
+        //dd($ToDate);
+        $BuyCars = Seller::join('car_buy', 'car_buy.car_id', '=', 'seller.id')
+            ->with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission', 'customer_info')
+            ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
+            ->orderby('seller.id', 'desc')
+            ->get();
+            
+
+        return view('dashboard.cars.get_buy_car', compact('BuyCars', 'DateFrom', 'ToDate'));
+    }
+
+    public function get_all_car_data(Request $request)
+    {
+        if ($request['FromDate']) {
+            $DateFrom = $request['FromDate'] . ' 00:00:00:000';
+            $ToDate = $request['ToDate'] . ' 23:59:59:000';
+        } else {
+            $DateFrom = date('Y-m-01') . ' 00:00:00:000';
+            $ToDate = date('Y-m-d') . ' 23:59:59:000';
+        }
+        //dd($ToDate);
+
+        $SellerCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type','car_transmission', 'customer_info')
+            ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
+            ->orderby('id', 'desc')
+            ->get();
+
+        return view('dashboard.cars.get_all_car', compact('SellerCars', 'DateFrom', 'ToDate'));
     }
 
     public function get_exchange_car_data(Request $request)

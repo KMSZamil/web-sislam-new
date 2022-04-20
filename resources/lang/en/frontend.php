@@ -190,6 +190,9 @@ return [
     'TESTIMONIAL' => 'Testimonial',
     'ADDRESS' => "Address",
     'NOMORECAR' => "No more car in the list",
+    'PUTYOURCARINFO' => "Put Your Car Information Here",
+    'CHOOSECAR' => "Choose A Car From Us",
+
 ];
 
 ?>

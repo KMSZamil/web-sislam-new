@@ -45,12 +45,12 @@
 
                         <h3>Contact Details</h3>
                         <div class="form-group">
-                            <label>{{ __('frontend.NAME') }}</label>
+                            <label>{{ __('frontend.NAME') }} *</label>
                             <input type="text" class="form-control" name="name" id="name"
                                 value="{{ $Customer->name ?? '' }}" required>
                         </div>
                         <div class="form-group">
-                            <label>{{ __('frontend.EMAIL') }}</label>
+                            <label>{{ __('frontend.EMAIL') }} *</label>
                             <input type="email" class="form-control" name="email" id="email"
                                 value="{{ $Customer->email ?? '' }}" required>
                         </div>
@@ -61,19 +61,39 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
+                                <label>{{ __('frontend.DISTRICT') }}</label>
+                                <select class="form-control" name="district" id="district">
+                                    <option value="">Select</option>
+                                    @foreach($District as $row)
+                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>{{ __('frontend.THANA') }}</label>
+                                <select class="form-control" name="thana" id="thana">
+                                    <option value="">Select</option>
+                                    @foreach($Thana as $row)
+                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label>{{ __('frontend.ADDRESS1') }}</label>
+                                    <label>{{ __('frontend.ADDRESS') }}</label>
                                     <input type="text" class="form-control" name="address1" id="address1"
                                         value="{{ $Customer->address_line1 ?? '' }}" required>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            {{-- <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>{{ __('frontend.ADDRESS2') }}</label>
                                     <input type="text" class="form-control" name="address2" id="address2"
-                                        value="{{ $Customer->address_line2 ?? '' }}" required>
+                                        value="{{ $Customer->address_line2 ?? '' }}">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <button type="submit" name="send" class="btn btn-dark btn-block">{{ __('frontend.NEXT') }} <i
@@ -85,5 +105,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#district').change(function() {
+                var district = $(this).val();
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                // console.log({DistributorCode});
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('get_car_thana') }}",
+                    data: {
+                        district_id: district,
+                        _token: CSRF_TOKEN
+                    },
+                    success: function(response) {
+                        $('#thana').html(response);
+                    },
+                });
+            });
+        });
+    </script>
 
 @endsection

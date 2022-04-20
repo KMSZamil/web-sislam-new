@@ -12,7 +12,7 @@
     <div class="block-title">
         <div class="block-title__inner section-bg section-bg_second">
             <div class="bg-inner">
-                <h1 class="ui-title-page">{{ __('frontend.BCACAR') }}</h1>
+                <h1 class="ui-title-page">{{ __('frontend.CHOOSECAR') }}</h1>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
             <p>{{ __('frontend.BUYLONGDETAILS') }}</p>
         </div>
         <section class="content-row-no-bg p-b-0">
-            <h2>{{ __('frontend.CARFIND') }}</h2>
+            <h2>{{ __('frontend.CHOOSECAR') }}</h2>
             <?php            
         if(count($dashboardCars)>0):
         $i=0;
@@ -42,9 +42,20 @@
                         <div class="list-info">
                             <div class="row">
                                 <div style="float: left;">
-                                    {{-- <span class="badge-book m-b30"> --}}
-                                    {{-- <a href="#">Book Now</a> --}}
-                                    {{-- </span> --}}
+                                    <span class="badge-book m-b30">
+                                        <form action="{{ url('car-exchange-details') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="CustomerID" id="CustomerID"
+                                                value="{{ $customer_id }}">
+                                            <input type="hidden" name="SellerCarID" id="SellerCarID"
+                                                value="{{ $seller_car_id }}">
+                                            <input type="hidden" name="ShowroomCarID" value="{{ $data->id }}">
+                                            <button type="submit"
+                                                style="background: none; border:none; font-size: 16px;">Exchange
+                                                Now</button>
+                                        </form>
+                                        {{-- <a href="{{ url('car-book', $data->id) }}">Exchange Now</a> --}}
+                                    </span>
                                 </div>
                                 <div style="float: right;">
                                     <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
@@ -67,18 +78,19 @@
                                     {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div>
                             </div>
                             @php
-                            $data_array = [];
-                            if (!empty($data->seller_fuel_types)) {
-                                foreach ($data->seller_fuel_types as $row) {
-                                    $data_array[] = $row->fuel_type_name['name'];
+                                $data_array = [];
+                                if (!empty($data->seller_fuel_types)) {
+                                    foreach ($data->seller_fuel_types as $row) {
+                                        $data_array[] = $row->fuel_type_name['name'];
+                                    }
                                 }
-                            }
-                            
-                            $fules = implode(', ', $data_array);
-                            //dd($fules)
-                        @endphp
+                                
+                                $fules = implode(', ', $data_array);
+                                //dd($fules)
+                            @endphp
                             <div class="col-xs-4">
-                                <div class="row" style="font-size: 12px"><img src="/uploads/frontend/icon/fuel.png" width="14">
+                                <div class="row" style="font-size: 12px"><img
+                                        src="/uploads/frontend/icon/fuel.png" width="14">
                                     {{ isset($data->seller_fuel_types) ? $fules : '' }}</div>
                             </div>
                             <div class="col-xs-4">
@@ -87,7 +99,8 @@
                             </div>
                             <div class="col-xs-4">
                                 <div class="row"><img src="/uploads/frontend/icon/car-colours.png" width="14">
-                                    {{ isset($data->car_exterior_color->name) ? $data->car_exterior_color->name : '' }}</div>
+                                    {{ isset($data->car_exterior_color->name) ? $data->car_exterior_color->name : '' }}
+                                </div>
                             </div>
                             <div class="col-xs-4">
                                 <div class="row"><img src="/uploads/frontend/icon/car-engine-cc.png" width="14">
@@ -106,7 +119,7 @@
                         <div class="car-details">
                             <form action="{{ url('car-exchange-details') }}" method="post">
                                 @csrf
-                                <input type="hidden" name="CustomerID" id="CustomerID"  value="{{ $customer_id }}">
+                                <input type="hidden" name="CustomerID" id="CustomerID" value="{{ $customer_id }}">
                                 <input type="hidden" name="SellerCarID" id="SellerCarID" value="{{ $seller_car_id }}">
                                 <input type="hidden" name="ShowroomCarID" value="{{ $data->id }}">
                                 <button type="submit" class="btn btn-warning btn-lg btn-block">Details</button>

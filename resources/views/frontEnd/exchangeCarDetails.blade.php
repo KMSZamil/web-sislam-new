@@ -12,7 +12,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
 <div class="block-title">
     <div class="block-title__inner section-bg section-bg_second">        
         <div class="bg-inner">
-            <h1 class="ui-title-page">{{ __('frontend.BCACAR') }}</h1>
+            <h1 class="ui-title-page">{{ __('frontend.PUTYOURCARINFO') }}</h1>
         </div>        
     </div>
 </div>
@@ -20,7 +20,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
     <div class="row">
         <div class="col-md-12">
             <div class="tab-pane active" id="tab-sel">
-                <h2 class="form-h2-title">{{ __('frontend.CAREXC') }}</h2>
+                <h2 class="form-h2-title">{{ __('frontend.PUTYOURCARINFO') }}</h2>
                 <p><span>{{ __('frontend.CARINFO1') }} {{ __('frontend.CARINFO2') }}</span></p>
                 @if (count($errors) > 0)
                 <div class="custom-alerts alert alert-danger fade in">

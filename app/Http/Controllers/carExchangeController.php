@@ -342,9 +342,11 @@ class carExchangeController extends Controller
         $PageDescription = $WebsiteSettings->$site_desc_var;
         $PageKeywords = $WebsiteSettings->$site_keywords_var;
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+        $District = District::where('status', 1)->get();
+        $Thana = Thana::where('status', 1)->get();
         //dd($customer);
 
-        return view('frontEnd.car_exchange_form_initial', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews'));
+        return view('frontEnd.car_exchange_form_initial', compact('WebsiteSettings', 'WebmasterSettings', 'PageTitle', 'PageDescription', 'PageKeywords', 'PageTitle', 'LatestNews',"Thana","District"));
     }
 
     public function exchangeSubmit(Request $request)

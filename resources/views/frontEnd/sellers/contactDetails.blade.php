@@ -1,13 +1,13 @@
 <h3>Contact Details</h3>
 <div class="col-sm-4">
 <div class="form-group">
-    <label>{{ __('frontend.NAME') }}</label>
+    <label>{{ __('frontend.NAME') }} *</label>
     <input type="text" class="form-control" name="name" id="name" value="{{ $data->name ?? '' }}">
 </div>
 </div>
 <div class="col-sm-4">
 <div class="form-group">
-    <label>{{ __('frontend.EMAIL') }}</label>
+    <label>{{ __('frontend.EMAIL') }} *</label>
     <input type="email" class="form-control" name="email" id="email" value="{{ $data->email ?? '' }}">
 </div>
 </div>

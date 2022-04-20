@@ -1,5 +1,6 @@
 @extends('dashboard.layouts.master')
 @section('title', __('backend.car'))
+
 @section('content')
     <div class="padding">
         <div class="app-body-inner">
@@ -91,7 +92,20 @@
                                         <h3>Car Photos</h3>
                                         <div class="form-horizontal">
                                             <div class="row">
-                                                @foreach ($SellCars->seller_car_images as $row)
+                                                <div class="container text-center">
+                                                    <div class="col-md-8">
+                                                        <div class="fotorama" data-nav="thumbs"
+                                                            data-allowfullscreen="true" data-transition="slide"
+                                                            data-loop="true">
+
+                                                            @foreach ($SellCars->seller_car_images as $row)
+                                                                <a href="{{ asset('files/' . $row->car_image) }}"><img
+                                                                        src="{{ asset('files/' . $row->car_image) }}"></a>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{-- @foreach ($SellCars->seller_car_images as $row)
                                                     <table role="presentation" class="table table-striped">
                                                         <tbody class="">
                                                             <tr class=" fade image in">
@@ -108,7 +122,7 @@
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                @endforeach
+                                                @endforeach --}}
                                             </div>
                                         </div>
                                     </div>
