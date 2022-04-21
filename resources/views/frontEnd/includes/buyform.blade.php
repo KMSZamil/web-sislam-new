@@ -16,6 +16,7 @@
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
+        {{ session()->forget('success')}}
     </div>
     @endif
     <div class="form-group">

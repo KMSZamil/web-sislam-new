@@ -229,7 +229,7 @@ class carSellController extends Controller
             for ($i = 0; $i < count($request->car_photo); $i++) {
                 $seller_car_image = new SellerCarImage();
                 $seller_car_image->seller_id = $seller_data->id;
-                $seller_car_image->car_image = $request->car_photo[$i];
+                $seller_car_image->car_image = "https://www.sislamcars.com.bd/files/" . $request->car_photo[$i];
                 $seller_car_image->save();
             }
         }
@@ -239,25 +239,25 @@ class carSellController extends Controller
             $md5Name = md5_file($request->file('smart_card')->getRealPath()) . time();
             $mimeType = $request->file('smart_card')->guessExtension();
             $path = $request->file('smart_card')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_image->smart_card_photo = $path;
+            $seller_image->smart_card_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
         if ($request->file('tax_token')) {
             $md5Name = md5_file($request->file('tax_token')->getRealPath()) . time();
             $mimeType = $request->file('tax_token')->guessExtension();
             $path = $request->file('tax_token')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_image->tax_token_photo = $path;
+            $seller_image->tax_token_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
         if ($request->file('fitness')) {
             $md5Name = md5_file($request->file('fitness')->getRealPath()) . time();
             $mimeType = $request->file('fitness')->guessExtension();
             $path = $request->file('fitness')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_image->fitness_photo = $path;
+            $seller_image->fitness_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
         if ($request->file('bank_clearance')) {
             $md5Name = md5_file($request->file('bank_clearance')->getRealPath()) . time();
             $mimeType = $request->file('bank_clearance')->guessExtension();
             $path = $request->file('bank_clearance')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_image->bank_clearance_photo = $path;
+            $seller_image->bank_clearance_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
         $seller_image->seller_id = $seller_data->id;
         $seller_image->save();

@@ -30,7 +30,7 @@
                 <?php
                     foreach($carDetails->car_images as $row){
                 ?>
-                <a href="{{ asset('files/' . $row->car_image) }}"><img src="{{ asset('files/' . $row->car_image) }}"></a>
+                <a href="{{ $row->car_image }}"><img src="{{ $row->car_image }}"></a>
                 <?php
                     }
                 ?>
@@ -165,7 +165,7 @@
                         <div class="owl-item">
                             <?php foreach ($row->car_images as $data):?>
                             <a href="{{ url('car-details', $row->id) }}">
-                                <img src="{{ asset('files/' . $data->car_image) }}" alt="">
+                                <img src="{{ $data->car_image }}" alt="">
 
                                 <?php if ($data->car_image):
                                     break;

@@ -167,7 +167,7 @@ if (count($TextBanners) > 3) {
             <div class="col-md-4" style=" margin-bottom: 30px;">
                 <div class="car-list-box box-sm">
                     <div class="media-box">
-                        <img src="{{ asset('files/'.$data->car_images[0]->car_image) }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
+                        <img src="{{ $data->car_images[0]->car_image }}" alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
                     </div>
                     <div class="list-info">
                         <div class="row">
@@ -186,7 +186,6 @@ if (count($TextBanners) > 3) {
                             </div>
                         </div>
                         
-
                         <h5 class="title mb-0"><a href="{{ route('car-details',$data->id) }}">{{ isset($data->car_title) ? $data->car_title : '' }}</a></h5>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/road.png" width="14" alt="Road"> {{ isset( $data->milage) ?  $data->milage.' km' : ''  }}</div></div>
                         <div class="col-xs-4"><div class="row"><img src="/uploads/frontend/icon/gear.png" width="14" alt="Gear"> {{ isset($data->car_transmission->name) ? $data->car_transmission->name : '' }}</div></div>

@@ -6,11 +6,13 @@ use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\CarBuy;
 use App\Models\Customer;
+use App\Models\District;
 use App\Models\Setting;
 use App\Models\SmartendCustomer;
 use App\Models\Topic;
 use App\Models\WebmasterSetting;
 use App\Models\Seller;
+use App\Models\Thana;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +20,8 @@ use function Sodium\compare;
 
 class carBuyController extends Controller
 {
-    public function buyerBasic(Request $request) {
+    public function buyerBasic(Request $request)
+    {
         $WebmasterSettings = WebmasterSetting::find(1);
         $WebsiteSettings = Setting::find(1);
         $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
@@ -40,38 +43,41 @@ class carBuyController extends Controller
         $save_data = array(
             'name' => $request->name,
             'email' => $request->email,
-            'buy_car' =>1
+            'buy_car' => 1
         );
-        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
         $CustomerID = $data->id;
         //dd($CustomerID);
 
         //return redirect('buy-a-car', compact('CustomerID'));
         return Redirect::route('buyCars', compact("CustomerID"));
-
     }
 
-    public function carBook(Request $request){
+    public function carBook(Request $request)
+    {
 
         //dd($request->all());
         //dd($id);
-        
+
         $CarID = $request->CarID;
 
-        if($CarID==null){
+        if ($CarID == null) {
             $CarID = last(request()->segments(1));
         }
-        
-        $carDetails = Seller::with('images','car_images','seller_fuel_types.fuel_type_name',
+
+        $carDetails = Seller::with(
+            'images',
+            'car_images',
+            'seller_fuel_types.fuel_type_name',
             'condition',
             'car_brand',
             'model',
             'bodytype',
             'car_exterior_color',
-            'drive_type',
+            'car_drive_type',
             'car_transmission'
-        )->where('status',1)
-            ->where('id',$CarID)->first();
+        )->where('status', 1)
+            ->where('id', $CarID)->first();
 
         //dd($CarID);
         $WebmasterSettings = WebmasterSetting::find(1);
@@ -86,14 +92,30 @@ class carBuyController extends Controller
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
         $CustomerID = $request->CustomerID;
-        $customer = Customer::where('id',$request->CustomerID)->first();
+        $customer = Customer::where('id', $request->CustomerID)->first();
+        $District = District::where('status', 1)->get();
+        $Thana = Thana::where('status', 1)->get();
         //dd($customer);
 
-        return view('frontEnd.car_book_form',compact("WebsiteSettings", "WebmasterSettings",
-                "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews","customer","CarID","CustomerID", "carDetails"));
+        return view('frontEnd.car_book_form', compact(
+            "WebsiteSettings",
+            "WebmasterSettings",
+            "PageTitle",
+            "PageDescription",
+            "PageKeywords",
+            "PageTitle",
+            "LatestNews",
+            "customer",
+            "CarID",
+            "CustomerID",
+            "carDetails",
+            "District",
+            "Thana"
+        ));
     }
 
-    public function carBookSubmit(Request $request){
+    public function carBookSubmit(Request $request)
+    {
 
         //dd($request->all());
         $WebmasterSettings = WebmasterSetting::find(1);
@@ -112,7 +134,6 @@ class carBuyController extends Controller
             'email' => 'required',
             'mobile' => 'required',
             'address1' => 'required',
-            'address2' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -122,12 +143,14 @@ class carBuyController extends Controller
         $save_data = array(
             'name' => $request->name,
             'email' => $request->email,
+            'district' => 'required',
+            'thana' => 'required',
             'address1' => $request->address1,
             'address2' => $request->address1,
-            'buy_car' =>1
+            'buy_car' => 1
         );
 
-        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile] ,$save_data);
+        $data = SmartendCustomer::updateOrCreate(['mobile' => $request->mobile], $save_data);
         //dd($data);
         $CustomerID = $data->id;
 

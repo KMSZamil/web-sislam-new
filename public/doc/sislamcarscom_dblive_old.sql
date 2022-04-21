@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 21, 2022 at 03:14 PM
+-- Generation Time: Apr 12, 2022 at 02:04 PM
 -- Server version: 10.3.34-MariaDB-cll-lve
 -- PHP Version: 7.4.28
 
@@ -2517,22 +2517,7 @@ INSERT INTO `smartend_car_buy` (`id`, `car_id`, `customer_id`, `status`, `create
 (9, 14, 28, 1, '2022-03-27 16:34:23', '2022-03-27 16:34:23'),
 (10, 72, 29, 1, '2022-03-28 19:44:39', '2022-03-28 19:44:39'),
 (11, 6, 29, 1, '2022-03-28 19:49:53', '2022-03-28 19:49:53'),
-(12, 21, 30, 1, '2022-03-31 20:01:11', '2022-03-31 20:01:11'),
-(13, 99, 57, 1, '2022-04-12 14:41:36', '2022-04-12 14:41:36'),
-(14, 3, 4, 1, '2022-04-13 23:07:25', '2022-04-13 23:07:25'),
-(15, 99, 65, 1, '2022-04-14 00:15:32', '2022-04-14 00:15:32'),
-(16, 99, 66, 1, '2022-04-14 00:39:56', '2022-04-14 00:39:56'),
-(17, 1, 65, 1, '2022-04-14 09:55:05', '2022-04-14 09:55:05'),
-(18, 1, 65, 1, '2022-04-14 10:09:25', '2022-04-14 10:09:25'),
-(19, 77, 66, 1, '2022-04-14 13:01:07', '2022-04-14 13:01:07'),
-(20, 3, 4, 1, '2022-04-16 03:02:19', '2022-04-16 03:02:19'),
-(21, 68, 82, 1, '2022-04-16 16:49:39', '2022-04-16 16:49:39'),
-(22, 169, 66, 1, '2022-04-19 03:40:52', '2022-04-19 03:40:52'),
-(23, 169, 66, 1, '2022-04-20 11:23:39', '2022-04-20 11:23:39'),
-(24, 169, 66, 1, '2022-04-21 06:42:54', '2022-04-21 06:42:54'),
-(25, 169, 121, 1, '2022-04-21 07:00:40', '2022-04-21 07:00:40'),
-(26, 168, 122, 1, '2022-04-21 07:04:04', '2022-04-21 07:04:04'),
-(27, 99, 1, 1, '2022-04-21 08:31:25', '2022-04-21 08:31:25');
+(12, 21, 30, 1, '2022-03-31 20:01:11', '2022-03-31 20:01:11');
 
 -- --------------------------------------------------------
 
@@ -2577,37 +2562,7 @@ CREATE TABLE `smartend_car_exchange` (
 
 INSERT INTO `smartend_car_exchange` (`id`, `customer_id`, `seller_car_id`, `showroom_car_id`, `status`, `created_at`, `updated_at`) VALUES
 (1, 8, 50, 3, 1, '2022-02-28 15:31:50', '2022-02-28 15:31:50'),
-(2, 1, 51, 1, 1, '2022-02-28 20:22:44', '2022-02-28 20:22:44'),
-(3, 4, 107, 5, 1, '2022-04-13 03:14:20', '2022-04-13 03:14:20'),
-(4, 4, 119, 5, 1, '2022-04-14 09:26:44', '2022-04-14 09:26:44'),
-(5, 4, 121, 5, 1, '2022-04-14 09:54:05', '2022-04-14 09:54:05'),
-(6, 4, 122, 5, 1, '2022-04-14 09:54:24', '2022-04-14 09:54:24'),
-(7, 4, 123, 5, 1, '2022-04-14 10:06:25', '2022-04-14 10:06:25'),
-(8, 4, 124, 5, 1, '2022-04-14 10:06:58', '2022-04-14 10:06:58'),
-(9, 4, 125, 5, 1, '2022-04-14 10:07:24', '2022-04-14 10:07:24'),
-(10, 4, 126, 5, 1, '2022-04-14 10:07:41', '2022-04-14 10:07:41'),
-(11, 68, 127, 5, 1, '2022-04-14 10:08:41', '2022-04-14 10:08:41'),
-(12, 68, 128, 99, 1, '2022-04-14 10:08:47', '2022-04-14 10:08:47'),
-(13, 68, 129, 99, 1, '2022-04-14 10:09:16', '2022-04-14 10:09:16'),
-(14, 68, 133, 99, 1, '2022-04-14 10:45:50', '2022-04-14 10:45:50'),
-(15, 68, 136, 99, 1, '2022-04-14 10:47:24', '2022-04-14 10:47:24'),
-(16, 76, 146, 99, 1, '2022-04-14 12:10:07', '2022-04-14 12:10:07'),
-(17, 76, 147, 99, 1, '2022-04-14 12:18:57', '2022-04-14 12:18:57'),
-(18, 76, 148, 90, 1, '2022-04-14 12:20:43', '2022-04-14 12:20:43'),
-(19, 76, 149, 90, 1, '2022-04-14 12:22:26', '2022-04-14 12:22:26'),
-(20, 76, 150, 90, 1, '2022-04-14 12:25:17', '2022-04-14 12:25:17'),
-(21, 79, 153, 90, 1, '2022-04-14 13:03:08', '2022-04-14 13:03:08'),
-(22, 66, 154, 99, 1, '2022-04-14 13:40:19', '2022-04-14 13:40:19'),
-(23, 99, 177, 169, 1, '2022-04-19 03:22:07', '2022-04-19 03:22:07'),
-(24, 100, 178, 169, 1, '2022-04-19 03:24:46', '2022-04-19 03:24:46'),
-(25, 4, 179, 5, 1, '2022-04-19 03:31:30', '2022-04-19 03:31:30'),
-(26, 1, 180, 3, 1, '2022-04-19 15:33:55', '2022-04-19 15:33:55'),
-(27, 114, 202, 169, 1, '2022-04-20 12:10:44', '2022-04-20 12:10:44'),
-(28, 117, 213, 90, 1, '2022-04-21 00:32:03', '2022-04-21 00:32:03'),
-(29, 118, 214, 169, 1, '2022-04-21 06:40:48', '2022-04-21 06:40:48'),
-(30, 120, 216, 169, 1, '2022-04-21 06:53:08', '2022-04-21 06:53:08'),
-(31, 108, 218, 168, 1, '2022-04-21 07:03:10', '2022-04-21 07:03:10'),
-(32, 123, 219, 89, 1, '2022-04-21 07:15:15', '2022-04-21 07:15:15');
+(2, 1, 51, 1, 1, '2022-02-28 20:22:44', '2022-02-28 20:22:44');
 
 -- --------------------------------------------------------
 
@@ -3291,8 +3246,7 @@ INSERT INTO `smartend_contacts` (`id`, `group_id`, `first_name`, `last_name`, `c
 (3, 1, 'Md', 'Zillur Rahman', NULL, 'zillurbau@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2022-02-18 16:56:59', '2022-02-18 16:56:59'),
 (4, 1, 'MD.MAHAMUDUL', 'Islam', NULL, 'choncholsun@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2022-03-22 10:18:11', '2022-03-22 10:18:11'),
 (5, 1, 'Awlad', 'khan', NULL, 'awladkhan266@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2022-03-27 16:34:49', '2022-03-27 16:34:49'),
-(6, 1, 'MD', 'NURUL ALAM', NULL, 'na_firoz@yahoo.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2022-04-01 10:57:43', '2022-04-01 10:57:43'),
-(7, 1, 'Hafizul', NULL, NULL, 'hafizislam367@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2022-04-17 13:31:14', '2022-04-17 13:31:14');
+(6, 1, 'MD', 'NURUL ALAM', NULL, 'na_firoz@yahoo.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2022-04-01 10:57:43', '2022-04-01 10:57:43');
 
 -- --------------------------------------------------------
 
@@ -3583,15 +3537,15 @@ CREATE TABLE `smartend_customers` (
 --
 
 INSERT INTO `smartend_customers` (`id`, `name`, `email`, `mobile`, `address_line1`, `address_line2`, `district`, `thana`, `buy_car`, `sell_car`, `exchange_car`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'golam soroar', 'gsoroar@gmail.com', '01746555579', NULL, NULL, 2, 7, 1, 1, 0, '2022-02-17 19:45:02', '2022-04-21 08:31:25', 1),
+(1, 'A Shihab', 'admin@terbb.gov.bd', '01746555579', 'na', NULL, 2, 6, 1, 1, 1, '2022-02-17 19:45:02', '2022-04-11 21:08:55', 1),
 (9, 'Md.Abdul Mannan', 'nomanmn@gmail.com', '01712096983', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-03-01 01:17:23', '2022-03-01 01:17:23', 1),
 (2, 'Golam Soroar', 'gsoroar@gmail.com', '01309040367', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-02-17 19:51:24', '2022-02-17 19:51:24', 1),
 (3, 'Mehedi Hasan', 'hmehedi909@gmail.com', '01720052347', NULL, NULL, NULL, NULL, 1, 1, 0, '2022-02-18 11:10:38', '2022-02-24 14:10:11', 1),
 (5, '1', '1@1.2', '1', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-02-26 03:51:54', '2022-02-26 03:51:54', 1),
-(4, 'asas', 'faysal_1185@yahoo.com', '014', NULL, NULL, 7, 8, 1, 1, 0, '2022-02-24 13:17:48', '2022-04-20 12:18:59', 1),
+(4, 'asd', 'test@t.c', '014', NULL, NULL, NULL, NULL, 1, 1, 0, '2022-02-24 13:17:48', '2022-03-13 13:57:22', 1),
 (6, 'tt', 't@t.c', '333', NULL, NULL, 3, 4, 1, 1, 0, '2022-02-26 15:06:28', '2022-02-26 15:07:08', 1),
 (7, 'sdp siam Rahman Siam', 'mdsdpsaimrhohaman@gmail.com', '01786981660', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-02-28 12:14:32', '2022-02-28 12:14:32', 1),
-(8, 'fff', 'gff', '555', NULL, NULL, 11, 10, 1, 1, 0, '2022-02-28 15:30:00', '2022-04-19 05:01:11', 1),
+(8, 'test', 't@t.c', '555', 'aa', NULL, 3, 4, 1, 1, 1, '2022-02-28 15:30:00', '2022-02-28 15:31:26', 1),
 (10, 'Masud Rana', 'masud62rana@gmail.com', '01930584218', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-03-02 07:22:50', '2022-03-02 07:22:50', 1),
 (11, 'Mohammad Ripon Al Mamun', 'mhripon7780@gmail.com', '01987688105', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-03-02 08:07:38', '2022-03-02 08:07:38', 1),
 (12, 'md. jahangir alam', 'mdjahangiralam053@gmail.com', '01753553682', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-03-03 04:32:30', '2022-03-03 04:32:30', 1),
@@ -3613,9 +3567,9 @@ INSERT INTO `smartend_customers` (`id`, `name`, `email`, `mobile`, `address_line
 (28, 'Awlad khan', 'awladkhan266@gmail.com', '00966542627891', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-03-27 16:34:23', '2022-03-27 16:34:23', 1),
 (29, 'Awlad khan', 'awladkhan266@gmail.com', '01773726737', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-03-28 19:44:39', '2022-03-28 19:44:39', 1),
 (30, 'Abuhena mostafa noman', 'nomanmostafapab@gmail.com', '01711355911', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-03-31 20:01:11', '2022-03-31 20:01:11', 1),
-(31, 'Saifur rahman sagor', 'saifurrahman_sagor@hotmail.com', '01716889843', 'Kajolsah', NULL, 64, 520, 1, 1, 0, '2022-04-03 20:57:44', '2022-04-18 06:15:12', 1),
+(31, 'Sagor', NULL, '01716889843', NULL, NULL, 71, NULL, 1, 0, 0, '2022-04-03 20:57:44', '2022-04-03 20:57:44', 1),
 (32, 'Emran Hossain Sumon', 'e.hossain7595@gmail.com', '01755626298', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-04-04 12:12:47', '2022-04-04 12:12:47', 1),
-(33, 'Ahmed Ali', 'ahmed.kishor19@gmail.com', '01779848814', 'Bashundhara R/A', NULL, 18, 592, 1, 0, 0, '2022-04-04 15:47:01', '2022-04-18 11:22:40', 1),
+(33, 'Ahmed', 'ahmed.kishor19@gmail.com', '01779848814', 'Bashundhara R/A', NULL, 18, 162, 1, 0, 0, '2022-04-04 15:47:01', '2022-04-04 15:47:01', 1),
 (34, 'Hasnat', 'aronno65@gmail.com', '01913965761', 'Panthapath.GARDEN ROAD', NULL, 18, 609, 1, 0, 0, '2022-04-05 08:24:52', '2022-04-05 08:24:52', 1),
 (35, 'Md Asad Hossain', 'caretradingbd@gmail.com', '01751884500', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-05 10:54:31', '2022-04-05 10:54:31', 1),
 (36, 'Ashiqur ur Rahman jia', 'ashiqvandari@gmail.com', '01711332082', NULL, NULL, 20, 200, 1, 0, 0, '2022-04-05 11:56:57', '2022-04-05 11:56:57', 1),
@@ -3634,79 +3588,8 @@ INSERT INTO `smartend_customers` (`id`, `name`, `email`, `mobile`, `address_line
 (49, 'Monir', 'in.monir@gmail.com', '01915448720', 'Savar Cantonment, savar, dhaka', NULL, 18, NULL, 1, 0, 0, '2022-04-11 07:49:04', '2022-04-11 07:49:04', 1),
 (50, 'ATM Kamruzzaman', 'juhadesign@yahoo.com', '01711858545', 'Juha Design Yard, Flat no. B-2 (2nd loor)', NULL, 18, 173, 1, 0, 0, '2022-04-11 08:29:09', '2022-04-11 08:29:09', 1),
 (51, 'Faruq', NULL, '01845346479', 'Dhaka', NULL, NULL, NULL, 1, 0, 0, '2022-04-11 09:34:39', '2022-04-11 09:34:39', 1),
-(104, 'Sabequnnaher Quazi', 'rahanikhu229@gmail.com', '01711616543', 'Assurance city 127 Baganbari Vashantek', NULL, NULL, NULL, 1, 1, 0, '2022-04-20 06:06:53', '2022-04-20 06:09:26', 1),
 (52, 'Ar Rahman', 'bbsrahman56@gmail.com', '01712096461', 'Sadar jessore', NULL, 38, 668, 1, 0, 0, '2022-04-12 06:37:26', '2022-04-12 06:37:26', 1),
-(53, 'Sharib Nadim', 'sharib_nadim@yahoo.com', '01916100018', 'House 1 Road 10 Mohammadia Housing Society Mohammadpur Dhaka', NULL, 18, 150, 1, 0, 0, '2022-04-12 06:42:27', '2022-04-12 06:42:27', 1),
-(54, 'Muhtasim Mahdi All Farooque', 'shubho.bd@gmail.com', '+8801937826361', 'Road 7/A, Sector 3', NULL, 18, 189, 1, 0, 0, '2022-04-12 13:07:32', '2022-04-12 13:07:32', 1),
-(55, 'Jamil Mostofa', 'saumik1855@gmail.com', '+8801700893654', 'Ring Road', NULL, 18, 174, 1, 0, 0, '2022-04-12 13:37:17', '2022-04-12 13:37:17', 1),
-(56, 'ff', 'wee@xyz.com', '222', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-12 14:30:19', '2022-04-12 14:30:19', 1),
-(57, 'yyy', 'yy@xyz.com', 'yy', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-04-12 14:41:36', '2022-04-12 14:41:36', 1),
-(58, 'Awlad Chowdhury', 'boxesbd@gmail.com', '01711537923', '1216 12/c,8/16,pallabi,mirpur,dhaka', NULL, NULL, NULL, 1, 0, 0, '2022-04-12 17:18:21', '2022-04-12 17:18:21', 1),
-(59, 'Ripon Chandra Banik', NULL, '01745752737', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-04-12 19:27:34', '2022-04-12 19:27:34', 1),
-(60, 'Sabbir Ahmed', 'sabbirpurbasha132@gmail.com', '01712134037', 'Ishwardi', NULL, 51, 407, 1, 0, 0, '2022-04-13 01:09:48', '2022-04-13 01:09:48', 1),
-(107, 'cbb', 'faysal_1185@yahoo.com', '599', NULL, NULL, 29, 262, 0, 1, 0, '2022-04-20 08:28:59', '2022-04-20 08:28:59', 1),
-(61, 'Tanveer Reza', 'tanna09@yahoo.com', '01713409184', 'House 56, road 16, block A , banani', NULL, 18, 162, 1, 0, 0, '2022-04-13 14:37:28', '2022-04-13 14:37:28', 1),
-(62, 'Shahriar Kabir', 'sauraviub@yahoo.com', '01715015234', NULL, NULL, 18, 183, 1, 0, 0, '2022-04-13 17:29:06', '2022-04-13 17:29:06', 1),
-(63, 'Tanver Hossain', 'tanver.tan84@gmail.com', '01772942404', 'House 30,road 3,block E, banasree rampura', NULL, 18, 150, 1, 0, 0, '2022-04-13 18:48:55', '2022-04-13 18:48:55', 1),
-(64, 'Kabir Hossain', 'kabirpolice90@gmail.com', '01711245867', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-14 03:18:36', '2022-04-14 03:18:36', 1),
-(65, 'test', 'faysal_1185@yahoo.com', '01928645681', NULL, NULL, 18, 77, 1, 0, 0, '2022-04-14 00:15:32', '2022-04-14 00:15:32', 1),
-(66, 'texg', 'fay', '01928645981', NULL, NULL, 11, 97, 1, 1, 0, '2022-04-14 00:39:56', '2022-04-21 06:42:54', 1),
-(67, 'tfgh', 'faysal_1185@yahoo.com', '88558', NULL, NULL, 8, 9, 0, 0, 1, '2022-04-14 09:11:48', '2022-04-14 09:11:48', 1),
-(68, 'dbvcg', 'faysal_1185@yahoo.com', '045555', NULL, NULL, 11, 11, 0, 0, 1, '2022-04-14 10:08:41', '2022-04-14 10:08:41', 1),
-(69, 'tdvh', 'faysal_1185@yahoo.com', '04568', NULL, NULL, 7, 8, 0, 1, 0, '2022-04-14 10:46:42', '2022-04-14 10:46:42', 1),
-(70, 'ftffg', 'faysal_1185@yahoo.com', '8529888555', NULL, NULL, 8, 9, 0, 1, 0, '2022-04-14 11:08:56', '2022-04-14 11:08:56', 1),
-(71, 'fghh', 'tggh', '58888', NULL, NULL, 9, 10, 0, 1, 0, '2022-04-14 11:18:53', '2022-04-14 11:18:53', 1),
-(72, 'fhg', 'faysal_1185@yahoo.com', '8888', NULL, NULL, 8, 8, 0, 1, 0, '2022-04-14 11:20:40', '2022-04-14 11:53:22', 1),
-(73, 'rgy', 'faysal_1185@yahoo.com', '01555', NULL, NULL, 6, 6, 0, 1, 0, '2022-04-14 11:55:19', '2022-04-14 11:55:19', 1),
-(74, 'dhgff', 'faysal_1185@yahoo.com', '8558958', NULL, NULL, 9, 10, 0, 1, 0, '2022-04-14 11:59:22', '2022-04-14 11:59:22', 1),
-(75, 'fff', 'faysal_1185@yahoo.com', '88888', NULL, NULL, 9, 8, 0, 1, 0, '2022-04-14 12:04:18', '2022-04-14 12:04:18', 1),
-(76, 'ffg', 'faysal_1185@yahoo.com', '87588888', NULL, NULL, 9, 9, 0, 0, 1, '2022-04-14 12:10:07', '2022-04-14 12:22:26', 1),
-(77, 'gshdg', 'evev', '1928645981', NULL, NULL, 9, 10, 0, 1, 0, '2022-04-14 12:30:20', '2022-04-14 12:30:20', 1),
-(78, 'gsvsv', 'gshssh', '0192864581', NULL, NULL, 9, 10, 0, 1, 0, '2022-04-14 13:00:01', '2022-04-14 13:00:01', 1),
-(79, 'gshsg', 'faysal_1185@yahoo.com', '998', NULL, NULL, 10, 11, 0, 0, 1, '2022-04-14 13:03:08', '2022-04-14 13:03:08', 1),
-(80, 'cvbb', 'faysal_1185@yahoo.com', '865', NULL, NULL, 11, 11, 0, 1, 0, '2022-04-14 13:42:07', '2022-04-14 13:42:07', 1),
-(81, 'Bappi Das', 'bappikdas@gmail.com', '01722566947', 'Magura sador', NULL, 42, 350, 1, 1, 0, '2022-04-16 08:07:29', '2022-04-16 08:08:12', 1),
-(82, 'Abdur Rahman', 'ar2040228@gmail.com', '01829875368', NULL, NULL, NULL, NULL, 1, 0, 0, '2022-04-16 16:49:39', '2022-04-16 16:49:39', 1),
-(83, 'Asraful', 'aislam211724@gmail.com', '01911619022', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-16 18:18:13', '2022-04-16 18:18:13', 1),
-(84, 'Biplob Matabbor', 'Gazipurmobile@gmail.com', '+8801711286682', 'Matabbor bari 06 no word Kashimpur Gazipur city corporation', NULL, 20, 200, 1, 0, 0, '2022-04-17 05:08:27', '2022-04-17 05:08:27', 1),
-(85, 'TAIF', 'taif005@yahoo.com', '01944646117', '12&14 , Block B Novodoy housing road 5  , mohammadpur dhaka', NULL, 18, 174, 1, 1, 0, '2022-04-17 07:12:50', '2022-04-17 07:18:07', 1),
-(86, 'Mahbub Muctadir', 'muctadir.vasmarketing@gmail.com', '01730372946', 'Flat 0903, Tower 2, Building B6, Bijoy Rakeen City, Mirpur 14, Dhaka, Bangladesh', NULL, 18, 173, 1, 1, 0, '2022-04-17 08:17:43', '2022-04-17 09:56:34', 1),
-(87, 'Habibul', 'eng.habibul@gmail.com', '01720157472', '????????? ???', NULL, 45, 360, 1, 1, 0, '2022-04-17 10:39:14', '2022-04-17 10:39:43', 1),
-(88, 'Maj bari', 'majorehsanulbari@yahoo.com', '01712088327', 'H-456,Rd-5 D Blk Boshundhara housing dhaka', NULL, 18, 154, 1, 0, 0, '2022-04-17 12:01:33', '2022-04-17 12:03:24', 1),
-(89, 'Ehsan', 'majorehsanulbari@yahoo.com', '01712988327', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-17 12:04:42', '2022-04-17 12:04:42', 1),
-(90, 'Ehsan', 'majorehsanulbari@yahoo.com', '01712088327?', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-17 12:04:57', '2022-04-17 12:04:57', 1),
-(91, 'Sakib Ahmed', 'sa.shanto1030@gmail.com', '01712826425', 'H', NULL, 18, 532, 1, 1, 0, '2022-04-17 14:19:11', '2022-04-17 14:19:32', 1),
-(92, 'Jahirul Islam Pimak', 'pimakislam24@gmail.com', '+8801633577226', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-17 15:10:35', '2022-04-17 15:10:35', 1),
-(93, 'Sajib Sarker', 'sajibsarker40@gmail.com', '01722115066', 'Bishwanath', NULL, 64, 513, 1, 0, 0, '2022-04-17 18:03:07', '2022-04-17 18:03:07', 1),
-(94, 'Arif Rahman', 'zesan2787@gmail.com', '01707603224', NULL, NULL, 18, 185, 1, 0, 0, '2022-04-18 03:31:31', '2022-04-18 03:31:31', 1),
-(95, 'Syed Md Masbahul Huda', 'masbah013@gmail.com', '01817716748', 'Agrabad, Chowmuhani', NULL, 10, 72, 1, 1, 0, '2022-04-18 08:08:46', '2022-04-18 08:12:22', 1),
-(96, 'Rashedul', 'shamce74@gmail.com', '01713443033', NULL, NULL, NULL, NULL, 1, 1, 0, '2022-04-18 16:56:45', '2022-04-18 16:57:49', 1),
-(97, 'MG Dastagir Mamun Mamun', 'mg.dastagir2006@gmail.com', '01911193195', 'Chandpur District Prison', NULL, 9, 58, 1, 1, 0, '2022-04-19 01:47:55', '2022-04-19 01:52:39', 1),
-(98, 'Asif Ahmed', 'rabsbaf@gmail.com', '01712850470', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-19 06:10:36', '2022-04-19 06:10:36', 1),
-(99, 'tuuhga', 'rifatah95@gmail.com', '01755', NULL, NULL, 7, 9, 0, 0, 1, '2022-04-19 03:22:06', '2022-04-19 03:22:06', 1),
-(100, 'guu017555', 'rifatah95@gmail.com', '017555', NULL, NULL, 9, 9, 0, 0, 1, '2022-04-19 03:24:46', '2022-04-19 03:24:46', 1),
-(101, 'etg', 'rifatah95@gmail.com', '017', NULL, NULL, 8, 7, 0, 1, 0, '2022-04-19 03:34:05', '2022-04-19 03:34:05', 1),
-(102, 'Mahtab', 'mahtab51071@gmail.com', '01711484863', NULL, NULL, NULL, NULL, 1, 1, 0, '2022-04-19 17:32:16', '2022-04-19 17:42:52', 1),
-(103, 'Rahman Mizan', NULL, '01678691599', NULL, NULL, NULL, NULL, 1, 1, 0, '2022-04-19 18:14:50', '2022-04-19 18:15:11', 1),
-(105, 'Md.Monirujaman Talukder', 'munnamrj60@gmail.com', '01307767687', 'S-10,R-1,H-22,Uttara', NULL, 18, 190, 1, 1, 0, '2022-04-20 09:20:44', '2022-04-20 09:21:15', 1),
-(106, 'Lt Col Shahid', 'drshahid875@gmail.com', '01712003325', 'Cmh Dhaka', NULL, 18, 154, 1, 0, 0, '2022-04-20 10:00:33', '2022-04-20 10:00:33', 1),
-(108, 'fgggvv', 'faysal_1185@yahoo.com', '8555', NULL, NULL, 7, 42, 0, 1, 1, '2022-04-20 08:33:21', '2022-04-21 07:03:10', 1),
-(109, 'fgg', 'faysal_1185@yahoo.com', '55', NULL, NULL, 9, 60, 0, 1, 0, '2022-04-20 08:39:38', '2022-04-20 08:39:38', 1),
-(110, 'gyy', 'faysal_1185@yahoo.com', '66555', NULL, NULL, 6, 38, 0, 1, 0, '2022-04-20 08:42:26', '2022-04-20 08:42:26', 1),
-(111, 'ghf', 'fg', '566', NULL, NULL, 7, 43, 0, 1, 0, '2022-04-20 08:47:22', '2022-04-20 08:47:22', 1),
-(112, 'Afroza Bulbul', 'afroza529@gmail.com', '01755522261', '23 north manda, Dhaka.', NULL, 18, 176, 1, 1, 0, '2022-04-20 15:21:37', '2022-04-20 15:23:20', 1),
-(113, 'Nur Mohammad Nabi', 'nurnabin@gmail.com', '01814904476', '14/2 cnb colony didar market dewan bazar', NULL, 10, 77, 1, 1, 0, '2022-04-20 17:14:02', '2022-04-20 17:14:26', 1),
-(114, 'yest', 'rifatah95@gmail.com', '01,', NULL, NULL, 11, 9, 0, 0, 1, '2022-04-20 12:10:43', '2022-04-20 12:10:43', 1),
-(115, 'Attendance', 'zamil@aci-bd.com', '324', NULL, NULL, NULL, NULL, 0, 1, 0, '2022-04-21 03:30:55', '2022-04-21 03:30:55', 1),
-(116, 'gghh', 'cgg', '8856', NULL, NULL, 7, 43, 0, 1, 0, '2022-04-20 23:17:45', '2022-04-20 23:17:45', 1),
-(117, 'txvg', 'faysal_1185@yahoo.com', '04588', NULL, NULL, 9, 62, 0, 0, 1, '2022-04-21 00:31:10', '2022-04-21 00:31:10', 1),
-(118, 'vhh', 'faysal_1185@yahoo.com', '88585', NULL, NULL, 13, 113, 0, 0, 1, '2022-04-21 06:40:48', '2022-04-21 06:40:48', 1),
-(119, 'tfgg', 'faysal_1185@yahoo.com', '018688', NULL, NULL, 13, 114, 0, 1, 0, '2022-04-21 06:44:47', '2022-04-21 06:44:47', 1),
-(120, 'tgg', 'faysal_1185@yahoo.com', '8525', NULL, NULL, 11, 96, 0, 0, 1, '2022-04-21 06:53:08', '2022-04-21 06:53:08', 1),
-(121, 'fcc', 'faysal_1185@yahoo.com', '01928645', NULL, NULL, 11, 97, 1, 0, 0, '2022-04-21 07:00:40', '2022-04-21 07:00:40', 1),
-(122, 'ghh', 'faysal_1185@yahoo.com', '8855', NULL, NULL, 11, 97, 1, 1, 0, '2022-04-21 07:01:58', '2022-04-21 07:04:04', 1),
-(123, 'gha', 'fga', '966', NULL, NULL, 7, 45, 0, 0, 1, '2022-04-21 07:15:15', '2022-04-21 07:15:15', 1),
-(124, 'Mehedi', 'mehedi.bappy@kafashionbd.com', '01911731602', 'Mirzapur cadet college', NULL, 35, 306, 0, 1, 0, '2022-04-21 08:14:15', '2022-04-21 08:14:15', 1);
+(53, 'Sharib Nadim', 'sharib_nadim@yahoo.com', '01916100018', 'House 1 Road 10 Mohammadia Housing Society Mohammadpur Dhaka', NULL, 18, 150, 1, 0, 0, '2022-04-12 06:42:27', '2022-04-12 06:42:27', 1);
 
 -- --------------------------------------------------------
 
@@ -4556,7 +4439,7 @@ CREATE TABLE `smartend_seller` (
 --
 
 INSERT INTO `smartend_seller` (`id`, `customer_id`, `car_title`, `made_in`, `car_condition`, `brand`, `car_model`, `menufacturing_year`, `milage`, `engine_capacity`, `body_type`, `fuel_type`, `transmission`, `registration_year`, `registration_serial`, `registration_city`, `registration_number`, `drive_type`, `exterior_color`, `interior_color`, `comfort`, `enterteinment`, `safty`, `seats`, `wwindow`, `others`, `tax_token_expaire`, `fitnes_exspaire`, `bank_loan`, `name_transfer`, `message`, `price`, `video_url`, `created_at`, `updated_at`, `created_by`, `status`, `home_feature`, `car_status`, `car_details`) VALUES
-(1, 0, 'Mitsubishi Outlander 7 seats 2011', 97, 3, 1, 345, 2011, '65412', '2000', 2, NULL, 2, 2016, 17, 1, NULL, 3, 57, 8, NULL, NULL, NULL, '7', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 2280000, 'https://www.youtube.com/embed/ONqJUS36X3Y', '2022-02-25 13:18:41', '2022-04-20 19:59:54', NULL, 1, 1, 2, 'Brand: Mitsubishi Model: Outlander\r\nTrim / Edition:7 seats Year of Manufacture:2011 Registration year:2016 Condition: Used Transmission: Automatic Body type: SUV / 4x4 Fuel type: Octane Engine capacity:2,000 cc Kilometers run:53234 km\r\nOptions :  Leather Interior, 2 Air Bag, 4 ABS,4 Disk Brake, Digital Miter, Chilled cool AC, Original  Sound System with DVD, Back Camera,   & Tempered Glass, Alloy Rims With New Tires,  Halogen Bulb, All Power & Full Option, All Papers R Up to date.'),
+(1, 0, 'Mitsubishi Outlander 7 seats 2011', 97, 3, 1, 345, 2011, '65412', '2000', 2, NULL, 2, 2016, 17, 1, NULL, 3, 57, 8, NULL, NULL, NULL, '7', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 2280000, 'https://www.youtube.com/embed/ONqJUS36X3Y', '2022-02-25 13:18:41', '2022-02-25 13:18:41', NULL, 1, 1, 2, 'Brand: Mitsubishi Model: Outlander\r\nTrim / Edition:7 seats Year of Manufacture:2011 Registration year:2016 Condition: Used Transmission: Automatic Body type: SUV / 4x4 Fuel type: Octane Engine capacity:2,000 cc Kilometers run:53234 km\r\nOptions :  Leather Interior, 2 Air Bag, 4 ABS,4 Disk Brake, Digital Miter, Chilled cool AC, Original  Sound System with DVD, Back Camera,   & Tempered Glass, Alloy Rims With New Tires,  Halogen Bulb, All Power & Full Option, All Papers R Up to date.'),
 (3, 0, 'Nissan X-Trail 7 set 360* camera 2014', 97, 3, 3, 312, 2014, '48521', '2000', 2, NULL, 2, 2014, 13, 1, NULL, 1, 16, 1, NULL, NULL, NULL, '7', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 3500000, 'https://www.youtube.com/watch?v=Fs4Y5kep--E&t=7s', '2022-02-25 13:41:06', '2022-02-25 13:41:06', NULL, 1, 1, 2, 'Nissan X-Trail 7 seat 360* camera sunroof \r\n\r\nModel Year : 2014\r\n\r\n• Registration Year : 2014\r\n\r\n• Serial : D.M- GHA -13\r\n\r\n• Engine Capacity : 2000 CC\r\n\r\n• Transmission : Automatic\r\n\r\n• Fuel System : Octane\r\n\r\n• Mileage: 48521 km\r\n\r\nFirst Party Family Used Car. Very Limited Used. Smart Key Start, 2WD/4WD, ABS, Black Interior, Full Leather Seats, Seat Heater, Digital Optic Meter, Central Door, Central Window, Built-in DVD Navigation, Nickel Handle, Winker & Retract Mirror, Power Window, Power Steering, Steering Controller, Rear Spoiler, Fender Mirror, Personalized Glass, Dual Auto AC, Fog Light, Projection HID LED Headlight, Idle Stop, Power Mirror, Arm Rest, Head Rest, Power Backdoor. Soft touch AC panel, Climate control, LED parking light, Original 17\" Alloy rims, All Paper up to Date.'),
 (4, 0, 'Toyota Corolla Axio Hybrid 2014', 97, 3, 1, 15, 2014, '36541', '1500', 16, NULL, 2, 2019, 43, 1, NULL, 3, 46, 3, NULL, NULL, NULL, '5', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 1540000, 'https://www.youtube.com/embed/JxZIHTdnfrg', '2022-02-25 14:16:56', '2022-02-25 14:16:56', NULL, 1, 1, 2, 'Toyota Corolla Axio Hybrid 1.5 Specifications & Features\r\n\r\nBrand: Toyota\r\n\r\nModel: Axio\r\n\r\nTrim / Edition: Axio Hybrid 2014\r\n\r\nYear of Manufacture:2014\r\n\r\nRegistration year:2019\r\n\r\nCondition: Used\r\n\r\nTransmission: Automatic\r\n\r\nBody type: Saloon\r\n\r\nFuel type: Hybrid, Octane\r\n\r\nEngine capacity:1,500 cc\r\n\r\nKilometers run:36541 km\r\n\r\nDimension:\r\n\r\nOverall Length 4360 mm Overall Width 1695 mm Overall Height 1460 mm Wheel Base 2600 mm Ground Clearance 155 mm Kerb Weight 1090 KG Seating Capacity 5 persons No. of Doors 4 doors \r\n\r\nEngine/ Motors :\r\n\r\nEngine Type Octane + hybrid Displacement 1496 cc Horse Power 99 HP @ 5000 RPM Torque 111 Nm @ 4000 RPM Fuel System EFI with Hybrid Synergy Max Speed 180 KM/H No. of Cylinders 4 Compression Ratio 13.4:1 Cylinder Configuration In Line Valve Mechanism DOHC 16 Valves \r\n\r\nTransmission: \r\n\r\nTransmission Type Automatic (CVT)\r\n\r\nSteering:\r\n\r\nSteering Type Rack & Pinion with Electronic Motor Minimum Turning Radius 4.9m Power Assisted Electronic Power Steering \r\n\r\nsuspensions and breaks :\r\nok'),
 (5, 0, 'Toyota Noah Smart 2 Door power 2014', 97, 3, 1, 75, 2014, '27014', '2000', 14, NULL, 2, 2018, 16, 1, NULL, 1, 45, 5, NULL, NULL, NULL, '9', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 2850000, 'https://www.youtube.com/embed/CF_dyXhpbz0', '2022-02-25 14:25:28', '2022-02-25 14:25:28', NULL, 1, 1, 2, 'Manufacturer : Toyota Japan \r\n\r\nModel Name : NOAH \r\n\r\nEdition : G Smart 2 Door power\r\n\r\nModel Year : 2014\r\n\r\nRegistration Year: 2018\r\n\r\nMileage : 27054\r\n\r\nEngine capacity : 2000 C.C \r\n\r\nFuel Type : Octane\r\n\r\nTransmission : Automatic \r\n\r\nOPTIONS: ALL POWER, PUSH START, 2 DOORS POWER, PROJECTION HEADLIGHT, 7 SEATS, 5 DOORS, LEFT & RIGHT SIDE BOTH DOORS POWER, SMART KEY, STEERING CONTROLLER, SOFT TOUCH AC, AAC, DUAL AC, PS, PW, AIR BAG, ABS, WINKER MIRROR, TV/NAVIGATION, REAR CAMERA, AS IT IS TYRE, STANDARD TOOLS ETC.  \r\n\r\nToyota Alloy Rim With New Tire. All Power & Full Option.\r\n\r\nCar is very Good Conditioned. This Are no any accident report. The interior is so Good. \r\n\r\nNice out looking. Well maintained.\r\n\r\nNo Need any work. Just Buy And drive.\r\n\r\n\"If you want to check this car any automobile center you can take easily\" \r\n\r\nFor more details please visit our showroom or call showing number.'),
@@ -4655,71 +4538,7 @@ INSERT INTO `smartend_seller` (`id`, `customer_id`, `car_title`, `made_in`, `car
 (99, 0, 'Toyota Succeed fresh condition 2014', 97, 3, 1, 109, 2014, '38412', '1500', 11, NULL, 2, 2020, 3, 18, NULL, 3, 46, 8, NULL, NULL, NULL, '5', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 1050000, 'https://www.youtube.com/embed/If3vP1fo38g', '2022-04-11 13:43:46', '2022-04-11 13:43:46', NULL, 1, 1, 2, 'Toyota Succeed fresh condition 2014\r\nManufacturer :Toyota Japan. \r\nSeries :   Succeed \r\nModel: 2014 \r\nRegistration : 2020\r\nMileage : 36254 km \r\nEngine capacity : 1500 cc. \r\nTransmission : Auto \r\nColor : White \r\nFuel System: Octane \r\nOptions: Key start, A/C Super Cool , 2 Air Bag, set power, 4 ABS, Disk Brake, \r\nTilt Power Steering,  , UVS & Tempered Glass, All Power. No, any accidental history, \r\nAll Papers up-to-date ,\r\nNote: If you want to check anything you can take this car to any automobile analyzing center.'),
 (100, 1, '', 0, 2, 1, 15, NULL, NULL, NULL, NULL, NULL, NULL, 2020, 3, NULL, '3 - 43445566', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-11 20:40:22', '2022-04-11 20:40:22', 1, 1, 0, 1, NULL),
 (101, 52, '', 0, 3, 1, 83, NULL, NULL, NULL, NULL, NULL, NULL, 2011, 3, NULL, '3 - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-12 06:37:26', '2022-04-12 06:37:26', 52, 1, 0, 1, NULL),
-(102, 53, '', 0, 3, 1, 87, NULL, NULL, NULL, NULL, NULL, NULL, 2008, 2, NULL, '2 - 12-9736', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-12 06:42:27', '2022-04-12 06:42:27', 53, 1, 0, 1, NULL),
-(103, 54, '', 0, 3, 1, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2006, 3, NULL, '3 - 17-9801', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-12 13:07:32', '2022-04-12 13:07:32', 54, 1, 0, 1, NULL),
-(104, 55, '', 0, 3, 1, 24, NULL, NULL, NULL, NULL, NULL, NULL, 2002, 3, NULL, '3 - 11-4164', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-12 13:37:17', '2022-04-12 13:37:17', 55, 1, 0, 1, NULL),
-(156, 81, '', 0, 3, 1, 83, 2008, NULL, NULL, NULL, NULL, NULL, 2008, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 1950000, NULL, '2022-04-16 08:07:29', '2022-04-16 08:07:29', 81, 1, 0, 1, 'Used conditions luxary car'),
-(157, 84, '', 0, 3, 1, 83, 2004, NULL, NULL, NULL, NULL, NULL, 2006, 0, NULL, 'গ - 19-31**', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 1180000, NULL, '2022-04-17 05:08:27', '2022-04-17 05:08:27', 84, 1, 0, 1, 'TaxToken -10 Oct 2022\r\nFitness -25feb 2024'),
-(158, 85, '', 0, 3, 1, 36, 1998, NULL, NULL, NULL, NULL, NULL, 2001, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 6, NULL, '2022-04-17 07:12:50', '2022-04-17 07:12:50', 85, 1, 0, 1, 'All works complete with new tyre . Modified car. tax token 1 year fail'),
-(159, 85, '', 0, 3, 1, 36, 1998, NULL, NULL, NULL, NULL, NULL, 2001, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 6, NULL, '2022-04-17 07:18:07', '2022-04-17 07:18:07', 85, 1, 0, 1, 'Modified car , Corona Premio, All works complete, Tax token 1 year fail.'),
-(160, 86, '', 0, 3, 1, 35, 1992, NULL, NULL, NULL, NULL, NULL, 2003, 0, NULL, 'গ - 147626', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 250000, NULL, '2022-04-17 08:26:53', '2022-04-17 08:26:53', 86, 1, 0, 1, 'মডেলঃ 2 Door Red Color Corolla II (1992 Trim)\r\n\r\nইঞ্জিনঃ 1331 CC 4EFE, Octane Driven\r\nগাড়ি রানিং আছে, ১ দিন ও ফেলে রাখা হয়নাই।\r\n\r\n\r\nযে জিনিসগুলো নতুন আছে - \r\n1. Japanese Yuasa Battery (heavy duty)\r\n2. All 4 Tires\r\n3. Wiring repaired\r\n4. Engine mounting\r\n5. Timing Belt\r\n6. Drive Belt\r\n\r\nসমস্যাঃ\r\n1. Engine Compression weak, race না বাড়িয়ে এসি দিলে ইঞ্জিন বন্ধ হয় মাঝে মাঝে।\r\n2. পেপারস ফেল ২ মাস\r\n\r\nName Transfer Kagoj stamp kora ache, owner also available.');
-INSERT INTO `smartend_seller` (`id`, `customer_id`, `car_title`, `made_in`, `car_condition`, `brand`, `car_model`, `menufacturing_year`, `milage`, `engine_capacity`, `body_type`, `fuel_type`, `transmission`, `registration_year`, `registration_serial`, `registration_city`, `registration_number`, `drive_type`, `exterior_color`, `interior_color`, `comfort`, `enterteinment`, `safty`, `seats`, `wwindow`, `others`, `tax_token_expaire`, `fitnes_exspaire`, `bank_loan`, `name_transfer`, `message`, `price`, `video_url`, `created_at`, `updated_at`, `created_by`, `status`, `home_feature`, `car_status`, `car_details`) VALUES
-(161, 86, '', 0, 3, 1, 35, 1992, NULL, NULL, NULL, NULL, NULL, 2003, 0, NULL, 'গ - 14-7626', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 230000, NULL, '2022-04-17 09:56:35', '2022-04-17 09:56:35', 86, 1, 0, 1, 'Toyota Corolla II Windy 1992 (2 Door Model)\r\n\r\nকোন মিডিয়া থেকে ফোন করবেন না। \r\n\r\nModel 1992, Registration 2003\r\nDhaka Metro, 14*** Serial\r\n\r\nরংঃ টকটকে লাল \r\nইঞ্জিন: 1331 CC 4E EFI Engine (শুধু তেল, লিটার ঢাকায় ১২ কিমি+)\r\nফ্যামিলি ইউজ অনলি\r\nট্যাক্স টোকেন এক্সপায়ার হয়েছে ১ মাস আগে, আপডেট করতে ৫ হাজার টাকা জরিমানা আসবে। ফিটনেস আপডেট করা আছে। \r\n\r\nযেগুলা একবারেই নতুন - \r\n\r\n1. ৪টি চাকা - লাগানোর পর মাত্র ২০০ কিলো চালানো হয়েছে।\r\n2. জাপানিজ YUASA হেভি ডিউটি ব্যাটারি (২ মাস আগে) \r\n3. টাইমিং বেল্ট\r\n4. ড্রাইভ বেল্ট\r\n5. ইঞ্জিন মাউন্ট\r\n\r\nগাড়ী নিয়ে আমি প্রতিদিন অফিস যাতায়াত করি, তাই রানিং আছে। চালিয়ে নিতে পারবেন, প্রজেক্ট কার বানানোর জন্য খুবই ভালো এবং অল্প তেল খায়। বাৎসরিক ট্যাক্স ও কম। \r\n\r\nযেগুলো সমস্যা আছে - \r\n\r\n1. বয়স হয়েছে, বডিতে অল্প সাউন্ড আছে। \r\n2. ইঞ্জিন এখনো আগেরটাই, কম্প্রেশন একটু কম। রেস কমিয়ে রাখলে তেল কম খায় কিন্তু এসি চালানো যায়না।\r\n\r\nবিক্রির কারনঃ একটু শৌখিন গাড়ি যেহেতু স্পোর্টস ভার্সন। সময় দিতে হয় মাঝে মাঝে। নিজে সময় দিতে পারিনা দেখে বিক্রি করতে চাই। \r\n\r\nপ্রাইসঃ ২লক্ষ ৩০ হাজার (সামনাসামনি কিছু কমতে পারে, ফোনে দামাদামি করবেন না)'),
-(162, 87, '', 0, 2, 1, 87, 2004, NULL, NULL, NULL, NULL, NULL, 2009, 0, NULL, 'খ - ঢাকা মেট্রো-খ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 6, NULL, '2022-04-17 10:39:14', '2022-04-17 10:39:14', 87, 1, 0, 1, 'All fresh'),
-(163, 88, '', 0, 3, 1, 83, 2014, NULL, NULL, NULL, NULL, NULL, 2017, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 24, NULL, '2022-04-17 12:01:33', '2022-04-17 12:01:33', 88, 1, 0, 1, 'One handed driven and absolutely new condition .Grey color with biscuit color interior having push start optical meter with HD light with cruise control wooden panel steering.\r\nEngine condition a one .\r\nNew aloy with new tyre'),
-(164, 88, '', 0, 3, 1, 83, 2014, NULL, NULL, NULL, NULL, NULL, 2017, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 24, NULL, '2022-04-17 12:03:24', '2022-04-17 12:03:24', 88, 1, 0, 1, 'One handed driven and absolutely new condition .Grey color with biscuit color interior having push start optical meter with HD light with cruise control wooden panel steering.\r\nEngine condition a one .\r\nNew aloy with new tyre'),
-(165, 91, '', 0, 3, 42, 561, 2010, NULL, NULL, NULL, NULL, NULL, 2010, 0, NULL, 'গ - ২৯', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 1650000, NULL, '2022-04-17 14:19:11', '2022-04-17 14:19:11', 91, 1, 0, 1, 'Hyundai Sonata \r\nModel 2010\r\nRegistration 2010\r\nFuel Type Octane \r\nMileage 81000\r\nTax Token Validity  June 22\r\nFitness Validity  June 2023\r\nColour Black\r\nRegistration Number 29-****\r\nVisiting Hour Everyday 6 PM to 9 PM'),
-(166, 93, '', 0, 3, 1, 35, 1996, NULL, NULL, NULL, NULL, NULL, 2001, 0, NULL, 'গ - 138949', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 480000, NULL, '2022-04-17 18:03:07', '2022-04-17 18:03:07', 93, 1, 0, 1, 'All auto, papers update'),
-(167, 94, '', 0, 3, 1, 36, 2000, NULL, NULL, NULL, NULL, NULL, 2004, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 550000, NULL, '2022-04-18 03:31:31', '2022-04-18 03:31:31', 94, 1, 0, 1, 'It’s a super fine condition car \r\nAc mint cool \r\nJust buy and drive \r\nPrice almost fixed'),
-(168, 0, 'Toyota Vios fresh condition 2015', 97, 3, 1, 123, 2015, '36541', '1500', 16, NULL, 2, 2016, 3, 18, NULL, 3, 57, 1, NULL, NULL, NULL, '5', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 1550000, 'https://www.youtube.com/embed/bY3Vad0lheQ', '2022-04-18 05:40:13', '2022-04-18 05:40:13', NULL, 1, 1, 2, 'Manufacturer :Toyota Japan. \r\nSeries : Vios \r\nModel: 2015 \r\nRegistration : 2016\r\nMileage : 36254 km \r\nEngine capacity : 1500 cc. \r\nTransmission : Auto \r\nColor : White \r\nFuel System: Octane \r\nOptions: Key start, A/C Super Cool , 2 Air Bag, set power, \r\n4 ABS, Disk Brake, Tilt Power Steering,  , UVS & Tempered Glass, \r\nAll Power. No, any accidental history, All Papers up-to-date ,\r\nNote: If you want to check anything you can take this car to any automobile analyzing center.'),
-(169, 0, 'Toyota Allion fresh condition 2010', 97, 3, 1, 6, 2010, '65412', '1500', 16, NULL, 2, 2013, 3, 18, NULL, 3, 5, 5, NULL, NULL, NULL, '5', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 0, NULL, 1650000, 'https://www.youtube.com/embed/If3vP1fo38g', '2022-04-18 05:55:21', '2022-04-18 05:55:21', NULL, 1, 1, 2, 'Manufacturer :Toyota Japan. \r\nSeries : Allion\r\nModel: 2010 \r\nRegistration : 2013\r\nMileage : 65412 km\r\n Engine capacity : 1500 cc. \r\nTransmission : Auto\r\nColor : Blue \r\nFuel System: Octane + CNG \r\nOptions: Key start, A/C Super Cool , 2 Air Bag, set power, \r\n4 ABS, Disk Brake, Tilt Power Steering, UVS & Tempered Glass,\r\n All Power. No, any accidental history, All Papers up-to-date\r\nNote: If you want to check anything you can take this car to any automobile analyzing center.'),
-(170, 31, '', 0, 3, 1, 75, 2006, NULL, NULL, NULL, NULL, NULL, 2012, 0, NULL, 'ক - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 1050000, NULL, '2022-04-18 06:14:49', '2022-04-18 06:14:49', 31, 1, 0, 1, 'Fresh no acchident history engine gear box ac good condition'),
-(171, 95, '', 0, 2, 1, 83, 2021, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ' - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 42, NULL, '2022-04-18 08:08:46', '2022-04-18 08:08:46', 95, 1, 0, 1, 'Premio F ex 2021,\r\nGrade : 4.5 point\r\nMilleage : 3249 km\r\nRed Wine colour,\r\nFull option,\r\nFull load with new alloy wheel with tire'),
-(172, 33, '', 0, 3, 1, 36, 1999, NULL, NULL, NULL, NULL, NULL, 2001, 0, NULL, 'গ - 14-5163', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 5, NULL, '2022-04-18 11:22:40', '2022-04-18 11:22:40', 33, 1, 0, 1, 'Running condition'),
-(173, 96, '', 0, 3, 1, 15, 2013, NULL, NULL, NULL, NULL, NULL, 2018, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 15, NULL, '2022-04-18 16:56:45', '2022-04-18 16:56:45', 96, 1, 0, 1, 'Push\r\nRed wine color\r\nG grade\r\nSuper condition\r\nFamily use\r\nCNG have'),
-(174, 96, '', 0, 3, 1, 15, 2013, NULL, NULL, NULL, NULL, NULL, 2018, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 15, NULL, '2022-04-18 17:01:39', '2022-04-18 17:01:39', 96, 1, 0, 1, 'পুশ\r\nG grade\r\nRed wine কালার\r\nCNG\r\nSuper fresh family use'),
-(175, 97, '', 0, 3, 1, 107, 1995, NULL, NULL, NULL, NULL, NULL, 2004, 0, NULL, 'গ - 15-0164', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 5, NULL, '2022-04-19 01:52:39', '2022-04-19 01:52:39', 97, 1, 0, 1, 'Super Fresh, a/c ice cool & paper updated'),
-(176, 98, '', 0, 3, 1, 52, 2003, NULL, NULL, NULL, NULL, NULL, 2008, 0, NULL, 'গ - 25-4824', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'no', 0, NULL, NULL, NULL, '2022-04-19 06:13:40', '2022-04-19 06:13:40', 98, 1, 0, 3, NULL),
-(180, 1, '', 0, 3, 1, 6, 2018, NULL, NULL, NULL, NULL, NULL, 2020, 0, NULL, 'গ - 43445566', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-19 15:33:14', '2022-04-19 15:33:14', 1, 1, 0, 3, NULL),
-(181, 102, '', 0, 3, 1, 66, 2006, NULL, NULL, NULL, NULL, NULL, 2009, 0, NULL, 'ঘ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 40, NULL, '2022-04-19 17:37:33', '2022-04-19 17:37:33', 102, 1, 0, 1, NULL),
-(182, 102, '', 0, 3, 1, 139, 2004, NULL, NULL, NULL, NULL, NULL, 2008, NULL, NULL, ' - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 11, NULL, '2022-04-19 17:42:52', '2022-04-19 17:42:52', 102, 1, 0, 1, 'G Corolla 2004 model 2008 registration octane drive very good condition pepper update'),
-(183, 103, '', 0, 3, 1, 35, 1994, NULL, NULL, NULL, NULL, NULL, 2000, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 335000, NULL, '2022-04-19 18:14:50', '2022-04-19 18:14:50', 103, 1, 0, 1, '- Make: Toyota\r\n- Model: EE 100.\r\n- Manufacturing Year: 1994\r\n- Registration: 2000\r\n- Displacement:  1330 cc. \r\n- Gear: Auto\r\n- Door + Window: Manual \r\n- 14\" Alloy wheels\r\n- 4 almost new tyres\r\n- New Battery\r\n- Nice cool AC\r\n- Pioneer CD player\r\n- petrol and CNG(60 ltr) both ok\r\n- All papers up-to-dated\r\n- Digital Number plate with Smart Card\r\n- No history of any major accident.\r\n\r\nThis well maintained car is driven by defence officer mainly within cantonment area. \r\nFor any further queries please call or leave a message to 01678691599'),
-(184, 103, '', 0, 3, 1, 35, 1994, NULL, NULL, NULL, NULL, NULL, 2000, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 335000, NULL, '2022-04-19 18:16:35', '2022-04-19 18:16:35', 103, 1, 0, 1, '- Make: Toyota\r\n- Model: EE 100.\r\n- Manufacturing Year: 1994\r\n- Registration: 2000\r\n- Displacement:  1330 cc. \r\n- Gear: Auto\r\n- Door + Window: Manual \r\n- 14\" Alloy wheels\r\n- 4 almost new tyres\r\n- New Battery\r\n- Nice cool AC\r\n- Pioneer CD player\r\n- petrol and CNG(60 ltr) both ok\r\n- All papers up-to-dated\r\n- Digital Number plate with Smart Card\r\n- No history of any major accident.\r\n\r\nThis well maintained car is driven by defence officer mainly within cantonment area. \r\nFor any further queries please call or leave a message to 01678691599'),
-(185, 1, '', 0, 2, 1, 6, 2014, NULL, NULL, NULL, NULL, NULL, 2018, 0, NULL, 'গ - 43445566', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-19 21:20:29', '2022-04-19 21:20:29', 1, 1, 0, 3, NULL),
-(186, 1, '', 0, 2, 2, 140, 2020, NULL, NULL, NULL, NULL, NULL, 2015, 0, NULL, 'গ - 43445566', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-19 21:24:02', '2022-04-19 21:24:02', 1, 1, 0, 3, NULL),
-(187, 104, '', 0, 3, 1, 83, 2016, NULL, NULL, NULL, NULL, NULL, 2017, 0, NULL, 'গ - 22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 3000000, NULL, '2022-04-20 06:06:53', '2022-04-20 06:06:53', 104, 1, 0, 1, NULL),
-(188, 104, '', 0, 3, 1, 83, 2016, NULL, NULL, NULL, NULL, NULL, 2017, 0, NULL, 'গ - 22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 3000000, NULL, '2022-04-20 06:09:26', '2022-04-20 06:09:26', 104, 1, 0, 1, NULL),
-(189, 105, '', 0, 3, 1, 83, 2011, NULL, NULL, NULL, NULL, NULL, 2012, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 20, NULL, '2022-04-20 09:20:44', '2022-04-20 09:20:44', 105, 1, 0, 1, 'Family used car'),
-(190, 106, '', 0, 3, 1, 15, 2012, NULL, NULL, NULL, NULL, NULL, 2017, 0, NULL, 'গ - 323085', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 13, NULL, '2022-04-20 10:00:33', '2022-04-20 10:00:33', 106, 1, 0, 1, 'Self driven car'),
-(191, 106, '', 0, 3, 1, 15, 2012, NULL, NULL, NULL, NULL, NULL, 2017, 0, NULL, 'গ - 323085', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 13, NULL, '2022-04-20 10:01:35', '2022-04-20 10:01:35', 106, 1, 0, 1, 'Self driven car'),
-(192, 108, 'car Title', 0, 2, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, 2018, NULL, NULL, 'চ-255', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2888, NULL, '2022-04-20 08:37:16', '2022-04-20 08:37:16', 108, 1, 0, 1, NULL),
-(193, 109, 'car Title', 0, 3, 7, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2021, NULL, NULL, 'জ-5560', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 58885, NULL, '2022-04-20 08:39:38', '2022-04-20 08:39:38', 109, 1, 0, 1, NULL),
-(194, 110, 'car Title', 0, 3, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2015, NULL, NULL, 'ছ-55556', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 888, NULL, '2022-04-20 08:42:26', '2022-04-20 08:42:26', 110, 1, 0, 1, NULL),
-(195, 111, 'car Title', 0, 2, 4, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2018, NULL, NULL, 'ছ-25855', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 885, NULL, '2022-04-20 08:47:22', '2022-04-20 08:47:22', 111, 1, 0, 1, NULL),
-(196, 112, '', 0, 3, 1, 37, 1997, NULL, NULL, NULL, NULL, NULL, 2002, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 350000, NULL, '2022-04-20 15:21:37', '2022-04-20 15:21:37', 112, 1, 0, 1, NULL),
-(197, 112, '', 0, 3, 1, 37, 1997, NULL, NULL, NULL, NULL, NULL, 2002, 0, NULL, 'গ - ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 350000, NULL, '2022-04-20 15:22:13', '2022-04-20 15:22:13', 112, 1, 0, 1, NULL),
-(198, 113, '', 0, 2, 1, 135, 2004, NULL, NULL, NULL, NULL, NULL, 2008, 0, NULL, 'খ - 11-1427', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 800000, NULL, '2022-04-20 17:14:02', '2022-04-20 17:14:02', 113, 1, 0, 1, 'Toyota ist 2004 registration 2008 1500 cc vvti engine,ac ok. Denting and painting done, paper tax token 2023 fitness april 2024 , silver colour. Hand rest console box, back cargo cover etc'),
-(199, 113, '', 0, 2, 1, 135, 2004, NULL, NULL, NULL, NULL, NULL, 2008, 0, NULL, 'খ - 11-1427', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, 800000, NULL, '2022-04-20 17:23:04', '2022-04-20 17:23:04', 113, 1, 0, 1, 'Toyota ist 2004 reg 2008 ac ok 1500 cc vvti engine, hand rest console box. Back cargo cover. Cng 40 l  silver colour all ok paper tax token april 2023, fitness april 2024'),
-(200, 66, 'car Title', 0, 3, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2022, NULL, NULL, 'চ-45555', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2000, NULL, '2022-04-20 11:29:19', '2022-04-20 11:29:19', 66, 1, 0, 1, NULL),
-(201, 108, 'car Title', 0, 3, 5, 7, NULL, NULL, NULL, NULL, NULL, NULL, 2021, NULL, NULL, 'চ-455', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20088, NULL, '2022-04-20 11:41:08', '2022-04-20 11:41:08', 108, 1, 0, 1, NULL),
-(202, 114, 'trst', 0, 3, 8, 10, NULL, NULL, NULL, NULL, NULL, NULL, 2019, NULL, NULL, 'ঝ-533', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-20 12:10:43', '2022-04-20 12:10:43', 114, 1, 0, 1, NULL),
-(203, 4, 'fhh', 0, 1, 5, 8, NULL, NULL, NULL, NULL, NULL, NULL, 2017, NULL, NULL, '4545', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200000, NULL, '2022-04-20 12:18:59', '2022-04-20 12:18:59', 4, 1, 0, 1, NULL),
-(204, 4, 'fhh', 0, 1, 5, 8, NULL, NULL, NULL, NULL, NULL, NULL, 2017, NULL, NULL, '4545', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200000, NULL, '2022-04-20 12:19:35', '2022-04-20 12:19:35', 4, 1, 0, 1, NULL),
-(205, 4, 'fhh', 0, 1, 5, 8, NULL, NULL, NULL, NULL, NULL, NULL, 2017, NULL, NULL, '4545', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200000, NULL, '2022-04-20 12:21:19', '2022-04-20 12:21:19', 4, 1, 0, 1, NULL),
-(206, 66, 'car Title', 0, 3, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, 2021, NULL, NULL, 'চ-2525', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20000, NULL, '2022-04-20 12:22:13', '2022-04-20 12:22:13', 66, 1, 0, 1, NULL),
-(207, 66, 'car Title', 0, 3, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, 2021, NULL, NULL, 'চ-2525', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20000, NULL, '2022-04-20 12:24:38', '2022-04-20 12:24:38', 66, 1, 0, 1, NULL),
-(208, 66, 'car Title', 0, 3, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, 2024, NULL, NULL, 'চ-2855', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2000, NULL, '2022-04-20 12:27:02', '2022-04-20 12:27:02', 66, 1, 0, 1, NULL),
-(209, 115, '', 0, 1, 3, 215, 2022, NULL, NULL, NULL, NULL, NULL, 2020, 0, NULL, 'খ - 121212', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-21 03:32:49', '2022-04-21 03:32:49', 115, 1, 0, 3, NULL),
-(210, 116, 'car Title', 0, 3, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, 2024, NULL, NULL, 'ছ-2888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 28888, NULL, '2022-04-20 23:17:45', '2022-04-20 23:17:45', 116, 1, 0, 1, NULL),
-(211, 117, 'car title', 0, 3, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2024, NULL, NULL, 'ছ-78888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-21 00:31:10', '2022-04-21 00:31:10', 117, 1, 0, 1, NULL),
-(212, 117, 'car title', 0, 3, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2024, NULL, NULL, 'ছ-78888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-21 00:31:31', '2022-04-21 00:31:31', 117, 1, 0, 1, NULL),
-(213, 117, 'car title', 0, 3, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2024, NULL, NULL, 'ছ-78888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-21 00:32:02', '2022-04-21 00:32:02', 117, 1, 0, 1, NULL),
-(214, 118, 'car title', 0, 3, 5, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2018, NULL, NULL, 'ছ-5556', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-21 06:40:48', '2022-04-21 06:40:48', 118, 1, 0, 1, NULL),
-(215, 119, 'car Title', 0, 3, 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, 2022, NULL, NULL, 'জ-28888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20000, NULL, '2022-04-21 06:44:47', '2022-04-21 06:44:47', 119, 1, 0, 1, NULL),
-(216, 120, 'car title', 0, 3, 7, 8, NULL, NULL, NULL, NULL, NULL, NULL, 2024, NULL, NULL, 'ঘ-155', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-21 06:53:08', '2022-04-21 06:53:08', 120, 1, 0, 1, NULL),
-(217, 122, 'car Title', 0, 3, 8, 6, NULL, NULL, NULL, NULL, NULL, NULL, 2022, NULL, NULL, 'জ-5885', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 28888, NULL, '2022-04-21 07:01:58', '2022-04-21 07:01:58', 122, 1, 0, 1, NULL),
-(218, 108, 'car title', 0, 3, 11, 5, NULL, NULL, NULL, NULL, NULL, NULL, 2021, NULL, NULL, 'ট-8988', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-21 07:03:10', '2022-04-21 07:03:10', 108, 1, 0, 1, NULL),
-(219, 123, 'car title', 0, 3, 7, 8, NULL, NULL, NULL, NULL, NULL, NULL, 2024, NULL, NULL, 'জ-2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-21 07:15:15', '2022-04-21 07:15:15', 123, 1, 0, 1, NULL);
+(102, 53, '', 0, 3, 1, 87, NULL, NULL, NULL, NULL, NULL, NULL, 2008, 2, NULL, '2 - 12-9736', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, '2022-04-12 06:42:27', '2022-04-12 06:42:27', 53, 1, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -5286,135 +5105,7 @@ INSERT INTO `smartend_seller_car_images` (`id`, `seller_id`, `car_image`, `statu
 (556, 100, '1649709591_5.jpeg', '1'),
 (557, 100, '1649709610_4.jpeg', '1'),
 (558, 100, '1649709612_2.jpeg', '1'),
-(559, 100, '1649709614_1.jpeg', '1'),
-(560, 104, '1649770627_received_322946846489796.jpeg', '1'),
-(561, 104, '1649770629_received_2260137847473226.jpeg', '1'),
-(562, 104, '1649770630_received_708688810317211.jpeg', '1'),
-(563, 104, '1649770628_received_525335095650190.jpeg', '1'),
-(564, 104, '1649770628_received_377893900905813.jpeg', '1'),
-(565, 104, '1649770630_received_1727260674287915.jpeg', '1'),
-(566, 104, '1649770630_received_940242109986956.jpeg', '1'),
-(567, 104, '1649770630_received_535146801379795.jpeg', '1'),
-(568, 109, '1649870893_1D431718-78E3-4A1C-ACD2-1F3C044B83D5.jpeg', '1'),
-(569, 109, '1649870887_4D5C9ADB-9328-4EA5-A2D7-607BFACEB618.jpeg', '1'),
-(570, 109, '1649870888_0A66AE7B-8F66-4E23-A729-4857E13DDCD8.jpeg', '1'),
-(571, 109, '1649870897_F62BC46B-64D8-4A65-BBC8-399069AD254A.jpeg', '1'),
-(572, 109, '1649870900_72D8D2CE-E0EC-4415-955B-38E15CEC5F2B.jpeg', '1'),
-(573, 158, '1650179542_inbound5681663305261720278.jpg', '1'),
-(574, 158, '1650179568_inbound5621316906578986844.jpg', '1'),
-(575, 159, '1650179883_inbound2811496651918942143.jpg', '1'),
-(576, 159, '1650179881_inbound6059584771069453834.jpg', '1'),
-(577, 159, '1650179883_inbound234580735978719111.jpg', '1'),
-(578, 160, '1650183999_277780326_4772384846223807_4171878182102102737_n.jpg', '1'),
-(579, 160, '1650184002_277961404_405251611013309_6585754412814788062_n.jpg', '1'),
-(580, 160, '1650184006_277887064_1181343279343494_7187767043822241189_n.jpg', '1'),
-(581, 161, '1650189258_277780326_4772384846223807_4171878182102102737_n.jpg', '1'),
-(582, 161, '1650189259_277961404_405251611013309_6585754412814788062_n.jpg', '1'),
-(583, 161, '1650189261_277887064_1181343279343494_7187767043822241189_n.jpg', '1'),
-(584, 165, '1650204932_inbound6134193486034453399.jpg', '1'),
-(585, 165, '1650205142_inbound3312795410859958408.jpg', '1'),
-(586, 165, '1650205145_inbound8128295700038495440.jpg', '1'),
-(587, 165, '1650205145_inbound3337415937747018756.jpg', '1'),
-(588, 165, '1650205142_inbound2436063992212304675.jpg', '1'),
-(589, 165, '1650205145_inbound9142034679034316909.jpg', '1'),
-(590, 165, '1650205144_inbound7434420562434430273.jpg', '1'),
-(591, 165, '1650205146_inbound1190490119848354652.jpg', '1'),
-(592, 165, '1650205144_inbound3935704004743221060.jpg', '1'),
-(593, 165, '1650205144_inbound3086506416099402532.jpg', '1'),
-(594, 165, '1650205145_inbound5649937976527332079.jpg', '1'),
-(595, 165, '1650205144_inbound1496946112896286409.jpg', '1'),
-(596, 165, '1650205145_inbound8893930079494667312.jpg', '1'),
-(597, 165, '1650205144_inbound4610898777653392628.jpg', '1'),
-(598, 166, '1650218583_inbound2099234714073860931.jpg', '1'),
-(599, 168, '1650260254_DSC00753.JPG', '1'),
-(600, 168, '1650260254_DSC00756.JPG', '1'),
-(601, 168, '1650260254_DSC00761.JPG', '1'),
-(602, 168, '1650260254_DSC00779.JPG', '1'),
-(603, 168, '1650260258_DSC00787.JPG', '1'),
-(604, 168, '1650260260_DSC00790.JPG', '1'),
-(605, 169, '1650260962_DSC00797.JPG', '1'),
-(606, 169, '1650260962_DSC00801.JPG', '1'),
-(607, 169, '1650260962_DSC00805.JPG', '1'),
-(608, 169, '1650261064_DSC00822.JPG', '1'),
-(609, 169, '1650261065_DSC00825.JPG', '1'),
-(610, 169, '1650261065_DSC00829.JPG', '1'),
-(611, 172, '1650280944_275408548_259820962896630_5633531879888947165_n.jpg', '1'),
-(612, 172, '1650280948_275327690_1602001176843482_4881393871782751392_n.jpg', '1'),
-(613, 172, '1650280951_275302160_282771567341462_6534791395799600763_n.jpg', '1'),
-(614, 180, '1650382392_104.jpeg', '1'),
-(615, 181, '1650389833_ACB65FEF-924B-422B-9082-95214135E2E7.jpeg', '1'),
-(616, 181, '1650389836_0755D7F4-FB08-43F0-81D8-F522E35DEE81.jpeg', '1'),
-(617, 181, '1650389836_5A3C97A4-497B-4793-91C7-01016231AB32.jpeg', '1'),
-(618, 181, '1650389831_BA1AE7C9-24B5-4098-8D14-7510F17D12B5.jpeg', '1'),
-(619, 181, '1650389833_61729F22-4360-42CF-B11B-31DF8B7CF0B0.jpeg', '1'),
-(620, 181, '1650389830_11A3EDA9-C6BD-48E4-8618-557181E5ACE6.jpeg', '1'),
-(621, 181, '1650389832_5912CBEC-AD45-4007-9102-13D1C301DF55.jpeg', '1'),
-(622, 181, '1650389832_9EE54E1A-5B60-4B3E-AB95-513DF03DEB94.jpeg', '1'),
-(623, 181, '1650389833_607BF4F5-4F50-4EB3-A5CA-F1B0E5441757.jpeg', '1'),
-(624, 181, '1650389825_584341A8-9499-43CE-9B54-30EA58F9368D.jpeg', '1'),
-(625, 181, '1650389831_7CA39E87-7DCD-41A9-B5E0-82A35221C112.jpeg', '1'),
-(626, 181, '1650389823_604BB532-A041-4592-AA2E-98FDE94F87F4.jpeg', '1'),
-(627, 181, '1650389821_E86BF1E3-C067-4B41-B050-24768C75E100.jpeg', '1'),
-(628, 181, '1650389821_A482BE01-2D06-4F61-A4DF-6C704003CA9C.jpeg', '1'),
-(629, 181, '1650389813_3AFC4C30-D610-41EA-AE60-711761AACDA6.jpeg', '1'),
-(630, 181, '1650389827_955B483B-50FC-4AFF-826C-5F06471AFAC5.jpeg', '1'),
-(631, 181, '1650389823_4CF61F1B-8B7F-409E-845C-8E9762328ECD.jpeg', '1'),
-(632, 181, '1650389829_D6ADE4D2-9670-4D8B-9413-38A06BFEBF50.jpeg', '1'),
-(633, 181, '1650389831_38EC8673-EB08-4EDB-874A-DBDE0E860B60.jpeg', '1'),
-(634, 181, '1650389828_9641F695-FE54-4A35-A2E0-CB3035DD8CFC.jpeg', '1'),
-(635, 182, '1650390157_671C669D-C195-42BA-A633-8818A0C205C3.jpeg', '1'),
-(636, 182, '1650390159_2174A1B5-0B12-4492-86B2-1A2697ADFF92.jpeg', '1'),
-(637, 182, '1650390157_81544DBE-3C3D-4063-982A-0998DF8B6357.jpeg', '1'),
-(638, 182, '1650390154_8C6E2446-F6A1-4374-8183-8E0D21EEF114.jpeg', '1'),
-(639, 182, '1650390155_795E187C-FDB7-4264-99DE-02886E52873C.jpeg', '1'),
-(640, 182, '1650390155_D422096E-1DE7-4BD2-8A7D-B6FB62BC31BF.jpeg', '1'),
-(641, 182, '1650390155_21A24CC1-BB7D-4DD2-84D0-B9DDDC4D6DCF.jpeg', '1'),
-(642, 182, '1650390155_950D7BBC-0724-467C-B2C7-68D48A5C65D5.jpeg', '1'),
-(643, 182, '1650390155_107AC7F5-2F2D-4B9B-9F92-7990C1A27E79.jpeg', '1'),
-(644, 182, '1650390154_4082BBE5-3879-4C0D-BC0E-56D111CF6DE2.jpeg', '1'),
-(645, 182, '1650390159_FAAC3EC4-2E89-4E07-8C85-444B1A5887F2.jpeg', '1'),
-(646, 185, '1650403227_103.jpeg', '1'),
-(647, 186, '1650403441_105.jpeg', '1'),
-(648, 188, '1650434947_inbound3668178710212553616.jpg', '1'),
-(649, 188, '1650434960_inbound6191818503773334117.jpg', '1'),
-(650, 189, '1650446435_21275328-B26A-4AE5-AE60-C9DF9AC98C9F.jpeg', '1'),
-(651, 189, '1650446439_9ECC1D05-0462-4730-AA31-03468CEE06A6.jpeg', '1'),
-(652, 189, '1650446436_D2BBDA6C-C7E2-4EA4-AC1F-CAA85B0D1CC4.jpeg', '1'),
-(653, 189, '1650446437_9801C726-F4BA-443E-827E-CB060DEC7BFC.jpeg', '1'),
-(654, 189, '1650446435_0C745AD0-F239-49FD-8D2D-9DB053F18DE4.jpeg', '1'),
-(655, 189, '1650446435_7975260A-359B-4B12-93CC-8919E16B20F0.jpeg', '1'),
-(656, 189, '1650446439_03C7FCDD-2792-40D9-913E-7114D428E5D8.jpeg', '1'),
-(657, 189, '1650446436_AF8F79AE-2E2F-442E-935E-5B0EF3E95016.jpeg', '1'),
-(658, 189, '1650446434_C8809BF3-FBA7-4C34-A06E-92B82602FB81.jpeg', '1'),
-(659, 189, '1650446439_213EEE48-B2AD-4884-8013-0218A336E5E3.jpeg', '1'),
-(660, 199, '1650475175_inbound9030978144841615682.jpg', '1'),
-(661, 199, '1650475196_inbound1028058929865390960.jpg', '1'),
-(662, 199, '1650475211_inbound7918422338946472836.jpg', '1'),
-(663, 199, '1650475230_inbound521502688668048455.jpg', '1'),
-(664, 199, '1650475245_inbound5228303177041976762.jpg', '1'),
-(665, 199, '1650475262_inbound6778894933895488745.jpg', '1'),
-(666, 199, '1650475277_inbound5888016500918058004.jpg', '1'),
-(667, 199, '1650475292_inbound3451024100139658656.jpg', '1'),
-(668, 205, 'https://sicapi.sislamcars.com.bd/storage/uploads/a371ea29bd839e3512521fc3b902af4d1650478879.jpg', '1'),
-(669, 205, 'https://sicapi.sislamcars.com.bd/storage/uploads/b5c1b856f0f64cf1279d7d9b73b8e45c1650478879.jpg', '1'),
-(670, 207, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650479078.jpg', '1'),
-(671, 208, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650479222.jpg', '1'),
-(672, 208, 'https://sicapi.sislamcars.com.bd/storage/uploads/b0398afc3812ad42f03abd8908bdb8dd1650479222.jpg', '1'),
-(673, 208, 'https://sicapi.sislamcars.com.bd/storage/uploads/6ad15548608ef07ee9139c98acdc24101650479222.jpg', '1'),
-(674, 209, '1650511869_hrcar2.jpg', '1'),
-(675, 210, 'https://sicapi.sislamcars.com.bd/storage/uploads/b0398afc3812ad42f03abd8908bdb8dd1650518265.jpg', '1'),
-(676, 213, 'https://sicapi.sislamcars.com.bd/storage/uploads/2cda284fe2e6291cc3597eb9ea0a66ee1650522722.jpg', '1'),
-(677, 213, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650522722.jpg', '1'),
-(678, 213, 'https://sicapi.sislamcars.com.bd/storage/uploads/b0398afc3812ad42f03abd8908bdb8dd1650522723.jpg', '1'),
-(679, 214, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650523248.jpg', '1'),
-(680, 215, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650523487.jpg', '1'),
-(681, 215, 'https://sicapi.sislamcars.com.bd/storage/uploads/b0398afc3812ad42f03abd8908bdb8dd1650523487.jpg', '1'),
-(682, 216, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650523988.jpg', '1'),
-(683, 217, 'https://sicapi.sislamcars.com.bd/storage/uploads/c67495d172ce2adf67ae47f8c02e1d9f1650524518.jpg', '1'),
-(684, 217, 'https://sicapi.sislamcars.com.bd/storage/uploads/cbb5deaf81f755f124d4df730cba7ac81650524518.jpg', '1'),
-(685, 218, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650524590.jpg', '1'),
-(686, 218, 'https://sicapi.sislamcars.com.bd/storage/uploads/b0398afc3812ad42f03abd8908bdb8dd1650524590.jpg', '1'),
-(687, 219, 'https://sicapi.sislamcars.com.bd/storage/uploads/ba05fcff96e7415b373f58b9d6034a4d1650525315.jpg', '1');
+(559, 100, '1649709614_1.jpeg', '1');
 
 -- --------------------------------------------------------
 
@@ -5502,6 +5193,16 @@ INSERT INTO `smartend_seller_comfort` (`id`, `seller_id`, `comfort_id`) VALUES
 (176, 6, 3),
 (177, 6, 6),
 (178, 6, 7),
+(258, 1, 1),
+(259, 1, 2),
+(260, 1, 3),
+(261, 1, 6),
+(262, 1, 7),
+(263, 1, 1),
+(264, 1, 3),
+(265, 1, 5),
+(266, 1, 6),
+(267, 1, 7),
 (268, 2, 1),
 (269, 2, 2),
 (270, 2, 3),
@@ -5841,22 +5542,7 @@ INSERT INTO `smartend_seller_comfort` (`id`, `seller_id`, `comfort_id`) VALUES
 (680, 99, 1),
 (681, 99, 2),
 (682, 99, 3),
-(683, 99, 5),
-(684, 168, 1),
-(685, 168, 2),
-(686, 168, 3),
-(687, 169, 1),
-(688, 169, 2),
-(689, 169, 3),
-(690, 176, 1),
-(691, 176, 4),
-(692, 185, 2),
-(693, 1, 1),
-(694, 1, 2),
-(695, 1, 3),
-(696, 1, 5),
-(697, 1, 6),
-(698, 1, 7);
+(683, 99, 5);
 
 -- --------------------------------------------------------
 
@@ -5945,6 +5631,15 @@ INSERT INTO `smartend_seller_entertainment` (`id`, `seller_id`, `entertainment_i
 (192, 6, 3),
 (193, 6, 4),
 (194, 6, 7),
+(272, 1, 1),
+(273, 1, 2),
+(274, 1, 3),
+(275, 1, 4),
+(276, 1, 7),
+(277, 1, 1),
+(278, 1, 3),
+(279, 1, 2),
+(280, 1, 4),
 (281, 2, 1),
 (282, 2, 2),
 (283, 2, 3),
@@ -6283,22 +5978,7 @@ INSERT INTO `smartend_seller_entertainment` (`id`, `seller_id`, `entertainment_i
 (695, 99, 1),
 (696, 99, 2),
 (697, 99, 3),
-(698, 99, 4),
-(699, 168, 1),
-(700, 168, 2),
-(701, 168, 3),
-(702, 168, 4),
-(703, 169, 1),
-(704, 169, 2),
-(705, 169, 3),
-(706, 169, 4),
-(707, 176, 2),
-(708, 185, 2),
-(709, 1, 1),
-(710, 1, 2),
-(711, 1, 3),
-(712, 1, 4),
-(713, 1, 7);
+(698, 99, 4);
 
 -- --------------------------------------------------------
 
@@ -6334,6 +6014,7 @@ INSERT INTO `smartend_seller_fuel_type` (`id`, `seller_id`, `fuel_type_id`) VALU
 (58, 18, 4),
 (59, 28, 4),
 (60, 25, 4),
+(68, 1, 4),
 (69, 2, 4),
 (70, 3, 4),
 (71, 4, 4),
@@ -6453,11 +6134,7 @@ INSERT INTO `smartend_seller_fuel_type` (`id`, `seller_id`, `fuel_type_id`) VALU
 (212, 85, 2),
 (213, 89, 4),
 (214, 90, 4),
-(215, 99, 4),
-(216, 168, 4),
-(217, 169, 5),
-(218, 169, 4),
-(219, 1, 4);
+(215, 99, 4);
 
 -- --------------------------------------------------------
 
@@ -6616,52 +6293,7 @@ INSERT INTO `smartend_seller_images` (`seller_id`, `smart_card_photo`, `tax_toke
 (99, NULL, NULL, NULL, NULL),
 (100, NULL, NULL, NULL, NULL),
 (101, NULL, NULL, NULL, NULL),
-(102, NULL, NULL, NULL, NULL),
-(103, NULL, NULL, NULL, NULL),
-(104, NULL, NULL, NULL, NULL),
-(105, NULL, NULL, NULL, NULL),
-(106, NULL, NULL, NULL, NULL),
-(108, NULL, NULL, NULL, NULL),
-(109, NULL, NULL, NULL, NULL),
-(110, NULL, NULL, NULL, NULL),
-(156, NULL, NULL, NULL, NULL),
-(157, NULL, NULL, NULL, NULL),
-(158, NULL, NULL, NULL, NULL),
-(159, NULL, NULL, NULL, NULL),
-(160, NULL, NULL, NULL, NULL),
-(161, NULL, NULL, NULL, NULL),
-(162, NULL, NULL, NULL, NULL),
-(163, NULL, NULL, NULL, NULL),
-(164, NULL, NULL, NULL, NULL),
-(165, NULL, NULL, NULL, NULL),
-(166, NULL, NULL, NULL, NULL),
-(167, NULL, NULL, NULL, NULL),
-(168, NULL, NULL, NULL, NULL),
-(169, NULL, NULL, NULL, NULL),
-(170, NULL, NULL, NULL, NULL),
-(171, NULL, NULL, NULL, NULL),
-(172, NULL, NULL, NULL, NULL),
-(173, NULL, NULL, NULL, NULL),
-(174, NULL, NULL, NULL, NULL),
-(175, NULL, NULL, NULL, NULL),
-(176, NULL, NULL, NULL, NULL),
-(180, NULL, NULL, NULL, NULL),
-(181, NULL, NULL, NULL, NULL),
-(182, NULL, NULL, NULL, NULL),
-(183, NULL, NULL, NULL, NULL),
-(184, NULL, NULL, NULL, NULL),
-(185, NULL, NULL, NULL, NULL),
-(186, NULL, NULL, NULL, NULL),
-(187, NULL, NULL, NULL, NULL),
-(188, NULL, NULL, NULL, NULL),
-(189, NULL, NULL, NULL, NULL),
-(190, NULL, NULL, NULL, NULL),
-(191, NULL, NULL, NULL, NULL),
-(196, NULL, NULL, NULL, NULL),
-(197, NULL, NULL, NULL, NULL),
-(198, NULL, NULL, NULL, NULL),
-(199, NULL, NULL, NULL, NULL),
-(209, NULL, NULL, NULL, NULL);
+(102, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -6715,6 +6347,9 @@ INSERT INTO `smartend_seller_other_feature` (`id`, `seller_id`, `other_feature_i
 (99, 6, 2),
 (100, 6, 5),
 (101, 6, 1),
+(106, 1, 4),
+(107, 1, 2),
+(108, 1, 5),
 (109, 2, 1),
 (110, 2, 6),
 (111, 2, 5),
@@ -6973,15 +6608,7 @@ INSERT INTO `smartend_seller_other_feature` (`id`, `seller_id`, `other_feature_i
 (420, 91, 4),
 (421, 91, 5),
 (422, 99, 4),
-(423, 99, 2),
-(424, 168, 4),
-(425, 168, 2),
-(426, 169, 4),
-(427, 169, 2),
-(428, 176, 4),
-(429, 1, 4),
-(430, 1, 2),
-(431, 1, 5);
+(423, 99, 2);
 
 -- --------------------------------------------------------
 
@@ -7062,6 +6689,13 @@ INSERT INTO `smartend_seller_safety` (`id`, `seller_id`, `safety_id`) VALUES
 (166, 6, 2),
 (167, 6, 5),
 (168, 6, 7),
+(231, 1, 1),
+(232, 1, 2),
+(233, 1, 5),
+(234, 1, 7),
+(235, 1, 1),
+(236, 1, 2),
+(237, 1, 5),
 (238, 2, 1),
 (239, 2, 2),
 (240, 2, 5),
@@ -7370,20 +7004,7 @@ INSERT INTO `smartend_seller_safety` (`id`, `seller_id`, `safety_id`) VALUES
 (614, 91, 7),
 (615, 99, 1),
 (616, 99, 2),
-(617, 99, 5),
-(618, 168, 1),
-(619, 168, 2),
-(620, 168, 3),
-(621, 168, 5),
-(622, 169, 1),
-(623, 169, 2),
-(624, 169, 5),
-(625, 176, 1),
-(626, 185, 2),
-(627, 1, 1),
-(628, 1, 2),
-(629, 1, 5),
-(630, 1, 7);
+(617, 99, 5);
 
 -- --------------------------------------------------------
 
@@ -7443,6 +7064,10 @@ INSERT INTO `smartend_seller_seat` (`id`, `seller_id`, `seat_id`) VALUES
 (98, 6, 5),
 (99, 6, 1),
 (100, 6, 6),
+(163, 1, 3),
+(164, 1, 5),
+(165, 1, 1),
+(166, 1, 6),
 (167, 2, 2),
 (168, 2, 3),
 (169, 2, 4),
@@ -7660,15 +7285,7 @@ INSERT INTO `smartend_seller_seat` (`id`, `seller_id`, `seat_id`) VALUES
 (432, 90, 1),
 (433, 90, 6),
 (434, 91, 2),
-(435, 91, 3),
-(436, 168, 3),
-(437, 168, 1),
-(438, 176, 1),
-(439, 176, 4),
-(440, 1, 3),
-(441, 1, 5),
-(442, 1, 1),
-(443, 1, 6);
+(435, 91, 3);
 
 -- --------------------------------------------------------
 
@@ -7719,6 +7336,10 @@ INSERT INTO `smartend_seller_window` (`id`, `seller_id`, `window_id`) VALUES
 (93, 5, 4),
 (94, 6, 1),
 (95, 6, 4),
+(128, 1, 1),
+(129, 1, 4),
+(130, 1, 4),
+(131, 1, 1),
 (132, 2, 1),
 (133, 2, 4),
 (134, 3, 1),
@@ -7889,17 +7510,7 @@ INSERT INTO `smartend_seller_window` (`id`, `seller_id`, `window_id`) VALUES
 (337, 91, 1),
 (338, 91, 3),
 (339, 99, 1),
-(340, 99, 4),
-(341, 168, 1),
-(342, 168, 4),
-(343, 169, 1),
-(344, 169, 4),
-(345, 176, 1),
-(346, 176, 2),
-(347, 176, 3),
-(348, 176, 4),
-(349, 1, 1),
-(350, 1, 4);
+(340, 99, 4);
 
 -- --------------------------------------------------------
 
@@ -8703,10 +8314,10 @@ CREATE TABLE `smartend_topics` (
 --
 
 INSERT INTO `smartend_topics` (`id`, `title_en`, `details_en`, `date`, `expire_date`, `video_type`, `photo_file`, `attach_file`, `video_file`, `audio_file`, `icon`, `status`, `visits`, `webmaster_id`, `section_id`, `row_no`, `seo_title_en`, `seo_description_en`, `seo_keywords_en`, `seo_url_slug_en`, `created_by`, `updated_by`, `created_at`, `updated_at`, `title_bn`, `details_bn`, `seo_title_bn`, `seo_description_bn`, `seo_keywords_bn`, `seo_url_slug_bn`) VALUES
-(1, 'About Us', 'It is a long established fact that a reader will be distracted by the readable content of a page.', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 107, 1, 0, 1, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-21 07:35:18', 'About Us', 'It is a long established fact that a reader will be distracted by the readable content of a page.', NULL, NULL, NULL, NULL),
-(2, 'Contact Us', '', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 169, 1, 0, 2, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-21 07:57:12', 'Contact Us', '', NULL, NULL, NULL, NULL),
-(3, 'Privacy', 'It is a long established fact that a reader will be distracted by the readable content of a page.', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 18, 1, 0, 3, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-20 17:57:18', 'Privacy', 'It is a long established fact that a reader will be distracted by the readable content of a page.', NULL, NULL, NULL, NULL),
-(4, 'Terms & Conditions', 'It is a long established fact that a reader will be distracted by the readable content of a page.', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 16, 1, 0, 4, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-20 17:57:17', 'Terms & Conditions', 'It is a long established fact that a reader will be distracted by the readable content of a page.', NULL, NULL, NULL, NULL);
+(1, 'About Us', 'It is a long established fact that a reader will be distracted by the readable content of a page.', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 84, 1, 0, 1, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-11 22:52:30', 'About Us', 'It is a long established fact that a reader will be distracted by the readable content of a page.', NULL, NULL, NULL, NULL),
+(2, 'Contact Us', '', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 140, 1, 0, 2, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-11 22:52:31', 'Contact Us', '', NULL, NULL, NULL, NULL),
+(3, 'Privacy', 'It is a long established fact that a reader will be distracted by the readable content of a page.', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 13, 1, 0, 3, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-09 05:08:01', 'Privacy', 'It is a long established fact that a reader will be distracted by the readable content of a page.', NULL, NULL, NULL, NULL),
+(4, 'Terms & Conditions', 'It is a long established fact that a reader will be distracted by the readable content of a page.', '2020-12-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 13, 1, 0, 4, NULL, NULL, NULL, NULL, 1, NULL, '2020-12-12 17:50:55', '2022-04-04 18:13:31', 'Terms & Conditions', 'It is a long established fact that a reader will be distracted by the readable content of a page.', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -9561,7 +9172,7 @@ ALTER TABLE `smartend_car_brand`
 -- AUTO_INCREMENT for table `smartend_car_buy`
 --
 ALTER TABLE `smartend_car_buy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `smartend_car_condition`
@@ -9573,7 +9184,7 @@ ALTER TABLE `smartend_car_condition`
 -- AUTO_INCREMENT for table `smartend_car_exchange`
 --
 ALTER TABLE `smartend_car_exchange`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `smartend_car_model`
@@ -9597,7 +9208,7 @@ ALTER TABLE `smartend_comments`
 -- AUTO_INCREMENT for table `smartend_contacts`
 --
 ALTER TABLE `smartend_contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `smartend_contacts_groups`
@@ -9615,7 +9226,7 @@ ALTER TABLE `smartend_countries`
 -- AUTO_INCREMENT for table `smartend_customers`
 --
 ALTER TABLE `smartend_customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `smartend_dealers`
@@ -9765,55 +9376,55 @@ ALTER TABLE `smartend_sections`
 -- AUTO_INCREMENT for table `smartend_seller`
 --
 ALTER TABLE `smartend_seller`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_car_images`
 --
 ALTER TABLE `smartend_seller_car_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=688;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=560;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_comfort`
 --
 ALTER TABLE `smartend_seller_comfort`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=699;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=684;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_entertainment`
 --
 ALTER TABLE `smartend_seller_entertainment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=714;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=699;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_fuel_type`
 --
 ALTER TABLE `smartend_seller_fuel_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_other_feature`
 --
 ALTER TABLE `smartend_seller_other_feature`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=432;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=424;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_safety`
 --
 ALTER TABLE `smartend_seller_safety`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=631;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=618;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_seat`
 --
 ALTER TABLE `smartend_seller_seat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=436;
 
 --
 -- AUTO_INCREMENT for table `smartend_seller_window`
 --
 ALTER TABLE `smartend_seller_window`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=341;
 
 --
 -- AUTO_INCREMENT for table `smartend_settings`

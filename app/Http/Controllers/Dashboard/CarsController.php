@@ -299,6 +299,7 @@ class CarsController extends Controller
         $Car->interior_color = $request->interior_color;
         $Car->registration_year = $request->registration_year;
         $Car->registration_serial = $request->registration_serial;
+        $Car->registration_number = $request->registration_serial . ' - ' . $request->registration_number;
         $Car->registration_city = $request->registration_city;
         $Car->seats = $request->seats;
 
@@ -315,35 +316,9 @@ class CarsController extends Controller
         $Car->save();
         if ($request->car_photo) {
             for ($i = 0; $i < count($request->car_photo); $i++) {
-                //echo '<pre/>';print_r($request->file('carphoto'));
-
-                // $seller_car_image = new SellerCarImage();
-                // $md5Name = md5_file(($request->file('carphoto')[$i])->getRealPath()).time();
-                // $mimeType = ($request->file('carphoto')[$i])->guessExtension();
-                // $path = ($request->file('carphoto')[$i])->storeAs('uploads',  $md5Name.'.'.$mimeType  , 'public');
-                // $seller_car_image->seller_id = $Car->id;
-                // $seller_car_image->car_image = $path;
-                // $seller_car_image->save();
-                /*
-$image       = $request->file('carphoto')[$i];
-$filename    = time().rand(100,999).' _ '.$image->getClientOriginalName();
-$image_resize = Image::make($image->getRealPath());
-//$image_resize->resize(1024, null);
-$image_resize->insert('/home2/sislamcarscom/public_html/public/uploads/car_images/watermark/watermark.png', 'center');
-$image_resize->resize(1024, null, function ($constraint) {
-$constraint->aspectRatio(); //to preserve the aspect ratio
-$constraint->upsize();
-});
-
-$image_resize->save(public_path('uploads/car_images/full/' .$filename));
-$image_resize->resize(300, 300);
-$image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
-*/
-                //dd($request->car_photo[0]);
                 $seller_car_image = new SellerCarImage();
                 $seller_car_image->seller_id = $Car->id;
-                $seller_car_image->car_image = $request->car_photo[$i];
-                //dd($seller_car_image->car_image);
+                $seller_car_image->car_image = "https://www.sislamcars.com.bd/files/" . $request->car_photo[$i];
                 $seller_car_image->save();
             }
         }
@@ -352,7 +327,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
             $md5Name = md5_file($request->file('smart_card')->getRealPath()) . time();
             $mimeType = $request->file('smart_card')->guessExtension();
             $path = $request->file('smart_card')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_car_image->smart_card_photo = $path;
+            $seller_car_image->smart_card_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
 
         $seller_image = new SellerImage();
@@ -360,19 +335,19 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
             $md5Name = md5_file($request->file('tax_token')->getRealPath()) . time();
             $mimeType = $request->file('tax_token')->guessExtension();
             $path = $request->file('tax_token')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_image->tax_token_photo = $path;
+            $seller_image->tax_token_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
         if ($request->file('fitness')) {
             $md5Name = md5_file($request->file('fitness')->getRealPath()) . time();
             $mimeType = $request->file('fitness')->guessExtension();
             $path = $request->file('fitness')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_image->fitness_photo = $path;
+            $seller_image->fitness_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
         if ($request->file('bank_clearance')) {
             $md5Name = md5_file($request->file('bank_clearance')->getRealPath()) . time();
             $mimeType = $request->file('bank_clearance')->guessExtension();
             $path = $request->file('bank_clearance')->storeAs('uploads', $md5Name . '.' . $mimeType, 'public');
-            $seller_image->bank_clearance_photo = $path;
+            $seller_image->bank_clearance_photo = "https://www.sislamcars.com.bd/storage/uploads/" . $path;
         }
         $seller_image->seller_id = $Car->id;
         $seller_image->save();
@@ -442,7 +417,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         }
         //return Redirect::to('/');
 
-        $request->session()->flash('alert-success', 'Data successfully added!');
+        $request->session()->flash('success', 'Data successfully added!');
         return redirect()->action('Dashboard\CarsController@index');
     }
 
@@ -627,7 +602,7 @@ $image_resize->save(public_path('uploads/car_images/thumb/' .$filename));
         $RegistrationSerial = RegistrationSerial::where('status', 1)->get();
 
         $carDetails = Seller::with('images', 'customers', 'seller_fuel_types', 'seller_comfort', 'seller_entertainment', 'seller_safety', 'seller_seat', 'seller_window', 'seller_other_feature', 'seller_car_images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
-        ->where('id', $id)
+            ->where('id', $id)
             ->first();
 
         //$CustomerID = $carDetails->customer_id;
@@ -1556,6 +1531,25 @@ $fuel_type->save();
         return view('dashboard.cars.all', compact('GeneralWebmasterSections', 'small_date', 'large_date'));
     }
 
+    public function get_all_car_data(Request $request)
+    {
+        if ($request['FromDate']) {
+            $DateFrom = $request['FromDate'] . ' 00:00:00:000';
+            $ToDate = $request['ToDate'] . ' 23:59:59:000';
+        } else {
+            $DateFrom = date('Y-m-01') . ' 00:00:00:000';
+            $ToDate = date('Y-m-d') . ' 23:59:59:000';
+        }
+        //dd($ToDate);
+
+        $SellerCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission', 'customer_info')
+            ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
+            ->orderby('id', 'desc')
+            ->get();
+
+        return view('dashboard.cars.get_all_car', compact('SellerCars', 'DateFrom', 'ToDate'));
+    }
+
     public function exchange(Request $request)
     {
         //dd('d');
@@ -1645,28 +1639,9 @@ $fuel_type->save();
             ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
             ->orderby('seller.id', 'desc')
             ->get();
-            
+
 
         return view('dashboard.cars.get_buy_car', compact('BuyCars', 'DateFrom', 'ToDate'));
-    }
-
-    public function get_all_car_data(Request $request)
-    {
-        if ($request['FromDate']) {
-            $DateFrom = $request['FromDate'] . ' 00:00:00:000';
-            $ToDate = $request['ToDate'] . ' 23:59:59:000';
-        } else {
-            $DateFrom = date('Y-m-01') . ' 00:00:00:000';
-            $ToDate = date('Y-m-d') . ' 23:59:59:000';
-        }
-        //dd($ToDate);
-
-        $SellerCars = Seller::with('images', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type','car_transmission', 'customer_info')
-            ->whereBetween('seller.created_at', [$DateFrom, $ToDate])
-            ->orderby('id', 'desc')
-            ->get();
-
-        return view('dashboard.cars.get_all_car', compact('SellerCars', 'DateFrom', 'ToDate'));
     }
 
     public function get_exchange_car_data(Request $request)

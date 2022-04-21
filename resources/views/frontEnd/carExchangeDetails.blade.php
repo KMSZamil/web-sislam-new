@@ -29,7 +29,7 @@
                 @php
                     foreach($carDetails->car_images as $row){
                 @endphp
-                <a href="{{ asset('files/'.$row->car_image) }}"><img src="{{ asset('files/'.$row->car_image) }}"></a>
+                <a href="{{ $row->car_image }}"><img src="{{ $row->car_image }}"></a>
                 @php
                     }
                 @endphp

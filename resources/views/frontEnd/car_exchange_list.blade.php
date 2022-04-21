@@ -36,7 +36,7 @@
                 <div class="col-md-4 message_box" data-id="<?php echo $data->id; ?>" style=" margin-bottom: 30px;">
                     <div class="car-list-box box-sm">
                         <div class="media-box">
-                            <img src="{{ asset('files/' . $data->car_images[0]->car_image) }}"
+                            <img src="{{ $data->car_images[0]->car_image }}"
                                 alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
                         </div>
                         <div class="list-info">
