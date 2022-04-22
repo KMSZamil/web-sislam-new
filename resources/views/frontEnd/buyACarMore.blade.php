@@ -10,6 +10,10 @@ foreach($dashboardCars as $data):
      <div class="col-md-4 message_box" data-id="<?php echo $data->id; ?>" style=" margin-bottom: 30px;">
          <div class="car-list-box box-sm">
              <div class="media-box">
+                 @if ($data->status == 2)
+                     <span class="label label-danger"
+                         style="position: absolute; transform: rotate(313deg); margin-top: 32px; width: 100px; font-size:20px;">Sold</span>
+                 @endif
                  <img src="{{ asset('files/' . $data->car_images[0]->car_image) }}"
                      alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
              </div>
@@ -41,18 +45,19 @@ foreach($dashboardCars as $data):
                          {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div>
                  </div>
                  @php
-                 $data_array = [];
-                 if (!empty($data->seller_fuel_types)) {
-                     foreach ($data->seller_fuel_types as $row) {
-                         $data_array[] = $row->fuel_type_name['name'];
+                     $data_array = [];
+                     if (!empty($data->seller_fuel_types)) {
+                         foreach ($data->seller_fuel_types as $row) {
+                             $data_array[] = $row->fuel_type_name['name'];
+                         }
                      }
-                 }
-                 
-                 $fules = implode(', ', $data_array);
-                 //dd($fules)
-             @endphp
+                     
+                     $fules = implode(', ', $data_array);
+                     //dd($fules)
+                 @endphp
                  <div class="col-xs-4">
-                     <div class="row" style="font-size: 14px"><img src="/uploads/frontend/icon/fuel.png" width="14">
+                     <div class="row" style="font-size: 14px"><img src="/uploads/frontend/icon/fuel.png"
+                             width="14">
                          {{ isset($data->seller_fuel_types) ? $fules : '' }}</div>
                  </div>
                  <div class="col-xs-4">

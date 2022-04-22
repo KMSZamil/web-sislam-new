@@ -720,7 +720,7 @@ class CarsController extends Controller
             $Car->bank_loan = $request->bank_loan;
             $Car->name_transfer = $request->name_transfer;
             $Car->price = $request->price;
-            $Car->status = 1;
+            $Car->status = $request->status;
             $Car->car_status = 2;
             $Car->home_feature = $request->home_feature;
             $Car->car_details = $request->car_details;

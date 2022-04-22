@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.master')
-@section('title', __('backend.newsletter'))
+@section('title', __('backend.car'))
 @section('content')
     <div class="padding">
         <div class="app-body-inner">

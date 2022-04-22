@@ -36,15 +36,24 @@
                 <div class="col-md-4 message_box" data-id="<?php echo $data->id; ?>" style=" margin-bottom: 30px;">
                     <div class="car-list-box box-sm">
                         <div class="media-box">
-                            <img src="{{ asset('files/' . $data->car_images[0]->car_image) }}"
+                            @if ($data->status == 2)
+                                <span class="label label-danger"
+                                    style="position: absolute; transform: rotate(313deg); margin-top: 32px; width: 100px; font-size:20px;">Sold</span>
+                            @endif
+                            <img src="{{ $data->car_images[0]->car_image }}"
                                 alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
                         </div>
                         <div class="list-info">
                             <div class="row">
                                 <div style="float: left;">
-                                    <span class="badge-book m-b30">
-                                        <a href="{{ url('car-book', $data->id) }}">Book Now</a>
-                                    </span>
+                                    @if ($data->status != 2)
+                                        <span class="badge-book m-b30">
+                                            <a href="{{ url('car-book', $data->id) }}"
+                                                style="text-decoration: none;  color: inherit;">Book
+                                                Now</a>
+                                        </span>
+                                    @endif
+
                                 </div>
                                 <div style="float: right;">
                                     <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>
@@ -67,9 +76,9 @@
                                     {{ isset($data->menufacturing_year) ? $data->menufacturing_year : '' }}</div>
                             </div>
                             @php
-                            $data_array = [];
-                                if (!empty($data->seller_fuel_types)){
-                                    foreach ($data->seller_fuel_types as $row){
+                                $data_array = [];
+                                if (!empty($data->seller_fuel_types)) {
+                                    foreach ($data->seller_fuel_types as $row) {
                                         $data_array[] = $row->fuel_type_name['name'];
                                     }
                                 }
@@ -78,7 +87,8 @@
                                 //dd($fules)
                             @endphp
                             <div class="col-xs-4">
-                                <div class="row" style="font-size: 12px"><img src="/uploads/frontend/icon/fuel.png" width="14">
+                                <div class="row" style="font-size: 12px"><img
+                                        src="/uploads/frontend/icon/fuel.png" width="14">
                                     {{ isset($data->seller_fuel_types) ? $fules : '' }}</div>
                             </div>
                             <div class="col-xs-4">

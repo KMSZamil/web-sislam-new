@@ -36,26 +36,34 @@
                 <div class="col-md-4 message_box" data-id="<?php echo $data->id; ?>" style=" margin-bottom: 30px;">
                     <div class="car-list-box box-sm">
                         <div class="media-box">
+                            @if ($data->status == 2)
+                                <span class="label label-danger"
+                                    style="position: absolute; transform: rotate(313deg); margin-top: 32px; width: 100px; font-size:20px;">Sold</span>
+                            @endif
                             <img src="{{ $data->car_images[0]->car_image }}"
                                 alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
                         </div>
                         <div class="list-info">
                             <div class="row">
                                 <div style="float: left;">
-                                    <span class="badge-book m-b30">
-                                        <form action="{{ url('car-exchange-details') }}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="CustomerID" id="CustomerID"
-                                                value="{{ $customer_id }}">
-                                            <input type="hidden" name="SellerCarID" id="SellerCarID"
-                                                value="{{ $seller_car_id }}">
-                                            <input type="hidden" name="ShowroomCarID" value="{{ $data->id }}">
-                                            <button type="submit"
-                                                style="background: none; border:none; font-size: 16px;">Exchange
-                                                Now</button>
-                                        </form>
-                                        {{-- <a href="{{ url('car-book', $data->id) }}">Exchange Now</a> --}}
-                                    </span>
+                                    @if ($data->status != 2)
+                                        <span class="badge-book m-b30">
+
+                                            <form action="{{ url('car-exchange-details') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="CustomerID" id="CustomerID"
+                                                    value="{{ $customer_id }}">
+                                                <input type="hidden" name="SellerCarID" id="SellerCarID"
+                                                    value="{{ $seller_car_id }}">
+                                                <input type="hidden" name="ShowroomCarID" value="{{ $data->id }}">
+                                                <button type="submit"
+                                                    style="background: none; border:none; font-size: 16px;">Exchange
+                                                    Now</button>
+                                            </form>
+
+                                            {{-- <a href="{{ url('car-book', $data->id) }}">Exchange Now</a> --}}
+                                        </span>
+                                    @endif
                                 </div>
                                 <div style="float: right;">
                                     <span class="badge m-b30">Tk. {{ number_format($data->price, 2) }}</span>

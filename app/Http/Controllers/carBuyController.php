@@ -143,8 +143,8 @@ class carBuyController extends Controller
         $save_data = array(
             'name' => $request->name,
             'email' => $request->email,
-            'district' => 'required',
-            'thana' => 'required',
+            'district' => $request->district,
+            'thana' => $request->thana,
             'address1' => $request->address1,
             'address2' => $request->address1,
             'buy_car' => 1
@@ -159,13 +159,41 @@ class carBuyController extends Controller
         $Booking->customer_id = $CustomerID;
         $Booking->status = 1;
         $Booking->save();
+        //dd($CustomerID);
 
-        // return view('frontEnd.thanks_book',
-        //     compact("WebsiteSettings", "WebmasterSettings",
-        //         "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
-        //     ->with('success', __('frontend.SUCESSMSGBOOK'));
-        $request->session()->put('success', __('frontend.SUCESSMSGBOOK'));
-        return redirect()->route('Home', ['success' => __('frontend.SUCESSMSGBOOK')]);
+        $carDetails = Seller::with(
+            'images',
+            'car_images',
+            'seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'car_drive_type',
+            'car_transmission',
+            'customer_info'
+        )->where('status', '!=', 0)
+            ->where('id', $request->CarID)->first();
+        $customerDetails = Customer::where('id', $CustomerID)->first();
+        //dd($customerDetails);;
+
+        return view(
+            'frontEnd.thanks_book',
+            compact(
+                "WebsiteSettings",
+                "WebmasterSettings",
+                "PageTitle",
+                "PageDescription",
+                "PageKeywords",
+                "PageTitle",
+                "LatestNews",
+                "carDetails",
+                "customerDetails"
+            )
+        )->with('success', __('frontend.SUCESSMSGBOOK'));
+        //$request->session()->put('success', __('frontend.SUCESSMSGBOOK'));
+        //return redirect()->route('Home', ['success' => __('frontend.SUCESSMSGBOOK')]);
     }
 
     public function latest_topics($section_id, $limit = 3)

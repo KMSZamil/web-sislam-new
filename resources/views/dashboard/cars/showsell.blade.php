@@ -99,8 +99,8 @@
                                                             data-loop="true">
 
                                                             @foreach ($SellCars->seller_car_images as $row)
-                                                                <a href="{{ asset('files/' . $row->car_image) }}"><img
-                                                                        src="{{ asset('files/' . $row->car_image) }}"></a>
+                                                                <a href="{{ $row->car_image }}"><img
+                                                                        src="{{ $row->car_image }}"></a>
                                                             @endforeach
                                                         </div>
                                                     </div>

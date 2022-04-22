@@ -12,7 +12,7 @@
     <div class="block-title">
         <div class="block-title__inner section-bg section-bg_second">
             <div class="bg-inner">
-                <h1 class="ui-title-page">{{ __('frontend.CARBOOK') }}</h1>
+                <h1 class="ui-title-page">{{ __('frontend.CARSELL') }}</h1>
             </div>
         </div>
     </div>
@@ -55,31 +55,31 @@
                             </tbody>
                         </table>
                         @if (isset($customerDetails))
-                        <h3>Customer Details</h3>
-                        <table class="table table-bordered">
-                            <tbody>
-                                <tr>
-                                    <td style="width:200px">Full Name</td>
-                                    <td>{{ $customerDetails->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>{{ $customerDetails->email }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile</td>
-                                    <td>{{ $customerDetails->mobile }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Address</td>
-                                    <td>{{ $customerDetails->address_line1 }}</td>
-                                </tr>
-                                <tr>
-                                    <td>About Car</td>
-                                    <td>{{ $carDetails->car_details }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <h3>Customer Details</h3>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:200px">Full Name</td>
+                                        <td>{{ $customerDetails->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{ $customerDetails->email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile</td>
+                                        <td>{{ $customerDetails->mobile }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>{{ $customerDetails->address_line1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>About Car</td>
+                                        <td>{{ $carDetails->car_details }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         @endif
                     </div>
                     <div class="col-sm-12 col-md-6">

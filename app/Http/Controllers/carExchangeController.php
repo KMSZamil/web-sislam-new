@@ -263,7 +263,7 @@ class carExchangeController extends Controller
         //dd($customer_id);
 
         $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
-            ->where('status', 1)
+            ->where('status', '!=', 0)
             ->where('home_feature', 1)
             ->where('car_status', 2)
             ->take(9)
@@ -280,7 +280,7 @@ class carExchangeController extends Controller
 
         $ID = $request->msg_id;
         $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
-            ->where('status', 1)
+            ->where('status', '!=', 0)
             ->where('home_feature', 1)
             ->where('car_status', 2)
             ->where('id', '>', $ID)
@@ -311,7 +311,7 @@ class carExchangeController extends Controller
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
 
         $carDetails = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
-            ->where('status', 1)
+            ->where('status', '!=', 0)
             ->where('id', $ShowroomCarID)
             ->first();
 
@@ -382,7 +382,6 @@ class carExchangeController extends Controller
             'email' => 'required',
             'mobile' => 'required',
             'address1' => 'required',
-            'address2' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -414,11 +413,60 @@ class carExchangeController extends Controller
         $Exchange->status = 1;
         $Exchange->save();
 
-        // return view('frontEnd.thanks_exchange',
-        //     compact("WebsiteSettings", "WebmasterSettings",
-        //         "PageTitle", "PageDescription", "PageKeywords", "PageTitle", "LatestNews"))
-        //     ->with('success', __('frontend.SUCESSMSGEXCHANGE'));
-        $request->session()->put('success', __('frontend.SUCESSMSGEXCHANGE'));
-        return redirect()->route('Home', ['success' => __('frontend.SUCESSMSGEXCHANGE')]);
+        //dd($SellerCarID);
+        $carDetailsCarOwner = Seller::with(
+            'images',
+            'car_images',
+            'seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'car_drive_type',
+            'car_transmission',
+            'customer_info',
+            'seller_car_images'
+        )->where('status', '!=', 0)
+            ->where('id', $SellerCarID)->first();
+
+
+        $carDetailsShowroomCar = Seller::with(
+            'images',
+            'car_images',
+            'seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'car_drive_type',
+            'car_transmission',
+            'customer_info',
+            'seller_car_images'
+        )->where('status', '!=', 0)
+            ->where('id', $ShowroomCarID)->first();
+
+        $customerDetails = Customer::where('id', $CustomerID)->first();
+
+        //dd($carDetailsShowroomCar);
+        return view('frontEnd.thanks_exchange',
+            compact(
+                "WebsiteSettings",
+                "WebmasterSettings",
+                "PageTitle",
+                "PageDescription",
+                "PageKeywords",
+                "PageTitle",
+                "LatestNews",
+                "carDetailsCarOwner",
+                "carDetailsShowroomCar",
+                "customerDetails"
+            )
+        )
+            ->with('success', __('frontend.SUCESSMSGEXCHANGE'));
+        //$request->session()->put('success', __('frontend.SUCESSMSGEXCHANGE'));
+
+        //return redirect()->route('Home', ['success' => __('frontend.SUCESSMSGEXCHANGE')]);
     }
 }

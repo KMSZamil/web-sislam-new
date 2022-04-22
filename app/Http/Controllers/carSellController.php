@@ -8,6 +8,7 @@ use App\Models\CarBrand;
 use App\Models\CarCondition;
 use App\Models\CarModel;
 use App\Models\Comfort;
+use App\Models\Customer;
 use App\Models\District;
 use App\Models\Drive;
 use App\Models\Entertainment;
@@ -326,8 +327,40 @@ class carSellController extends Controller
             }
         }
 
-        $request->session()->put('success', __('frontend.SUCESSMSG'));
-        return redirect()->route('Home', ['success' => __('frontend.SUCESSMSG')]);
+        $carDetails = Seller::with(
+            'images',
+            'car_images',
+            'seller_fuel_types.fuel_type_name',
+            'condition',
+            'car_brand',
+            'model',
+            'bodytype',
+            'car_exterior_color',
+            'car_drive_type',
+            'car_transmission',
+            'customer_info'
+        )->where('status', '!=', 0)
+            ->where('id', $seller_data->id)->first();
+
+        $customerDetails = Customer::where('id', $customer->id)->first();
+        //dd($carDetails);;
+
+        return view(
+            'frontEnd.thanks_book_sell',
+            compact(
+                "WebsiteSettings",
+                "WebmasterSettings",
+                "PageTitle",
+                "PageDescription",
+                "PageKeywords",
+                "PageTitle",
+                "LatestNews",
+                "carDetails",
+                "customerDetails"
+            )
+        )->with('success', __('frontend.SUCESSMSG'));
+        //$request->session()->put('success', __('frontend.SUCESSMSG'));
+        //return redirect()->route('Home', ['success' => __('frontend.SUCESSMSG')]);
     }
 
     public function exchangeBasic(Request $request)

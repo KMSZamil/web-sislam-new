@@ -218,7 +218,7 @@ class HomeController extends Controller
             'car_drive_type',
             'car_transmission'
         )
-            ->where('status',1)
+            ->where('status','!=', 0)
             ->where('home_feature',1)
             ->where('car_status',2)
             ->orderBy('id', 'DESC')

@@ -105,7 +105,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
             </div>
         </div>
         <div class="col-md-6">
-            <img class=" img-responsive" src="{{ asset('files/'.$carDetails->car_images[0]->car_image) }}" alt="{{ isset($carDetails->car_title) ? $carDetails->car_title : '' }}">
+            <img class=" img-responsive" src="{{$carDetails->car_images[0]->car_image }}" alt="{{ isset($carDetails->car_title) ? $carDetails->car_title : '' }}">
         </div>
     </div>
 </div>

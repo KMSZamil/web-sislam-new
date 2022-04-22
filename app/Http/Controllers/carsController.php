@@ -57,7 +57,7 @@ class carsController extends Controller
         $customer = Customer::where('id', $request->CustomerID)->first();
         //dd($customer);
         $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
-            ->where('status', 1)
+            ->where('status','!=', 0)
             ->where('home_feature', 1)
             ->where('car_status', 2)
             ->take(9)
@@ -72,7 +72,7 @@ class carsController extends Controller
         $ID = $request->msg_id;
 
         $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
-            ->where('status', 1)
+            ->where('status','!=', 0)
             ->where('home_feature', 1)
             ->where('car_status', 2)
             ->where('id', '>', $ID)
@@ -104,7 +104,7 @@ class carsController extends Controller
     //     $customer = Customer::where('id', $request->CustomerID)->first();
     //     //dd($customer);
     //     $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
-    //         ->where('status', 1)
+    //         ->where('status','!=', 0)
     //         ->where('home_feature', 1)
     //         ->where('car_status', 2)
     //         ->get();
@@ -124,7 +124,7 @@ class carsController extends Controller
         $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
         //dd($customer);
         $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
-            ->where('status', 1)
+            ->where('status','!=', 0)
             ->where('home_feature', 1)
             ->where('car_status', 2)
             ->inRandomOrder()

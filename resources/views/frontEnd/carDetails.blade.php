@@ -124,15 +124,19 @@
                         </li>
                     </ul>
                     <div class="car-details">
-                        <form action="{{ url('car-book') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="CustomerID" value="{{ isset($CustomerID) ? $CustomerID : null }}">
-                            <input type="hidden" name="CarID"
-                                value="{{ isset($carDetails->id) ? $carDetails->id : null }}">
+                        @if ($carDetails->status != 2)
+                            <form action="{{ url('car-book') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="CustomerID"
+                                    value="{{ isset($CustomerID) ? $CustomerID : null }}">
+                                <input type="hidden" name="CarID"
+                                    value="{{ isset($carDetails->id) ? $carDetails->id : null }}">
 
-                            <button type="submit" class="btn btn-warning btn-lg btn-block">Book Now</button>
+                                <button type="submit" class="btn btn-warning btn-lg btn-block">Book Now</button>
 
-                        </form>
+                            </form>
+                        @endif
+
 
                     </div>
                 </div>
