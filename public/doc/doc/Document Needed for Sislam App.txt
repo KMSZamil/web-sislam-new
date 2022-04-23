@@ -1,0 +1,15 @@
+Document needed for Sislam Car App:
+
+1. App Name:
+
+2. App Description Short(upto 80 word):
+
+3. App Long Description (upto 4000 word):
+
+4. Logo (512x512):
+
+5. Feature Image (1024x500):
+
+6. Screenshot (sample provided):
+
+After gettting all the docs, if anything needed will be notified later
