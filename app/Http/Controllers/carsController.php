@@ -71,7 +71,7 @@ class carsController extends Controller
 
         $ID = $request->msg_id;
 
-        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'drive_type', 'car_transmission')
+        $dashboardCars = Seller::with('images', 'car_images', 'seller_fuel_types.fuel_type_name', 'condition', 'car_brand', 'model', 'bodytype', 'car_exterior_color', 'car_drive_type', 'car_transmission')
             ->where('status','!=', 0)
             ->where('home_feature', 1)
             ->where('car_status', 2)
