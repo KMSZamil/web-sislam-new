@@ -199,8 +199,11 @@
                         <div class="car-list-box box-sm">
                             <div class="media-box">
                                 @if ($data->status == 2)
-                                    <span class="label label-danger"
-                                        style="position: absolute; transform: rotate(313deg); margin-top: 32px; width: 100px; font-size:20px;">Sold</span>
+                                    {{-- <span class="label label-danger"
+                                        style="position: absolute; transform: rotate(313deg); margin-top: 32px; width: 100px; font-size:20px;">Sold</span> --}}
+                                    <img style="position: absolute; transform: rotate(333deg); margin-top: 32px; width: 100px; "
+                                        src="https://www.sislamcars.com.bd/public/assets/images/sold-out-png-4.png"
+                                        alt="https://www.sislamcars.com.bd/public/assets/images/sold-out-png-4.png">
                                 @endif
                                 <img src="{{ $data->car_images[0]->car_image }}"
                                     alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
@@ -284,8 +287,8 @@
                                 </div>
                             </div>
                             <div class="clear"></div>
-                            <div class="car-details"><a href="{{ url('car-details', $data->id) }}"><button type="button"
-                                        class="btn btn-warning btn-lg btn-block">Details</button></a></div>
+                            <div class="car-details"><a href="{{ url('car-details', $data->id) }}"><button
+                                        type="button" class="btn btn-warning btn-lg btn-block">Details</button></a></div>
                         </div>
                     </div>
                 @else
