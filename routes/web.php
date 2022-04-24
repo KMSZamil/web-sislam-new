@@ -116,6 +116,9 @@ Route::post('/order', [HomeController::class, 'orderSubmit'])->name('orderSubmit
 // ..Custom URL for contact us page ( www.site.com/contact )
 Route::get('/contact', [HomeController::class, 'ContactPage'])->name('contactPage');
 Route::get('/{lang?}/contact', [HomeController::class, 'ContactPageByLang'])->name('contactPageByLang');
+
+Route::get('/contact-mob', [HomeController::class, 'ContactPageMob'])->name('contactPageMob');
+Route::get('/{lang?}/contact-mob', [HomeController::class, 'ContactPageByLangMob'])->name('contactPageByLangMob');
 // ../contact message submit  (ajax url)
 Route::post('/contact/submit', [HomeController::class, 'ContactPageSubmit'])->name('contactPageSubmit');
 // ..if page by name ( ex: www.site.com/about )

@@ -873,6 +873,109 @@ class HomeController extends Controller
 
     }
 
+    public function ContactPageMob()
+    {
+        return $this->ContactPageByLangMob("");
+    }
+
+    public function ContactPageByLangMob($lang = "")
+    {
+
+        if ($lang != "") {
+            // Set Language
+            App::setLocale($lang);
+            \Session::put('locale', $lang);
+        }
+        // General Webmaster Settings
+        $WebmasterSettings = WebmasterSetting::find(1);
+
+        $id = $WebmasterSettings->contact_page_id;
+        $Topic = Topic::where('status', 1)->find($id);
+
+
+        if (!empty($Topic) && ($Topic->expire_date == '' || ($Topic->expire_date != '' && $Topic->expire_date >= date("Y-m-d")))) {
+
+            // update visits
+            $Topic->visits = $Topic->visits + 1;
+            $Topic->save();
+
+            // get Webmaster section settings by ID
+            $WebmasterSection = WebmasterSection::find($Topic->webmaster_id);
+
+            if (!empty($WebmasterSection)) {
+
+                // Get current Category Section details
+                $CurrentCategory = Section::find($Topic->section_id);
+                // Get a list of all Category ( for side bar )
+                $Categories = Section::where('webmaster_id', '=', $WebmasterSection->id)->where(
+                    'father_id',
+                    '=',
+                    '0'
+                )->where('status', 1)->orderby('webmaster_id', 'asc')->orderby('row_no', 'asc')->get();
+
+                // Get Most Viewed
+                $TopicsMostViewed = Topic::where([['webmaster_id', '=', $WebmasterSection->id], ['status', 1], ['expire_date', '>=', date("Y-m-d")], ['expire_date', '<>', null]])->orwhere([['webmaster_id', '=', $WebmasterSection->id], ['status', 1], ['expire_date', null]])->orderby('visits', 'desc')->limit(3)->get();
+
+                // General for all pages
+                $WebsiteSettings = Setting::find(1);
+
+                $SideBanners = Banner::where('section_id', $WebmasterSettings->side_banners_section_id)->where(
+                    'status',
+                    1
+                )->orderby('row_no', 'asc')->get();
+
+                // Get Latest News
+                $LatestNews = $this->latest_topics($WebmasterSettings->latest_news_section_id);
+
+
+                // Page Title, Description, Keywords
+                $seo_title_var = "seo_title_" . @Helper::currentLanguage()->code;
+                $seo_description_var = "seo_description_" . @Helper::currentLanguage()->code;
+                $seo_keywords_var = "seo_keywords_" . @Helper::currentLanguage()->code;
+                $tpc_title_var = "title_" . @Helper::currentLanguage()->code;
+                $site_desc_var = "site_desc_" . @Helper::currentLanguage()->code;
+                $site_keywords_var = "site_keywords_" . @Helper::currentLanguage()->code;
+                if ($Topic->$seo_title_var != "") {
+                    $PageTitle = $Topic->$seo_title_var;
+                } else {
+                    $PageTitle = $Topic->$tpc_title_var;
+                }
+                if ($Topic->$seo_description_var != "") {
+                    $PageDescription = $Topic->$seo_description_var;
+                } else {
+                    $PageDescription = $WebsiteSettings->$site_desc_var;
+                }
+                if ($Topic->$seo_keywords_var != "") {
+                    $PageKeywords = $Topic->$seo_keywords_var;
+                } else {
+                    $PageKeywords = $WebsiteSettings->$site_keywords_var;
+                }
+                // .. end of .. Page Title, Description, Keywords
+
+                return view("frontEnd.contact_mob",
+                    compact(
+                        "WebsiteSettings",
+                        "WebmasterSettings",
+                        "LatestNews",
+                        "Topic",
+                        "SideBanners",
+                        "WebmasterSection",
+                        "Categories",
+                        "CurrentCategory",
+                        "PageTitle",
+                        "PageDescription",
+                        "PageKeywords",
+                        "TopicsMostViewed"
+                    )
+                );
+            } else {
+                return redirect()->action('HomeController@HomePage');
+            }
+        } else {
+            return redirect()->action('HomeController@HomePage');
+        }
+    }
+
     public function ContactPageSubmit(Request $request)
     {
 
