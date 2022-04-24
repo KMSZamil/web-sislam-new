@@ -697,4 +697,15 @@ return [
     'CAR_NUMBER' => 'Car Number',
     'BUYER_NAME' => 'Buyer Name',
     'BUYER_MOBILE' => 'Buyer mobile',
+    'sellRequest' => 'Sell Request',
+    'buyRequest' => 'Buy Request',
+    'exchangeRequest' => 'Exchange Request',
+    'addShowroomCar' => 'Add Showroom Car',
+    'BRAND' => 'Brand',
+    'MODEL' => 'Model',
+    'MENUFACTURING_YEAR' => 'Manufacturing Year',
+    'REGISTRATION_YEAR' => 'Registration Year',
+    'NUMBER' => 'Number',
+    'DATE' => 'Date',
+    
 ];

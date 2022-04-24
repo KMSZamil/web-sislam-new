@@ -15,13 +15,14 @@
             <thead class="dker">
                 <tr>
                     <th class="th-sm">{{ __('backend.SL') }}</th>
+                    <th class="th-sm">{{ __('backend.DATE') }}</th>
                     <th>{{ __('backend.BUYER_NAME') }}</th>
                     <th>{{ __('backend.BUYER_MOBILE') }}</th>
-                    <th class="text-center">{{ __('backend.CAR_BRAND') }}</th>
-                    <th>{{ __('backend.CAR_MODEL') }}</th>
-                    <th>{{ __('backend.CAR_MENUFACTURING_YEAR') }}</th>
-                    <th>{{ __('backend.CAR_REGISTRATION_YEAR') }}</th>
-                    <th>{{ __('backend.CAR_NUMBER') }}</th>
+                    <th class="text-center">{{ __('backend.BRAND') }}</th>
+                    <th>{{ __('backend.MODEL') }}</th>
+                    <th>{{ __('backend.MENUFACTURING_YEAR') }}</th>
+                    <th>{{ __('backend.REGISTRATION_YEAR') }}</th>
+                    <th>{{ __('backend.NUMBER') }}</th>
                     <th class="text-center" style="width:200px;">{{ __('backend.ASKING_PRICE') }}</th>
 
                     <th class="text-center" style="width:200px;">{{ __('backend.ACTIONS') }}</th>
@@ -35,6 +36,7 @@
                     <tr>
 
                         <td>{{ $row->id }}</td>
+                        <td>{{ date("d/m/Y h:ia") }}</td>
                         <td>{{ $row->customer_info->name }}</td>
                         <td>{{ $row->customer_info->mobile }}</td>
                         <td>{{ $row->car_brand->name }}</td>
@@ -42,7 +44,7 @@
                         <td>{{ $row->menufacturing_year }}</td>
                         <td>{{ $row->registration_year }}</td>
                         <td>{{ $row->registration_number }}</td>
-                        <td>{{ $row->price }}</td>
+                        <td class="text-right">{{ number_format($row->price) }}</td>
 
                         <td>
                             {{-- <a class="btn btn-fw btn-sm primary" href="{{ route('editBuy', ['id' => $row->car_id]) }}">

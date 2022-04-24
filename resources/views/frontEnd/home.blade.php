@@ -203,7 +203,7 @@
                                         style="position: absolute; transform: rotate(313deg); margin-top: 32px; width: 100px; font-size:20px;">Sold</span> --}}
                                     <img style="position: absolute; transform: rotate(333deg); margin-top: 32px; width: 100px; "
                                         src="https://www.sislamcars.com.bd/public/assets/images/sold-out-png-4.png"
-                                        alt="https://www.sislamcars.com.bd/public/assets/images/sold-out-png-4.png">
+                                        alt="sold">
                                 @endif
                                 <img src="{{ $data->car_images[0]->car_image }}"
                                     alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
@@ -211,7 +211,7 @@
                             <div class="list-info">
                                 <div class="row">
                                     @if ($data->status != 2)
-                                        {<div style="float: left;">
+                                        <div style="float: left;">
                                             <span class="badge-book m-b30"><a
                                                     href="{{ url('car-book', $data->id) }}">Book
                                                     Now</a></span>
