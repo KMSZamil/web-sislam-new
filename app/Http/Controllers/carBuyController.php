@@ -176,7 +176,18 @@ class carBuyController extends Controller
         )->where('status', '!=', 0)
             ->where('id', $request->CarID)->first();
         $customerDetails = Customer::where('id', $CustomerID)->first();
-        //dd($customerDetails);;
+        //dd($carDetails);
+
+
+        //$receipient = 01713053336;
+        //$smsText = "Testing";
+        $receipient = $customerDetails->mobile;
+        $smsText = "Welcome to S Islam Cars\nWe have successfully received your car book request. We will contact you very soon.\n\nYour booked car information:\nCat Title: " . $carDetails->car_title . "\nCar Brand: " . $carDetails->car_brand->name . "\nCar Model: " . $carDetails->model->name . "\nYou can call us to +8801712282178";
+
+        $smsUrl = "http://66.45.237.70/api.php?username=01746555579&password=Rwc@1177!&number=$receipient&message=" . urlencode($smsText) . "";
+        //echo($smsUrl);exit();
+        $response = file_get_contents($smsUrl);
+
 
         return view(
             'frontEnd.thanks_book',

@@ -449,6 +449,12 @@ class carExchangeController extends Controller
 
         $customerDetails = Customer::where('id', $CustomerID)->first();
 
+        $receipient = $customerDetails->mobile;
+        $smsText = "Welcome to S Islam Cars\nWe have successfully received your car exchange request. We will contact you very soon.\n\nYour car information:\nCar Brand: " . $carDetailsCarOwner->car_brand->name . "\nCar Model: " . $carDetailsCarOwner->model->name . "\n\nExchange car information:\nCar Brand: " . $carDetailsShowroomCar->car_brand->name . "\nCar Model: " . $carDetailsShowroomCar->model->name . "\nYou can call us to +8801712282178";
+        $smsUrl = "http://66.45.237.70/api.php?username=01746555579&password=Rwc@1177!&number=$receipient&message=" . urlencode($smsText) . "";
+        //echo($smsUrl);exit();
+        $response = file_get_contents($smsUrl);
+
         //dd($carDetailsShowroomCar);
         return view('frontEnd.thanks_exchange',
             compact(
