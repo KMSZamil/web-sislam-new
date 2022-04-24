@@ -457,7 +457,7 @@
                                 @include('dashboard.cars.photoUpload')
 {{--                                @foreach($carDetails->seller_car_images as $row)--}}
 {{--                                    <?php--}}
-{{--                                    echo '<pre/>'; print_r(asset('files/'.$row->car_image));--}}
+{{--                                    echo '<pre/>'; print_r($row->car_image);--}}
 {{--                                    ?>--}}
 {{--                                @endforeach--}}
 

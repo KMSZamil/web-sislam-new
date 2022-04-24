@@ -34,7 +34,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                 @php
                 foreach($carDetails->car_images as $row){
                 @endphp
-                <a href="{{ asset('files/'.$row->car_image) }}"><img src="{{ asset('files/'.$row->car_image) }}"></a>
+                <a href="{{ $row->car_image }}"><img src="{{ $row->car_image }}"></a>
                 @php
                 }
                 @endphp
@@ -59,7 +59,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                     @php
                     foreach($carDetails->car_images as $row){
                     @endphp
-                    <a href="{{ asset('files/'.$row->car_image) }}"><img src="{{ asset('files/'.$row->car_image) }}"></a>
+                    <a href="{{ $row->car_image }}"><img src="{{ $row->car_image }}"></a>
                     @php
                     }
                     @endphp
@@ -163,7 +163,7 @@ $file_var2 = "file_" . env('DEFAULT_LANGUAGE');
                                 <div class="owl-item">
                                     <?php foreach ($row->car_images as $data): ?>
                                         <a href="{{url('fb/car-details',$row->id)}}">
-                                            <img src="{{asset('files/'.$data->car_image)}}" alt="">
+                                            <img src="{{ $data->car_image }}" alt="">
 
                                             <?php
                                             if ($data->car_image):

@@ -111,7 +111,7 @@
                                                             <tr class=" fade image in">
                                                                 <td>
                                                                     <span class="preview">
-                                                                        <img src="{{ asset('files/' . $row->car_image) }}"
+                                                                        <img src="{{ $row->car_image }}"
                                                                             width="400" height="200">
                                                                     </span>
                                                                 </td>

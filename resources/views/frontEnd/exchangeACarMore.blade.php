@@ -15,7 +15,7 @@ foreach($dashboardCars as $data):
                          src="https://www.sislamcars.com.bd/public/assets/images/sold-out-png-4.png"
                          alt="https://www.sislamcars.com.bd/public/assets/images/sold-out-png-4.png">
                  @endif
-                 <img src="{{ asset('files/' . $data->car_images[0]->car_image) }}"
+                 <img src="{{ $data->car_images[0]->car_image }}"
                      alt="{{ isset($data->car_title) ? $data->car_title : '' }}">
              </div>
              <div class="list-info">

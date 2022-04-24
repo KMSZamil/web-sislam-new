@@ -39,7 +39,6 @@ use Validator;
 
 class carsController extends Controller
 {
-
     public function buyAcar(Request $request)
     {
         //dd($request->all());

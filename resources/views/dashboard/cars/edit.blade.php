@@ -524,7 +524,7 @@
                                                     <td>
                                                         <span class="preview">
                                                             {{-- <canvas width="80" height="45"></canvas> --}}
-                                                            <img src="{{ asset('files/' . $row->car_image) }}"
+                                                            <img src="$row->car_image"
                                                                 width="80" height="45">
                                                         </span>
                                                     </td>

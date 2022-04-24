@@ -406,7 +406,7 @@ if (!empty($carDetails->seller_other_feature)){
                         <td>
                             <span class="preview">
 {{--                                                        <canvas width="80" height="45"></canvas>--}}
-                                <img src="{{ asset('files/'.$row->car_image) }}" width="80" height="45">
+                                <img src="{{ $row->car_image }}" width="80" height="45">
                             </span>
                         </td>
                         <td>

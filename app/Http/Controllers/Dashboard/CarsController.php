@@ -1417,7 +1417,7 @@ $fuel_type->save();
         $previous_image = SellerCarImage::where('id', $id)->first()->car_image;
         //dd(asset('uploads/car_images/full/'.$previous_image));
 
-        if (asset('files/' . $previous_image)) {
+        if ($previous_image) {
             //unlink('/home2/sislamcarscom/public_html/public/files/'.$previous_image);
         }
 
