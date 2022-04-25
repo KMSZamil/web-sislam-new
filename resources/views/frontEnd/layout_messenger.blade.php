@@ -74,6 +74,7 @@
         }
 
         .loader {
+            margin-top: -100px;
             position: fixed;
             left: 0px;
             top: 0px;
@@ -85,7 +86,7 @@
             align-content: center;
             flex-direction: column;
             /* background: url('//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif') 50% 50% no-repeat rgb(249, 249, 249); */
-            background: url('//www.sislamcars.com.bd/public/assets/images/connecting%20us.jpg') 60% 60% no-repeat rgb(249, 249, 249);
+            /* background: url('//www.sislamcars.com.bd/public/assets/images/connecting%20us.jpg') 55% 55% no-repeat rgb(249, 249, 249); */
         }
 
     </style>
@@ -118,14 +119,17 @@ if (Helper::GeneralSiteSettings('style_type')) {
 
     {{-- <img src="{{ asset('assets/images/click_here.jpg') }}" class="fix" /> --}}
     <div id="myDiv" class="loader">
+        <center>
+            <img src="//www.sislamcars.com.bd/public/assets/images/connecting%20us.jpg" />
+        </center>
         {{-- <span class="label label-warning" style="margin-top: 100px; padding:10px; font-size: 20px;">Connecting US</span> --}}
         {{-- <img src="{{ asset('assets/images/ajax-loader.gif') }}" /> --}}
     </div>
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         function zoom() {
-            document.body.style.zoom = "70%"
+            document.body.style.zoom = "60%"
         }
-    </script>
+    </script> --}}
     {{-- <script type="text/javascript">
         setTimeout(function() {
             document.getElementById("myDiv").style.display = "none";
